@@ -70,13 +70,22 @@ const money = s => {
 
 let DATA = null;
 
-fetch("data/run-summary.json")
-  .then(r => r.ok ? r.json() : Promise.reject(new Error("HTTP " + r.status)))
+const json = url => fetch(url)
+  .then(r => r.ok ? r.json() : Promise.reject(new Error("HTTP " + r.status)));
+
+json("data/run-summary.json")
   .then(data => { DATA = data; render(data); })
   .catch(err => {
     document.getElementById("verdict-text").textContent =
       "Could not load the run data (" + err.message + "). Run `dante run && dante report`.";
   });
+
+// The second pass is a separate artefact, published by `dante report
+// --second-pass`. The page works without it: a visitor who ran the first
+// descent and not the second should not be shown a broken section.
+json("data/second-pass.json")
+  .then(renderSecondPass)
+  .catch(() => { document.getElementById("tweede").hidden = true; });
 
 function render(d) {
   renderStart(d);
@@ -488,6 +497,67 @@ function showCase() {
     `${currentOwner} · case ${(position % queue.length) + 1} of ${queue.length} shown` +
     ` · ${made} decision${made === 1 ? "" : "s"} recorded in this browser` +
     ` · ${fmt(DATA.backlog_total)} in the real backlog`;
+}
+
+/* ── the second pass ───────────────────────────────────────────────── */
+function renderSecondPass(two) {
+  if (!DATA) { setTimeout(() => renderSecondPass(two), 60); return; }
+  const one = DATA;
+  const gate = (run, rule) => run.gates.find(g => g.rule === rule);
+
+  // `better` says which direction is the good one, so the conditional
+  // formatting means what it means in a spreadsheet: green is an improvement,
+  // not merely a change.
+  const MORE = 1, FEWER = -1;
+  const COUNT = v => fmt(v);
+  const MONEY = v => money(v.toFixed(2));
+  const rows = [
+    ["Rows load-ready", one.totals.paradiso, two.totals.paradiso, MORE, COUNT],
+    ["Rows held for a decision", one.totals.purgatorio, two.totals.purgatorio,
+     FEWER, COUNT],
+    ["Rows rejected", one.totals.inferno, two.totals.inferno, FEWER, COUNT],
+    ["Open questions", one.backlog_total, two.backlog_total, FEWER, COUNT],
+    ["Customers arriving at zero (R-IX-04)",
+     Number(gate(one, "R-IX-04").evidence.customers),
+     Number(gate(two, "R-IX-04").evidence.customers), FEWER, COUNT],
+    ["Unexplained gross movement (R-IX-03)",
+     Number(gate(one, "R-IX-03").evidence.unexplained_gross),
+     Number(gate(two, "R-IX-03").evidence.unexplained_gross), FEWER, MONEY],
+  ];
+
+  const cells = rows.map(([label, before, after, better, show]) => {
+    const delta = after - before;
+    const good = delta !== 0 && Math.sign(delta) === better;
+    const cls = "num " + (delta ? (good ? "now" : "was") : "flag");
+    return [
+      label,
+      {v: show(before), cls: "num was"},
+      {v: show(after), cls: cls},
+      {v: delta === 0 ? "unchanged"
+          : (delta > 0 ? "+" : "\u2212") + show(Math.abs(delta)), cls: cls},
+    ];
+  });
+
+  document.getElementById("loop").replaceChildren(
+    sheetGrid("beslissingen!A1:D7",
+              ["What moved", "Dry run", "After the answers", "Difference"], cells));
+
+  const verbs = Object.entries(two.decisions.by_verdict)
+    .sort((a, b) => b[1] - a[1])
+    .map(([verb, count]) => fmt(count) + " " + verb).join(", ");
+  document.getElementById("loop-headline").innerHTML =
+    "<b>" + two.decisions.answers + " answered lines</b> in " +
+    two.decisions.files.length + " sheets closed <b>" + fmt(two.decisions.applied) +
+    "</b> open questions \u2014 " + verbs + " \u2014 releasing " +
+    fmt(two.decisions.released_rows) + " records into the load and withdrawing " +
+    fmt(two.decisions.rejected_rows) + " from it.";
+
+  document.getElementById("loop-betrayal").innerHTML =
+    "And the verdict is still <b>" + two.verdict + "</b>. R-IX-04 moved because it is " +
+    "a consequence of triage; R-IX-03 did not move a cent, because the compensating " +
+    "pair is wrong in the source data and no amount of sign-off turns two errors that " +
+    "cancel into one truth. That is the difference between answering a question and " +
+    "fixing a number.";
 }
 
 /* ── sheet tabs and the formula bar ────────────────────────────────── */

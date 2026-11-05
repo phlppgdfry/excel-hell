@@ -276,6 +276,13 @@ rules:
       The price file has an "incl" column that is populated for 61 percent of
       rows and contradicted by the article VAT rate for some of them. A wrong
       reading moves 21 percent of a sales price. Finance decides per row.
+    ruling:
+      # One question about one price list, not four hundred about four hundred
+      # articles. Both candidate amounts are already in the finding.
+      question: Is the 2024 price list exclusive or inclusive of VAT?
+      answers:
+        exclusive: master_price
+        inclusive: inclusive_would_be
 
   - id: R-IV-04
     circle: 4
@@ -309,6 +316,11 @@ rules:
       Piece, box and metre for one article differ by a factor of 50 in stock
       value. Source precedence cannot settle it because the warehouse file is
       the most accurate and the least authoritative.
+    ruling:
+      question: Which system owns the unit of measure, the master or the count?
+      answers:
+        master: master
+        warehouse: warehouse
 
   - id: R-V-02
     circle: 5
@@ -329,6 +341,11 @@ rules:
     rationale: >
       Purchasing drives replenishment from this field. A wrong supplier places
       real orders.
+    ruling:
+      question: Which system owns the replenishment link for an article?
+      answers:
+        master: master
+        purchasing: purchasing
 
   # ─────────────────────────── VI · Heresy ─────────────────────────────
   - id: R-VI-01
@@ -428,6 +445,15 @@ rules:
       "03/04/2024" is 3 April and 4 March. Both are plausible due dates and
       the difference decides whether an invoice is overdue. Guessing here is
       how an aging report starts lying.
+    ruling:
+      # Four hundred invoices do not ask four hundred questions. They ask one
+      # question about one export, and the answer is a reading, not a value.
+      # Each answer names the evidence field the finding already published, so
+      # a ruling can only select between values the engine itself derived.
+      question: Which reading does this export use where both are possible?
+      answers:
+        dmy: european
+        mdy: american
 
   - id: R-VII-05
     circle: 7

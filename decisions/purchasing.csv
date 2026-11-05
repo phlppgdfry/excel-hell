@@ -1,0 +1,7 @@
+rule,entity,key,field,decision,corrected_value,decided_by,note
+R-V-03,article,*,supplier_no,ruling,master,purchasing,Purchasing's own list is a working copy; the master is the record
+R-VIII-04,article,SAN-0053,supplier_no,accept,,purchasing,"supplier inactive, reroute after go-live"
+R-VIII-04,article,SAN-0071,supplier_no,accept,,purchasing,"supplier inactive, reroute after go-live"
+R-VIII-04,article,SAN-0076,supplier_no,accept,,purchasing,"supplier inactive, reroute after go-live"
+R-VIII-02,article,SAN-0004,supplier_no,reject,,purchasing,"supplier gone, article blocked at source"
+R-VIII-02,article,SAN-0046,supplier_no,reject,,purchasing,"supplier gone, article blocked at source"

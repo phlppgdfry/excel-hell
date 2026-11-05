@@ -1,0 +1,8 @@
+rule,entity,key,field,decision,corrected_value,decided_by,note
+R-VII-04,open_item,*,due_date,ruling,dmy,finance,Mercurius exported dd/mm; confirmed against the 2024 VAT listing
+R-IV-03,article,*,price,ruling,exclusive,finance,The 2024 list is exclusive; the incl-BTW flag was never maintained
+R-II-04,customer,K00008,vat,accept,,finance,"valid number, the duplicate name is circle II's problem"
+R-II-04,customer,K00018,vat,accept,,finance,"valid number, the duplicate name is circle II's problem"
+R-II-04,customer,K00023,vat,accept,,finance,"valid number, the duplicate name is circle II's problem"
+R-IV-04,article,SAN-0008,price,accept,,finance,"loss leader, signed off by the commercial director"
+R-IV-04,article,SAN-0028,price,accept,,finance,"loss leader, signed off by the commercial director"

@@ -1,0 +1,9 @@
+rule,entity,key,field,decision,corrected_value,decided_by,note
+R-VI-05,customer,K00150,country,correct,BE,sales,"Belgium, written the way the 1996 system wrote it"
+R-VI-05,customer,K00245,country,correct,BE,sales,"Belgium, written the way the 1996 system wrote it"
+R-VI-05,customer,K00279,country,correct,BE,sales,"Belgium, written the way the 1996 system wrote it"
+R-II-02,customer,K00416,name,accept,,sales,"two companies, same family, separate credit history"
+R-II-02,customer,cust_sofie#36,name,accept,,sales,"two companies, same family, separate credit history"
+R-II-02,customer,cust_sofie#15,name,accept,,sales,"two companies, same family, separate credit history"
+R-III-04,customer,cust_jan#11,address,accept,,sales,a delivery note; it goes in the shipping instructions
+R-III-04,customer,cust_jan#13,address,accept,,sales,a delivery note; it goes in the shipping instructions

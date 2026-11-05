@@ -130,3 +130,34 @@ def test_the_registry_does_its_own_arithmetic_correctly():
             assert status == "serial", f"{rule['id']}: {serial} is not read as a serial"
             assert value.isoformat() == claimed, \
                 f"{rule['id']} says {serial} is {claimed}; it is {value.isoformat()}"
+
+
+# ── rulings: the questions that are answered once, not per record ────────
+RULINGS = {r["id"]: r["ruling"] for r in RULES if "ruling" in r}
+
+
+def test_a_rule_declares_every_key_this_repository_reads():
+    """No stray keys in the registry, so a typo is a failure and not a no-op."""
+    allowed = {"id", "circle", "title", "entity", "action", "owner", "rationale",
+               "ruling"}
+    for r in RULES:
+        assert set(r) <= allowed, f"{r['id']} declares {sorted(set(r) - allowed)}"
+
+
+def test_a_ruling_is_offered_only_where_there_is_something_to_rule_on():
+    assert RULINGS, "at least one rule should be answerable once for all"
+    for rule_id, ruling in RULINGS.items():
+        rule = next(r for r in RULES if r["id"] == rule_id)
+        assert rule["action"] == "quarantine", \
+            f"{rule_id} offers a ruling and is not an open question"
+        assert ruling["question"].endswith("?"), \
+            f"{rule_id}'s ruling should state a question"
+        assert len(ruling["answers"]) >= 2, \
+            f"{rule_id} offers a ruling with fewer than two answers"
+
+
+def test_a_ruling_answer_is_a_word_a_person_would_write():
+    for rule_id, ruling in RULINGS.items():
+        for answer in ruling["answers"]:
+            assert answer == answer.lower() and " " not in answer, \
+                f"{rule_id} expects {answer!r} to be typed into a spreadsheet cell"

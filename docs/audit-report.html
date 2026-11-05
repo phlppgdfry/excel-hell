@@ -186,9 +186,20 @@
 
 </tbody></table>
 <p>Each owner has a sheet in <code>out/purgatorio/</code> with the record, the raw
-   value, the rule and the evidence. Many questions share one answer: a single
-   ruling on the date format of the receivables file clears
-   404 of them.</p>
+   value, the rule and the evidence, and two empty columns. Fill in
+   <code>decision</code>, hand the sheet back, and
+   <code>dante run --decisions</code> applies it: the questions leave the
+   backlog, the rows they were holding move into the load, and the gates below
+   are evaluated again.</p>
+<p>Many questions share one answer. A single ruling on the date format of the
+   receivables export clears
+   404 of them, and one on whether
+   the 2024 price list is exclusive of VAT clears
+   424 more — which is why a ruling
+   is a different kind of answer from a correction, and is written once with
+   <code>*</code> in place of a record key.</p>
+
+
 
 <h2>Findings per circle</h2>
 <table><thead><tr><th>Circle</th><th>Sin</th><th class="n">Findings</th>
@@ -334,6 +345,20 @@
 <tr><td><code>R-IX-04</code></td><td>No customer may lose its entire open balance</td><td>gate</td>
  <td>finance</td><td class="n">1</td></tr>
 
+</tbody></table>
+
+<h2>Provenance</h2>
+<p>This verdict belongs to one rule set and one set of source values. Both are
+   digested below, so the run can be reproduced and a later rule change cannot
+   be mistaken for a later data change.</p>
+<table><tbody>
+ <tr><td>Engine</td><td><code>dante 1.0.0</code></td></tr>
+ <tr><td>Rule set</td><td><code>80bdbc04f721ecf8</code>
+     &middot; 40 rules in
+     9 circles</td></tr>
+ <tr><td>Source values</td><td><code>95ff80efc444d533</code>
+     &middot; 13 tables</td></tr>
+ <tr><td>Run at</td><td>2026-11-05T18:03:41Z</td></tr>
 </tbody></table>
 
 <p><a href="index.html">&larr; Back to the descent</a></p>

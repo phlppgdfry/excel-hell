@@ -21,6 +21,14 @@ from .finding import Finding
 
 ENTITIES = ["customer", "supplier", "article", "open_item", "discount"]
 
+# The shape a run carries when nobody has answered anything yet. Present rather
+# than absent, so every consumer of the summary reads the same keys whether the
+# run had a decision file or not.
+NO_DECISIONS: dict[str, Any] = {
+    "applied": 0, "answers": 0, "stale": 0, "by_owner": {}, "by_verdict": {},
+    "files": [], "released_rows": 0, "rejected_rows": 0,
+}
+
 
 @dataclass
 class Context:
@@ -33,6 +41,8 @@ class Context:
     findings: list[Finding] = field(default_factory=list)
     stats: dict[str, Any] = field(default_factory=dict)
     merges: list[dict[str, Any]] = field(default_factory=list)
+    provenance: dict[str, Any] = field(default_factory=dict)
+    decisions: dict[str, Any] = field(default_factory=lambda: dict(NO_DECISIONS))
 
     def rule(self, rid: str) -> dict[str, Any]:
         if rid not in self.rules:

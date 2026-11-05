@@ -1,0 +1,94 @@
+{
+ "verdict": "NO-GO",
+ "source_rows": 4472,
+ "totals": {
+  "paradiso": 3461,
+  "purgatorio": 904,
+  "inferno": 107
+ },
+ "backlog_total": 1133,
+ "backlog_by_owner": {
+  "finance": 192,
+  "operations": 20,
+  "purchasing": 148,
+  "sales": 773
+ },
+ "decisions": {
+  "applied": 1000,
+  "answers": 25,
+  "stale": 0,
+  "by_owner": {
+   "finance": 833,
+   "operations": 88,
+   "purchasing": 68,
+   "sales": 11
+  },
+  "by_verdict": {
+   "accept": 16,
+   "correct": 3,
+   "reject": 18,
+   "ruling": 963
+  },
+  "files": [
+   "finance.csv",
+   "operations.csv",
+   "purchasing.csv",
+   "sales.csv"
+  ],
+  "released_rows": 922,
+  "rejected_rows": 5
+ },
+ "findings_total": 9755,
+ "gates": [
+  {
+   "rule": "R-IX-01",
+   "title": "Row count reconciliation per entity",
+   "passed": true,
+   "message": "4472 source rows, 4472 placed",
+   "evidence": {}
+  },
+  {
+   "rule": "R-IX-02",
+   "title": "Open receivables reconcile to the cent",
+   "passed": true,
+   "message": "source detail 5,314,301.43 vs triaged 5,314,301.43, difference 0.00",
+   "evidence": {
+    "source_detail": "5314301.43",
+    "paradiso": "5253259.06",
+    "purgatorio": "0.00",
+    "inferno": "61042.37",
+    "unparseable_rows": 13
+   }
+  },
+  {
+   "rule": "R-IX-03",
+   "title": "Compensating errors detected by gross movement",
+   "passed": false,
+   "message": "unexplained difference nets to 0.00 while gross movement is 2,495.00 across 2 customers \u2014 net zero with gross movement is betrayal, not balance",
+   "evidence": {
+    "trial_balance_total": "5380992.54",
+    "source_detail_total": "5314301.43",
+    "total_difference": "-66691.11",
+    "explained_orphan_detail": "0.00",
+    "explained_unquantifiable": "-66691.11",
+    "unexplained_net": "0.00",
+    "unexplained_gross": "2495.00",
+    "compensating_pattern": true,
+    "customers_affected": 2,
+    "orphan_customers": 0
+   }
+  },
+  {
+   "rule": "R-IX-04",
+   "title": "No customer may lose its entire open balance",
+   "passed": false,
+   "message": "17 customers would arrive with a zero balance, holding 86,771.04 between them",
+   "evidence": {
+    "customers": 17,
+    "amount": "86771.04"
+   }
+  }
+ ],
+ "run_at": "2026-11-05T18:03:43Z",
+ "registry": "80bdbc04f721ecf8398fc139f4c840915c42ab1dc6758b1c4c9328fd35e1550b"
+}

@@ -48,8 +48,15 @@ def triage(ctx: Context) -> dict[str, Any]:
             findings = by_key.get((entity, key), [])
             matched_keys.add((entity, key))
             if findings:
-                worst = max(findings, key=lambda f: ACTION_RANK[f.action])
-                bucket = BUCKET_OF[worst.action]
+                # effective_action, never action: a question a named owner
+                # has answered no longer holds the row back. See decisions.py.
+                #
+                # An answered finding wins a tie, so a row that a person
+                # released is reported as released by that person rather than
+                # as whichever repair happened to be found first.
+                worst = max(findings, key=lambda f: (ACTION_RANK[f.effective_action],
+                                                     1 if f.decision else 0))
+                bucket = BUCKET_OF[worst.effective_action]
             else:
                 worst, bucket = None, PARADISO
             buckets[entity][bucket].append({
@@ -59,6 +66,8 @@ def triage(ctx: Context) -> dict[str, Any]:
                 "findings": len(findings),
                 "deciding_rule": worst.rule if worst else None,
                 "owner": worst.owner if worst and bucket != PARADISO else None,
+                "decision": worst.decision if worst else None,
+                "decided_by": worst.decided_by if worst else None,
                 "amount": _amount(df, idx),
             })
         counts[entity] = {b: len(v) for b, v in buckets[entity].items()}
@@ -71,7 +80,9 @@ def triage(ctx: Context) -> dict[str, Any]:
 
     backlog: dict[str, list[dict[str, Any]]] = defaultdict(list)
     for f in ctx.findings:
-        if f.action == "quarantine":
+        # An answered question is off the backlog and in the audit trail. The
+        # work list has to shrink as the work gets done, or nobody trusts it.
+        if f.action == "quarantine" and not f.decision:
             backlog[f.owner].append(f.as_dict())
 
     return {
@@ -84,6 +95,7 @@ def triage(ctx: Context) -> dict[str, Any]:
         "backlog_by_owner": dict(sorted(backlog.items())),
         "backlog_total": sum(len(v) for v in backlog.values()),
         "unmatched_attribute_rows": len(orphan_findings),
+        "decided_findings": sum(1 for f in ctx.findings if f.decision),
     }
 
 

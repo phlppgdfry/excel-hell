@@ -58,6 +58,9 @@ def test_readme_numbers_match_the_run(run):
     expected["ledger_trial"] = float(s["ledger"]["trial_balance_total"])
     expected["ledger_detail"] = float(s["ledger"]["source_detail_total"])
     expected["ledger_diff"] = abs(float(gate["evidence"]["total_difference"]))
+    expected["load_rows"] = s["totals"]["paradiso"]
+    expected["wiped_before"] = next(
+        g for g in s["gates"] if g["rule"] == "R-IX-04")["evidence"]["customers"]
 
     if "detection" in s:
         expected["detection_found"] = s["detection"]["found"]
@@ -75,6 +78,35 @@ def test_readme_numbers_match_the_run(run):
         elif abs(as_number(got) - float(want)) > 0.005:
             wrong[name] = f"README says {got}, the run says {want}"
     assert not wrong, f"README is out of date: {wrong}"
+
+
+def test_readme_second_pass_numbers_match(decided):
+    """The before-and-after table is a claim about a run that has to be real.
+
+    It is the one table in this file describing a run the reader did not see
+    printed above it, so it is the easiest one to leave behind when the rules
+    move. It is built from the decision sheets this repository ships, against
+    the same forge.
+    """
+    d = decided["decisions"]
+    gate = next(g for g in decided["gates"] if g["rule"] == "R-IX-04")
+    expected = {
+        "answered_lines": d["answers"],
+        "answered_questions": d["applied"],
+        "par_after": decided["totals"]["paradiso"],
+        "pur_after": decided["totals"]["purgatorio"],
+        "backlog_after": decided["backlog_total"],
+        "wiped_after": gate["evidence"]["customers"],
+        "gross_after": float(next(g for g in decided["gates"]
+                                  if g["rule"] == "R-IX-03")
+                             ["evidence"]["unexplained_gross"]),
+    }
+    said = claimed()
+    wrong = {name: f"README says {said.get(name)}, the second pass says {want}"
+             for name, want in expected.items()
+             if said.get(name) is None
+             or abs(as_number(said[name]) - float(want)) > 0.005}
+    assert not wrong, f"the second-pass table is out of date: {wrong}"
 
 
 def test_readme_destination_counts_match(run):

@@ -1,0 +1,5 @@
+rule,entity,key,field,decision,corrected_value,decided_by,note
+R-V-01,article,*,uom,ruling,master,operations,The article master owns the unit; the warehouse count is per pack
+R-VII-01,article,5.50E+12,article_no,reject,,operations,"digits gone, no EAN to recover them from"
+R-VII-01,article,5.48E+12,article_no,reject,,operations,"digits gone, no EAN to recover them from"
+R-VII-01,article,5.43E+12,article_no,reject,,operations,"digits gone, no EAN to recover them from"

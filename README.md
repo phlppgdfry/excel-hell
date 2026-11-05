@@ -54,10 +54,16 @@ uv venv && uv pip install -e ".[dev]"      # or: python -m venv .venv &&
 dante forge           # rebuild the twelve filthy source files from a clean model
 dante run             # descend, triage every row, evaluate the gates (exits 1 on NO-GO)
 dante report          # render the audit report and refresh the site data
-dante rule R-IX-03    # explain one rule and show what it caught
 
-pytest -q             # 185 checks: parsers, recall floors, triage, reconciliation,
-                      #             documentation, and the engine/ground-truth boundary
+dante rule R-IX-03    # explain one rule and show what it caught
+dante why K00008      # why is this one record where it is
+dante load            # shape the load-ready data into the target system's tables
+
+dante run --decisions decisions --out out2   # the second pass, with the answers in
+
+pytest -q             # 259 checks: parsers, recall floors, triage, reconciliation,
+                      #             the decision loop, the target mapping, the docs,
+                      #             and the engine/ground-truth boundary
 ```
 
 Everything is deterministic from one seed, so every number here is reproducible.
@@ -145,6 +151,70 @@ an action, an owner and a written rationale. CI asserts that every rule fires at
 least once, because a rule nobody triggers is documentation, not a control. The
 [registry README](rules/README.md) documents the schema and what CI enforces.
 
+## The second pass
+
+A migration is not one descent. The sheets go out, a few people answer what they
+can, and it runs again — six times, usually, over two months. An engine that
+cannot take those answers back in has produced a report, not a process, and the
+business has no way to move the verdict.
+
+So `out/purgatorio/<owner>.csv` goes out with two empty columns on the end, and
+`decisions/<owner>.csv` comes back with them filled in. Nothing is retyped,
+which matters more than it sounds: retyping is where the second round of
+defects comes from.
+
+Three verbs answer one record — `accept`, `correct`, `reject` — and a fourth
+kind of answer does something different. "Is this export day-first or
+month-first?" is not four hundred questions about four hundred invoices; it is
+one question about one file. That is a **ruling**, written once with `*` in
+place of a record key:
+
+```csv
+rule,entity,key,field,decision,corrected_value,decided_by
+R-VII-04,open_item,*,due_date,ruling,dmy,finance
+R-II-04,customer,K00008,vat,accept,,finance
+R-VI-05,customer,K00150,country,correct,BE,sales
+```
+
+Which rules may be answered that way is declared in the registry, and each
+answer names the evidence field the finding already published — so a ruling can
+only pick between readings the engine itself derived, and cannot invent a value.
+
+The sheets in [`decisions/`](decisions/) are **25**<!--@answered_lines--> lines
+across four owners. They close **1 000**<!--@answered_questions--> open
+questions:
+
+| | Dry run | After the answers |
+|---|---|---|
+| Rows load-ready | 2 611 | **3 461**<!--@par_after--> |
+| Rows held for a decision | 1 756 | **904**<!--@pur_after--> |
+| Open questions | 2 133 | **1 133**<!--@backlog_after--> |
+| Customers arriving at a zero balance | 157<!--@wiped_before--> | **17**<!--@wiped_after--> |
+| Unexplained gross movement | 2 495.00 | **2 495.00**<!--@gross_after--> |
+
+The last row is the point. R-IX-04 moved because it is a consequence of triage.
+R-IX-03 did not move a cent, the verdict is still NO-GO, and that is the
+difference between answering a question and fixing a number: the compensating
+pair is wrong in the source data, and no amount of sign-off turns two errors
+that cancel into one truth.
+
+What an owner may *not* do is overturn a rejection. A `reject` rule says the
+record cannot be migrated, not that nobody has looked at it yet — a VAT number
+that fails the modulo-97 check does not become valid because a sales manager
+signed a sheet. Those lines are refused by file and line number, nothing is
+applied, and the run stops. The action says who is allowed to decide, and that
+holds for people as firmly as for the engine.
+
+A corrected value has to survive the same parser the engine would have used on
+it, and has to reach a column the load file actually carries. Both are checked
+before anything is applied, because an answer that quietly does nothing is the
+worst of the three outcomes: the run looks like it took it.
+
+One thing it deliberately does not do: a corrected foreign key is not
+re-validated inside the same pass. Answers arrive after every circle has had
+its say, so a repaired supplier number is checked on the *next* descent. That is
+the loop, not a shortcut around it.
+
 ## The ninth circle
 
 Two documents, two customers, one amount. One is overstated by exactly as much
@@ -217,12 +287,24 @@ grey band where a human belongs.
 ```
 out/
 ├── paradiso/      load-ready data per entity: ISO dates, numeric amounts, nulled placeholders
-├── purgatorio/    one decision sheet per owner, with the evidence as JSON
+├── purgatorio/    one decision sheet per owner, with the evidence and two empty columns
 ├── inferno/       rejected rows and the rule that rejected them
+├── load/          the same data in the target system's tables and field names
 └── report/
     ├── audit-report.html   the document the business reads
     ├── run-summary.json    every number on the site and in this README
-    └── findings.csv        every finding, one row each
+    ├── findings.csv        every finding, one row each
+    └── placement.csv       every source row, where it went and on whose ruling
+```
+
+`placement.csv` is what `dante why` reads, and it answers the question a
+business owner actually asks during a migration. Never "how many were held" —
+always "why is this one":
+
+```
+  SAN-0025  (article)
+  05_artikelen_mercurius.csv row 26
+  → PARADISO, released by operations, who answered R-V-01 with ruling
 ```
 
 `out/purgatorio/finance.csv` is the deliverable that matters most in practice:
@@ -231,6 +313,54 @@ record, the raw value, the rule and the evidence. Many share one answer — a
 single ruling on the date format clears **404**<!--@ambiguous2--> of them, and
 one on the price list's "incl VAT" column clears another
 **424**<!--@vat_clears-->.
+
+## Where it loads
+
+A clean CSV with a column called `vat` is not load-ready for anything. It is
+load-ready for Business Central when it is called `VAT Registration No.`, sits
+in a file shaped like the Customer table, and the fields that will not insert
+until a setup record exists are named out loud rather than discovered by the
+consultant at eleven at night.
+
+So the target is data too, in
+[`mapping/business-central.yaml`](mapping/business-central.yaml), and
+`dante load` shapes the five entities into the tables a configuration package
+expects:
+
+```
+     18  Customer              1117 rows  12 fields
+     23  Vendor                  58 rows   9 fields
+     27  Item                   532 rows  10 fields
+   7001  Price List Line        194 rows   8 fields
+     81  Gen. Journal Line      710 rows   9 fields
+```
+
+Those are the counts from the dry run, so they are load-ready rows rather than
+source rows: **2 611**<!--@load_rows--> of **4 472** survive the descent with no
+question attached. After the second pass they are higher, which is the whole
+reason for running it twice.
+
+The load order is not alphabetical: Business Central validates foreign keys on
+insert and refuses an item whose vendor does not exist yet. Open receivables
+are not a table at all — they arrive as a general journal batch with a
+balancing account, and nothing is open until that batch is posted, which is the
+step after this one.
+
+The mapping carries three kinds of entry, and the second and third are the
+honest part:
+
+- **`to`** — the field this column becomes.
+- **`needs`** — the field exists and the value is not loadable as it stands.
+  A payment term of `30` is a number of days in Mercurius and a code with a
+  date formula in Business Central. A VAT rate of `21` is a percentage, not a
+  posting group. Five fields need a setup record first, and the codes they need
+  are listed and checked against the data on every run.
+- **`drop`** — the column is not migrated, with the reason written down.
+  `created` has nowhere to go: Business Central has no creation date on the
+  customer card.
+
+A mapping that only contains the first kind is a mapping somebody wrote without
+opening the target.
 
 ## Layout
 
@@ -243,10 +373,70 @@ src/dante/
 ├── assemble.py     four customer files onto one candidate shape
 ├── circles/        one module per circle, c1_limbo … c9_treachery
 ├── triage.py       three destinations, plus a decision backlog per owner
+├── decisions.py    the second pass: what a human answer may and may not do
+├── target.py       the load-ready data in the target system's own tables
+├── provenance.py   which rules and which values produced this verdict
 ├── measure.py      scoring against the planted defects (not part of the pipeline)
 ├── report.py       the audit report and the site data
-└── cli.py          forge · run · report · rule
+└── cli.py          forge · run · report · rule · why · load
 ```
+
+## Provenance
+
+A verdict you cannot tie back to a rule set is not auditable. "The load was
+blocked in November" is worth nothing in March unless somebody can say which
+forty rules were in force and show that the file on disk today is still that
+rule set. So every run records it, the audit report prints it, and the CLI ends
+with it:
+
+```
+  verdict: NO-GO
+  dante 1.0.0 · ruleset 80bdbc04f721 (40 rules) · sources 95ff80efc444
+  (13 tables) · 2026-11-05T17:52:35Z
+```
+
+Two decisions there look wrong at first and are not.
+
+The source digest is taken over the **values**, not the file bytes. A workbook
+opened and saved without a single edit gets new bytes — Excel and openpyxl both
+stamp the zip container — and a digest that moves when nothing changed teaches
+people to ignore digests. This one is over what came out of the cells, so
+re-saving a file is invisible to it and editing one cell is not.
+
+The timestamp honours `DANTE_RUN_AT`, the way a reproducible build honours
+`SOURCE_DATE_EPOCH`. Everything else in a run is deterministic from one seed,
+and CI holds the committed outputs against a fresh run byte for byte; a wall
+clock inside those bytes would fail that check on every commit. The suite
+asserts that the clock is the **only** thing that differs between two runs, so
+pinning it is a proof rather than an excuse.
+
+## If this ran on real data
+
+Everything here is synthetic, which is convenient in a way worth naming,
+because three things change the moment it is not.
+
+**The master data is personal data.** Contact names, email addresses, phone
+numbers, and a payment history attached to each one. The decision sheets carry
+the raw value alongside the key — that is what makes them answerable — so
+`out/purgatorio/sales.csv` is a file of customer contact details sitting in
+somebody's downloads folder. Routing by owner is already least privilege by
+accident; on real data it has to be least privilege on purpose, and the sheets
+need a retention date rather than a lifetime in an inbox.
+
+**Test environments are where this leaks.** A migration is rehearsed four or
+five times, and every rehearsal copies production into somewhere with weaker
+access control. Pseudonymising names and contact details for every pass except
+the final one costs little here, because nothing in circles I to VIII needs a
+real email address to find a broken one — only the duplicate matching in circle
+II should degrade. Because recall is measured per rule, how much it degrades is
+a number you can put in front of a DPO rather than an argument.
+
+**The detection rate would not exist.** The 95.0% on this page is only knowable
+because the forge recorded what it planted. On real data there is no answer
+key, and any pipeline claiming a recall figure on real data is reporting its
+own opinion. What replaces it is a sampled manual review: pull two hundred
+records at random, have the owner mark what the engine missed, and publish that
+interval with its sample size. Weaker, honest, and the only thing available.
 
 ## Known limits
 
@@ -260,9 +450,21 @@ src/dante/
   not internationalised, and it says so rather than guessing.
 - Circle IX reconciles receivables only. Stock valuation and open purchase
   orders would each need their own gate.
+- It is built for clarity over throughput, and the loop is a literal
+  `iterrows()` in most circles. A full descent over 4 472 rows takes about two
+  seconds; at a hundred thousand rows that is minutes, and at a million it is
+  not usable. Vectorising circle IV alone would cost the line-by-line evidence
+  that makes a finding readable, and for a case whose argument is *which
+  decisions a machine may make alone*, that is the wrong trade. For a real
+  migration at volume it is the right one.
+- A corrected value is not re-validated within the same pass. Answers are
+  applied after every circle has run, so a repaired foreign key is checked on
+  the next descent rather than this one.
 - `data/raw/*.xlsx` bytes change on every forge because openpyxl stamps a
   creation time into the zip container, while the data inside is identical. CI
   therefore diff-checks the CSVs, the ground truth and the site outputs only.
+  The source digests in the run summary are unaffected, because they are taken
+  over the values rather than the bytes.
 
 ## Fictional
 

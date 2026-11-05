@@ -10,6 +10,8 @@ from typing import Any
 import pandas as pd
 
 from . import circles as C
+from . import decisions as D
+from . import provenance as P
 from .assemble import assemble
 from .ingest import load_sources
 from .pipeline import Context, load_registry
@@ -23,10 +25,14 @@ STAGING = ("address_raw",)
 
 def descend(raw_dir: Path = Path("data/raw"), out_dir: Path = Path("out"),
             rules_path: Path = Path("rules/rules.yaml"),
+            decisions_dir: Path | None = None,
             quiet: bool = False) -> dict[str, Any]:
     rules, circle_docs = load_registry(rules_path)
     ctx = Context(raw_dir=raw_dir, rules=rules, circles=circle_docs)
     ctx.sources = load_sources(raw_dir)
+    # Before any circle has touched anything: what was read, and under which
+    # rules it is about to be judged.
+    ctx.provenance = P.collect(rules_path, rules, circle_docs, ctx.sources, raw_dir)
 
     def say(msg: str) -> None:
         if not quiet:
@@ -46,12 +52,25 @@ def descend(raw_dir: Path = Path("data/raw"), out_dir: Path = Path("out"),
         module.run(ctx)
         say(_line(circle_no, circle_docs, ctx))
 
+    # Human answers land after every circle has had its say and before anything
+    # is triaged: the engine states its case in full, then the owners rule on
+    # it. Doing it the other way round would let a decision hide a finding.
+    if decisions_dir is not None:
+        ctx.decisions = D.apply(ctx, D.load(decisions_dir))
+        say(_decision_line(ctx.decisions))
+
     verdict = triage(ctx)
     recon = C.c9_treachery.run(ctx, verdict)
     say(_line(9, circle_docs, ctx, sum(1 for g in recon["gates"] if not g["passed"]),
               suffix="gates failed"))
 
     return _write_outputs(ctx, verdict, recon, out_dir)
+
+
+def _decision_line(d: dict[str, Any]) -> str:
+    verbs = ", ".join(f"{n} {verb}" for verb, n in d["by_verdict"].items())
+    stale = f", {d['stale']} stale" if d["stale"] else ""
+    return f"     answers   {d['applied']:>6} applied ({verbs}){stale}"
 
 
 def _line(circle: int, docs: dict, ctx: Context, n: int | None = None,
@@ -88,6 +107,20 @@ def _write_outputs(ctx: Context, verdict: dict[str, Any], recon: dict[str, Any],
         if not rejected.empty:
             rejected.to_csv(out / "inferno" / f"{entity}.csv", index=False)
 
+    # ── where every single source row ended up, and on whose ruling ─────
+    # One row per source row, which is the artefact somebody actually asks for
+    # during a migration: not "how many were held" but "why is this one".
+    placement = [
+        {"entity": entity, **row, "bucket": bucket}
+        for entity, by_bucket in verdict["buckets"].items()
+        for bucket, rows in by_bucket.items()
+        for row in rows
+    ]
+    pd.DataFrame(placement, columns=[
+        "entity", "key", "bucket", "source", "row", "findings", "deciding_rule",
+        "owner", "decision", "decided_by", "amount",
+    ]).to_csv(out / "report" / "placement.csv", index=False)
+
     # ── one decision sheet per owner, which is how the work gets done ────
     for owner, rows in verdict["backlog_by_owner"].items():
         sheet = pd.DataFrame(rows)
@@ -95,11 +128,18 @@ def _write_outputs(ctx: Context, verdict: dict[str, Any], recon: dict[str, Any],
             # JSON, not a Python dict repr: somebody has to read this in Excel
             sheet["evidence"] = sheet["evidence"].map(
                 lambda e: json.dumps(e, ensure_ascii=False) if e else "")
+        # The two columns the owner fills in. Empty on the way out and read on
+        # the way back, so the sheet is the question and the answer both, and
+        # nobody retypes a key to tell us which record they meant.
+        sheet["decision"] = ""
+        sheet["corrected_value"] = ""
         sheet.to_csv(out / "purgatorio" / f"{owner}.csv", index=False)
 
     summary = {
         "client": CLIENT,
         "legacy_system": LEGACY_SYSTEM,
+        "provenance": ctx.provenance,
+        "decisions": ctx.decisions,
         "verdict": recon["verdict"],
         "source_rows": verdict["source_rows"],
         "totals": verdict["totals"],
@@ -110,6 +150,7 @@ def _write_outputs(ctx: Context, verdict: dict[str, Any], recon: dict[str, Any],
         "backlog_by_owner": {k: len(v) for k, v in verdict["backlog_by_owner"].items()},
         "backlog_total": verdict["backlog_total"],
         "unmatched_attribute_rows": verdict["unmatched_attribute_rows"],
+        "decided_findings": verdict["decided_findings"],
         "gates": recon["gates"],
         "ledger": recon["ledger"],
         "stats": ctx.stats,

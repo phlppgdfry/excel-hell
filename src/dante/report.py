@@ -161,9 +161,34 @@ TEMPLATE = """<!doctype html>
 {% endfor %}
 </tbody></table>
 <p>Each owner has a sheet in <code>out/purgatorio/</code> with the record, the raw
-   value, the rule and the evidence. Many questions share one answer: a single
-   ruling on the date format of the receivables file clears
-   {{ s.findings_by_rule.get('R-VII-04', 0)|num }} of them.</p>
+   value, the rule and the evidence, and two empty columns. Fill in
+   <code>decision</code>, hand the sheet back, and
+   <code>dante run --decisions</code> applies it: the questions leave the
+   backlog, the rows they were holding move into the load, and the gates below
+   are evaluated again.</p>
+<p>Many questions share one answer. A single ruling on the date format of the
+   receivables export clears
+   {{ s.findings_by_rule.get('R-VII-04', 0)|num }} of them, and one on whether
+   the 2024 price list is exclusive of VAT clears
+   {{ s.findings_by_rule.get('R-IV-03', 0)|num }} more — which is why a ruling
+   is a different kind of answer from a correction, and is written once with
+   <code>*</code> in place of a record key.</p>
+
+{% if s.decisions.applied %}
+<h2>What the owners answered</h2>
+<p>{{ s.decisions.answers }} lines in
+   {{ s.decisions.files|length }} sheets closed
+   {{ s.decisions.applied|num }} open questions, released
+   {{ s.decisions.released_rows|num }} records into the load and withdrew
+   {{ s.decisions.rejected_rows|num }} from it. The engine's own verdict is
+   kept on every one of them: a released record shows which rule held it and
+   who let it through.</p>
+<table><thead><tr><th>Answer</th><th class="n">Questions closed</th></tr></thead>
+<tbody>
+{% for verb, n in s.decisions.by_verdict|dictsort(by='value', reverse=true) %}
+<tr><td>{{ verb }}</td><td class="n">{{ n|num }}</td></tr>{% endfor %}
+</tbody></table>
+{% endif %}
 
 <h2>Findings per circle</h2>
 <table><thead><tr><th>Circle</th><th>Sin</th><th class="n">Findings</th>
@@ -182,6 +207,20 @@ TEMPLATE = """<!doctype html>
 <tr><td><code>{{ r.id }}</code></td><td>{{ r.title }}</td><td>{{ r.action }}</td>
  <td>{{ r.owner }}</td><td class="n">{{ r.findings|num }}</td></tr>
 {% endif %}{% endfor %}{% endfor %}
+</tbody></table>
+
+<h2>Provenance</h2>
+<p>This verdict belongs to one rule set and one set of source values. Both are
+   digested below, so the run can be reproduced and a later rule change cannot
+   be mistaken for a later data change.</p>
+<table><tbody>
+ <tr><td>Engine</td><td><code>{{ s.provenance.engine }}</code></td></tr>
+ <tr><td>Rule set</td><td><code>{{ s.provenance.registry.sha256[:16] }}</code>
+     &middot; {{ s.provenance.registry.rules }} rules in
+     {{ s.provenance.registry.circles }} circles</td></tr>
+ <tr><td>Source values</td><td><code>{{ s.provenance.sources.sha256[:16] }}</code>
+     &middot; {{ s.provenance.sources.tables }} tables</td></tr>
+ <tr><td>Run at</td><td>{{ s.provenance.run_at }}</td></tr>
 </tbody></table>
 
 <p><a href="index.html">&larr; Back to the descent</a></p>
@@ -210,6 +249,28 @@ def attach_measurement(summary: dict[str, Any], out: Path,
     return summary
 
 
+# What the page needs in order to show the loop, and nothing else. A second
+# committed artefact is a second thing that can go stale, so it carries the
+# differences a reader is shown and not a copy of the whole run.
+SECOND_PASS_KEYS = ("verdict", "source_rows", "totals", "backlog_total",
+                    "backlog_by_owner", "decisions", "findings_total")
+
+
+def second_pass(summary: dict[str, Any]) -> dict[str, Any]:
+    """The answered run, trimmed to what a before-and-after needs."""
+    out = {k: summary[k] for k in SECOND_PASS_KEYS}
+    out["gates"] = [
+        {"rule": g["rule"], "title": g["title"], "passed": g["passed"],
+         "message": g["message"],
+         "evidence": {k: v for k, v in g["evidence"].items()
+                      if not isinstance(v, list)}}
+        for g in summary["gates"]
+    ]
+    out["run_at"] = summary["provenance"]["run_at"]
+    out["registry"] = summary["provenance"]["registry"]["sha256"]
+    return out
+
+
 def _money(v: Any) -> str:
     """A thin space for thousands: unambiguous whether the reader is Dutch or not."""
     try:
@@ -218,7 +279,8 @@ def _money(v: Any) -> str:
         return str(v)
 
 
-def render(summary: dict[str, Any], out: Path, site: Path) -> list[Path]:
+def render(summary: dict[str, Any], out: Path, site: Path,
+           answered: dict[str, Any] | None = None) -> list[Path]:
     summary = attach_measurement(summary, out)
     env = Environment(autoescape=True)
     env.filters["num"] = lambda v: f"{int(v):,}".replace(",", " ")
@@ -255,4 +317,9 @@ def render(summary: dict[str, Any], out: Path, site: Path) -> list[Path]:
 
     shutil.copy(report_path, site / "audit-report.html")
     written.append(site / "audit-report.html")
+
+    if answered is not None:
+        pass_two = site / "data" / "second-pass.json"
+        pass_two.write_text(json.dumps(second_pass(answered), indent=1))
+        written.append(pass_two)
     return written

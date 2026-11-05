@@ -1,0 +1,141 @@
+# "Load-ready" is meaningless without a target. This is the one.
+#
+# Microsoft Dynamics 365 Business Central, loaded through configuration
+# packages (RapidStart): one package per table, in this order, because Business
+# Central validates the foreign keys on insert and will refuse an item whose
+# vendor does not exist yet.
+#
+# Three kinds of entry, and the second and third are the honest part:
+#
+#   to:      the Business Central field this column becomes
+#   needs:   the field exists and the value is not loadable as it stands,
+#            because Business Central wants a code from a setup table where
+#            the legacy system kept free text or a number
+#   drop:    the column is not migrated, with the reason written down
+#
+# A mapping that only contains the first kind is a mapping somebody wrote
+# without opening the target.
+
+target:
+  system: Microsoft Dynamics 365 Business Central
+  release: "25.x (W1)"
+  loader: Configuration packages (RapidStart), one per table
+  order: [customer, supplier, article, discount, open_item]
+
+entities:
+
+  customer:
+    table: Customer
+    table_no: 18
+    fields:
+      - {to: "No.", from: key, type: "Code[20]"}
+      - {to: "Name", from: name, type: "Text[100]"}
+      # Business Central keeps one address line plus a second for the rest.
+      # The legacy system split street, number and box, so they come back
+      # together here rather than three columns arriving in two fields.
+      - {to: "Address", from: [street, house_no, box], join: " ", type: "Text[100]"}
+      - {to: "Post Code", from: postcode, type: "Code[20]"}
+      - {to: "City", from: city, type: "Text[30]"}
+      - {to: "Country/Region Code", from: country, type: "Code[10]"}
+      - {to: "VAT Registration No.", from: vat, type: "Text[20]"}
+      - {to: "E-Mail", from: email, type: "Text[80]"}
+      - {to: "Phone No.", from: phone, type: "Text[30]"}
+      - {to: "Payment Terms Code", from: payment_terms, type: "Code[10]",
+         needs: "a Payment Terms record per term. Mercurius stored a number of
+                 days; Business Central wants a code whose date formula says
+                 the same thing, which is a setup task and not a data one",
+         setup_codes: [14, 30, 45, 60, 90]}
+      - {to: "Credit Limit (LCY)", from: credit_limit, type: "Decimal"}
+      - {to: "Blocked", from: blocked, type: "Option",
+         values: {"J": "All", "JA": "All", "N": "", "NEE": ""}, default: ""}
+    drop:
+      - {column: created, why: "Business Central has no creation date on the
+           customer card. It stays in the migration log, which is where the
+           question 'how long have we had this customer' gets answered after
+           go-live."}
+
+  supplier:
+    table: Vendor
+    table_no: 23
+    fields:
+      - {to: "No.", from: key, type: "Code[20]"}
+      - {to: "Name", from: name, type: "Text[100]"}
+      - {to: "Address", from: [street, house_no], join: " ", type: "Text[100]"}
+      - {to: "Post Code", from: postcode, type: "Code[20]"}
+      - {to: "City", from: city, type: "Text[30]"}
+      - {to: "Country/Region Code", from: country, type: "Code[10]"}
+      - {to: "VAT Registration No.", from: vat, type: "Text[20]"}
+      - {to: "E-Mail", from: email, type: "Text[80]"}
+      - {to: "Blocked", from: blocked, type: "Option",
+         values: {"J": "All", "JA": "All", "N": "", "NEE": ""}, default: ""}
+
+  article:
+    table: Item
+    table_no: 27
+    fields:
+      - {to: "No.", from: key, type: "Code[20]"}
+      - {to: "Description", from: description, type: "Text[100]"}
+      - {to: "Item Category Code", from: group, type: "Code[20]",
+         needs: "an Item Category record per legacy group, and a decision
+                 first: Business Central categories are a tree with
+                 attributes, so keeping the legacy list flat imports a 1996
+                 taxonomy into a 2026 system",
+         setup_codes: [GER, LEI, SAN, VRW]}
+      - {to: "Base Unit of Measure", from: uom, type: "Code[10]",
+         needs: "a Unit of Measure record for every code below before the item
+                 will insert: Business Central refuses an item whose base unit
+                 does not exist, and this is the first thing a configuration
+                 package fails on",
+         setup_codes: [DS, M, PK, RL, ST]}
+      - {to: "GTIN", from: ean, type: "Code[14]"}
+      - {to: "Unit Cost", from: cost_price, type: "Decimal"}
+      - {to: "Unit Price", from: sales_price, type: "Decimal"}
+      - {to: "VAT Prod. Posting Group", from: vat_rate, type: "Code[20]",
+         needs: "a posting group per rate. A percentage is not a posting group,
+                 and which group a rate belongs to is an accounting decision
+                 rather than a data one",
+         setup_codes: [21, 6]}
+      - {to: "Vendor No.", from: supplier_no, type: "Code[20]"}
+      # Inverted on purpose: the legacy flag says what may be sold, Business
+      # Central stores what may not.
+      - {to: "Blocked", from: sellable, type: "Boolean",
+         values: {"J": "false", "JA": "false", "N": "true", "NEE": "true"},
+         default: "true"}
+
+  discount:
+    table: Price List Line
+    table_no: 7001
+    note: "Business Central 14 and earlier used Sales Line Discount (7004).
+           On 25.x the price list line is the record, and a discount is a line
+           with Amount Type = Discount."
+    constants:
+      "Price List Code": MIGRATIE-2024
+      "Source Type": Customer
+      "Asset Type": Item
+      "Amount Type": Discount
+    fields:
+      - {to: "Line No.", from: key, type: "Integer",
+         needs: "a line number per price list; the legacy agreement code is not
+                 one, so the loader renumbers within the list"}
+      - {to: "Source No.", from: customer_no, type: "Code[20]"}
+      - {to: "Asset No.", from: article_no, type: "Code[20]"}
+      - {to: "Line Discount %", from: pct, type: "Decimal"}
+
+  open_item:
+    table: Gen. Journal Line
+    table_no: 81
+    note: "Open receivables are not a table you load, they are entries you
+           post. They arrive as a general journal batch with a balancing
+           account, and nothing is open in Business Central until that batch
+           is posted — which is the step after this one."
+    constants:
+      "Journal Template Name": GENERAL
+      "Journal Batch Name": OPENING
+      "Account Type": Customer
+      "Document Type": Invoice
+    fields:
+      - {to: "Document No.", from: key, type: "Code[20]"}
+      - {to: "Account No.", from: customer_no, type: "Code[20]"}
+      - {to: "Posting Date", from: doc_date, type: "Date"}
+      - {to: "Due Date", from: due_date, type: "Date"}
+      - {to: "Amount", from: amount, type: "Decimal"}

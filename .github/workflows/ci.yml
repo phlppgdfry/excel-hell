@@ -36,14 +36,33 @@ jobs:
         # A failing gate is the expected outcome on this dataset: the planted
         # compensating pair must block the load. Exit 1 here is the control
         # working, so CI asserts the code rather than ignoring it.
+        #
+        # The clock is pinned to the timestamp already in the committed summary,
+        # the way a reproducible build pins SOURCE_DATE_EPOCH. That is what lets
+        # the step below diff the published artefacts byte for byte without
+        # stripping anything out of them first; the suite separately asserts
+        # that run_at is the only value a wall clock would move.
         run: |
+          export DANTE_RUN_AT="$(uv run python -c 'import json; print(json.load(open("docs/data/run-summary.json"))["provenance"]["run_at"])')"
+          echo "pinned run_at to $DANTE_RUN_AT"
           uv run dante forge
+
           set +e; uv run dante run; code=$?; set -e
           if [ "$code" -ne 1 ]; then
             echo "::error::expected exit 1 (NO-GO), got $code"
             exit 1
           fi
-          uv run dante report
+
+          # The second pass: the committed decision sheets go back in. It must
+          # still fail, because answering a question is not fixing a number.
+          set +e; uv run dante run --decisions decisions --out out2; two=$?; set -e
+          if [ "$two" -ne 1 ]; then
+            echo "::error::expected exit 1 after the decisions, got $two"
+            exit 1
+          fi
+
+          uv run dante report --second-pass out2
+          uv run dante load
 
       - name: The published site matches a fresh run
         # docs/data/run-summary.json is what the site and the README numbers are
@@ -57,6 +76,7 @@ jobs:
         run: |
           git diff --exit-code -- \
             docs/data/run-summary.json \
+            docs/data/second-pass.json \
             docs/audit-report.html \
             data/truth/planted-defects.json \
             data/raw/01_klanten_mercurius.csv \

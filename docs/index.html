@@ -232,6 +232,33 @@
   </div>
 </section>
 
+<!-- ── the second pass ────────────────────────────────────────────── -->
+<section id="tweede" data-tab="Tweede ronde" data-cell="beslissingen!A2"
+         data-fx="=DANTE.AFDALEN(bron!A:L;beslissingen!A:F)">
+  <div class="wrap">
+    <p class="kicker">The loop</p>
+    <h2>Then the answers go back in</h2>
+    <p class="muted">A migration is not one descent. The sheets go out, a few people
+      answer what they can, and it runs again — and if the engine cannot take those
+      answers back in, the whole triage is a report rather than a process. The sheets
+      come back as <code>decisions/&lt;owner&gt;.csv</code>, unchanged except for two
+      columns, and <code>dante run --decisions</code> applies them before anything is
+      triaged. Below is that second run, measured against the first.</p>
+
+    <p class="muted" id="loop-headline">—</p>
+    <div class="sheet" id="loop"></div>
+
+    <p class="muted small">Most of that volume is four <b>rulings</b>. "Is this export
+      day-first or month-first?" is not four hundred questions about four hundred
+      invoices; it is one question about one file, written once with <code>*</code> in
+      place of a record key. Which rules may be answered that way is declared in the
+      registry, and each answer names the evidence the finding already published — so a
+      ruling can only pick between readings the engine itself derived.</p>
+
+    <p class="muted" id="loop-betrayal">—</p>
+  </div>
+</section>
+
 <!-- ── measurement ────────────────────────────────────────────────── -->
 <section id="meting" data-tab="Meting" data-cell="meting!D2"
          data-fx="=AANTAL(gevonden)/AANTAL(geplant)">

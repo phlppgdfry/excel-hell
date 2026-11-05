@@ -65,3 +65,32 @@ def test_the_site_data_matches_the_run(run):
 
 def test_the_site_gets_its_own_copy_of_the_report(run):
     assert (run["site"] / "audit-report.html").exists()
+
+
+# ── provenance and the second pass ───────────────────────────────────────
+def test_the_report_ties_the_verdict_to_a_rule_set(run):
+    html = report_html(run)
+    flat = " ".join(html.split())   # the template wraps; the reader does not
+    assert "Provenance" in html
+    assert "40 rules in 9 circles" in flat
+    assert "13 tables" in flat
+    assert run["summary"]["provenance"]["registry"]["sha256"][:16] in html
+
+
+def test_the_report_tells_the_owner_how_to_answer(run):
+    html = report_html(run)
+    assert "dante run --decisions" in html
+    assert "in place of a record key" in html, "a ruling needs explaining"
+
+
+def test_the_answers_section_appears_only_once_there_are_answers(run, decided,
+                                                                 tmp_path):
+    from dante.report import render
+
+    assert "What the owners answered" not in report_html(run), \
+        "a dry run with nobody's answers in it should not have the section"
+    (tmp_path / "report").mkdir()
+    render(dict(decided), tmp_path, tmp_path / "site")
+    html = (tmp_path / "report" / "audit-report.html").read_text()
+    assert "What the owners answered" in html
+    assert "open questions, released" in html

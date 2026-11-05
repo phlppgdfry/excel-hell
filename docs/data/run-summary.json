@@ -1,6 +1,111 @@
 {
  "client": "Vanhulle Techniek nv",
  "legacy_system": "Mercurius 4.2",
+ "provenance": {
+  "engine": "dante 1.0.0",
+  "run_at": "2026-11-05T18:03:41Z",
+  "registry": {
+   "path": "rules/rules.yaml",
+   "sha256": "80bdbc04f721ecf8398fc139f4c840915c42ab1dc6758b1c4c9328fd35e1550b",
+   "rules": 40,
+   "circles": 9
+  },
+  "sources": {
+   "directory": "data/raw",
+   "tables": 13,
+   "sha256": "95ff80efc444d5337f6dc8909ce6b2a2f0e3e5a0cf6b82707ced9abbc9b24457",
+   "detail": [
+    {
+     "feed": "art_master",
+     "file": "05_artikelen_mercurius.csv",
+     "rows": 1180,
+     "sha256": "c71e8b884fd41eee1abb0093fb2502a3eb730740745cda11700ccde873e29710"
+    },
+    {
+     "feed": "art_price",
+     "file": "06_artikelen_prijzen_2024.xlsx!prijzen 2024",
+     "rows": 1180,
+     "sha256": "bddcaf9d8aae9671d26ff196eea8244a26eb8cdcf782ffb868bffe436d70f7bb"
+    },
+    {
+     "feed": "art_stock",
+     "file": "07_artikelen_voorraad.xlsx!voorraad",
+     "rows": 1180,
+     "sha256": "981816fd4583f2d7a73cf992a620f3df5e8649e3264c97dd3987cda602543e60"
+    },
+    {
+     "feed": "art_supp",
+     "file": "09_artikelen_leverancier.xlsx!leverancier",
+     "rows": 1180,
+     "sha256": "2d1eb82b1fb496f13a524fc499be63136703be87db5b46354303da9abcc04d6d"
+    },
+    {
+     "feed": "art_uom",
+     "file": "08_artikelen_eenheden.xlsx!eenheden",
+     "rows": 1180,
+     "sha256": "2f9c895064d75eefdd8ce17e8265dc3a4514cad30b4d5af95a2a75962b2c69ba"
+    },
+    {
+     "feed": "cust_acc",
+     "file": "04_klanten_boekhouding.csv",
+     "rows": 438,
+     "sha256": "0404592cc288639c24cad571755610a1eab34452d71c82ca1f2704bfe59d6fa9"
+    },
+    {
+     "feed": "cust_jan",
+     "file": "02_klanten_verkoop_jan.xlsx!Blad1",
+     "rows": 310,
+     "sha256": "15f7224ff1c16275c30021e9e9c25a2e743f3295ea4b37dc40edbebdfa7a05d7"
+    },
+    {
+     "feed": "cust_master",
+     "file": "01_klanten_mercurius.csv",
+     "rows": 840,
+     "sha256": "d8c69a4d045f5a32c7e3ca2a9a3a869a56c1f35e558aa97dfbee3ece8500889f"
+    },
+    {
+     "feed": "cust_sofie",
+     "file": "03_klanten_verkoop_sofie.xlsx!klanten",
+     "rows": 286,
+     "sha256": "987687619b3dd3d98be63bba742710c38dd59a6c83670976091578b1ede31bdb"
+    },
+    {
+     "feed": "discounts",
+     "file": "12_korting_afspraken.xlsx!afspraken",
+     "rows": 220,
+     "sha256": "067badb085c3d421c5ce61ec4dd13b0e5d8ca7296aef137417e603533da03fbd"
+    },
+    {
+     "feed": "open_items",
+     "file": "11_openstaande_posten.xlsx!Posten",
+     "rows": 1128,
+     "sha256": "f056352fb2d570a5464cd39ff98d935caea87a38d310a7f0d736e8eda66a108a"
+    },
+    {
+     "feed": "supp_master",
+     "file": "10_leveranciers.xlsx!leveranciers",
+     "rows": 70,
+     "sha256": "4df2dd39a6e51a69de77458130ed2e33e0f7b774938fbb034ca9e8d035881998"
+    },
+    {
+     "feed": "trial_balance",
+     "file": "11_openstaande_posten.xlsx!Saldilijst",
+     "rows": 614,
+     "sha256": "2d653d15cadfb97826a05e3ef0396478bb8620dcadd6c0f5610e19d0997fac9a"
+    }
+   ]
+  }
+ },
+ "decisions": {
+  "applied": 0,
+  "answers": 0,
+  "stale": 0,
+  "by_owner": {},
+  "by_verdict": {},
+  "files": [],
+  "released_rows": 0,
+  "rejected_rows": 0
+ },
  "verdict": "NO-GO",
  "source_rows": 4472,
  "totals": {
@@ -100,6 +205,7 @@
  },
  "backlog_total": 2133,
  "unmatched_attribute_rows": 110,
+ "decided_findings": 0,
  "gates": [
   {
    "rule": "R-IX-01",
@@ -637,6 +743,13 @@
      ],
      "action": "quarantine",
      "owner": "finance",
+     "ruling": {
+      "question": "Is the 2024 price list exclusive or inclusive of VAT?",
+      "answers": {
+       "exclusive": "master_price",
+       "inclusive": "inclusive_would_be"
+      }
+     },
      "rationale": "The price file has an \"incl\" column that is populated for 61 percent of rows and contradicted by the article VAT rate for some of them. A wrong reading moves 21 percent of a sales price. Finance decides per row.",
      "findings": 424
     },
@@ -682,6 +795,13 @@
      ],
      "action": "quarantine",
      "owner": "operations",
+     "ruling": {
+      "question": "Which system owns the unit of measure, the master or the count?",
+      "answers": {
+       "master": "master",
+       "warehouse": "warehouse"
+      }
+     },
      "rationale": "Piece, box and metre for one article differ by a factor of 50 in stock value. Source precedence cannot settle it because the warehouse file is the most accurate and the least authoritative.",
      "findings": 72
     },
@@ -706,6 +826,13 @@
      ],
      "action": "quarantine",
      "owner": "purchasing",
+     "ruling": {
+      "question": "Which system owns the replenishment link for an article?",
+      "answers": {
+       "master": "master",
+       "purchasing": "purchasing"
+      }
+     },
      "rationale": "Purchasing drives replenishment from this field. A wrong supplier places real orders.",
      "findings": 63
     }
@@ -839,6 +966,13 @@
      ],
      "action": "quarantine",
      "owner": "finance",
+     "ruling": {
+      "question": "Which reading does this export use where both are possible?",
+      "answers": {
+       "dmy": "european",
+       "mdy": "american"
+      }
+     },
      "rationale": "\"03/04/2024\" is 3 April and 4 March. Both are plausible due dates and the difference decides whether an invoice is overdue. Guessing here is how an aging report starts lying.",
      "findings": 404
     },
@@ -986,7 +1120,10 @@
     "raw": "k 00009",
     "repaired": "K00009",
     "message": "entity code folded before matching",
-    "evidence": {}
+    "evidence": {},
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "repair"
    },
    {
     "rule": "R-I-05",
@@ -1000,7 +1137,10 @@
     "raw": "k 00036",
     "repaired": "K00036",
     "message": "entity code folded before matching",
-    "evidence": {}
+    "evidence": {},
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "repair"
    },
    {
     "rule": "R-I-05",
@@ -1014,7 +1154,10 @@
     "raw": "k 00130",
     "repaired": "K00130",
     "message": "entity code folded before matching",
-    "evidence": {}
+    "evidence": {},
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "repair"
    },
    {
     "rule": "R-I-05",
@@ -1028,7 +1171,10 @@
     "raw": "k 00141",
     "repaired": "K00141",
     "message": "entity code folded before matching",
-    "evidence": {}
+    "evidence": {},
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "repair"
    },
    {
     "rule": "R-I-05",
@@ -1042,7 +1188,10 @@
     "raw": "k 00143",
     "repaired": "K00143",
     "message": "entity code folded before matching",
-    "evidence": {}
+    "evidence": {},
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "repair"
    },
    {
     "rule": "R-I-05",
@@ -1056,7 +1205,10 @@
     "raw": "k 00155",
     "repaired": "K00155",
     "message": "entity code folded before matching",
-    "evidence": {}
+    "evidence": {},
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "repair"
    }
   ],
   "R-I-03": [
@@ -1072,7 +1224,10 @@
     "raw": "'Vanneste Bouw&  Zonen'",
     "repaired": "Vanneste Bouw& Zonen",
     "message": "Leading, trailing and doubled whitespace",
-    "evidence": {}
+    "evidence": {},
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "repair"
    },
    {
     "rule": "R-I-03",
@@ -1086,7 +1241,10 @@
     "raw": "'Loosveldt&  Zonen'",
     "repaired": "Loosveldt& Zonen",
     "message": "Leading, trailing and doubled whitespace",
-    "evidence": {}
+    "evidence": {},
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "repair"
    },
    {
     "rule": "R-I-03",
@@ -1100,7 +1258,10 @@
     "raw": "'Vanhoutte Techniek & Zonen\\xa0'",
     "repaired": "Vanhoutte Techniek & Zonen",
     "message": "Leading, trailing and doubled whitespace",
-    "evidence": {}
+    "evidence": {},
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "repair"
    },
    {
     "rule": "R-I-03",
@@ -1114,7 +1275,10 @@
     "raw": "'  Vann\u00c3\u00a9ste  bvba  '",
     "repaired": "Vann\u00e9ste bvba",
     "message": "Leading, trailing and doubled whitespace",
-    "evidence": {}
+    "evidence": {},
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "repair"
    },
    {
     "rule": "R-I-03",
@@ -1128,7 +1292,10 @@
     "raw": "'  Vandenberghe Installaties  '",
     "repaired": "Vandenberghe Installaties",
     "message": "Leading, trailing and doubled whitespace",
-    "evidence": {}
+    "evidence": {},
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "repair"
    },
    {
     "rule": "R-I-03",
@@ -1142,7 +1309,10 @@
     "raw": "'  Vanden Broucke Groep  '",
     "repaired": "Vanden Broucke Groep",
     "message": "Leading, trailing and doubled whitespace",
-    "evidence": {}
+    "evidence": {},
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "repair"
    }
   ],
   "R-I-02": [
@@ -1158,7 +1328,10 @@
     "raw": "'Vanhoutte Techniek & Zonen\\xa0'",
     "repaired": "Vanhoutte Techniek & Zonen ",
     "message": "invisible character removed",
-    "evidence": {}
+    "evidence": {},
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "repair"
    },
    {
     "rule": "R-I-02",
@@ -1172,7 +1345,10 @@
     "raw": "'Vanbecelaere\\xa0Renovatie bv'",
     "repaired": "Vanbecelaere Renovatie bv",
     "message": "invisible character removed",
-    "evidence": {}
+    "evidence": {},
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "repair"
    },
    {
     "rule": "R-I-02",
@@ -1186,7 +1362,10 @@
     "raw": "'Bruggeman\\xa0vof'",
     "repaired": "Bruggeman vof",
     "message": "invisible character removed",
-    "evidence": {}
+    "evidence": {},
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "repair"
    },
    {
     "rule": "R-I-02",
@@ -1200,7 +1379,10 @@
     "raw": "'Vandenberghe bv\\xa0'",
     "repaired": "Vandenberghe bv ",
     "message": "invisible character removed",
-    "evidence": {}
+    "evidence": {},
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "repair"
    },
    {
     "rule": "R-I-02",
@@ -1214,7 +1396,10 @@
     "raw": "'Vanneste Elektro nv\\xa0'",
     "repaired": "Vanneste Elektro nv ",
     "message": "invisible character removed",
-    "evidence": {}
+    "evidence": {},
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "repair"
    },
    {
     "rule": "R-I-02",
@@ -1228,7 +1413,10 @@
     "raw": "'  V\u00c3\u00a9rschoore\\xa0Elektro  bv  '",
     "repaired": "  V\u00e9rschoore Elektro  bv  ",
     "message": "invisible character removed",
-    "evidence": {}
+    "evidence": {},
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "repair"
    }
   ],
   "R-I-01": [
@@ -1244,7 +1432,10 @@
     "raw": "  Vann\u00c3\u00a9ste  bvba  ",
     "repaired": "  Vann\u00e9ste  bvba  ",
     "message": "latin-1 bytes read as UTF-8",
-    "evidence": {}
+    "evidence": {},
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "repair"
    },
    {
     "rule": "R-I-01",
@@ -1258,7 +1449,10 @@
     "raw": "  Romm\u00c3\u00a9ns Verwarming & Zonen  ",
     "repaired": "  Romm\u00e9ns Verwarming & Zonen  ",
     "message": "latin-1 bytes read as UTF-8",
-    "evidence": {}
+    "evidence": {},
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "repair"
    },
    {
     "rule": "R-I-01",
@@ -1272,7 +1466,10 @@
     "raw": "Pattyn Dakw\u00c3\u00a9rken bv",
     "repaired": "Pattyn Dakw\u00e9rken bv",
     "message": "latin-1 bytes read as UTF-8",
-    "evidence": {}
+    "evidence": {},
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "repair"
    },
    {
     "rule": "R-I-01",
@@ -1286,7 +1483,10 @@
     "raw": "V\u00c3\u00a9rmeulen Sanitair & Zonen",
     "repaired": "V\u00e9rmeulen Sanitair & Zonen",
     "message": "latin-1 bytes read as UTF-8",
-    "evidence": {}
+    "evidence": {},
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "repair"
    },
    {
     "rule": "R-I-01",
@@ -1300,7 +1500,10 @@
     "raw": "  V\u00c3\u00a9rschoore\u00a0Elektro  bv  ",
     "repaired": "  V\u00e9rschoore\u00a0Elektro  bv  ",
     "message": "latin-1 bytes read as UTF-8",
-    "evidence": {}
+    "evidence": {},
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "repair"
    },
    {
     "rule": "R-I-01",
@@ -1314,7 +1517,10 @@
     "raw": "Vanb\u00c3\u00a9celaere\u00a0Verwarming",
     "repaired": "Vanb\u00e9celaere\u00a0Verwarming",
     "message": "latin-1 bytes read as UTF-8",
-    "evidence": {}
+    "evidence": {},
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "repair"
    }
   ],
   "R-I-04": [
@@ -1330,7 +1536,10 @@
     "raw": "BOM + 'KLANTNR'",
     "repaired": "KLANTNR",
     "message": "byte order mark on the first column header",
-    "evidence": {}
+    "evidence": {},
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "repair"
    }
   ],
   "R-II-01": [
@@ -1349,7 +1558,10 @@
     "evidence": {
      "score": 100.0,
      "other_row": 631
-    }
+    },
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "repair"
    },
    {
     "rule": "R-II-01",
@@ -1366,7 +1578,10 @@
     "evidence": {
      "score": 100.0,
      "other_row": 78
-    }
+    },
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "repair"
    },
    {
     "rule": "R-II-01",
@@ -1383,7 +1598,10 @@
     "evidence": {
      "score": 100.0,
      "other_row": 78
-    }
+    },
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "repair"
    },
    {
     "rule": "R-II-01",
@@ -1400,7 +1618,10 @@
     "evidence": {
      "score": 100.0,
      "other_row": 329
-    }
+    },
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "repair"
    },
    {
     "rule": "R-II-01",
@@ -1417,7 +1638,10 @@
     "evidence": {
      "score": 100.0,
      "other_row": 634
-    }
+    },
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "repair"
    },
    {
     "rule": "R-II-01",
@@ -1434,7 +1658,10 @@
     "evidence": {
      "score": 100.0,
      "other_row": 254
-    }
+    },
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "repair"
    }
   ],
   "R-II-02": [
@@ -1454,7 +1681,10 @@
      "score": 75.55555555555556,
      "candidate": "Declercq & Zonen",
      "candidate_row": 24
-    }
+    },
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "quarantine"
    },
    {
     "rule": "R-II-02",
@@ -1472,7 +1702,10 @@
      "score": 75.55555555555556,
      "candidate": "Declercq & Zonen",
      "candidate_row": 24
-    }
+    },
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "quarantine"
    },
    {
     "rule": "R-II-02",
@@ -1490,7 +1723,10 @@
      "score": 75.55555555555556,
      "candidate": "Declercq & Zonen",
      "candidate_row": 67
-    }
+    },
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "quarantine"
    },
    {
     "rule": "R-II-02",
@@ -1508,7 +1744,10 @@
      "score": 75.55555555555556,
      "candidate": "Declercq & Zonen",
      "candidate_row": 67
-    }
+    },
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "quarantine"
    },
    {
     "rule": "R-II-02",
@@ -1526,7 +1765,10 @@
      "score": 75.55555555555556,
      "candidate": "Declercq Verwarming & Zonen",
      "candidate_row": 417
-    }
+    },
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "quarantine"
    },
    {
     "rule": "R-II-02",
@@ -1544,7 +1786,10 @@
      "score": 75.55555555555556,
      "candidate": "Declercq & Zonen",
      "candidate_row": 15
-    }
+    },
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "quarantine"
    }
   ],
   "R-II-03": [
@@ -1565,7 +1810,10 @@
       "14",
       "60"
      ]
-    }
+    },
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "quarantine"
    },
    {
     "rule": "R-II-03",
@@ -1584,7 +1832,10 @@
       "10000",
       "25000"
      ]
-    }
+    },
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "quarantine"
    },
    {
     "rule": "R-II-03",
@@ -1603,7 +1854,10 @@
       "30",
       "45"
      ]
-    }
+    },
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "quarantine"
    },
    {
     "rule": "R-II-03",
@@ -1622,7 +1876,10 @@
       "2500",
       "5000"
      ]
-    }
+    },
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "quarantine"
    },
    {
     "rule": "R-II-03",
@@ -1641,7 +1898,10 @@
       "15000",
       "5000"
      ]
-    }
+    },
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "quarantine"
    },
    {
     "rule": "R-II-03",
@@ -1660,7 +1920,10 @@
       "45",
       "60"
      ]
-    }
+    },
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "quarantine"
    }
   ],
   "R-II-04": [
@@ -1681,7 +1944,10 @@
       "romm ns verwarming en zonen",
       "test"
      ]
-    }
+    },
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "quarantine"
    },
    {
     "rule": "R-II-04",
@@ -1700,7 +1966,10 @@
       "d poorter en zonen",
       "depoorter en zonen"
      ]
-    }
+    },
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "quarantine"
    },
    {
     "rule": "R-II-04",
@@ -1719,7 +1988,10 @@
       "d clercq en zonen",
       "declercq en zonen"
      ]
-    }
+    },
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "quarantine"
    },
    {
     "rule": "R-II-04",
@@ -1739,7 +2011,10 @@
       "deveux",
       "deveux store"
      ]
-    }
+    },
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "quarantine"
    },
    {
     "rule": "R-II-04",
@@ -1758,7 +2033,10 @@
       "hoorna rt elektro",
       "hoornaert elektro"
      ]
-    }
+    },
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "quarantine"
    },
    {
     "rule": "R-II-04",
@@ -1777,7 +2055,10 @@
       "vand n broucke",
       "vanden broucke"
      ]
-    }
+    },
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "quarantine"
    }
   ],
   "R-III-05": [
@@ -1793,7 +2074,10 @@
     "raw": "Verhoeve vof (BE0095028326)",
     "repaired": "Verhoeve vof | BE0095028326",
     "message": "VAT number recovered from the name field",
-    "evidence": {}
+    "evidence": {},
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "repair"
    },
    {
     "rule": "R-III-05",
@@ -1807,7 +2091,10 @@
     "raw": "Verhoeve Bouw comm.v (BE0865636017)",
     "repaired": "Verhoeve Bouw comm.v | BE0865636017",
     "message": "VAT number recovered from the name field",
-    "evidence": {}
+    "evidence": {},
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "repair"
    },
    {
     "rule": "R-III-05",
@@ -1821,7 +2108,10 @@
     "raw": "Verschoore bvba (BE0370997185)",
     "repaired": "Verschoore bvba | BE0370997185",
     "message": "VAT number recovered from the name field",
-    "evidence": {}
+    "evidence": {},
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "repair"
    },
    {
     "rule": "R-III-05",
@@ -1835,7 +2125,10 @@
     "raw": "Vanbecelaere nv (BE0907385411)",
     "repaired": "Vanbecelaere nv | BE0907385411",
     "message": "VAT number recovered from the name field",
-    "evidence": {}
+    "evidence": {},
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "repair"
    },
    {
     "rule": "R-III-05",
@@ -1849,7 +2142,10 @@
     "raw": "Callewaert comm.v (BE0887035207)",
     "repaired": "Callewaert comm.v | BE0887035207",
     "message": "VAT number recovered from the name field",
-    "evidence": {}
+    "evidence": {},
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "repair"
    },
    {
     "rule": "R-III-05",
@@ -1863,7 +2159,10 @@
     "raw": "Cottenier nv (BE0231383404)",
     "repaired": "Cottenier nv | BE0231383404",
     "message": "VAT number recovered from the name field",
-    "evidence": {}
+    "evidence": {},
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "repair"
    }
   ],
   "R-III-01": [
@@ -1885,7 +2184,10 @@
      "box": "3",
      "postcode": "8850",
      "city": "Ardooie"
-    }
+    },
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "repair"
    },
    {
     "rule": "R-III-01",
@@ -1905,7 +2207,10 @@
      "box": null,
      "postcode": "8600",
      "city": "Diksmuide"
-    }
+    },
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "repair"
    },
    {
     "rule": "R-III-01",
@@ -1925,7 +2230,10 @@
      "box": null,
      "postcode": "8870",
      "city": "Izegem"
-    }
+    },
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "repair"
    },
    {
     "rule": "R-III-01",
@@ -1945,7 +2253,10 @@
      "box": null,
      "postcode": "8810",
      "city": "Lichtervelde"
-    }
+    },
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "repair"
    },
    {
     "rule": "R-III-01",
@@ -1965,7 +2276,10 @@
      "box": "0101",
      "postcode": "8530",
      "city": "Harelbeke"
-    }
+    },
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "repair"
    },
    {
     "rule": "R-III-01",
@@ -1985,7 +2299,10 @@
      "box": null,
      "postcode": "8500",
      "city": "Kortrijk"
-    }
+    },
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "repair"
    }
   ],
   "R-III-02": [
@@ -2001,7 +2318,10 @@
     "raw": "Noordlaan 77 bus 3, 8850 Ardooie",
     "repaired": "nr 77 / bus 3",
     "message": "box number separated from the house number",
-    "evidence": {}
+    "evidence": {},
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "repair"
    },
    {
     "rule": "R-III-02",
@@ -2015,7 +2335,10 @@
     "raw": "Diksmuidsesteenweg 65 bus 0101, 8530 Harelbeke",
     "repaired": "nr 65 / bus 0101",
     "message": "box number separated from the house number",
-    "evidence": {}
+    "evidence": {},
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "repair"
    },
    {
     "rule": "R-III-02",
@@ -2029,7 +2352,10 @@
     "raw": "Industrielaan 7 bus A, 8600 Diksmuide",
     "repaired": "nr 7 / bus A",
     "message": "box number separated from the house number",
-    "evidence": {}
+    "evidence": {},
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "repair"
    },
    {
     "rule": "R-III-02",
@@ -2043,7 +2369,10 @@
     "raw": "Molenstraat 28 bus A, 8790 Waregem",
     "repaired": "nr 28 / bus A",
     "message": "box number separated from the house number",
-    "evidence": {}
+    "evidence": {},
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "repair"
    },
    {
     "rule": "R-III-02",
@@ -2057,7 +2386,10 @@
     "raw": "Stationsstraat 52 bus 2, 8830 Hooglede",
     "repaired": "nr 52 / bus 2",
     "message": "box number separated from the house number",
-    "evidence": {}
+    "evidence": {},
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "repair"
    },
    {
     "rule": "R-III-02",
@@ -2071,7 +2403,10 @@
     "raw": "Rijksweg 181 bus A, 8400 Oostende",
     "repaired": "nr 181 / bus A",
     "message": "box number separated from the house number",
-    "evidence": {}
+    "evidence": {},
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "repair"
    }
   ],
   "R-III-04": [
@@ -2087,7 +2422,10 @@
     "raw": "achter de kerk, bellen bij de poort",
     "repaired": null,
     "message": "a delivery instruction, not an address",
-    "evidence": {}
+    "evidence": {},
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "quarantine"
    },
    {
     "rule": "R-III-04",
@@ -2101,7 +2439,10 @@
     "raw": "achter de kerk, bellen bij de poort",
     "repaired": null,
     "message": "a delivery instruction, not an address",
-    "evidence": {}
+    "evidence": {},
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "quarantine"
    },
    {
     "rule": "R-III-04",
@@ -2115,7 +2456,10 @@
     "raw": "nieuw adres volgt",
     "repaired": null,
     "message": "a delivery instruction, not an address",
-    "evidence": {}
+    "evidence": {},
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "quarantine"
    },
    {
     "rule": "R-III-04",
@@ -2129,7 +2473,10 @@
     "raw": "werf Izegem - zie Jan",
     "repaired": null,
     "message": "a delivery instruction, not an address",
-    "evidence": {}
+    "evidence": {},
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "quarantine"
    },
    {
     "rule": "R-III-04",
@@ -2143,7 +2490,10 @@
     "raw": "achter de kerk, bellen bij de poort",
     "repaired": null,
     "message": "a delivery instruction, not an address",
-    "evidence": {}
+    "evidence": {},
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "quarantine"
    },
    {
     "rule": "R-III-04",
@@ -2157,7 +2507,10 @@
     "raw": "nieuw adres volgt",
     "repaired": null,
     "message": "a delivery instruction, not an address",
-    "evidence": {}
+    "evidence": {},
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "quarantine"
    }
   ],
   "R-III-03": [
@@ -2173,7 +2526,10 @@
     "raw": "bestel@callewaert.be; bestel@callewaert.be",
     "repaired": "bestel@callewaert.be",
     "message": "first address kept as primary, rest as extra contacts",
-    "evidence": {}
+    "evidence": {},
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "repair"
    },
    {
     "rule": "R-III-03",
@@ -2187,7 +2543,10 @@
     "raw": "boekhouding@verschoore.be / jan@verschoore.be",
     "repaired": "boekhouding@verschoore.be",
     "message": "first address kept as primary, rest as extra contacts",
-    "evidence": {}
+    "evidence": {},
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "repair"
    },
    {
     "rule": "R-III-03",
@@ -2201,7 +2560,10 @@
     "raw": "info@hoornaert.be, info@hoornaert.be",
     "repaired": "info@hoornaert.be",
     "message": "first address kept as primary, rest as extra contacts",
-    "evidence": {}
+    "evidence": {},
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "repair"
    },
    {
     "rule": "R-III-03",
@@ -2215,7 +2577,10 @@
     "raw": "administratie@pattyn.be / sofie@pattyn.be",
     "repaired": "administratie@pattyn.be",
     "message": "first address kept as primary, rest as extra contacts",
-    "evidence": {}
+    "evidence": {},
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "repair"
    },
    {
     "rule": "R-III-03",
@@ -2229,7 +2594,10 @@
     "raw": "boekhouding@goethals.be, sofie@goethals.be",
     "repaired": "boekhouding@goethals.be",
     "message": "first address kept as primary, rest as extra contacts",
-    "evidence": {}
+    "evidence": {},
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "repair"
    },
    {
     "rule": "R-III-03",
@@ -2243,7 +2611,10 @@
     "raw": "boekhouding@deschacht.be; jan@deschacht.be",
     "repaired": "boekhouding@deschacht.be",
     "message": "first address kept as primary, rest as extra contacts",
-    "evidence": {}
+    "evidence": {},
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "repair"
    }
   ],
   "R-IV-01": [
@@ -2259,7 +2630,10 @@
     "raw": "470,06",
     "repaired": "470.06",
     "message": "decimal separator resolved by position",
-    "evidence": {}
+    "evidence": {},
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "repair"
    },
    {
     "rule": "R-IV-01",
@@ -2273,7 +2647,10 @@
     "raw": "622,31",
     "repaired": "622.31",
     "message": "decimal separator resolved by position",
-    "evidence": {}
+    "evidence": {},
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "repair"
    },
    {
     "rule": "R-IV-01",
@@ -2287,7 +2664,10 @@
     "raw": "555,84",
     "repaired": "555.84",
     "message": "decimal separator resolved by position",
-    "evidence": {}
+    "evidence": {},
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "repair"
    },
    {
     "rule": "R-IV-01",
@@ -2301,7 +2681,10 @@
     "raw": "171,74",
     "repaired": "171.74",
     "message": "decimal separator resolved by position",
-    "evidence": {}
+    "evidence": {},
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "repair"
    },
    {
     "rule": "R-IV-01",
@@ -2315,7 +2698,10 @@
     "raw": "171,40",
     "repaired": "171.40",
     "message": "decimal separator resolved by position",
-    "evidence": {}
+    "evidence": {},
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "repair"
    },
    {
     "rule": "R-IV-01",
@@ -2329,7 +2715,10 @@
     "raw": "414,45",
     "repaired": "414.45",
     "message": "decimal separator resolved by position",
-    "evidence": {}
+    "evidence": {},
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "repair"
    }
   ],
   "R-IV-02": [
@@ -2345,7 +2734,10 @@
     "raw": "\u20ac 758,41",
     "repaired": "758.41",
     "message": "currency text stripped",
-    "evidence": {}
+    "evidence": {},
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "repair"
    },
    {
     "rule": "R-IV-02",
@@ -2359,7 +2751,10 @@
     "raw": "\u20ac 989,42",
     "repaired": "989.42",
     "message": "currency text stripped",
-    "evidence": {}
+    "evidence": {},
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "repair"
    },
    {
     "rule": "R-IV-02",
@@ -2373,7 +2768,10 @@
     "raw": "\u20ac 517,94",
     "repaired": "517.94",
     "message": "currency text stripped",
-    "evidence": {}
+    "evidence": {},
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "repair"
    },
    {
     "rule": "R-IV-02",
@@ -2387,7 +2785,10 @@
     "raw": "EUR 975,48",
     "repaired": "975.48",
     "message": "currency text stripped",
-    "evidence": {}
+    "evidence": {},
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "repair"
    },
    {
     "rule": "R-IV-02",
@@ -2401,7 +2802,10 @@
     "raw": "EUR 934,18",
     "repaired": "934.18",
     "message": "currency text stripped",
-    "evidence": {}
+    "evidence": {},
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "repair"
    },
    {
     "rule": "R-IV-02",
@@ -2415,7 +2819,10 @@
     "raw": "\u20ac 166,73",
     "repaired": "166.73",
     "message": "currency text stripped",
-    "evidence": {}
+    "evidence": {},
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "repair"
    }
   ],
   "R-IV-03": [
@@ -2436,7 +2843,10 @@
      "flag": "1",
      "master_price": "758.41",
      "inclusive_would_be": "803.91"
-    }
+    },
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "quarantine"
    },
    {
     "rule": "R-IV-03",
@@ -2455,7 +2865,10 @@
      "flag": "x",
      "master_price": "989.42",
      "inclusive_would_be": "1197.20"
-    }
+    },
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "quarantine"
    },
    {
     "rule": "R-IV-03",
@@ -2474,7 +2887,10 @@
      "flag": "ja",
      "master_price": "294.63",
      "inclusive_would_be": "356.50"
-    }
+    },
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "quarantine"
    },
    {
     "rule": "R-IV-03",
@@ -2493,7 +2909,10 @@
      "flag": "1",
      "master_price": "517.94",
      "inclusive_would_be": "626.71"
-    }
+    },
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "quarantine"
    },
    {
     "rule": "R-IV-03",
@@ -2512,7 +2931,10 @@
      "flag": "ja",
      "master_price": "984.50",
      "inclusive_would_be": "1191.24"
-    }
+    },
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "quarantine"
    },
    {
     "rule": "R-IV-03",
@@ -2531,7 +2953,10 @@
      "flag": "ja",
      "master_price": "696.72",
      "inclusive_would_be": "843.03"
-    }
+    },
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "quarantine"
    }
   ],
   "R-IV-04": [
@@ -2550,7 +2975,10 @@
     "evidence": {
      "cost": "676.59",
      "price": "595.40"
-    }
+    },
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "quarantine"
    },
    {
     "rule": "R-IV-04",
@@ -2567,7 +2995,10 @@
     "evidence": {
      "cost": "81.69",
      "price": "71.89"
-    }
+    },
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "quarantine"
    },
    {
     "rule": "R-IV-04",
@@ -2584,7 +3015,10 @@
     "evidence": {
      "cost": "511.37",
      "price": "450.01"
-    }
+    },
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "quarantine"
    },
    {
     "rule": "R-IV-04",
@@ -2601,7 +3035,10 @@
     "evidence": {
      "cost": "685.65",
      "price": "603.37"
-    }
+    },
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "quarantine"
    },
    {
     "rule": "R-IV-04",
@@ -2618,7 +3055,10 @@
     "evidence": {
      "cost": "536.54",
      "price": "472.16"
-    }
+    },
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "quarantine"
    },
    {
     "rule": "R-IV-04",
@@ -2635,7 +3075,10 @@
     "evidence": {
      "cost": "198.41",
      "price": "174.60"
-    }
+    },
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "quarantine"
    }
   ],
   "R-IV-05": [
@@ -2651,7 +3094,10 @@
     "raw": "0",
     "repaired": null,
     "message": "a sellable article priced at zero or less",
-    "evidence": {}
+    "evidence": {},
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "reject"
    },
    {
     "rule": "R-IV-05",
@@ -2665,7 +3111,10 @@
     "raw": "0,00",
     "repaired": null,
     "message": "a sellable article priced at zero or less",
-    "evidence": {}
+    "evidence": {},
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "reject"
    },
    {
     "rule": "R-IV-05",
@@ -2679,7 +3128,10 @@
     "raw": "0,00",
     "repaired": null,
     "message": "a sellable article priced at zero or less",
-    "evidence": {}
+    "evidence": {},
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "reject"
    },
    {
     "rule": "R-IV-05",
@@ -2693,7 +3145,10 @@
     "raw": "0,00",
     "repaired": null,
     "message": "a sellable article priced at zero or less",
-    "evidence": {}
+    "evidence": {},
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "reject"
    },
    {
     "rule": "R-IV-05",
@@ -2707,7 +3162,10 @@
     "raw": "0",
     "repaired": null,
     "message": "a sellable article priced at zero or less",
-    "evidence": {}
+    "evidence": {},
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "reject"
    },
    {
     "rule": "R-IV-05",
@@ -2721,7 +3179,10 @@
     "raw": "-422,24",
     "repaired": null,
     "message": "a sellable article priced at zero or less",
-    "evidence": {}
+    "evidence": {},
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "reject"
    }
   ],
   "R-VII-05": [
@@ -2737,7 +3198,10 @@
     "raw": "#REF!",
     "repaired": null,
     "message": "a receivable with no amount",
-    "evidence": {}
+    "evidence": {},
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "reject"
    },
    {
     "rule": "R-VII-05",
@@ -2751,7 +3215,10 @@
     "raw": "#REF!",
     "repaired": null,
     "message": "a receivable with no amount",
-    "evidence": {}
+    "evidence": {},
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "reject"
    },
    {
     "rule": "R-VII-05",
@@ -2765,7 +3232,10 @@
     "raw": "#REF!",
     "repaired": null,
     "message": "a receivable with no amount",
-    "evidence": {}
+    "evidence": {},
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "reject"
    },
    {
     "rule": "R-VII-05",
@@ -2779,7 +3249,10 @@
     "raw": "#REF!",
     "repaired": null,
     "message": "a receivable with no amount",
-    "evidence": {}
+    "evidence": {},
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "reject"
    },
    {
     "rule": "R-VII-05",
@@ -2793,7 +3266,10 @@
     "raw": "#REF!",
     "repaired": null,
     "message": "a receivable with no amount",
-    "evidence": {}
+    "evidence": {},
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "reject"
    },
    {
     "rule": "R-VII-05",
@@ -2807,7 +3283,10 @@
     "raw": "#REF!",
     "repaired": null,
     "message": "a receivable with no amount",
-    "evidence": {}
+    "evidence": {},
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "reject"
    }
   ],
   "R-V-02": [
@@ -2823,7 +3302,10 @@
     "raw": "INBOUWRESERVOIR 500 MM F 2",
     "repaired": "Inbouwreservoir 500 mm frontbediening",
     "message": "master wins, alternative kept as a note",
-    "evidence": {}
+    "evidence": {},
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "repair"
    },
    {
     "rule": "R-V-02",
@@ -2837,7 +3319,10 @@
     "raw": "SPOELBAK INOX 1 BAK 500X 2",
     "repaired": "Spoelbak inox 1 bak 500x400 zwart",
     "message": "master wins, alternative kept as a note",
-    "evidence": {}
+    "evidence": {},
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "repair"
    },
    {
     "rule": "R-V-02",
@@ -2851,7 +3336,10 @@
     "raw": "SIFON WASTAFEL 5/4 CHROO 2",
     "repaired": "Sifon wastafel 5/4 chroom verzinkt",
     "message": "master wins, alternative kept as a note",
-    "evidence": {}
+    "evidence": {},
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "repair"
    },
    {
     "rule": "R-V-02",
@@ -2865,7 +3353,10 @@
     "raw": "INBOUWRESERVOIR 500 MM F (OUD)",
     "repaired": "Inbouwreservoir 500 mm frontbediening chroom",
     "message": "master wins, alternative kept as a note",
-    "evidence": {}
+    "evidence": {},
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "repair"
    },
    {
     "rule": "R-V-02",
@@ -2879,7 +3370,10 @@
     "raw": "INBOUWRESERVOIR 500 MM F (OUD)",
     "repaired": "Inbouwreservoir 500 mm frontbediening wit",
     "message": "master wins, alternative kept as a note",
-    "evidence": {}
+    "evidence": {},
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "repair"
    },
    {
     "rule": "R-V-02",
@@ -2893,7 +3387,10 @@
     "raw": "KOPPELING MESSING 3/4\" B 2",
     "repaired": "Koppeling messing 3/4\" binnendraad chroom",
     "message": "master wins, alternative kept as a note",
-    "evidence": {}
+    "evidence": {},
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "repair"
    }
   ],
   "R-V-01": [
@@ -2912,7 +3409,10 @@
     "evidence": {
      "master": "ST",
      "warehouse": "M"
-    }
+    },
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "quarantine"
    },
    {
     "rule": "R-V-01",
@@ -2929,7 +3429,10 @@
     "evidence": {
      "master": "PK",
      "warehouse": "ST"
-    }
+    },
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "quarantine"
    },
    {
     "rule": "R-V-01",
@@ -2946,7 +3449,10 @@
     "evidence": {
      "master": "PK",
      "warehouse": "ST"
-    }
+    },
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "quarantine"
    },
    {
     "rule": "R-V-01",
@@ -2963,7 +3469,10 @@
     "evidence": {
      "master": "PK",
      "warehouse": "M"
-    }
+    },
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "quarantine"
    },
    {
     "rule": "R-V-01",
@@ -2980,7 +3489,10 @@
     "evidence": {
      "master": "ST",
      "warehouse": "DS"
-    }
+    },
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "quarantine"
    },
    {
     "rule": "R-V-01",
@@ -2997,7 +3509,10 @@
     "evidence": {
      "master": "ST",
      "warehouse": "M"
-    }
+    },
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "quarantine"
    }
   ],
   "R-V-03": [
@@ -3016,7 +3531,10 @@
     "evidence": {
      "master": "L0010",
      "purchasing": "L0069"
-    }
+    },
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "quarantine"
    },
    {
     "rule": "R-V-03",
@@ -3033,7 +3551,10 @@
     "evidence": {
      "master": "L0051",
      "purchasing": "L0001"
-    }
+    },
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "quarantine"
    },
    {
     "rule": "R-V-03",
@@ -3050,7 +3571,10 @@
     "evidence": {
      "master": "L0028",
      "purchasing": "L0002"
-    }
+    },
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "quarantine"
    },
    {
     "rule": "R-V-03",
@@ -3067,7 +3591,10 @@
     "evidence": {
      "master": "L0032",
      "purchasing": "L0059"
-    }
+    },
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "quarantine"
    },
    {
     "rule": "R-V-03",
@@ -3084,7 +3611,10 @@
     "evidence": {
      "master": "L0065",
      "purchasing": "L0064"
-    }
+    },
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "quarantine"
    },
    {
     "rule": "R-V-03",
@@ -3101,7 +3631,10 @@
     "evidence": {
      "master": "L0061",
      "purchasing": "L0065"
-    }
+    },
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "quarantine"
    }
   ],
   "R-VI-04": [
@@ -3117,7 +3650,10 @@
     "raw": "TEST",
     "repaired": null,
     "message": "a working note with order history behind it",
-    "evidence": {}
+    "evidence": {},
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "reject"
    },
    {
     "rule": "R-VI-04",
@@ -3131,7 +3667,10 @@
     "raw": "ZZZ OUD - NIET GEBRUIKEN",
     "repaired": null,
     "message": "a working note with order history behind it",
-    "evidence": {}
+    "evidence": {},
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "reject"
    },
    {
     "rule": "R-VI-04",
@@ -3145,7 +3684,10 @@
     "raw": "KLANT NIEUW",
     "repaired": null,
     "message": "a working note with order history behind it",
-    "evidence": {}
+    "evidence": {},
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "reject"
    },
    {
     "rule": "R-VI-04",
@@ -3159,7 +3701,10 @@
     "raw": "ZZZ OUD - NIET GEBRUIKEN",
     "repaired": null,
     "message": "a working note with order history behind it",
-    "evidence": {}
+    "evidence": {},
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "reject"
    },
    {
     "rule": "R-VI-04",
@@ -3173,7 +3718,10 @@
     "raw": "aaa",
     "repaired": null,
     "message": "a working note with order history behind it",
-    "evidence": {}
+    "evidence": {},
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "reject"
    },
    {
     "rule": "R-VI-04",
@@ -3187,7 +3735,10 @@
     "raw": "TEST LEVERANCIER",
     "repaired": null,
     "message": "a working note with order history behind it",
-    "evidence": {}
+    "evidence": {},
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "reject"
    }
   ],
   "R-VI-01": [
@@ -3203,7 +3754,10 @@
     "raw": "BE9999999999",
     "repaired": null,
     "message": "structurally valid, identifies nobody",
-    "evidence": {}
+    "evidence": {},
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "reject"
    },
    {
     "rule": "R-VI-01",
@@ -3217,7 +3771,10 @@
     "raw": "BE0000000000",
     "repaired": null,
     "message": "structurally valid, identifies nobody",
-    "evidence": {}
+    "evidence": {},
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "reject"
    },
    {
     "rule": "R-VI-01",
@@ -3231,7 +3788,10 @@
     "raw": "BE0123456749",
     "repaired": null,
     "message": "structurally valid, identifies nobody",
-    "evidence": {}
+    "evidence": {},
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "reject"
    },
    {
     "rule": "R-VI-01",
@@ -3245,7 +3805,10 @@
     "raw": "BE0000000000",
     "repaired": null,
     "message": "structurally valid, identifies nobody",
-    "evidence": {}
+    "evidence": {},
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "reject"
    },
    {
     "rule": "R-VI-01",
@@ -3259,7 +3822,10 @@
     "raw": "BE0123456749",
     "repaired": null,
     "message": "structurally valid, identifies nobody",
-    "evidence": {}
+    "evidence": {},
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "reject"
    },
    {
     "rule": "R-VI-01",
@@ -3273,7 +3839,10 @@
     "raw": "BE0123456749",
     "repaired": null,
     "message": "structurally valid, identifies nobody",
-    "evidence": {}
+    "evidence": {},
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "reject"
    }
   ],
   "R-VI-02": [
@@ -3289,7 +3858,10 @@
     "raw": "9999-12-31",
     "repaired": null,
     "message": "nulled: the legacy system's way of saying null",
-    "evidence": {}
+    "evidence": {},
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "repair"
    },
    {
     "rule": "R-VI-02",
@@ -3303,7 +3875,10 @@
     "raw": "01/01/1900",
     "repaired": null,
     "message": "nulled: the legacy system's way of saying null",
-    "evidence": {}
+    "evidence": {},
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "repair"
    },
    {
     "rule": "R-VI-02",
@@ -3317,7 +3892,10 @@
     "raw": "01/01/1900",
     "repaired": null,
     "message": "nulled: the legacy system's way of saying null",
-    "evidence": {}
+    "evidence": {},
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "repair"
    },
    {
     "rule": "R-VI-02",
@@ -3331,7 +3909,10 @@
     "raw": "01/01/1900",
     "repaired": null,
     "message": "nulled: the legacy system's way of saying null",
-    "evidence": {}
+    "evidence": {},
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "repair"
    },
    {
     "rule": "R-VI-02",
@@ -3345,7 +3926,10 @@
     "raw": "01/01/1900",
     "repaired": null,
     "message": "nulled: the legacy system's way of saying null",
-    "evidence": {}
+    "evidence": {},
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "repair"
    },
    {
     "rule": "R-VI-02",
@@ -3359,7 +3943,10 @@
     "raw": "01/01/1900",
     "repaired": null,
     "message": "nulled: the legacy system's way of saying null",
-    "evidence": {}
+    "evidence": {},
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "repair"
    }
   ],
   "R-VI-03": [
@@ -3375,7 +3962,10 @@
     "raw": "x@x.x",
     "repaired": null,
     "message": "nulled: absence written as presence",
-    "evidence": {}
+    "evidence": {},
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "repair"
    },
    {
     "rule": "R-VI-03",
@@ -3389,7 +3979,10 @@
     "raw": "/",
     "repaired": null,
     "message": "nulled: absence written as presence",
-    "evidence": {}
+    "evidence": {},
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "repair"
    },
    {
     "rule": "R-VI-03",
@@ -3403,7 +3996,10 @@
     "raw": "geen@geen.be",
     "repaired": null,
     "message": "nulled: absence written as presence",
-    "evidence": {}
+    "evidence": {},
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "repair"
    },
    {
     "rule": "R-VI-03",
@@ -3417,7 +4013,10 @@
     "raw": "noreply@noreply.be",
     "repaired": null,
     "message": "nulled: absence written as presence",
-    "evidence": {}
+    "evidence": {},
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "repair"
    },
    {
     "rule": "R-VI-03",
@@ -3431,7 +4030,10 @@
     "raw": "/",
     "repaired": null,
     "message": "nulled: absence written as presence",
-    "evidence": {}
+    "evidence": {},
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "repair"
    },
    {
     "rule": "R-VI-03",
@@ -3445,7 +4047,10 @@
     "raw": "/",
     "repaired": null,
     "message": "nulled: absence written as presence",
-    "evidence": {}
+    "evidence": {},
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "repair"
    }
   ],
   "R-VI-05": [
@@ -3461,7 +4066,10 @@
     "raw": "XX",
     "repaired": null,
     "message": "\"B\" is a legacy code for Belgium and a valid code for nothing",
-    "evidence": {}
+    "evidence": {},
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "quarantine"
    },
    {
     "rule": "R-VI-05",
@@ -3475,7 +4083,10 @@
     "raw": "BELG",
     "repaired": "BE",
     "message": "recoverable, but ask anyway",
-    "evidence": {}
+    "evidence": {},
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "quarantine"
    },
    {
     "rule": "R-VI-05",
@@ -3489,7 +4100,10 @@
     "raw": "BELG",
     "repaired": "BE",
     "message": "recoverable, but ask anyway",
-    "evidence": {}
+    "evidence": {},
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "quarantine"
    },
    {
     "rule": "R-VI-05",
@@ -3503,7 +4117,10 @@
     "raw": "B",
     "repaired": null,
     "message": "\"B\" is a legacy code for Belgium and a valid code for nothing",
-    "evidence": {}
+    "evidence": {},
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "quarantine"
    },
    {
     "rule": "R-VI-05",
@@ -3517,7 +4134,10 @@
     "raw": "XX",
     "repaired": null,
     "message": "\"B\" is a legacy code for Belgium and a valid code for nothing",
-    "evidence": {}
+    "evidence": {},
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "quarantine"
    },
    {
     "rule": "R-VI-05",
@@ -3531,7 +4151,10 @@
     "raw": "XX",
     "repaired": null,
     "message": "\"B\" is a legacy code for Belgium and a valid code for nothing",
-    "evidence": {}
+    "evidence": {},
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "quarantine"
    }
   ],
   "R-VII-02": [
@@ -3547,7 +4170,10 @@
     "raw": "717349996412",
     "repaired": "0717349996412",
     "message": "leading zero restored and confirmed by the check digit",
-    "evidence": {}
+    "evidence": {},
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "repair"
    },
    {
     "rule": "R-VII-02",
@@ -3561,7 +4187,10 @@
     "raw": "672534575141",
     "repaired": "0672534575141",
     "message": "leading zero restored and confirmed by the check digit",
-    "evidence": {}
+    "evidence": {},
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "repair"
    },
    {
     "rule": "R-VII-02",
@@ -3575,7 +4204,10 @@
     "raw": "261691992276",
     "repaired": "0261691992276",
     "message": "leading zero restored and confirmed by the check digit",
-    "evidence": {}
+    "evidence": {},
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "repair"
    },
    {
     "rule": "R-VII-02",
@@ -3589,7 +4221,10 @@
     "raw": "334410745467",
     "repaired": "0334410745467",
     "message": "leading zero restored and confirmed by the check digit",
-    "evidence": {}
+    "evidence": {},
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "repair"
    },
    {
     "rule": "R-VII-02",
@@ -3603,7 +4238,10 @@
     "raw": "117163722929",
     "repaired": "0117163722929",
     "message": "leading zero restored and confirmed by the check digit",
-    "evidence": {}
+    "evidence": {},
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "repair"
    },
    {
     "rule": "R-VII-02",
@@ -3617,7 +4255,10 @@
     "raw": "161695208840",
     "repaired": "0161695208840",
     "message": "leading zero restored and confirmed by the check digit",
-    "evidence": {}
+    "evidence": {},
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "repair"
    }
   ],
   "R-VII-01": [
@@ -3636,7 +4277,10 @@
     "evidence": {
      "stock": "0",
      "hint": "match against the master file on EAN before accepting"
-    }
+    },
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "quarantine"
    },
    {
     "rule": "R-VII-01",
@@ -3653,7 +4297,10 @@
     "evidence": {
      "stock": "2",
      "hint": "match against the master file on EAN before accepting"
-    }
+    },
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "quarantine"
    },
    {
     "rule": "R-VII-01",
@@ -3670,7 +4317,10 @@
     "evidence": {
      "stock": "12",
      "hint": "match against the master file on EAN before accepting"
-    }
+    },
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "quarantine"
    },
    {
     "rule": "R-VII-01",
@@ -3687,7 +4337,10 @@
     "evidence": {
      "stock": "480",
      "hint": "match against the master file on EAN before accepting"
-    }
+    },
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "quarantine"
    },
    {
     "rule": "R-VII-01",
@@ -3704,7 +4357,10 @@
     "evidence": {
      "stock": "0",
      "hint": "match against the master file on EAN before accepting"
-    }
+    },
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "quarantine"
    },
    {
     "rule": "R-VII-01",
@@ -3721,7 +4377,10 @@
     "evidence": {
      "stock": "0",
      "hint": "match against the master file on EAN before accepting"
-    }
+    },
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "quarantine"
    }
   ],
   "R-VII-03": [
@@ -3737,7 +4396,10 @@
     "raw": "12/09/2026",
     "repaired": "2026-09-12",
     "message": "read as dmy on 655 unambiguous rows in the same file",
-    "evidence": {}
+    "evidence": {},
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "repair"
    },
    {
     "rule": "R-VII-03",
@@ -3751,7 +4413,10 @@
     "raw": "46267",
     "repaired": "2026-09-02",
     "message": "Excel serial number converted back to a date",
-    "evidence": {}
+    "evidence": {},
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "repair"
    },
    {
     "rule": "R-VII-03",
@@ -3765,7 +4430,10 @@
     "raw": "03/09/2025",
     "repaired": "2025-09-03",
     "message": "read as dmy on 655 unambiguous rows in the same file",
-    "evidence": {}
+    "evidence": {},
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "repair"
    },
    {
     "rule": "R-VII-03",
@@ -3779,7 +4447,10 @@
     "raw": "08/04/2026",
     "repaired": "2026-04-08",
     "message": "read as dmy on 655 unambiguous rows in the same file",
-    "evidence": {}
+    "evidence": {},
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "repair"
    },
    {
     "rule": "R-VII-03",
@@ -3793,7 +4464,10 @@
     "raw": "05/11/2025",
     "repaired": "2025-11-05",
     "message": "read as dmy on 655 unambiguous rows in the same file",
-    "evidence": {}
+    "evidence": {},
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "repair"
    },
    {
     "rule": "R-VII-03",
@@ -3807,7 +4481,10 @@
     "raw": "11/08/2025",
     "repaired": "2025-08-11",
     "message": "read as dmy on 655 unambiguous rows in the same file",
-    "evidence": {}
+    "evidence": {},
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "repair"
    }
   ],
   "R-VII-04": [
@@ -3830,7 +4507,10 @@
       "dmy": 586,
       "mdy": 75
      }
-    }
+    },
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "quarantine"
    },
    {
     "rule": "R-VII-04",
@@ -3851,7 +4531,10 @@
       "dmy": 586,
       "mdy": 75
      }
-    }
+    },
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "quarantine"
    },
    {
     "rule": "R-VII-04",
@@ -3872,7 +4555,10 @@
       "dmy": 586,
       "mdy": 75
      }
-    }
+    },
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "quarantine"
    },
    {
     "rule": "R-VII-04",
@@ -3893,7 +4579,10 @@
       "dmy": 586,
       "mdy": 75
      }
-    }
+    },
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "quarantine"
    },
    {
     "rule": "R-VII-04",
@@ -3914,7 +4603,10 @@
       "dmy": 586,
       "mdy": 75
      }
-    }
+    },
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "quarantine"
    },
    {
     "rule": "R-VII-04",
@@ -3935,7 +4627,10 @@
       "dmy": 586,
       "mdy": 75
      }
-    }
+    },
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "quarantine"
    }
   ],
   "R-VIII-01": [
@@ -3951,7 +4646,10 @@
     "raw": "K89984",
     "repaired": null,
     "message": "orphan agreement; a loader would drop it silently",
-    "evidence": {}
+    "evidence": {},
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "reject"
    },
    {
     "rule": "R-VIII-01",
@@ -3965,7 +4663,10 @@
     "raw": "K85125",
     "repaired": null,
     "message": "orphan agreement; a loader would drop it silently",
-    "evidence": {}
+    "evidence": {},
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "reject"
    },
    {
     "rule": "R-VIII-01",
@@ -3979,7 +4680,10 @@
     "raw": "VRW-0089",
     "repaired": null,
     "message": "agreement on an unknown article",
-    "evidence": {}
+    "evidence": {},
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "reject"
    },
    {
     "rule": "R-VIII-01",
@@ -3993,7 +4697,10 @@
     "raw": "VRW-0271",
     "repaired": null,
     "message": "agreement on an unknown article",
-    "evidence": {}
+    "evidence": {},
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "reject"
    },
    {
     "rule": "R-VIII-01",
@@ -4007,7 +4714,10 @@
     "raw": "SAN-0066",
     "repaired": null,
     "message": "agreement on an unknown article",
-    "evidence": {}
+    "evidence": {},
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "reject"
    },
    {
     "rule": "R-VIII-01",
@@ -4021,7 +4731,10 @@
     "raw": "K86710",
     "repaired": null,
     "message": "orphan agreement; a loader would drop it silently",
-    "evidence": {}
+    "evidence": {},
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "reject"
    }
   ],
   "R-VIII-02": [
@@ -4037,7 +4750,10 @@
     "raw": "L918",
     "repaired": null,
     "message": "the article is real and sellable; only its replenishment link is broken",
-    "evidence": {}
+    "evidence": {},
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "quarantine"
    },
    {
     "rule": "R-VIII-02",
@@ -4051,7 +4767,10 @@
     "raw": "L931",
     "repaired": null,
     "message": "the article is real and sellable; only its replenishment link is broken",
-    "evidence": {}
+    "evidence": {},
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "quarantine"
    },
    {
     "rule": "R-VIII-02",
@@ -4065,7 +4784,10 @@
     "raw": "L917",
     "repaired": null,
     "message": "the article is real and sellable; only its replenishment link is broken",
-    "evidence": {}
+    "evidence": {},
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "quarantine"
    },
    {
     "rule": "R-VIII-02",
@@ -4079,7 +4801,10 @@
     "raw": "L900",
     "repaired": null,
     "message": "the article is real and sellable; only its replenishment link is broken",
-    "evidence": {}
+    "evidence": {},
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "quarantine"
    },
    {
     "rule": "R-VIII-02",
@@ -4093,7 +4818,10 @@
     "raw": "L953",
     "repaired": null,
     "message": "the article is real and sellable; only its replenishment link is broken",
-    "evidence": {}
+    "evidence": {},
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "quarantine"
    },
    {
     "rule": "R-VIII-02",
@@ -4107,7 +4835,10 @@
     "raw": "L946",
     "repaired": null,
     "message": "the article is real and sellable; only its replenishment link is broken",
-    "evidence": {}
+    "evidence": {},
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "quarantine"
    }
   ],
   "R-VIII-04": [
@@ -4123,7 +4854,10 @@
     "raw": "L0058",
     "repaired": null,
     "message": "reference intact, business fact broken: reroute or block",
-    "evidence": {}
+    "evidence": {},
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "quarantine"
    },
    {
     "rule": "R-VIII-04",
@@ -4137,7 +4871,10 @@
     "raw": "L0032",
     "repaired": null,
     "message": "reference intact, business fact broken: reroute or block",
-    "evidence": {}
+    "evidence": {},
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "quarantine"
    },
    {
     "rule": "R-VIII-04",
@@ -4151,7 +4888,10 @@
     "raw": "L0032",
     "repaired": null,
     "message": "reference intact, business fact broken: reroute or block",
-    "evidence": {}
+    "evidence": {},
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "quarantine"
    },
    {
     "rule": "R-VIII-04",
@@ -4165,7 +4905,10 @@
     "raw": "L0057",
     "repaired": null,
     "message": "reference intact, business fact broken: reroute or block",
-    "evidence": {}
+    "evidence": {},
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "quarantine"
    },
    {
     "rule": "R-VIII-04",
@@ -4179,7 +4922,10 @@
     "raw": "L0030",
     "repaired": null,
     "message": "reference intact, business fact broken: reroute or block",
-    "evidence": {}
+    "evidence": {},
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "quarantine"
    },
    {
     "rule": "R-VIII-04",
@@ -4193,7 +4939,10 @@
     "raw": "L0057",
     "repaired": null,
     "message": "reference intact, business fact broken: reroute or block",
-    "evidence": {}
+    "evidence": {},
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "quarantine"
    }
   ],
   "R-VIII-03": [
@@ -4211,7 +4960,10 @@
     "message": "a receivable with no customer; it must be reported, not dropped",
     "evidence": {
      "amount": "8488.44"
-    }
+    },
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "reject"
    },
    {
     "rule": "R-VIII-03",
@@ -4227,7 +4979,10 @@
     "message": "a receivable with no customer; it must be reported, not dropped",
     "evidence": {
      "amount": "3611.32"
-    }
+    },
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "reject"
    },
    {
     "rule": "R-VIII-03",
@@ -4243,7 +4998,10 @@
     "message": "a receivable with no customer; it must be reported, not dropped",
     "evidence": {
      "amount": "1160.56"
-    }
+    },
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "reject"
    },
    {
     "rule": "R-VIII-03",
@@ -4259,7 +5017,10 @@
     "message": "a receivable with no customer; it must be reported, not dropped",
     "evidence": {
      "amount": "6289.65"
-    }
+    },
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "reject"
    },
    {
     "rule": "R-VIII-03",
@@ -4275,7 +5036,10 @@
     "message": "a receivable with no customer; it must be reported, not dropped",
     "evidence": {
      "amount": "2702.42"
-    }
+    },
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "reject"
    },
    {
     "rule": "R-VIII-03",
@@ -4291,7 +5055,10 @@
     "message": "a receivable with no customer; it must be reported, not dropped",
     "evidence": {
      "amount": "8910.17"
-    }
+    },
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "reject"
    }
   ],
   "R-IX-03": [
@@ -4332,7 +5099,10 @@
        "difference": "-1247.50"
       }
      ]
-    }
+    },
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "gate"
    }
   ],
   "R-IX-04": [
@@ -4413,7 +5183,10 @@
        "migrated": "0.00"
       }
      ]
-    }
+    },
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "gate"
    }
   ]
  },
@@ -4436,7 +5209,10 @@
       "romm ns verwarming en zonen",
       "test"
      ]
-    }
+    },
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "quarantine"
    },
    {
     "rule": "R-II-04",
@@ -4455,7 +5231,10 @@
       "d poorter en zonen",
       "depoorter en zonen"
      ]
-    }
+    },
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "quarantine"
    },
    {
     "rule": "R-II-04",
@@ -4474,7 +5253,10 @@
       "d clercq en zonen",
       "declercq en zonen"
      ]
-    }
+    },
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "quarantine"
    },
    {
     "rule": "R-II-04",
@@ -4494,7 +5276,10 @@
       "deveux",
       "deveux store"
      ]
-    }
+    },
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "quarantine"
    },
    {
     "rule": "R-II-04",
@@ -4513,7 +5298,10 @@
       "hoorna rt elektro",
       "hoornaert elektro"
      ]
-    }
+    },
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "quarantine"
    },
    {
     "rule": "R-II-04",
@@ -4532,7 +5320,10 @@
       "vand n broucke",
       "vanden broucke"
      ]
-    }
+    },
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "quarantine"
    },
    {
     "rule": "R-IV-03",
@@ -4551,7 +5342,10 @@
      "flag": "1",
      "master_price": "758.41",
      "inclusive_would_be": "803.91"
-    }
+    },
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "quarantine"
    },
    {
     "rule": "R-IV-03",
@@ -4570,7 +5364,10 @@
      "flag": "x",
      "master_price": "989.42",
      "inclusive_would_be": "1197.20"
-    }
+    },
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "quarantine"
    },
    {
     "rule": "R-IV-03",
@@ -4589,7 +5386,10 @@
      "flag": "ja",
      "master_price": "294.63",
      "inclusive_would_be": "356.50"
-    }
+    },
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "quarantine"
    },
    {
     "rule": "R-IV-03",
@@ -4608,7 +5408,10 @@
      "flag": "1",
      "master_price": "517.94",
      "inclusive_would_be": "626.71"
-    }
+    },
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "quarantine"
    },
    {
     "rule": "R-IV-03",
@@ -4627,7 +5430,10 @@
      "flag": "ja",
      "master_price": "984.50",
      "inclusive_would_be": "1191.24"
-    }
+    },
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "quarantine"
    },
    {
     "rule": "R-IV-04",
@@ -4644,7 +5450,10 @@
     "evidence": {
      "cost": "676.59",
      "price": "595.40"
-    }
+    },
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "quarantine"
    },
    {
     "rule": "R-IV-03",
@@ -4663,7 +5472,10 @@
      "flag": "ja",
      "master_price": "696.72",
      "inclusive_would_be": "843.03"
-    }
+    },
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "quarantine"
    },
    {
     "rule": "R-IV-04",
@@ -4680,7 +5492,10 @@
     "evidence": {
      "cost": "81.69",
      "price": "71.89"
-    }
+    },
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "quarantine"
    },
    {
     "rule": "R-IV-04",
@@ -4697,7 +5512,10 @@
     "evidence": {
      "cost": "511.37",
      "price": "450.01"
-    }
+    },
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "quarantine"
    },
    {
     "rule": "R-IV-04",
@@ -4714,7 +5532,10 @@
     "evidence": {
      "cost": "685.65",
      "price": "603.37"
-    }
+    },
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "quarantine"
    },
    {
     "rule": "R-IV-04",
@@ -4731,7 +5552,10 @@
     "evidence": {
      "cost": "536.54",
      "price": "472.16"
-    }
+    },
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "quarantine"
    },
    {
     "rule": "R-IV-04",
@@ -4748,7 +5572,10 @@
     "evidence": {
      "cost": "198.41",
      "price": "174.60"
-    }
+    },
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "quarantine"
    },
    {
     "rule": "R-VII-04",
@@ -4769,7 +5596,10 @@
       "dmy": 586,
       "mdy": 75
      }
-    }
+    },
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "quarantine"
    },
    {
     "rule": "R-VII-04",
@@ -4790,7 +5620,10 @@
       "dmy": 586,
       "mdy": 75
      }
-    }
+    },
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "quarantine"
    },
    {
     "rule": "R-VII-04",
@@ -4811,7 +5644,10 @@
       "dmy": 586,
       "mdy": 75
      }
-    }
+    },
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "quarantine"
    },
    {
     "rule": "R-VII-04",
@@ -4832,7 +5668,10 @@
       "dmy": 586,
       "mdy": 75
      }
-    }
+    },
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "quarantine"
    },
    {
     "rule": "R-VII-04",
@@ -4853,7 +5692,10 @@
       "dmy": 586,
       "mdy": 75
      }
-    }
+    },
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "quarantine"
    },
    {
     "rule": "R-VII-04",
@@ -4874,7 +5716,10 @@
       "dmy": 586,
       "mdy": 75
      }
-    }
+    },
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "quarantine"
    }
   ],
   "operations": [
@@ -4893,7 +5738,10 @@
     "evidence": {
      "master": "ST",
      "warehouse": "M"
-    }
+    },
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "quarantine"
    },
    {
     "rule": "R-V-01",
@@ -4910,7 +5758,10 @@
     "evidence": {
      "master": "PK",
      "warehouse": "ST"
-    }
+    },
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "quarantine"
    },
    {
     "rule": "R-V-01",
@@ -4927,7 +5778,10 @@
     "evidence": {
      "master": "PK",
      "warehouse": "ST"
-    }
+    },
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "quarantine"
    },
    {
     "rule": "R-V-01",
@@ -4944,7 +5798,10 @@
     "evidence": {
      "master": "PK",
      "warehouse": "M"
-    }
+    },
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "quarantine"
    },
    {
     "rule": "R-V-01",
@@ -4961,7 +5818,10 @@
     "evidence": {
      "master": "ST",
      "warehouse": "DS"
-    }
+    },
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "quarantine"
    },
    {
     "rule": "R-V-01",
@@ -4978,7 +5838,10 @@
     "evidence": {
      "master": "ST",
      "warehouse": "M"
-    }
+    },
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "quarantine"
    },
    {
     "rule": "R-VII-01",
@@ -4995,7 +5858,10 @@
     "evidence": {
      "stock": "0",
      "hint": "match against the master file on EAN before accepting"
-    }
+    },
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "quarantine"
    },
    {
     "rule": "R-VII-01",
@@ -5012,7 +5878,10 @@
     "evidence": {
      "stock": "2",
      "hint": "match against the master file on EAN before accepting"
-    }
+    },
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "quarantine"
    },
    {
     "rule": "R-VII-01",
@@ -5029,7 +5898,10 @@
     "evidence": {
      "stock": "12",
      "hint": "match against the master file on EAN before accepting"
-    }
+    },
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "quarantine"
    },
    {
     "rule": "R-VII-01",
@@ -5046,7 +5918,10 @@
     "evidence": {
      "stock": "480",
      "hint": "match against the master file on EAN before accepting"
-    }
+    },
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "quarantine"
    },
    {
     "rule": "R-VII-01",
@@ -5063,7 +5938,10 @@
     "evidence": {
      "stock": "0",
      "hint": "match against the master file on EAN before accepting"
-    }
+    },
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "quarantine"
    },
    {
     "rule": "R-VII-01",
@@ -5080,7 +5958,10 @@
     "evidence": {
      "stock": "0",
      "hint": "match against the master file on EAN before accepting"
-    }
+    },
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "quarantine"
    }
   ],
   "purchasing": [
@@ -5099,7 +5980,10 @@
     "evidence": {
      "master": "L0010",
      "purchasing": "L0069"
-    }
+    },
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "quarantine"
    },
    {
     "rule": "R-V-03",
@@ -5116,7 +6000,10 @@
     "evidence": {
      "master": "L0051",
      "purchasing": "L0001"
-    }
+    },
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "quarantine"
    },
    {
     "rule": "R-V-03",
@@ -5133,7 +6020,10 @@
     "evidence": {
      "master": "L0028",
      "purchasing": "L0002"
-    }
+    },
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "quarantine"
    },
    {
     "rule": "R-V-03",
@@ -5150,7 +6040,10 @@
     "evidence": {
      "master": "L0032",
      "purchasing": "L0059"
-    }
+    },
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "quarantine"
    },
    {
     "rule": "R-V-03",
@@ -5167,7 +6060,10 @@
     "evidence": {
      "master": "L0065",
      "purchasing": "L0064"
-    }
+    },
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "quarantine"
    },
    {
     "rule": "R-V-03",
@@ -5184,7 +6080,10 @@
     "evidence": {
      "master": "L0061",
      "purchasing": "L0065"
-    }
+    },
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "quarantine"
    },
    {
     "rule": "R-VIII-02",
@@ -5198,7 +6097,10 @@
     "raw": "L918",
     "repaired": null,
     "message": "the article is real and sellable; only its replenishment link is broken",
-    "evidence": {}
+    "evidence": {},
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "quarantine"
    },
    {
     "rule": "R-VIII-02",
@@ -5212,7 +6114,10 @@
     "raw": "L931",
     "repaired": null,
     "message": "the article is real and sellable; only its replenishment link is broken",
-    "evidence": {}
+    "evidence": {},
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "quarantine"
    },
    {
     "rule": "R-VIII-04",
@@ -5226,7 +6131,10 @@
     "raw": "L0058",
     "repaired": null,
     "message": "reference intact, business fact broken: reroute or block",
-    "evidence": {}
+    "evidence": {},
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "quarantine"
    },
    {
     "rule": "R-VIII-04",
@@ -5240,7 +6148,10 @@
     "raw": "L0032",
     "repaired": null,
     "message": "reference intact, business fact broken: reroute or block",
-    "evidence": {}
+    "evidence": {},
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "quarantine"
    },
    {
     "rule": "R-VIII-02",
@@ -5254,7 +6165,10 @@
     "raw": "L917",
     "repaired": null,
     "message": "the article is real and sellable; only its replenishment link is broken",
-    "evidence": {}
+    "evidence": {},
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "quarantine"
    },
    {
     "rule": "R-VIII-04",
@@ -5268,7 +6182,10 @@
     "raw": "L0032",
     "repaired": null,
     "message": "reference intact, business fact broken: reroute or block",
-    "evidence": {}
+    "evidence": {},
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "quarantine"
    },
    {
     "rule": "R-VIII-04",
@@ -5282,7 +6199,10 @@
     "raw": "L0057",
     "repaired": null,
     "message": "reference intact, business fact broken: reroute or block",
-    "evidence": {}
+    "evidence": {},
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "quarantine"
    },
    {
     "rule": "R-VIII-04",
@@ -5296,7 +6216,10 @@
     "raw": "L0030",
     "repaired": null,
     "message": "reference intact, business fact broken: reroute or block",
-    "evidence": {}
+    "evidence": {},
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "quarantine"
    },
    {
     "rule": "R-VIII-04",
@@ -5310,7 +6233,10 @@
     "raw": "L0057",
     "repaired": null,
     "message": "reference intact, business fact broken: reroute or block",
-    "evidence": {}
+    "evidence": {},
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "quarantine"
    },
    {
     "rule": "R-VIII-02",
@@ -5324,7 +6250,10 @@
     "raw": "L900",
     "repaired": null,
     "message": "the article is real and sellable; only its replenishment link is broken",
-    "evidence": {}
+    "evidence": {},
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "quarantine"
    },
    {
     "rule": "R-VIII-02",
@@ -5338,7 +6267,10 @@
     "raw": "L953",
     "repaired": null,
     "message": "the article is real and sellable; only its replenishment link is broken",
-    "evidence": {}
+    "evidence": {},
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "quarantine"
    },
    {
     "rule": "R-VIII-02",
@@ -5352,7 +6284,10 @@
     "raw": "L946",
     "repaired": null,
     "message": "the article is real and sellable; only its replenishment link is broken",
-    "evidence": {}
+    "evidence": {},
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "quarantine"
    }
   ],
   "sales": [
@@ -5372,7 +6307,10 @@
      "score": 75.55555555555556,
      "candidate": "Declercq & Zonen",
      "candidate_row": 24
-    }
+    },
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "quarantine"
    },
    {
     "rule": "R-II-02",
@@ -5390,7 +6328,10 @@
      "score": 75.55555555555556,
      "candidate": "Declercq & Zonen",
      "candidate_row": 24
-    }
+    },
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "quarantine"
    },
    {
     "rule": "R-II-02",
@@ -5408,7 +6349,10 @@
      "score": 75.55555555555556,
      "candidate": "Declercq & Zonen",
      "candidate_row": 67
-    }
+    },
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "quarantine"
    },
    {
     "rule": "R-II-02",
@@ -5426,7 +6370,10 @@
      "score": 75.55555555555556,
      "candidate": "Declercq & Zonen",
      "candidate_row": 67
-    }
+    },
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "quarantine"
    },
    {
     "rule": "R-II-02",
@@ -5444,7 +6391,10 @@
      "score": 75.55555555555556,
      "candidate": "Declercq Verwarming & Zonen",
      "candidate_row": 417
-    }
+    },
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "quarantine"
    },
    {
     "rule": "R-II-02",
@@ -5462,7 +6412,10 @@
      "score": 75.55555555555556,
      "candidate": "Declercq & Zonen",
      "candidate_row": 15
-    }
+    },
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "quarantine"
    },
    {
     "rule": "R-II-03",
@@ -5481,7 +6434,10 @@
       "14",
       "60"
      ]
-    }
+    },
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "quarantine"
    },
    {
     "rule": "R-II-03",
@@ -5500,7 +6456,10 @@
       "10000",
       "25000"
      ]
-    }
+    },
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "quarantine"
    },
    {
     "rule": "R-II-03",
@@ -5519,7 +6478,10 @@
       "30",
       "45"
      ]
-    }
+    },
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "quarantine"
    },
    {
     "rule": "R-II-03",
@@ -5538,7 +6500,10 @@
       "2500",
       "5000"
      ]
-    }
+    },
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "quarantine"
    },
    {
     "rule": "R-II-03",
@@ -5557,7 +6522,10 @@
       "15000",
       "5000"
      ]
-    }
+    },
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "quarantine"
    },
    {
     "rule": "R-II-03",
@@ -5576,7 +6544,10 @@
       "45",
       "60"
      ]
-    }
+    },
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "quarantine"
    },
    {
     "rule": "R-III-04",
@@ -5590,7 +6561,10 @@
     "raw": "achter de kerk, bellen bij de poort",
     "repaired": null,
     "message": "a delivery instruction, not an address",
-    "evidence": {}
+    "evidence": {},
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "quarantine"
    },
    {
     "rule": "R-III-04",
@@ -5604,7 +6578,10 @@
     "raw": "achter de kerk, bellen bij de poort",
     "repaired": null,
     "message": "a delivery instruction, not an address",
-    "evidence": {}
+    "evidence": {},
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "quarantine"
    },
    {
     "rule": "R-III-04",
@@ -5618,7 +6595,10 @@
     "raw": "nieuw adres volgt",
     "repaired": null,
     "message": "a delivery instruction, not an address",
-    "evidence": {}
+    "evidence": {},
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "quarantine"
    },
    {
     "rule": "R-III-04",
@@ -5632,7 +6612,10 @@
     "raw": "werf Izegem - zie Jan",
     "repaired": null,
     "message": "a delivery instruction, not an address",
-    "evidence": {}
+    "evidence": {},
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "quarantine"
    },
    {
     "rule": "R-III-04",
@@ -5646,7 +6629,10 @@
     "raw": "achter de kerk, bellen bij de poort",
     "repaired": null,
     "message": "a delivery instruction, not an address",
-    "evidence": {}
+    "evidence": {},
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "quarantine"
    },
    {
     "rule": "R-III-04",
@@ -5660,7 +6646,10 @@
     "raw": "nieuw adres volgt",
     "repaired": null,
     "message": "a delivery instruction, not an address",
-    "evidence": {}
+    "evidence": {},
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "quarantine"
    },
    {
     "rule": "R-VI-05",
@@ -5674,7 +6663,10 @@
     "raw": "XX",
     "repaired": null,
     "message": "\"B\" is a legacy code for Belgium and a valid code for nothing",
-    "evidence": {}
+    "evidence": {},
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "quarantine"
    },
    {
     "rule": "R-VI-05",
@@ -5688,7 +6680,10 @@
     "raw": "BELG",
     "repaired": "BE",
     "message": "recoverable, but ask anyway",
-    "evidence": {}
+    "evidence": {},
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "quarantine"
    },
    {
     "rule": "R-VI-05",
@@ -5702,7 +6697,10 @@
     "raw": "BELG",
     "repaired": "BE",
     "message": "recoverable, but ask anyway",
-    "evidence": {}
+    "evidence": {},
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "quarantine"
    },
    {
     "rule": "R-VI-05",
@@ -5716,7 +6714,10 @@
     "raw": "B",
     "repaired": null,
     "message": "\"B\" is a legacy code for Belgium and a valid code for nothing",
-    "evidence": {}
+    "evidence": {},
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "quarantine"
    },
    {
     "rule": "R-VI-05",
@@ -5730,7 +6731,10 @@
     "raw": "XX",
     "repaired": null,
     "message": "\"B\" is a legacy code for Belgium and a valid code for nothing",
-    "evidence": {}
+    "evidence": {},
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "quarantine"
    },
    {
     "rule": "R-VI-05",
@@ -5744,7 +6748,10 @@
     "raw": "XX",
     "repaired": null,
     "message": "\"B\" is a legacy code for Belgium and a valid code for nothing",
-    "evidence": {}
+    "evidence": {},
+    "decision": null,
+    "decided_by": null,
+    "effective_action": "quarantine"
    }
   ]
  },

@@ -45,3 +45,46 @@ class NoRunYet(DanteError):
             f"there is no run to report on: {path} does not exist",
             "run `dante run` first — it writes the summary this reads",
         )
+
+
+class NoDecisions(DanteError):
+    def __init__(self, path: Path) -> None:
+        super().__init__(
+            f"there are no decision sheets at {path}",
+            "the sheets to fill in are written to out/purgatorio/ by `dante run` — "
+            "copy one, fill the decision column, and point --decisions at it",
+        )
+
+
+class MalformedDecisions(DanteError):
+    def __init__(self, path: Path, missing: list[str]) -> None:
+        super().__init__(
+            f"{path.name} is missing the column(s) {', '.join(missing)}",
+            "a decision sheet is a copy of out/purgatorio/<owner>.csv with a "
+            "`decision` column added — keep the rule, entity, key and field "
+            "columns, because they are what identifies the finding",
+        )
+
+
+class RefusedDecisions(DanteError):
+    def __init__(self, problems: list[str]) -> None:
+        shown = "\n  ".join(problems[:8])
+        more = f"\n  … and {len(problems) - 8} more" if len(problems) > 8 else ""
+        noun = "decision" if len(problems) == 1 else "decisions"
+        super().__init__(
+            f"{len(problems)} {noun} cannot be applied:\n  {shown}{more}",
+            "fix the lines above and run again — nothing was applied, so the "
+            "run you just made is the same one you had",
+        )
+
+
+class UnknownRecord(DanteError):
+    def __init__(self, key: str, near: list[str]) -> None:
+        hint = f" Did you mean {', '.join(near[:3])}?" if near else ""
+        super().__init__(
+            f"no record {key!r} in the last run.{hint}",
+            "keys look like K00008 (customer), SAN-0025 (article), L0010 "
+            "(supplier) or VF240006 (receivable). A row from a rep's file has "
+            "no key of its own and is addressed as cust_jan#11. `dante why` "
+            "reads out/report/placement.csv, so run `dante run` first",
+        )

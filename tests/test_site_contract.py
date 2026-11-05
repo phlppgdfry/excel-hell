@@ -24,6 +24,9 @@ SITE_HTML = ROOT / "docs" / "index.html"
 
 # Keys site.js reads off the summary object, as `d.<key>`.
 DATA_ACCESS = re.compile(r"\bd\.([a-z_]+)\b")
+# The second-pass section names its two runs `one` and `two`, so it needs its
+# own accessor: `d.` would not find a single one of them.
+PASS_ACCESS = re.compile(r"\b(?:one|two)\.([a-z_]+)\b")
 # Element ids the script writes into, where it names them outright.
 JS_IDS = re.compile(r"getElementById\(\"([^\"]+)\"\)")
 
@@ -49,6 +52,41 @@ def test_every_key_the_page_reads_is_published(run):
     read -= {"length", "forEach", "map", "filter", "push", "textContent", "number"}
     missing = sorted(k for k in read if k not in published)
     assert not missing, f"site.js reads keys the run does not publish: {missing}"
+
+
+def second(run) -> dict:
+    return json.loads((run["site"] / "data" / "second-pass.json").read_text())
+
+
+def test_every_key_the_second_pass_section_reads_is_published(run):
+    """`one` is the dry run and `two` is the answered one; both are published."""
+    read = set(PASS_ACCESS.findall(SITE_JS.read_text()))
+    read -= {"length", "forEach", "map", "filter", "push", "textContent"}
+    first, after = summary(run), second(run)
+    missing = sorted(k for k in read if k not in first or k not in after)
+    assert not missing, \
+        f"the second-pass section reads {missing}, which one of the two runs lacks"
+    assert "decisions" in read and "totals" in read
+
+
+def test_the_second_pass_file_carries_what_the_table_needs(run):
+    two = second(run)
+    assert {"verdict", "totals", "backlog_total", "decisions", "gates"} <= set(two)
+    assert {"applied", "answers", "by_verdict", "files", "released_rows",
+            "rejected_rows"} <= set(two["decisions"])
+    for rule in ("R-IX-03", "R-IX-04"):
+        gate = next(g for g in two["gates"] if g["rule"] == rule)
+        assert gate["evidence"], f"{rule} needs its evidence to be comparable"
+    assert "customers" in next(g for g in two["gates"]
+                               if g["rule"] == "R-IX-04")["evidence"]
+    assert "unexplained_gross" in next(g for g in two["gates"]
+                                       if g["rule"] == "R-IX-03")["evidence"]
+
+
+def test_the_second_pass_file_is_small_enough_to_be_a_second_artefact(run):
+    """It is trimmed on purpose: a copy of the whole run would go stale twice."""
+    raw = (run["site"] / "data" / "second-pass.json").read_text()
+    assert len(raw) < 20_000, "second-pass.json should carry differences, not a run"
 
 
 def test_the_nested_shapes_the_page_depends_on(run):
@@ -97,6 +135,10 @@ def test_the_published_site_data_is_the_committed_one(run):
     assert committed["verdict"] == fresh["verdict"]
     assert committed["totals"] == fresh["totals"]
     assert committed["findings_by_rule"] == fresh["findings_by_rule"]
+
+    two = json.loads((ROOT / "docs" / "data" / "second-pass.json").read_text())
+    assert two["totals"] == second(run)["totals"]
+    assert two["decisions"] == second(run)["decisions"]
 
 
 def test_the_hand_listed_ids_are_still_built_the_way_they_look():
