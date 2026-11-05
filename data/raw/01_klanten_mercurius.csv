@@ -1,0 +1,841 @@
+﻿KLANTNR;NAAM;STRAAT;NR;BUS;POSTCODE;GEMEENTE;LAND;BTWNR;EMAIL;TEL;BETAALTERMIJN;KREDIETLIMIET;AANGEMAAKT;GEBLOKKEERD
+K00001;Vermeulen;Kwadestraat;206;A;8790;Waregem;BE;BE0655523030;info@vermeulen.be;051574020;30;50000;2010-08-30;N
+K00002;Soenen bvba;Brugsesteenweg;239;0101;8600;Diksmuide;BE;BE0860013777;bestel@soenen.be;044676416;14;25000;40003;N
+K00003;Carron Klimaat vof;Noordlaan;115;;8900;Ieper;BE;BE0541026606;boekhouding@carron.be;051421878;14;2500;2014-08-25;N
+K00004;Vanden Broucke & Zonen;Beverenstraat;41;;8830;Hooglede;BE;BE0567511564;bestel@vanden.be;051258289;30;5000;2012-05-08;N
+K00005;Carron nv;Zuidstraat;1;A;8850;Ardooie;BE;BE0811011555;info@carron.be;043229526;14;50000;2008-05-11;N
+K00006;Verhelst vof;Nieuwstraat;20;0101;9880;Aalter;BE;BE0913781867;info@verhelst.be;095800060;30;25000;2011-07-14;N
+K00007;Hoornaert Groep;Nieuwstraat;210;0101;8400;Oostende;BE;BE0261069758;bestel@hoornaert.be;049436763;14;5000;2015-11-10;N
+K00008;TEST;Brugsesteenweg;47;A;8710;Wielsbeke;BE;BE0433327011;administratie@rommens.be;049388992;30;5000;2006-07-22;N
+k 00009;Vanhoutte Klimaat vof;Mandellaan;144;;8900;Ieper;BE;BE0933795046;bestel@vanhoutte.be;097355186;30;50000;2018-08-19;N
+K00010;Debusschere Renovatie Groep;Oostlaan;43;0101;8560;Wevelgem;BE;BE0272022246;bestel@debusschere.be;091952294;45;25000;2007-10-07;N
+K00011;Rommens & Zonen;Kerkstraat;168;A;8000;Brugge;BE;BE0759123285;info@rommens.be;047032531;30;10000;2010-01-04;N
+K00012;Baert nv;Rijksweg;49;A;8000;Brugge;BE;BE0517680585;bestel@baert.be;054862115;45;2500;2020-09-16;N
+K00013;Noppe Sanitair vof;Gitsestraat;192;;8870;Izegem;BE;BE0913214418;bestel@noppe.be;054002048;14;15000;2006-05-24;J
+K00014;Seynaeve & Zonen;Kwadestraat;13;3;8710;Wielsbeke;BE;BE0477124786;bestel@seynaeve.be;046759645;60;2500;2023-02-15;N
+K00015;Lammertyn Bouw bvba;Hoogstraat;192;;8980;Zonnebeke;BE;BE0171963281;bestel@lammertyn.be;056863021;14;5000;2014-12-13;N
+K00016;Boussemaere Installaties bv;Rijksweg;159;A;8400;Oostende;BE;BE0232790793;info@boussemaere.be;057545694;30;10000;2014-06-03;J
+K00017;Loosveldt Elektro nv;Kwadestraat;66;0101;8820;Torhout;BE;BE0527638230;administratie@loosveldt.be;057479371;30;50000;2019-11-24;N
+K00018;Depoorter & Zonen;Gitsestraat;2;0101;8560;Wevelgem;BE;BE0229646015;boekhouding@depoorter.be;054216771;30;10000;2021-07-17;N
+K00019;Vanacker bvba;Westlaan;124;A;8820;Torhout;BE;BE0663693992;info@vanacker.be;091254669;30;5000;2012-04-18;J
+K00020;Callewaert & Zonen;Industrielaan;5;3;9800;Deinze;BE;BE9999999999;info@callewaert.be;053687266;45;50000;2011-09-16;N
+K00021;Vanden Broucke Klimaat;Kerkstraat;113;;9880;Aalter;BE;BE0581771356;info@vanden.be;059954919;45;5000;2012-08-26;N
+K00022;Boussemaere Dakwerken vof;Molenstraat;21;;8530;Harelbeke;BE;BE0598089825;info@boussemaere.be;053531374;30;5000;2017-01-31;N
+K00023;Declercq & Zonen;Stationsstraat;206;A;8890;Moorslede;BE;BE0316090435;administratie@declercq.be;057882565;45;50000;2017-06-03;N
+K00024;Deveux bvba;Mandellaan;112;;9700;Oudenaarde;BE;BE0777369381;info@deveux.be;059693502;14;50000;2006-07-01;N
+K00025;Vanlerberghe bv;Nieuwstraat;76;;8890;Moorslede;BE;BE0118464714;boekhouding@vanlerberghe.be;051979489;30;25000;2014-07-20;N
+K00026;Rommens bvba;Oostlaan;122;3;8810;Lichtervelde;BE;BE0311900233;info@rommens.be;091331131;30;15000;2019-05-29;N
+K00027;Vanhaverbeke;Industrielaan;114;;8710;Wielsbeke;BE;BE0621107034;administratie@vanhaverbeke.be;055041204;30;5000;9999-12-31;N
+K00028;Hoornaert Elektro;Kwadestraat;229;;8530;Harelbeke;BE;BE0716984903;administratie@hoornaert.be;059761414;30;5000;2017-06-01;N
+K00029;Desmet Sanitair Groep;Vijverhoek;69;;8530;Harelbeke;BE;BE0127033079;info@desmet.be;054400843;30;2500;2005-05-10;N
+K00030;Vanden Broucke nv;Westlaan;53;A;8810;Lichtervelde;BE;BE0634217969;administratie@vanden.be;059204007;30;25000;2014-01-04;N
+K00031;Deschacht vof;Industrielaan;11;;8870;Izegem;BE;BE0475158656;info@deschacht.be;056514686;14;2500;2005-12-22;J
+K00032;Carron nv;Brugsesteenweg;199;3;9000;Gent;BE;BE0750985183;info@carron.be;058325813;60;10000;2005-01-16;N
+K00033;Dekeyser Installaties bvba;Hoogstraat;85;;8810;Lichtervelde;BE;BE0451134924;administratie@dekeyser.be;095965127;60;15000;2016-03-12;N
+K00034;Vermeulen Sanitair & Zonen;Vijverhoek;135;3;8600;Diksmuide;BE;BE0965571652;info@vermeulen.be;098396232;30;2500;2004-08-27;N
+K00035;Vanden Broucke Klimaat vof;Hoogstraat;61;;8930;Menen;BE;BE0068451118;info@vanden.be;093461941;30;2500;2016-03-16;N
+k 00036;Devos vof;Westlaan;154;;8530;Harelbeke;BE;BE0406697739;x@x.x;053096350;60;5000;2021-08-17;N
+K00037;Rommens vof;Stationsstraat;120;;8530;Harelbeke;BE;BE0394078336;administratie@rommens.be;044348442;30;5000;2014-01-04;N
+K00038;Depoorter Klimaat;Nieuwstraat;177;;8530;Harelbeke;BE;BE0726574441;bestel@depoorter.be;053292929;60;5000;2012-02-23;N
+K00039;Deschacht nv;Brugsesteenweg;16;;8600;Diksmuide;BE;BE0472458789;boekhouding@deschacht.be;053375422;30;2500;2022-12-03;N
+K00040;Tanghe Dakwerken nv;Gitsestraat;107;A;8890;Moorslede;BE;BE0630915516;administratie@tanghe.be;049935487;14;5000;2020-07-01;N
+K00041;Vanneste Elektro bvba;Diksmuidsesteenweg;126;;8820;Torhout;BE;BE0887009075;boekhouding@vanneste.be;048821401;45;50000;2004-08-07;N
+K00042;Dewitte Techniek;Westlaan;219;0101;8800;Roeselare;BE;BE0109132621;bestel@dewitte.be;055639132;45;50000;2023-03-01;N
+K00043;Snauwaert comm.v;Kwadestraat;82;A;8820;Torhout;BE;BE0964735967;administratie@snauwaert.be;051246417;30;25000;2021-12-16;N
+K00044;Bruggeman Groep;Hoogstraat;209;;8900;Ieper;BE;BE0822861391;info@bruggeman.be;051100490;30;2500;2009-08-31;N
+K00045;Boussemaere Loodgieterij vof;Beverenstraat;21;A;8900;Ieper;BE;BE0903216290;bestel@boussemaere.be;046232209;60;5000;2021-09-05;J
+K00046;Rommens Klimaat bv;Nieuwstraat;126;2;8560;Wevelgem;BE;BE0551144694;administratie@rommens.be;042917626;14;5000;2009-11-20;N
+K00047;Pattyn nv;Zuidstraat;190;2;8710;Wielsbeke;BE;BE0424989761;boekhouding@pattyn.be;057399363;30;2500;2017-03-31;N
+K00048;Baert & Zonen;Zuidstraat;2;;8820;Torhout;BE;BE0890201860;bestel@baert.be;097626490;60;2500;2022-12-15;N
+K00049;Verhoeve nv;Nieuwstraat;51;2;8980;Zonnebeke;BE;BE0388071264;boekhouding@verhoeve.be;047162183;45;5000;2023-11-21;N
+K00050;Vanhaverbeke Bouw;Meensesteenweg;90;;8820;Torhout;BE;BE0485487275;info@vanhaverbeke.be;/;30;15000;2012-01-11;N
+K00051;Depoorter Elektro bv;Zuidstraat;123;2;8890;Moorslede;BE;BE0248949411;bestel@depoorter.be;099174532;30;5000;2006-05-16;N
+K00052;Declercq comm.v;Rijksweg;173;A;8870;Izegem;BE;BE0637916441;bestel@declercq.be;091729418;45;15000;2015-07-25;J
+K00053;Baert Sanitair & Zonen;Molenstraat;118;;8820;Torhout;BE;BE0806457109;geen@geen.be;055582747;14;5000;2017-04-19;N
+K00054;Goethals Installaties bv;Kerkstraat;152;0101;8600;Diksmuide;BE;BE0183486584;administratie@goethals.be;054027091;30;50000;2023-02-16;N
+K00055;Vanacker nv;Brugsesteenweg;175;;9000;Gent;BE;BE0572994935;administratie@vanacker.be;091729798;14;10000;2016-04-05;N
+K00056;Depoorter comm.v;Mandellaan;11;A;8530;Harelbeke;BE;BE0507458171;administratie@depoorter.be;096226352;60;5000;42432;N
+K00057;Coussement bvba;Nieuwstraat;130;;8790;Waregem;BE;BE0407462851;boekhouding@coussement.be;051223113;60;50000;2005-11-14;N
+K00058;Vanacker Bouw bvba;Zuidstraat;159;;8930;Menen;BE;BE0596582266;noreply@noreply.be;059117888;45;50000;2023-04-04;N
+K00059;Verhelst Verwarming nv;Nieuwstraat;109;0101;8400;Oostende;BE;BE0691799050;administratie@verhelst.be;051569337;14;15000;2016-12-09;N
+K00060;Vanlerberghe Techniek vof;Kerkstraat;85;;8810;Lichtervelde;BE;BE0921864046;administratie@vanlerberghe.be;051473570;14;15000;2007-04-17;N
+K00061;Verhelst Groep;Beverenstraat;36;;8870;Izegem;BE;BE0000000000;bestel@verhelst.be;049239962;60;2500;2009-11-17;N
+K00062;Decroix vof;Hoogstraat;197;;8930;Menen;BE;BE0668500145;bestel@decroix.be;059131222;60;5000;2012-04-16;N
+K00063;Devos Klimaat bv;Rijksweg;9;2;8400;Oostende;BE;BE0640895826;boekhouding@devos.be;052649396;45;50000;2016-07-20;N
+K00064;Vanlerberghe & Zonen;Gitsestraat;225;;9880;Aalter;BE;BE0172376918;bestel@vanlerberghe.be;052402948;60;2500;2019-12-15;N
+K00065;Callewaert;Rijksweg;116;0101;8800;Roeselare;BE;BE0545385369;administratie@callewaert.be;052030931;14;5000;2015-04-15;N
+K00066;Declercq & Zonen;Noordlaan;124;;8890;Moorslede;BE;BE0774212626;boekhouding@declercq.be;054121923;60;10000;41136;N
+K00067;Dekeyser Techniek;Beverenstraat;163;0101;9800;Deinze;BE;BE0384051209;/;058740658;30;2500;2010-11-17;N
+K00068;Rommens Dakwerken bvba;Kerkstraat;70;2;8970;Poperinge;BE;BE0376675051;info@rommens.be;043563052;14;50000;2009-07-05;N
+K00069;Vanacker Installaties;Kerkstraat;49;0101;8930;Menen;BE;BE0729909756;info@vanacker.be;053204098;30;2500;2010-07-09;N
+K00070;Vanlerberghe Sanitair nv;Zuidstraat;61;A;8000;Brugge;BE;BE0457374893;boekhouding@vanlerberghe.be;055131352;60;5000;2016-11-17;N
+K00071;Verschoore bv;Zuidstraat;43;;8600;Diksmuide;BE;BE0387529153;info@verschoore.be;058397142;30;25000;2015-03-09;N
+K00072;Vandenberghe;Westlaan;83;A;8500;Kortrijk;BE;BE0187239593;administratie@vandenberghe.be;097681589;30;2500;2015-03-03;N
+K00073;Verhelst Loodgieterij vof;Zuidstraat;148;2;8530;Harelbeke;BE;BE0802334213;boekhouding@verhelst.be;095645468;60;15000;2010-06-06;N
+K00074;Vanlerberghe nv;Nieuwstraat;116;;8830;Hooglede;BE;BE0502622920;bestel@vanlerberghe.be;056601541;60;50000;2020-02-26;N
+K00075;Cottenier vof;Gitsestraat;121;A;8830;Hooglede;BE;BE0249939603;bestel@cottenier.be;056224248;14;15000;2016-03-31;N
+K00076;Seynaeve;Industrielaan;135;0101;8820;Torhout;BE;BE0811566930;info@seynaeve.be;042299954;30;5000;2010-05-02;N
+K00077;Tanghe Verwarming comm.v;Westlaan;233;3;8800;Roeselare;BE;BE0943684195;boekhouding@tanghe.be;056937656;30;25000;2016-10-18;N
+K00078;Beernaert Bouw vof;Zuidstraat;202;0101;8980;Zonnebeke;BE;BE0492677351;bestel@beernaert.be;041131599;60;5000;2010-02-25;N
+K00079;Deveux;Rijksweg;154;;8000;Brugge;BE;BE0559066527;bestel@deveux.be;051215006;14;15000;2016-09-09;N
+K00080;Verhoeve bvba;Beverenstraat;181;;8710;Wielsbeke;BE;BE0358425688;administratie@verhoeve.be;042138782;60;50000;2010-05-04;N
+K00081;Pattyn Techniek bv;Rijksweg;76;;8700;Tielt;BE;BE0318903237;administratie@pattyn.be;047197241;14;5000;2021-09-07;N
+K00082;Baert nv;Oostlaan;25;;8400;Oostende;BE;BE0508307714;boekhouding@baert.be;058129134;30;25000;2014-02-28;J
+K00083;Tanghe Loodgieterij;Kerkstraat;168;3;8980;Zonnebeke;BE;BE0268858363;boekhouding@tanghe.be;053917704;30;5000;2018-11-06;N
+K00084;Dekeyser nv;Rijksweg;165;;8820;Torhout;BE;BE0415695478;info@dekeyser.be;053235227;30;15000;39588;N
+K00085;Goethals nv;Mandellaan;47;2;8790;Waregem;BE;BE0044897637;info@goethals.be;055991327;45;5000;2009-02-27;N
+K00086;Boussemaere & Zonen;Mandellaan;89;A;8970;Poperinge;BE;BE0539441645;/;097672753;30;5000;2024-02-18;N
+K00087;Devos & Zonen;Beverenstraat;204;3;8710;Wielsbeke;BE;BE0838574205;info@devos.be;056020878;30;5000;2006-01-29;N
+K00088;Vanlerberghe;Oostlaan;100;;8870;Izegem;BE;BE0844670852;noreply@noreply.be;098363724;30;50000;2020-07-07;N
+K00089;Noppe;Industrielaan;148;A;9880;Aalter;BE;BE0752819374;bestel@noppe.be;097059067;30;5000;2012-03-18;N
+K00090;Delaere Verwarming & Zonen;Mandellaan;10;3;9880;Aalter;BE;BE0271858435;/;056391102;14;15000;42327;N
+K00091;Vanneste Techniek & Zonen;Rijksweg;183;;8000;Brugge;BE;BE0407976555;administratie@vanneste.be;092552522;30;5000;2011-10-14;N
+K00092;Pattyn Renovatie comm.v;Nieuwstraat;209;;8930;Menen;BE;BE0453351175;boekhouding@pattyn.be;047780520;30;15000;2022-01-23;N
+K00093;Vanden Broucke comm.v;Molenstraat;217;2;9700;Oudenaarde;BE;BE0396523726;info@vanden.be;044679749;14;10000;2020-08-04;N
+K00094;Devos Loodgieterij comm.v;Nieuwstraat;182;;8930;Menen;BE;BE0396283008;info@devos.be;0;30;10000;2018-08-31;N
+K00095;Vanbecelaere Installaties nv;Ambachtenstraat;31;3;8900;Ieper;BE;BE0075404632;bestel@vanbecelaere.be;052133978;14;25000;2010-08-01;N
+K00096;Deschacht bvba;Gitsestraat;6;0101;8850;Ardooie;BE;BE0137174133;administratie@deschacht.be;056887439;14;10000;2009-03-06;N
+K00097;Maertens nv;Westlaan;178;3;8560;Wevelgem;BE;BE0305454483;boekhouding@maertens.be;055080861;30;10000;01/01/1900;N
+K00098;Verhoeve Dakwerken Groep;Ambachtenstraat;106;;9000;Gent;BE;BE0812711332;bestel@verhoeve.be;052714995;60;15000;2004-05-15;N
+K00099;Mortier nv;Brugsesteenweg;111;0101;8560;Wevelgem;BE;BE0041824717;administratie@mortier.be;047632949;30;10000;2011-06-20;N
+K00100;Maertens bv;Kerkstraat;40;;8500;Kortrijk;BE;BE0853394221;bestel@maertens.be;056498567;45;5000;2018-06-04;N
+K00101;Deveux Dakwerken comm.v;Kerkstraat;150;;8890;Moorslede;BE;BE0211514141;bestel@deveux.be;056577237;14;15000;2015-08-08;N
+K00102;Bruggeman bvba;Industrielaan;67;;9800;Deinze;BE;BE0443025625;bestel@bruggeman.be;058062411;45;50000;2008-04-24;N
+K00103;Snauwaert Sanitair Groep;Nieuwstraat;201;2;8810;Lichtervelde;BE;BE0736562075;bestel@snauwaert.be;091174615;30;25000;2022-10-30;N
+K00104;Soenen comm.v;Vijverhoek;177;0101;8710;Wielsbeke;BE;BE0938820537;bestel@soenen.be;045866596;60;5000;2005-08-21;N
+K00105;Beernaert nv;Oostlaan;138;3;8710;Wielsbeke;BE;BE0848743367;bestel@beernaert.be;095109543;45;15000;2023-03-14;N
+K00106;Vanden Broucke Groep;Westlaan;39;;8530;Harelbeke;BE;BE0822561681;info@vanden.be;052986692;30;5000;2005-11-12;N
+K00107;Vanhoutte Techniek Groep;Kerkstraat;211;;8000;Brugge;BE;BE0270430258;info@vanhoutte.be;054501879;14;2500;2024-09-01;N
+K00108;Deschacht;Meensesteenweg;31;3;9700;Oudenaarde;BE;BE0816871840;info@deschacht.be;052546097;30;50000;2010-10-12;N
+K00109;Tanghe;Kwadestraat;26;;8900;Ieper;BE;BE0946182441;boekhouding@tanghe.be;043850139;45;5000;2014-11-30;N
+K00110;Decroix bvba;Noordlaan;21;A;9000;Gent;BE;BE0471949243;administratie@decroix.be;056328312;45;2500;01/01/1900;N
+K00111;Callewaert nv;Industrielaan;178;;8000;Brugge;BE;BE0111625818;boekhouding@callewaert.be;057015226;30;5000;2015-02-18;N
+K00112;Vanbecelaere vof;Gitsestraat;121;;8790;Waregem;BE;BE0966049625;info@vanbecelaere.be;047955195;30;5000;2010-08-05;N
+K00113;Vandenberghe Groep;Gitsestraat;233;;8900;Ieper;BE;BE0093231846;boekhouding@vandenberghe.be;000000000;14;2500;2012-04-08;N
+K00114;Rommens & Zonen;Molenstraat;67;;8810;Lichtervelde;BE;BE0995406080;boekhouding@rommens.be;097567211;14;5000;2017-05-04;N
+K00115;Verhelst Elektro bv;Ambachtenstraat;56;0101;8970;Poperinge;BE;BE0070313419;boekhouding@verhelst.be;098864412;14;2500;2018-02-06;J
+K00116;Lefevere vof;Meensesteenweg;170;A;8930;Menen;BE;BE0068835851;bestel@lefevere.be;058843055;14;5000;2012-04-24;N
+K00117;Mortier bvba;Oostlaan;95;0101;8890;Moorslede;BE;BE0334360681;administratie@mortier.be;053918600;14;25000;2008-01-28;N
+K00118;Noppe Elektro vof;Ambachtenstraat;140;;9700;Oudenaarde;BE;BE0345555768;boekhouding@noppe.be;052324297;60;15000;2012-10-05;N
+K00119;Cottenier;Gitsestraat;42;;8970;Poperinge;BE;BE0796072664;bestel@cottenier.be;054192136;30;2500;2004-02-07;N
+K00120;Vanden Broucke comm.v;Stationsstraat;236;0101;8000;Brugge;BE;BE0525226987;info@vanden.be;059310644;60;25000;2015-03-11;N
+K00121;Verschoore Verwarming vof;Diksmuidsesteenweg;149;;8930;Menen;BE;BE0750353297;boekhouding@verschoore.be;051814372;45;10000;2007-05-30;N
+K00122;Vanhoutte Verwarming nv;Brugsesteenweg;227;0101;8890;Moorslede;BE;BE0482618451;administratie@vanhoutte.be;052662997;30;10000;2012-05-07;N
+K00123;Baert Groep;Westlaan;196;2;9000;Gent;BE;BE0286545027;bestel@baert.be;056499975;60;5000;2004-05-24;N
+K00124;Deprez comm.v;Rijksweg;181;A;8400;Oostende;BE;BE0487462414;info@deprez.be;051435414;30;25000;2014-01-11;N
+K00125;Baert Renovatie comm.v;Oostlaan;114;;8830;Hooglede;BE;BE0724528632;administratie@baert.be;055522252;14;2500;2014-09-13;N
+K00126;Noppe bvba;Brugsesteenweg;208;;8870;Izegem;BE;BE0838904993;noreply@noreply.be;054244865;30;10000;2017-11-15;N
+K00127;Bruggeman Renovatie bv;Meensesteenweg;121;A;9800;Deinze;BE;BE0448481676;info@bruggeman.be;059459967;60;5000;2017-06-15;N
+K00128;Vanlerberghe Renovatie bv;Westlaan;21;2;9880;Aalter;BE;BE0861248152;boekhouding@vanlerberghe.be;056326696;45;15000;2013-10-10;N
+K00129;Decroix Loodgieterij bv;Zuidstraat;189;3;8400;Oostende;BE;BE0812731623;bestel@decroix.be;058482711;45;10000;45181;N
+k 00130;Snauwaert comm.v;Rijksweg;107;;8870;Izegem;BE;BE0304881985;administratie@snauwaert.be;000000000;30;5000;2005-01-04;N
+K00131;Vanden Broucke Elektro bv;Brugsesteenweg;158;0101;8970;Poperinge;BE;BE0326147454;administratie@vanden.be;044032793;30;15000;2017-02-03;N
+K00132;Declercq Klimaat vof;Gitsestraat;146;;8500;Kortrijk;BE;BE0745679382;bestel@declercq.be;nvt;30;5000;2012-10-21;J
+K00133;Maertens Groep;Molenstraat;64;0101;8790;Waregem;BE;BE0040979926;info@maertens.be;052956794;14;5000;2023-06-04;N
+K00134;Verhelst Klimaat & Zonen;Beverenstraat;25;3;8930;Menen;BE;BE0738987669;/;055268289;30;5000;2005-01-11;N
+K00135;Vanneste & Zonen;Oostlaan;70;0101;9800;Deinze;BE;BE0218295926;administratie@vanneste.be;058920897;30;50000;2010-01-02;N
+K00136;Depoorter vof;Mandellaan;219;A;8400;Oostende;BE;BE0397430576;bestel@depoorter.be;053835234;30;5000;2010-11-09;N
+K00137;Callewaert Dakwerken;Zuidstraat;59;;8890;Moorslede;BE;BE0373534429;info@callewaert.be;059745732;30;15000;2013-12-12;N
+K00138;Pattyn Loodgieterij comm.v;Stationsstraat;104;A;8810;Lichtervelde;BE;BE0447683308;administratie@pattyn.be;055003276;45;50000;01/01/1900;N
+K00139;Boussemaere;Vijverhoek;57;A;8530;Harelbeke;BE;BE0793930647;bestel@boussemaere.be;054696071;30;2500;2023-11-15;N
+K00140;Deschacht Techniek;Nieuwstraat;62;3;8710;Wielsbeke;BE;BE0782779409;info@deschacht.be;054435873;45;5000;2005-02-03;N
+k 00141;Goethals Techniek bv;Hoogstraat;64;3;8970;Poperinge;BE;BE0192300223;boekhouding@goethals.be;094650976;30;50000;2013-05-12;N
+K00142;Cottenier Verwarming comm.v;Kerkstraat;15;3;8900;Ieper;BE;BE0309774844;/;093126598;60;10000;44374;N
+k 00143;Verhoeve vof (BE0095028326);Rijksweg;51;3;8500;Kortrijk;BE;;info@verhoeve.be;055366480;30;5000;2011-05-16;N
+K00144;Rommens;Gitsestraat;54;;8900;Ieper;BE;BE0786823319;administratie@rommens.be;094030430;30;5000;2022-02-25;N
+K00145;Devos comm.v;Kwadestraat;140;;8980;Zonnebeke;BE;BE0609039937;boekhouding@devos.be;055287467;60;50000;2019-04-12;N
+K00146;Vanlerberghe Sanitair bv;Stationsstraat;85;0101;8890;Moorslede;BE;BE0123456749;bestel@vanlerberghe.be;055217392;60;15000;2023-07-16;N
+K00147;Beernaert Loodgieterij bv;Kerkstraat;216;3;8710;Wielsbeke;BE;BE0104422676;info@beernaert.be;051780876;60;15000;2021-02-17;N
+K00148;Noppe Verwarming Groep;Ambachtenstraat;200;A;8870;Izegem;BE;BE0320218378;administratie@noppe.be;053678127;30;15000;2016-10-02;N
+K00149;Verschoore nv;Kerkstraat;53;;9700;Oudenaarde;BE;BE0902585097;bestel@verschoore.be;042454773;30;15000;2013-07-07;N
+K00150;Bruggeman Loodgieterij vof;Nieuwstraat;220;3;8970;Poperinge;XX;BE0684690930;boekhouding@bruggeman.be;058865098;30;15000;2019-12-03;N
+K00151;Decroix Dakwerken bv;Stationsstraat;52;2;8830;Hooglede;BE;BE0899835940;info@decroix.be;058041860;30;15000;2016-01-22;N
+K00152;Lammertyn Sanitair Groep;Beverenstraat;158;3;8700;Tielt;BE;BE0588849089;administratie@lammertyn.be;nvt;60;15000;2006-11-21;N
+K00153;Vanacker comm.v;Hoogstraat;91;3;8790;Waregem;BE;BE0689906164;administratie@vanacker.be;051939348;30;5000;2023-01-16;N
+K00154;Lefevere Groep;Noordlaan;197;;8850;Ardooie;BE;BE0124853747;boekhouding@lefevere.be;048736200;30;15000;2022-11-30;N
+k 00155;Boussemaere Verwarming bv;Noordlaan;236;;8530;Harelbeke;BE;BE0511911956;bestel@boussemaere.be;056669148;30;15000;2022-06-13;N
+K00156;Goethals comm.v;Diksmuidsesteenweg;12;0101;8790;Waregem;BE;BE0121455777;info@goethals.be;052978513;60;50000;2005-12-13;N
+K00157;Rommens Loodgieterij bvba;Westlaan;139;3;8000;Brugge;BE;BE0289626063;info@rommens.be;049298994;30;10000;2005-05-16;N
+K00158;Pattyn Dakwerken & Zonen;Oostlaan;106;2;8600;Diksmuide;BE;BE0244099114;boekhouding@pattyn.be;049525402;30;25000;2015-09-05;N
+K00159;Goethals Techniek vof;Ambachtenstraat;193;;8500;Kortrijk;BE;BE0202738611;boekhouding@goethals.be;055925304;14;5000;2017-12-14;N
+K00160;Vanlerberghe & Zonen;Meensesteenweg;63;A;8900;Ieper;BE;BE0613052074;bestel@vanlerberghe.be;055622276;30;5000;2007-04-02;N
+K00161;Vanbecelaere Bouw comm.v;Beverenstraat;171;;8890;Moorslede;BE;BE0819014451;administratie@vanbecelaere.be;041394835;60;5000;2017-12-05;N
+K00162;Verhoeve Bouw comm.v (BE0865636017);Kerkstraat;104;3;9700;Oudenaarde;BE;;info@verhoeve.be;055645680;14;5000;2014-07-31;N
+K00163;Vandenberghe nv;Industrielaan;215;2;8600;Diksmuide;BE;BE0487474191;bestel@vandenberghe.be;059258309;45;5000;2021-06-17;N
+K00164;Vanbecelaere & Zonen;Nieuwstraat;224;0101;9880;Aalter;BE;BE0224326356;bestel@vanbecelaere.be;053287031;60;2500;2017-07-14;N
+K00165;Lefevere bv;Meensesteenweg;20;0101;8810;Lichtervelde;BE;BE0423976013;administratie@lefevere.be;059170767;45;50000;2018-07-07;N
+K00166;Carron Elektro nv;Hoogstraat;13;A;9800;Deinze;BE;BE0253465057;bestel@carron.be;048309170;30;50000;2011-06-18;N
+K00167;Verschoore Verwarming bvba;Stationsstraat;181;;8980;Zonnebeke;BE;BE0394254421;bestel@verschoore.be;042745768;30;5000;2004-09-03;N
+k 00168;Coussement Installaties & Zonen;Vijverhoek;52;;8700;Tielt;BE;BE0320105344;boekhouding@coussement.be;051802100;30;10000;2005-06-11;N
+K00169;Boussemaere;Oostlaan;29;;8790;Waregem;BE;BE0135484947;administratie@boussemaere.be;052597850;30;5000;2006-09-12;N
+k 00170;Deschacht Elektro;Kerkstraat;236;;8890;Moorslede;BE;BE0351134456;info@deschacht.be;053864512;30;15000;2017-03-04;N
+K00171;Vanhaverbeke comm.v;Vijverhoek;73;;8710;Wielsbeke;BE;BE0076723040;administratie@vanhaverbeke.be;046273454;30;5000;2015-07-04;N
+K00172;Verschoore bvba (BE0370997185);Brugsesteenweg;95;;8820;Torhout;BE;;geen@geen.be;093752388;14;15000;2007-03-11;N
+K00173;Deschacht Bouw;Mandellaan;154;;8850;Ardooie;BE;BE0742233409;bestel@deschacht.be;055082097;30;5000;44575;N
+K00174;Cottenier vof;Hoogstraat;42;3;8900;Ieper;BE;BE0124018359;administratie@cottenier.be;099077183;45;15000;2024-10-21;N
+K00175;Maertens Loodgieterij vof;Oostlaan;229;;8400;Oostende;BE;BE0873021576;boekhouding@maertens.be;055904612;30;5000;2012-06-18;N
+K00176;Vanbecelaere Bouw bv;Industrielaan;171;0101;8930;Menen;BE;BE0354239644;noreply@noreply.be;054745522;30;50000;2022-07-31;N
+K00177;Vanden Broucke Sanitair Groep;Ambachtenstraat;214;;8810;Lichtervelde;BE;BE0644133547;bestel@vanden.be;055719216;45;5000;2014-03-29;N
+K00178;Lammertyn Groep;Zuidstraat;22;;8790;Waregem;BE;BE0739793462;bestel@lammertyn.be;053929889;30;50000;2011-03-28;N
+K00179;Lefevere vof;Brugsesteenweg;40;A;9800;Deinze;BE;BE0075574381;info@lefevere.be;045578310;30;50000;2014-08-14;N
+K00180;Vanlerberghe Sanitair comm.v;Kwadestraat;206;;8970;Poperinge;BE;BE0092211762;info@vanlerberghe.be;095830188;14;25000;2012-07-15;N
+K00181;ZZZ OUD - NIET GEBRUIKEN;Kwadestraat;138;0101;8790;Waregem;BE;BE0782246404;bestel@deprez.be;059006747;30;2500;2023-05-07;N
+K00182;Loosveldt bvba;Noordlaan;143;A;8820;Torhout;BE;BE0198228606;bestel@loosveldt.be;043963986;30;10000;2018-12-27;J
+K00183;Vanlerberghe bvba;Kwadestraat;227;;8830;Hooglede;BE;BE0188731613;/;057671465;30;5000;2024-09-12;N
+k 00184;Delaere Installaties & Zonen;Rijksweg;114;;8710;Wielsbeke;BE;BE0627225061;info@delaere.be;055873462;14;10000;2018-09-13;N
+k 00185;Deschacht Techniek & Zonen;Rijksweg;175;0101;8530;Harelbeke;BE;BE0694165751;boekhouding@deschacht.be;055161830;45;50000;2004-06-19;N
+K00186;Hoornaert Dakwerken bv;Kerkstraat;184;;8560;Wevelgem;BE;BE0600318746;administratie@hoornaert.be;041519910;45;25000;2023-07-11;N
+K00187;Rommens Loodgieterij & Zonen;Vijverhoek;216;;8820;Torhout;BE;BE0388858449;boekhouding@rommens.be;057918013;14;5000;2010-11-13;N
+K00188;Pattyn bvba;Kwadestraat;203;;8710;Wielsbeke;BE;BE0399405121;administratie@pattyn.be;058200618;30;50000;2015-08-26;N
+K00189;Hoornaert Verwarming bv;Ambachtenstraat;203;A;8710;Wielsbeke;BE;BE0459311628;boekhouding@hoornaert.be;044547493;30;10000;2010-11-04;N
+K00190;Coussement Renovatie bvba;Zuidstraat;148;2;9800;Deinze;BE;BE0874504983;bestel@coussement.be;051349510;14;50000;2015-07-20;N
+K00191;Vanneste vof;Rijksweg;40;2;8830;Hooglede;BE;BE0412378870;info@vanneste.be;058967834;30;50000;2005-07-19;N
+K00192;Deschacht Installaties comm.v;Vijverhoek;159;2;8500;Kortrijk;BE;BE0177003224;bestel@deschacht.be;053861023;14;50000;2014-02-27;N
+k 00193;Pattyn comm.v;Mandellaan;95;;8700;Tielt;BE;BE0961836261;administratie@pattyn.be;052961586;30;2500;2023-12-01;N
+K00194;Desmet bvba;Gitsestraat;142;0101;9800;Deinze;BE;BE0453138270;bestel@desmet.be;053856991;30;2500;44829;N
+K00195;Deschacht Renovatie & Zonen;Noordlaan;66;;8820;Torhout;BE;BE0225178372;boekhouding@deschacht.be;044534375;30;5000;2008-01-19;N
+K00196;Boussemaere bv;Kwadestraat;88;;9800;Deinze;BE;BE0320825322;bestel@boussemaere.be;056273874;30;25000;2014-09-12;N
+K00197;Delaere bvba;Noordlaan;24;;8980;Zonnebeke;BE;BE0948173713;boekhouding@delaere.be;044832703;30;2500;2010-01-12;N
+K00198;Debusschere vof;Stationsstraat;171;;8710;Wielsbeke;BE;BE0866166844;boekhouding@debusschere.be;097139239;30;50000;2023-09-16;N
+K00199;Vanneste Verwarming comm.v;Ambachtenstraat;117;;9800;Deinze;BE;BE0240492791;bestel@vanneste.be;097638991;45;50000;2009-08-29;N
+K00200;Vanbecelaere Elektro;Oostlaan;102;2;9700;Oudenaarde;BE;BE0474553197;bestel@vanbecelaere.be;098645907;30;50000;2013-10-26;N
+K00201;Deprez Klimaat Groep;Nieuwstraat;207;;8930;Menen;BE;BE0288181060;bestel@deprez.be;096406115;30;5000;2010-12-29;N
+K00202;Devos Klimaat;Brugsesteenweg;8;;8400;Oostende;BE;BE0149151455;administratie@devos.be;092942848;30;15000;2023-12-06;N
+K00203;Vanden Broucke Bouw nv;Hoogstraat;46;0101;8530;Harelbeke;BE;BE0698176997;info@vanden.be;094286698;30;15000;2019-05-07;N
+K00204;Vanacker Groep;Nieuwstraat;78;A;8530;Harelbeke;BE;BE0300048021;bestel@vanacker.be;057469107;14;5000;2019-07-29;N
+K00205;Callewaert Techniek nv;Beverenstraat;8;;8980;Zonnebeke;BE;BE0365233407;bestel@callewaert.be;099177868;45;15000;2004-07-26;N
+K00206;Debusschere Installaties;Westlaan;94;;8810;Lichtervelde;BE;BE0787557549;administratie@debusschere.be;053007848;45;25000;2024-10-10;N
+K00207;Vermeulen Bouw comm.v;Industrielaan;7;0101;9700;Oudenaarde;BE;BE0841333260;boekhouding@vermeulen.be;057779202;30;50000;2011-02-25;N
+K00208;Boussemaere comm.v;Molenstraat;100;;8800;Roeselare;BE;BE0403847919;info@boussemaere.be;042288500;45;15000;2008-09-16;N
+K00209;Hoornaert Installaties;Diksmuidsesteenweg;202;3;8900;Ieper;BE;BE0528206174;boekhouding@hoornaert.be;093125890;30;5000;2014-07-19;N
+K00210;Debusschere comm.v;Kwadestraat;129;A;8500;Kortrijk;BE;BE0724703331;info@debusschere.be;096857783;30;10000;2004-10-10;N
+k 00211;Vandenberghe Sanitair;Diksmuidsesteenweg;111;2;8870;Izegem;BE;BE0902897180;administratie@vandenberghe.be;056157662;30;2500;2022-02-11;N
+K00212;Loosveldt Renovatie bvba;Beverenstraat;239;;8530;Harelbeke;BE;BE0594502211;bestel@loosveldt.be;098704596;60;5000;42857;N
+k 00213;Vandenberghe Loodgieterij bvba;Beverenstraat;145;;8970;Poperinge;BE;BE0750680921;info@vandenberghe.be;047675565;14;5000;2024-01-22;N
+K00214;Carron vof;Noordlaan;40;A;8980;Zonnebeke;BE;BE0910070826;boekhouding@carron.be;054662400;30;15000;2017-12-03;N
+K00215;Boussemaere Loodgieterij vof;Hoogstraat;58;3;9700;Oudenaarde;BE;BE0861375143;boekhouding@boussemaere.be;057007017;30;10000;2015-09-17;N
+K00216;Vanacker Groep;Mandellaan;214;;9700;Oudenaarde;BE;BE0315873174;administratie@vanacker.be;098437894;60;25000;2019-04-09;N
+K00217;Vanhoutte Techniek & Zonen;Gitsestraat;205;0101;8600;Diksmuide;BE;BE0000000000;info@vanhoutte.be;047040149;45;5000;2010-06-26;N
+K00218;Hoornaert vof;Industrielaan;196;3;8900;Ieper;BE;BE0112461305;info@hoornaert.be;044848048;30;15000;2013-12-16;N
+K00219;Deveux & Zonen;Vijverhoek;142;0101;8890;Moorslede;BE;BE0116598354;info@deveux.be;053893738;45;5000;2013-06-02;N
+K00220;Lefevere;Westlaan;154;;8810;Lichtervelde;BE;BE0130718980;info@lefevere.be;054466113;30;5000;2019-02-04;N
+K00221;Devos Techniek nv;Brugsesteenweg;113;A;8600;Diksmuide;BE;BE0084685552;administratie@devos.be;045046315;45;10000;2007-07-03;N
+K00222;Deprez bvba;Vijverhoek;169;3;8820;Torhout;BE;BE0615548142;x@x.x;047509704;30;50000;2022-11-21;N
+K00223;Seynaeve bv;Vijverhoek;58;3;8790;Waregem;BE;BE0208103305;bestel@seynaeve.be;042576724;14;5000;2018-03-16;N
+K00224;Vanacker Loodgieterij;Vijverhoek;21;3;8700;Tielt;BE;BE0481652114;administratie@vanacker.be;057106997;60;15000;2007-08-26;N
+K00225;Mortier bv;Nieuwstraat;45;2;8790;Waregem;BE;BE0263531578;info@mortier.be;053306760;30;5000;2007-03-12;N
+K00226;Callewaert nv;Ambachtenstraat;175;A;8800;Roeselare;BE;BE0542028773;administratie@callewaert.be;051959201;30;2500;2005-04-25;N
+K00227;Vanacker Klimaat & Zonen;Kwadestraat;161;;8830;Hooglede;BE;BE0996062415;boekhouding@vanacker.be;042885196;30;5000;01/01/1900;N
+K00228;Dekeyser Bouw comm.v;Kwadestraat;4;A;8970;Poperinge;BE;BE0676911926;administratie@dekeyser.be;043233009;30;5000;2010-10-12;N
+K00229;Verhelst nv;Molenstraat;178;3;8700;Tielt;BE;BE0749595709;info@verhelst.be;093945158;45;2500;40532;N
+k 00230;Tanghe & Zonen;Rijksweg;47;;8850;Ardooie;BE;BE0828137597;info@tanghe.be;056312788;30;2500;2014-03-03;N
+K00231;Mortier Elektro bvba;Gitsestraat;39;A;8560;Wevelgem;BE;BE0612756918;bestel@mortier.be;059279637;30;5000;2012-07-07;N
+K00232;Declercq comm.v;Brugsesteenweg;47;;8560;Wevelgem;BE;BE0564575632;boekhouding@declercq.be;041094575;45;5000;2009-02-08;N
+K00233;Beernaert Groep;Westlaan;154;0101;8850;Ardooie;BE;BE0614265663;bestel@beernaert.be;044163633;30;50000;2011-08-17;N
+K00234;Hoornaert bvba;Gitsestraat;153;A;8810;Lichtervelde;BE;BE0454803603;info@hoornaert.be;051413427;60;5000;2009-02-04;N
+K00235;Decroix vof;Noordlaan;40;;9700;Oudenaarde;BE;BE0312194696;bestel@decroix.be;053555119;30;50000;2009-08-19;N
+K00236;Bruggeman Techniek vof;Stationsstraat;132;;8500;Kortrijk;BE;BE0515699312;boekhouding@bruggeman.be;052870934;45;5000;2009-10-11;J
+K00237;Depoorter Bouw bv;Hoogstraat;35;;8980;Zonnebeke;BE;BE0179347159;info@depoorter.be;055038794;60;50000;38870;N
+K00238;Rommens Klimaat bv;Kwadestraat;215;;8850;Ardooie;BE;BE0326432021;info@rommens.be;053613411;45;15000;2022-12-05;N
+K00239;Depoorter bv;Gitsestraat;134;0101;8810;Lichtervelde;BE;BE0320384367;bestel@depoorter.be;047895543;60;50000;42970;N
+K00240;Bruggeman Groep;Beverenstraat;6;;8700;Tielt;BE;BE0171847376;bestel@bruggeman.be;058028203;30;10000;2013-08-24;N
+K00241;Vanhoutte bvba;Ambachtenstraat;55;;9000;Gent;BE;BE0760880074;administratie@vanhoutte.be;097692304;30;25000;2019-03-01;N
+k 00242;Dekeyser Dakwerken vof;Industrielaan;166;;8400;Oostende;BE;BE0089005418;info@dekeyser.be;047993763;30;10000;2015-05-21;N
+K00243;Deprez Verwarming;Diksmuidsesteenweg;179;3;9700;Oudenaarde;BE;BE0295866034;boekhouding@deprez.be;058165472;30;10000;01/01/1900;N
+K00244;Lammertyn Bouw;Noordlaan;77;3;8850;Ardooie;BE;BE0100841495;boekhouding@lammertyn.be;058186888;45;5000;2014-04-29;N
+K00245;Decroix;Vijverhoek;55;;8810;Lichtervelde;BELG;BE0776879730;boekhouding@decroix.be;052926034;30;5000;2016-10-05;N
+K00246;Loosveldt nv;Hoogstraat;76;;8790;Waregem;BE;BE0948750565;boekhouding@loosveldt.be;059911476;30;25000;2006-02-03;N
+K00247;Goethals Klimaat bv;Noordlaan;158;;8790;Waregem;BE;BE0534464357;administratie@goethals.be;043212282;60;2500;2021-10-04;N
+K00248;Deprez Installaties nv;Zuidstraat;215;A;9800;Deinze;BE;BE0539790350;boekhouding@deprez.be;059549541;30;15000;2009-06-05;N
+K00249;Decroix comm.v;Ambachtenstraat;139;0101;8900;Ieper;BE;BE0714331160;administratie@decroix.be;059222636;45;10000;2020-01-29;N
+K00250;Deprez bv;Gitsestraat;29;;8810;Lichtervelde;BE;BE0815624203;bestel@deprez.be;0;14;2500;2019-05-03;N
+K00251;Goethals Sanitair;Mandellaan;214;;8000;Brugge;BE;BE0467713115;info@goethals.be;056759826;30;10000;2009-10-06;N
+K00252;Verhoeve Installaties nv;Gitsestraat;26;2;8890;Moorslede;BE;BE0692361551;administratie@verhoeve.be;052856755;30;2500;2023-01-19;N
+K00253;Vermeulen bvba;Molenstraat;87;0101;8560;Wevelgem;BE;BE0968226284;boekhouding@vermeulen.be;058059297;30;5000;2020-12-16;N
+K00254;Deschacht vof;Mandellaan;35;;8400;Oostende;BE;BE0270247641;bestel@deschacht.be;052344227;14;10000;2011-09-24;N
+K00255;Soenen bv;Stationsstraat;73;2;8530;Harelbeke;BE;BE0044491722;boekhouding@soenen.be;049001460;30;5000;2024-01-21;N
+K00256;Hoornaert nv;Meensesteenweg;177;0101;8850;Ardooie;BE;BE0419586267;bestel@hoornaert.be;053086456;30;10000;2015-03-28;N
+K00257;Baert nv;Nieuwstraat;209;3;8900;Ieper;BE;BE0718542544;boekhouding@baert.be;052775740;60;5000;2021-05-03;N
+K00258;Goethals Verwarming nv;Hoogstraat;44;A;8850;Ardooie;BE;BE0274056573;boekhouding@goethals.be;059172192;14;10000;2013-07-13;N
+K00259;Vanhaverbeke bv;Vijverhoek;160;;8600;Diksmuide;BE;BE0112799914;info@vanhaverbeke.be;056944649;14;10000;2004-08-11;N
+K00260;Desmet Techniek nv;Rijksweg;201;;9800;Deinze;BE;BE0114883830;administratie@desmet.be;043859082;30;2500;2012-06-27;N
+K00261;Dekeyser & Zonen;Mandellaan;94;3;9700;Oudenaarde;BE;BE0475913771;administratie@dekeyser.be;053067915;45;25000;2006-09-09;N
+K00262;Rommens Sanitair bv;Ambachtenstraat;8;;8400;Oostende;BE;BE0328714192;bestel@rommens.be;/;60;25000;2016-02-12;N
+K00263;Desmet Dakwerken;Kwadestraat;179;;8500;Kortrijk;BE;BE0326711143;administratie@desmet.be;045999214;30;50000;2010-04-06;N
+K00264;Lammertyn Verwarming bv;Noordlaan;79;;8980;Zonnebeke;BE;BE0375343280;bestel@lammertyn.be;057474452;14;25000;2020-06-01;N
+k 00265;Desmet Sanitair vof;Nieuwstraat;82;2;8970;Poperinge;BE;BE0717155345;bestel@desmet.be;045895867;45;15000;2012-01-19;N
+K00266;Soenen Sanitair & Zonen;Kwadestraat;19;3;8790;Waregem;BE;BE0181851640;info@soenen.be;057139999;45;15000;2018-04-05;N
+K00267;Dewitte Verwarming bv;Beverenstraat;195;3;8400;Oostende;BE;BE0936443839;bestel@dewitte.be;046819983;30;50000;2008-03-21;N
+K00268;Vanden Broucke Elektro comm.v;Mandellaan;130;3;8600;Diksmuide;BE;BE0841163511;info@vanden.be;095357737;30;5000;01/01/1900;N
+k 00269;Coussement & Zonen;Meensesteenweg;13;A;8810;Lichtervelde;BE;BE0284840302;info@coussement.be;042391996;45;5000;2010-09-07;N
+K00270;Depoorter comm.v;Stationsstraat;201;3;9800;Deinze;BE;BE0907809934;boekhouding@depoorter.be;055816239;30;2500;2017-01-16;N
+K00271;Maertens Renovatie vof;Rijksweg;99;;8810;Lichtervelde;BE;BE0152840920;boekhouding@maertens.be;097293763;30;25000;2011-03-04;N
+K00272;Coussement bv;Mandellaan;230;A;8850;Ardooie;BE;BE0430975453;boekhouding@coussement.be;056746068;30;2500;2005-12-20;N
+K00273;Deveux comm.v;Vijverhoek;116;2;8980;Zonnebeke;BE;BE0939829139;info@deveux.be;092844262;30;5000;2011-11-24;N
+K00274;Verschoore bv;Kerkstraat;118;;9880;Aalter;BE;BE0972208036;info@verschoore.be;095681750;30;5000;2004-06-20;N
+K00275;Beernaert;Industrielaan;53;;9880;Aalter;BE;BE0563177248;administratie@beernaert.be;059161578;45;50000;2022-01-03;N
+K00276;Pattyn nv;Stationsstraat;52;2;8600;Diksmuide;BE;BE0937322183;boekhouding@pattyn.be;042174972;30;25000;2009-01-26;N
+K00277;Soenen Dakwerken nv;Hoogstraat;204;A;9000;Gent;BE;BE0149087713;info@soenen.be;098310016;30;15000;2012-03-14;N
+K00278;Lefevere & Zonen;Kerkstraat;32;0101;9800;Deinze;BE;BE0220960060;boekhouding@lefevere.be;055282133;30;5000;2015-10-05;N
+k 00279;Deschacht bvba;Kwadestraat;40;;8800;Roeselare;BELG;BE0318631538;info@deschacht.be;059786879;60;2500;2018-09-04;N
+K00280;Vanden Broucke Dakwerken vof;Gitsestraat;3;;8530;Harelbeke;BE;BE0776103136;info@vanden.be;053450612;14;5000;2021-06-15;N
+K00281;Rommens;Zuidstraat;52;0101;9000;Gent;BE;BE0910782488;administratie@rommens.be;044316065;45;10000;2019-04-04;N
+K00282;Deschacht Verwarming vof;Molenstraat;108;;9000;Gent;BE;BE0237604765;bestel@deschacht.be;053002084;30;10000;2024-07-22;N
+K00283;Cottenier Bouw bvba;Beverenstraat;205;3;8810;Lichtervelde;BE;BE0701818754;boekhouding@cottenier.be;057586516;45;2500;2020-05-13;N
+K00284;Verhoeve Bouw vof;Molenstraat;179;;8930;Menen;BE;BE0871050397;bestel@verhoeve.be;059007987;14;15000;2008-04-27;N
+K00285;Desmet bv;Hoogstraat;117;;8560;Wevelgem;BE;BE0878899182;administratie@desmet.be;097784006;30;5000;2019-05-16;N
+K00286;Lammertyn nv;Vijverhoek;140;;8700;Tielt;BE;BE0550617233;bestel@lammertyn.be;054235078;14;10000;2021-03-23;N
+K00287;Vanacker nv;Stationsstraat;77;;8600;Diksmuide;BE;BE0259462033;boekhouding@vanacker.be;047404299;60;2500;2004-08-06;N
+K00288;Pattyn nv;Meensesteenweg;161;2;8870;Izegem;BE;BE0662007875;administratie@pattyn.be;044332979;30;5000;2013-03-27;N
+K00289;Boussemaere Sanitair;Rijksweg;43;;8000;Brugge;BE;BE0411939006;bestel@boussemaere.be;059629244;45;10000;2023-12-15;N
+K00290;Vanbecelaere Bouw & Zonen;Ambachtenstraat;216;;8530;Harelbeke;BE;BE0836127429;boekhouding@vanbecelaere.be;049686997;30;2500;2015-12-11;N
+K00291;Delaere Sanitair nv;Oostlaan;37;3;8900;Ieper;BE;BE0096261612;administratie@delaere.be;051452813;45;10000;2005-07-06;N
+K00292;Vermeulen nv;Westlaan;185;;9880;Aalter;BE;BE0766885166;boekhouding@vermeulen.be;093791664;45;5000;2014-10-01;N
+K00293;Coussement vof;Westlaan;171;;8930;Menen;BE;BE0301288631;bestel@coussement.be;098658190;45;10000;2007-04-17;N
+K00294;Vanneste nv;Diksmuidsesteenweg;197;A;8600;Diksmuide;BE;BE0600795927;boekhouding@vanneste.be;056501570;60;50000;2023-05-14;N
+K00295;Coussement Klimaat comm.v;Rijksweg;2;0101;8870;Izegem;BE;BE0785759188;boekhouding@coussement.be;058325072;30;50000;2006-10-31;N
+K00296;Carron Klimaat comm.v;Oostlaan;50;3;8870;Izegem;BE;BE0292684731;boekhouding@carron.be;053507608;60;2500;1899-12-30;N
+K00297;Depoorter Klimaat;Mandellaan;50;;8600;Diksmuide;BE;BE0117799768;bestel@depoorter.be;054098970;60;10000;2016-09-20;N
+K00298;Loosveldt Verwarming Groep;Mandellaan;60;2;8560;Wevelgem;BE;BE0385792853;administratie@loosveldt.be;053286110;14;15000;2013-05-09;N
+K00299;Vanden Broucke Dakwerken bvba;Stationsstraat;105;3;8890;Moorslede;BE;BE0063924285;boekhouding@vanden.be;052922495;60;50000;40569;N
+K00300;Maertens & Zonen;Industrielaan;2;;8000;Brugge;B;BE0243624606;boekhouding@maertens.be;053369163;30;50000;2012-08-26;N
+K00301;Delaere & Zonen;Rijksweg;169;;8890;Moorslede;BE;BE0368793406;boekhouding@delaere.be;054233920;30;25000;2020-05-04;N
+K00302;Verhoeve;Beverenstraat;185;;8810;Lichtervelde;BE;BE0192511643;administratie@verhoeve.be;058454367;30;5000;2015-09-17;N
+K00303;Goethals Dakwerken comm.v;Diksmuidsesteenweg;18;0101;8400;Oostende;BE;BE0488803487;administratie@goethals.be;046458819;60;25000;2011-03-20;N
+K00304;Lammertyn Dakwerken Groep;Mandellaan;9;;8900;Ieper;BE;BE0815164739;info@lammertyn.be;047638306;30;15000;2013-02-16;N
+K00305;Lefevere & Zonen;Vijverhoek;155;;8700;Tielt;BE;BE0184762531;bestel@lefevere.be;094469560;30;50000;41526;N
+K00306;Maertens Bouw Groep;Brugsesteenweg;59;0101;8560;Wevelgem;BE;BE0289420779;bestel@maertens.be;043464436;30;15000;2013-08-06;N
+K00307;Snauwaert Installaties Groep;Gitsestraat;35;0101;8560;Wevelgem;BE;BE0837592030;boekhouding@snauwaert.be;045642175;30;50000;1899-12-30;N
+K00308;Seynaeve & Zonen;Beverenstraat;233;;8870;Izegem;BE;BE0074176492;bestel@seynaeve.be;044215949;30;5000;2014-11-21;N
+K00309;Carron Dakwerken vof;Diksmuidsesteenweg;139;2;8980;Zonnebeke;BE;BE0072765143;bestel@carron.be;059919880;30;2500;2015-08-08;N
+K00310;Deveux;Hoogstraat;127;A;8980;Zonnebeke;BE;BE0968622697;info@deveux.be;051194824;30;25000;2014-06-21;N
+K00311;Maertens & Zonen;Brugsesteenweg;17;;8560;Wevelgem;BE;BE0374462560;info@maertens.be;049002602;45;10000;2005-12-17;N
+K00312;Noppe Installaties Groep;Oostlaan;27;;8790;Waregem;BE;BE0348452506;bestel@noppe.be;055387873;30;5000;2017-06-08;N
+K00313;Baert & Zonen;Kwadestraat;206;A;8890;Moorslede;BE;BE0364513330;bestel@baert.be;099857299;30;15000;45086;N
+K00314;Declercq Sanitair vof;Stationsstraat;223;;8870;Izegem;BE;BE0305822588;info@declercq.be;043044644;30;5000;2008-03-21;N
+K00315;Deveux comm.v;Industrielaan;238;;9700;Oudenaarde;BE;BE0376050786;bestel@deveux.be;054863343;30;5000;2024-05-10;N
+K00316;Maertens Loodgieterij vof;Rijksweg;33;3;8890;Moorslede;BE;BE0639603053;boekhouding@maertens.be;043655368;30;5000;2017-04-25;N
+K00317;Verhoeve Klimaat bv;Molenstraat;101;;9000;Gent;BE;BE0253358753;boekhouding@verhoeve.be;057794456;30;50000;2007-11-12;N
+K00318;Noppe comm.v;Zuidstraat;114;A;8830;Hooglede;BE;BE0737560482;info@noppe.be;052248454;30;5000;2020-10-12;N
+K00319;Cottenier Klimaat & Zonen;Oostlaan;127;;8850;Ardooie;BE;BE0617737570;bestel@cottenier.be;059378758;60;5000;2016-11-08;N
+K00320;Vanhaverbeke vof;Brugsesteenweg;149;;8400;Oostende;BE;BE0543741715;bestel@vanhaverbeke.be;055903943;30;10000;2009-10-12;N
+K00321;Deprez vof;Brugsesteenweg;79;;8820;Torhout;BE;BE0266443261;bestel@deprez.be;042784893;60;15000;2019-09-18;N
+k 00322;Rommens bvba;Kwadestraat;232;;8980;Zonnebeke;BE;BE0889769617;info@rommens.be;093880548;30;5000;2006-01-24;N
+K00323;Deveux Groep;Stationsstraat;161;;8900;Ieper;BE;BE0666024368;administratie@deveux.be;048773800;30;25000;2010-07-18;N
+K00324;Noppe Loodgieterij bvba;Zuidstraat;38;A;8000;Brugge;BE;BE0764671784;boekhouding@noppe.be;059054431;14;15000;2016-08-22;N
+K00325;Decroix vof;Westlaan;105;;8500;Kortrijk;BE;BE0378251795;bestel@decroix.be;049554129;14;25000;2012-08-19;N
+K00326;Dewitte nv;Kwadestraat;129;;8930;Menen;BE;BE0438314492;info@dewitte.be;053675093;30;5000;2005-03-09;N
+K00327;Vanlerberghe comm.v;Stationsstraat;148;;8830;Hooglede;BE;BE0177537615;bestel@vanlerberghe.be;054236863;14;15000;2024-02-18;N
+K00328;Baert bvba;Rijksweg;123;0101;8000;Brugge;BE;BE0484737110;boekhouding@baert.be;058097259;45;5000;2012-06-12;N
+K00329;Soenen Verwarming Groep;Oostlaan;238;0101;9880;Aalter;BE;BE0276299055;boekhouding@soenen.be;051892807;30;2500;2008-03-24;N
+K00330;Delaere Sanitair;Ambachtenstraat;160;;8900;Ieper;BE;BE0747338577;boekhouding@delaere.be;047891063;45;15000;2021-04-16;N
+K00331;Devos Klimaat vof;Noordlaan;148;;8530;Harelbeke;BE;BE0209530193;boekhouding@devos.be;057676628;45;15000;2012-08-29;N
+K00332;Loosveldt Klimaat nv;Diksmuidsesteenweg;203;;8970;Poperinge;BE;BE0078262964;bestel@loosveldt.be;054538842;14;25000;2018-07-05;N
+K00333;Lammertyn Dakwerken;Vijverhoek;39;;8560;Wevelgem;BE;BE0928654541;info@lammertyn.be;051215369;14;5000;2016-09-02;N
+K00334;Vanneste Bouw & Zonen;Rijksweg;162;A;8900;Ieper;BE;BE0526866287;bestel@vanneste.be;049457817;60;25000;2013-08-26;N
+K00335;Tanghe;Zuidstraat;167;;8530;Harelbeke;BE;BE0889972822;info@tanghe.be;043199134;45;5000;2015-03-06;N
+K00336;Delaere nv;Brugsesteenweg;114;;8980;Zonnebeke;BE;BE0084206886;administratie@delaere.be;051394584;45;2500;2023-07-02;N
+K00337;Noppe Elektro Groep;Kwadestraat;181;;8600;Diksmuide;BE;BE0471823737;info@noppe.be;059300510;45;5000;2007-08-24;N
+K00338;Vandenberghe Elektro Groep;Kwadestraat;197;;8700;Tielt;BE;BE0155851977;info@vandenberghe.be;041230573;30;10000;2004-10-24;N
+K00339;Hoornaert Sanitair bv;Oostlaan;166;A;8810;Lichtervelde;BE;BE0971635637;boekhouding@hoornaert.be;053004715;14;2500;2006-02-16;N
+K00340;Verhelst Techniek Groep;Nieuwstraat;166;A;8870;Izegem;BE;BE0341873134;boekhouding@verhelst.be;094470412;14;10000;2011-06-16;N
+K00341;Debusschere bvba;Molenstraat;136;;8930;Menen;BE;BE0429660906;bestel@debusschere.be;055897203;60;15000;2019-07-04;N
+K00342;Snauwaert Techniek & Zonen;Industrielaan;221;0101;8830;Hooglede;BE;BE0075344650;boekhouding@snauwaert.be;092214043;30;10000;2018-03-19;N
+K00343;Desmet Elektro vof;Vijverhoek;178;;8400;Oostende;BE;BE0954159801;bestel@desmet.be;057748773;30;15000;9999-12-31;N
+K00344;Lammertyn comm.v;Brugsesteenweg;158;0101;9880;Aalter;BE;BE0934582231;boekhouding@lammertyn.be;056263735;30;50000;2017-08-13;N
+K00345;Vandenberghe Loodgieterij;Nieuwstraat;211;;8800;Roeselare;BE;BE0831829438;bestel@vandenberghe.be;096917087;45;50000;2019-08-05;N
+K00346;Dekeyser Techniek & Zonen;Ambachtenstraat;105;3;8970;Poperinge;BE;BE0791452001;info@dekeyser.be;043415265;60;50000;2013-08-30;N
+K00347;Vanden Broucke Dakwerken;Kerkstraat;142;;8710;Wielsbeke;BE;BE0503881148;boekhouding@vanden.be;051258674;14;2500;2024-04-10;J
+K00348;Snauwaert Bouw & Zonen;Rijksweg;212;;8870;Izegem;BE;BE0159271525;administratie@snauwaert.be;000000000;60;5000;2024-10-17;N
+K00349;Devos Installaties & Zonen;Noordlaan;200;A;8930;Menen;BE;BE0070242846;administratie@devos.be;052664377;14;15000;2023-09-08;N
+K00350;Boussemaere vof;Industrielaan;220;;8890;Moorslede;BE;BE0472165910;administratie@boussemaere.be;052949588;14;10000;2011-06-28;N
+K00351;Callewaert vof;Beverenstraat;99;A;8530;Harelbeke;BE;BE0547835511;info@callewaert.be;053535453;30;15000;2022-03-01;N
+K00352;Dewitte Verwarming vof;Molenstraat;126;;8560;Wevelgem;BE;BE0995943540;bestel@dewitte.be;048668151;30;15000;2010-07-21;N
+K00353;Pattyn Verwarming bvba;Brugsesteenweg;69;;8700;Tielt;BE;BE0469310645;administratie@pattyn.be;057186294;30;15000;2010-07-15;N
+K00354;KLANT NIEUW;Molenstraat;59;0101;8850;Ardooie;BE;BE0899277201;bestel@verhelst.be;051863390;60;10000;2007-03-21;N
+K00355;Vermeulen vof;Kerkstraat;7;;8870;Izegem;BE;BE0246565189;info@vermeulen.be;053506746;30;10000;2023-08-30;N
+K00356;Verhelst & Zonen;Oostlaan;167;A;8930;Menen;BE;BE0918634243;administratie@verhelst.be;058865266;30;2500;2012-10-29;N
+K00357;Vandenberghe;Hoogstraat;232;;8980;Zonnebeke;BE;BE0446265524;boekhouding@vandenberghe.be;058563170;30;5000;2015-11-10;N
+K00358;Pattyn Elektro comm.v;Nieuwstraat;6;;8800;Roeselare;BE;BE0345087594;boekhouding@pattyn.be;055171995;45;15000;2023-06-30;N
+K00359;Vandewalle Loodgieterij comm.v;Mandellaan;96;A;8800;Roeselare;BE;BE0623112360;bestel@vandewalle.be;096591405;14;5000;2012-05-28;J
+K00360;Vanlerberghe Renovatie bvba;Diksmuidsesteenweg;17;A;8820;Torhout;BE;BE0919718267;info@vanlerberghe.be;098160478;14;5000;2023-04-29;N
+K00361;Depoorter Klimaat vof;Nieuwstraat;178;;8890;Moorslede;BE;BE0403962933;info@depoorter.be;044900744;30;5000;2024-08-17;N
+K00362;Pattyn Installaties;Kerkstraat;213;2;8000;Brugge;BE;BE0763118992;boekhouding@pattyn.be;096899604;45;5000;2023-09-19;N
+K00363;Vanbecelaere nv (BE0907385411);Mandellaan;215;3;8930;Menen;BE;;bestel@vanbecelaere.be;058768017;60;2500;2016-03-26;N
+K00364;Declercq Klimaat nv;Brugsesteenweg;164;3;8850;Ardooie;BE;BE0586557713;administratie@declercq.be;053164450;30;5000;2022-06-18;N
+K00365;Deveux nv;Kwadestraat;199;;8710;Wielsbeke;BE;BE0656688911;bestel@deveux.be;055004948;60;2500;2019-08-27;N
+K00366;Hoornaert Installaties;Brugsesteenweg;142;0101;8790;Waregem;BE;BE0992244474;info@hoornaert.be;096301864;60;50000;2005-09-23;N
+K00367;Vanbecelaere;Beverenstraat;31;;9700;Oudenaarde;BE;BE0442192613;bestel@vanbecelaere.be;049964454;45;2500;2012-06-12;N
+K00368;Depoorter bvba;Brugsesteenweg;171;A;8820;Torhout;BE;BE0332913403;boekhouding@depoorter.be;044217265;14;2500;2023-03-31;N
+K00369;Depoorter bvba;Hoogstraat;225;3;8820;Torhout;BE;BE0860320615;info@depoorter.be;057941325;45;50000;2024-10-15;J
+K00370;Devos Groep;Meensesteenweg;111;3;8560;Wevelgem;BE;BE0366384539;administratie@devos.be;053575238;30;50000;2016-02-19;N
+K00371;Vanneste Installaties bvba;Zuidstraat;225;;9000;Gent;BE;BE0871263403;administratie@vanneste.be;043922062;30;5000;2023-01-30;N
+K00372;Vanlerberghe;Molenstraat;28;A;8790;Waregem;BE;BE0112236324;administratie@vanlerberghe.be;059684477;30;5000;2011-10-31;N
+K00373;Devos bvba;Oostlaan;210;3;8980;Zonnebeke;BE;BE0597552563;info@devos.be;057808360;30;25000;2020-02-07;N
+K00374;Hoornaert Klimaat bvba;Brugsesteenweg;29;;9880;Aalter;BE;BE0904312390;info@hoornaert.be;056430428;30;10000;2011-08-13;N
+K00375;Vanneste bv;Noordlaan;183;;8870;Izegem;BE;BE0825983506;info@vanneste.be;047855656;45;10000;2020-11-28;N
+K00376;Dewitte Renovatie comm.v;Molenstraat;4;2;8700;Tielt;BE;BE0271594951;administratie@dewitte.be;099983879;45;25000;2011-03-29;N
+K00377;Soenen bvba;Vijverhoek;114;;8870;Izegem;BE;BE0361331235;info@soenen.be;052878433;30;25000;2005-11-08;N
+K00378;Carron Elektro bv;Ambachtenstraat;188;;9800;Deinze;BE;BE0178521075;bestel@carron.be;041128889;14;5000;2009-07-19;N
+K00379;Callewaert comm.v (BE0887035207);Mandellaan;51;A;8970;Poperinge;BE;;bestel@callewaert.be;055025727;30;5000;2024-01-23;N
+K00380;Carron Bouw bv;Gitsestraat;99;;8530;Harelbeke;BE;BE0200505136;info@carron.be;055925449;45;10000;2017-09-24;N
+k 00381;Depoorter Techniek Groep;Hoogstraat;144;;8800;Roeselare;BE;BE0269642281;info@depoorter.be;053399143;60;25000;2020-12-22;N
+K00382;Cottenier nv (BE0231383404);Vijverhoek;123;2;8820;Torhout;BE;;info@cottenier.be;042663316;60;10000;2015-02-12;J
+K00383;Devos bv;Industrielaan;45;0101;9880;Aalter;BE;BE0682138939;boekhouding@devos.be;057873293;30;10000;2006-09-01;N
+k 00384;Vandenberghe nv;Oostlaan;235;3;8870;Izegem;BE;BE0721750967;bestel@vandenberghe.be;046374585;45;15000;2005-04-08;J
+K00385;Verhelst Loodgieterij bv;Nieuwstraat;211;;8970;Poperinge;BE;BE0269330101;boekhouding@verhelst.be;nvt;60;5000;2016-10-24;N
+K00386;Snauwaert Loodgieterij bv;Zuidstraat;70;0101;8820;Torhout;BE;BE0078234062;bestel@snauwaert.be;051121966;45;25000;2011-06-10;N
+K00387;Loosveldt Renovatie Groep;Ambachtenstraat;179;2;8790;Waregem;BE;BE0470950737;boekhouding@loosveldt.be;094318485;45;25000;2005-08-25;N
+K00388;Vanacker Verwarming comm.v;Kerkstraat;216;;9880;Aalter;BE;BE0872973076;info@vanacker.be;053308362;30;2500;2004-06-23;N
+K00389;Dekeyser comm.v;Vijverhoek;32;;8890;Moorslede;BE;BE0462684555;boekhouding@dekeyser.be;043484642;14;50000;2004-08-09;N
+K00390;Desmet;Industrielaan;175;2;9880;Aalter;BE;BE0259964849;info@desmet.be;052878874;60;25000;39771;N
+K00391;Bruggeman;Noordlaan;63;2;8850;Ardooie;BE;BE0225345648;boekhouding@bruggeman.be;059092906;30;2500;40861;N
+K00392;Vanneste comm.v;Westlaan;214;;8890;Moorslede;BE;BE0674879478;boekhouding@vanneste.be;059034281;30;10000;2021-06-15;N
+K00393;Verhelst Renovatie bvba;Noordlaan;22;;9700;Oudenaarde;BE;BE0476161716;bestel@verhelst.be;059041720;30;25000;2005-03-21;N
+K00394;Beernaert Groep;Gitsestraat;101;;9880;Aalter;BE;BE0920456259;administratie@beernaert.be;051787665;45;25000;2018-04-26;N
+K00395;Mortier bv;Hoogstraat;145;;8930;Menen;BE;BE0095228759;bestel@mortier.be;058858884;14;25000;2020-12-28;N
+K00396;Debusschere bvba;Molenstraat;105;;8930;Menen;BE;BE0452147385;administratie@debusschere.be;056202945;30;15000;2023-07-03;N
+K00397;Vandenberghe Renovatie & Zonen;Gitsestraat;205;;8850;Ardooie;BE;BE0525418910;boekhouding@vandenberghe.be;045921656;60;15000;2019-09-28;N
+K00398;Callewaert Klimaat bvba;Meensesteenweg;29;2;8830;Hooglede;BE;BE0094263313;bestel@callewaert.be;099458738;14;50000;2011-08-25;N
+K00399;Vandenberghe nv;Nieuwstraat;99;;9800;Deinze;BE;BE0558154628;bestel@vandenberghe.be;042534004;30;50000;2019-10-27;N
+K00400;Vanneste Installaties;Zuidstraat;4;2;8900;Ieper;BE;BE0709509963;administratie@vanneste.be;095193404;30;2500;2019-07-04;N
+K00401;Deveux Verwarming bv;Ambachtenstraat;180;3;8790;Waregem;BE;BE0491732986;boekhouding@deveux.be;097962114;14;15000;2015-03-02;N
+K00402;Dewitte & Zonen;Kerkstraat;97;;9880;Aalter;BE;BE0866155065;bestel@dewitte.be;046301110;60;25000;2014-02-17;N
+K00403;Deveux comm.v;Stationsstraat;76;0101;9000;Gent;BE;BE0157059430;administratie@deveux.be;045103863;14;5000;2017-03-21;N
+K00404;Vanhaverbeke Klimaat comm.v;Oostlaan;239;3;8930;Menen;BE;BE0891699917;administratie@vanhaverbeke.be;092329412;30;25000;2010-01-22;J
+K00405;Pattyn Dakwerken bv;Meensesteenweg;54;;8930;Menen;BE;BE0806003187;bestel@pattyn.be;059031652;30;5000;2022-06-27;N
+K00406;Debusschere bv;Molenstraat;126;3;8400;Oostende;BE;BE0669043642;info@debusschere.be;045692732;30;15000;2018-02-02;N
+K00407;Verhelst;Stationsstraat;100;;8700;Tielt;BE;BE0936914189;bestel@verhelst.be;052344345;60;5000;2008-08-29;N
+K00408;Deveux vof;Beverenstraat;44;0101;8930;Menen;BE;BE0594142816;boekhouding@deveux.be;059334597;30;25000;2006-12-26;N
+K00409;Debusschere Groep;Industrielaan;149;;9800;Deinze;BE;BE0897106775;administratie@debusschere.be;042039967;45;10000;2012-06-05;N
+K00410;Bruggeman comm.v;Brugsesteenweg;118;;8800;Roeselare;BE;BE0632960038;info@bruggeman.be;045911171;60;15000;2016-11-05;N
+K00411;Carron Renovatie;Hoogstraat;189;;8890;Moorslede;BE;BE0198516240;bestel@carron.be;053295469;30;5000;2008-09-24;N
+K00412;Pattyn bv;Vijverhoek;139;A;8900;Ieper;BE;BE0255681310;info@pattyn.be;094749048;60;5000;2019-06-29;N
+K00413;Seynaeve & Zonen;Gitsestraat;82;3;8530;Harelbeke;BE;BE0246376040;boekhouding@seynaeve.be;055136382;30;5000;2020-09-20;N
+K00414;Vanlerberghe Techniek bv (BE0948352172);Hoogstraat;41;0101;8930;Menen;BE;;boekhouding@vanlerberghe.be;000000000;30;5000;2024-07-04;N
+K00415;Snauwaert Verwarming comm.v;Brugsesteenweg;103;0101;8890;Moorslede;BE;BE0853700859;administratie@snauwaert.be;053091779;30;5000;2004-05-31;N
+K00416;Declercq Verwarming & Zonen;Industrielaan;176;0101;8890;Moorslede;BE;BE0259147475;administratie@declercq.be;051672981;14;10000;2022-03-30;N
+K00417;Vermeulen Elektro bvba;Molenstraat;40;A;8710;Wielsbeke;BE;BE0811979080;bestel@vermeulen.be;097872260;30;5000;40765;N
+K00418;Vermeulen bvba;Nieuwstraat;96;;8560;Wevelgem;BE;BE0332591917;administratie@vermeulen.be;053372743;60;10000;2011-03-15;N
+K00419;Pattyn Bouw Groep;Molenstraat;17;A;8970;Poperinge;BE;BE0258974261;administratie@pattyn.be;096599679;30;50000;2022-03-10;N
+K00420;Mortier Groep;Brugsesteenweg;211;;8980;Zonnebeke;BE;BE0742846982;boekhouding@mortier.be;057900850;30;15000;2022-02-24;N
+K00421;Delaere Klimaat bv;Kerkstraat;225;0101;8900;Ieper;BE;BE0087000882;bestel@delaere.be;059908909;30;50000;45181;N
+K00422;Depoorter vof;Oostlaan;130;A;8850;Ardooie;BE;BE0663644504;bestel@depoorter.be;057607977;30;25000;2007-09-14;N
+K00423;Noppe Elektro Groep;Westlaan;70;;8600;Diksmuide;BE;BE0867508612;boekhouding@noppe.be;0;30;5000;2017-10-27;N
+K00424;Vanacker bv;Beverenstraat;232;0101;8820;Torhout;BE;BE0102199101;boekhouding@vanacker.be;043983866;30;5000;2024-03-21;N
+K00425;Rommens Elektro nv;Noordlaan;148;3;8980;Zonnebeke;BE;BE0293107076;administratie@rommens.be;043756096;30;25000;2017-12-24;N
+K00426;Verschoore Elektro bv;Molenstraat;128;;8790;Waregem;BE;BE0564496349;info@verschoore.be;091234229;30;2500;2009-08-11;N
+K00427;Deveux Klimaat bv;Kwadestraat;113;;8800;Roeselare;BE;BE0874988795;boekhouding@deveux.be;047520921;30;5000;2014-03-29;N
+k 00428;Seynaeve Verwarming comm.v;Brugsesteenweg;172;2;8560;Wevelgem;BE;BE0104426042;bestel@seynaeve.be;098340714;14;2500;2008-09-15;N
+K00429;Tanghe Installaties vof;Westlaan;177;2;8800;Roeselare;BE;BE0826342208;bestel@tanghe.be;058897282;45;5000;2017-07-06;N
+K00430;Deprez bvba;Kwadestraat;230;0101;8830;Hooglede;BE;BE0247292887;boekhouding@deprez.be;051532110;14;5000;2015-06-13;N
+K00431;Lammertyn Techniek bv;Industrielaan;4;;8530;Harelbeke;BE;BE0403107452;administratie@lammertyn.be;056153418;30;50000;2012-10-14;J
+K00432;Vandewalle Verwarming Groep;Stationsstraat;189;;8820;Torhout;BE;BE0998403677;bestel@vandewalle.be;059904378;30;25000;2016-05-15;N
+K00433;Vandewalle & Zonen;Kerkstraat;68;;8500;Kortrijk;BE;BE0779036296;bestel@vandewalle.be;053632482;45;5000;2015-09-17;N
+K00434;Dekeyser comm.v;Kwadestraat;117;;9880;Aalter;BE;BE0919464384;administratie@dekeyser.be;059701362;45;5000;2022-01-22;N
+K00435;Goethals Installaties bv;Kerkstraat;142;0101;8810;Lichtervelde;BE;BE0254290646;info@goethals.be;053599564;60;10000;2015-02-10;N
+K00436;Vanacker nv;Stationsstraat;127;;8500;Kortrijk;BE;BE0416925992;info@vanacker.be;053442328;30;5000;2014-03-05;N
+K00437;Loosveldt Loodgieterij;Hoogstraat;9;;8500;Kortrijk;BE;BE0123456749;bestel@loosveldt.be;095242907;30;50000;2010-11-07;N
+K00438;Snauwaert bv;Noordlaan;198;0101;8870;Izegem;BE;BE0903584494;boekhouding@snauwaert.be;048323513;14;5000;2019-02-04;N
+K00439;Goethals & Zonen;Westlaan;240;;8500;Kortrijk;BE;BE0823970161;boekhouding@goethals.be;044752825;30;5000;2014-02-01;N
+K00440;Vanneste Elektro nv;Meensesteenweg;197;;8970;Poperinge;BE;BE0677289929;bestel@vanneste.be;096783099;30;10000;2020-09-05;N
+K00441;Lammertyn bv;Meensesteenweg;8;;8890;Moorslede;BE;BE0769484568;bestel@lammertyn.be;098881665;14;5000;2017-01-14;N
+K00442;Depoorter Techniek bvba;Beverenstraat;94;;8820;Torhout;BE;BE0850320707;info@depoorter.be;052497088;45;2500;2007-05-18;N
+K00443;Baert & Zonen;Gitsestraat;157;A;8700;Tielt;BE;BE0073959035;bestel@baert.be;052321642;30;25000;2014-11-21;N
+K00444;Tanghe bv;Kerkstraat;191;;9700;Oudenaarde;BE;BE0798526665;boekhouding@tanghe.be;058863766;30;10000;2020-02-14;N
+K00445;Delaere Dakwerken & Zonen;Stationsstraat;44;2;8790;Waregem;BE;BE0158103664;info@delaere.be;041920172;45;2500;2011-02-21;N
+K00446;Pattyn Groep;Oostlaan;74;;9880;Aalter;BE;BE0879847705;boekhouding@pattyn.be;051103765;30;5000;2021-09-06;N
+K00447;Vermeulen comm.v;Meensesteenweg;172;;9000;Gent;BE;BE0573792711;boekhouding@vermeulen.be;098157593;30;25000;2013-06-24;N
+K00448;Deprez Groep;Westlaan;240;;8850;Ardooie;BE;BE0529590702;info@deprez.be;051095658;60;50000;2014-07-04;N
+K00449;Maertens Loodgieterij nv;Hoogstraat;13;2;8970;Poperinge;BE;BE0867535534;administratie@maertens.be;047922183;30;15000;2011-10-23;N
+K00450;Vermeulen bv;Hoogstraat;234;2;9000;Gent;BE;BE0721216477;info@vermeulen.be;058379322;30;25000;2021-02-01;N
+K00451;Soenen Loodgieterij bv;Diksmuidsesteenweg;207;0101;8500;Kortrijk;BE;BE0123456749;info@soenen.be;051700547;30;10000;2013-07-01;N
+K00452;Snauwaert;Noordlaan;177;0101;8970;Poperinge;BE;BE0151753827;administratie@snauwaert.be;097535050;30;5000;2012-11-18;N
+K00453;Vandenberghe Sanitair vof;Gitsestraat;109;3;8600;Diksmuide;BE;BE0864174087;boekhouding@vandenberghe.be;093496267;30;5000;2014-07-30;N
+K00454;Rommens comm.v;Noordlaan;165;3;8830;Hooglede;BE;BE0707231057;bestel@rommens.be;097470882;30;10000;2018-12-07;N
+K00455;Verhelst bvba;Noordlaan;69;;8790;Waregem;XX;BE0528603082;info@verhelst.be;096054845;30;10000;2022-01-01;N
+K00456;Baert (BE0958432848);Kwadestraat;44;A;9880;Aalter;BE;;administratie@baert.be;055429235;30;15000;2009-07-31;N
+K00457;Vanbecelaere comm.v;Stationsstraat;55;;8800;Roeselare;BE;BE0126499678;boekhouding@vanbecelaere.be;056005130;14;10000;2015-12-02;N
+K00458;Lefevere nv;Diksmuidsesteenweg;56;;9800;Deinze;BE;BE0795360804;bestel@lefevere.be;052505978;60;10000;2010-02-11;N
+K00459;Noppe bvba;Mandellaan;34;;8790;Waregem;BE;BE0061706450;administratie@noppe.be;059529087;60;10000;2022-05-12;N
+K00460;Cottenier Installaties comm.v;Westlaan;39;;8930;Menen;BE;BE0182792540;info@cottenier.be;044548437;60;25000;2020-11-14;N
+K00461;Verhelst & Zonen;Nieuwstraat;26;;8560;Wevelgem;BE;BE0543485357;bestel@verhelst.be;052839628;30;25000;2018-10-04;N
+K00462;Baert vof;Ambachtenstraat;127;;8980;Zonnebeke;BE;BE0627605044;administratie@baert.be;056899729;30;15000;2014-04-27;N
+K00463;Seynaeve Renovatie bvba;Kerkstraat;132;;8970;Poperinge;BE;BE0493470573;bestel@seynaeve.be;058213979;30;15000;2012-05-26;N
+K00464;Baert Groep;Stationsstraat;230;A;8500;Kortrijk;XX;BE0626462523;boekhouding@baert.be;053148319;30;5000;2022-08-18;N
+K00465;Declercq Elektro;Rijksweg;214;3;8000;Brugge;BE;BE0322166791;info@declercq.be;057014176;45;25000;2023-05-09;N
+K00466;Mortier Renovatie bvba;Molenstraat;82;;8000;Brugge;BE;BE0754147086;administratie@mortier.be;053330407;14;15000;2005-05-25;N
+K00467;Deschacht Loodgieterij bv;Hoogstraat;168;A;8930;Menen;BE;BE0252076670;bestel@deschacht.be;049648203;60;15000;2006-05-14;N
+K00468;Verschoore Bouw bvba;Zuidstraat;149;;9800;Deinze;BE;BE0601081383;boekhouding@verschoore.be;055552108;60;5000;2013-02-28;N
+k 00469;Vanden Broucke vof;Nieuwstraat;195;0101;8980;Zonnebeke;BE;BE0806969031;bestel@vanden.be;053178395;45;25000;44221;J
+K00470;Noppe Elektro Groep;Vijverhoek;114;;9700;Oudenaarde;BE;BE0371531675;boekhouding@noppe.be;056974205;45;10000;2023-08-15;N
+K00471;Coussement Renovatie bvba;Kerkstraat;198;3;9700;Oudenaarde;BE;BE0554092407;administratie@coussement.be;054798222;30;10000;2014-09-03;J
+K00472;Seynaeve Bouw vof;Oostlaan;104;;9700;Oudenaarde;BE;BE0655461167;administratie@seynaeve.be;057771217;30;2500;2010-03-27;N
+K00473;Rommens comm.v;Hoogstraat;184;3;8400;Oostende;BE;BE0075166882;bestel@rommens.be;096776515;60;5000;2023-01-24;N
+k 00474;Vanacker Installaties;Noordlaan;200;;8850;Ardooie;BE;BE0112447645;administratie@vanacker.be;045567543;30;5000;2009-09-23;N
+k 00475;Vanneste Groep;Kerkstraat;138;A;8500;Kortrijk;BE;BE0270356123;info@vanneste.be;054610778;30;2500;2017-04-01;N
+K00476;Vanbecelaere Verwarming bv;Industrielaan;7;A;8600;Diksmuide;BE;BE0254752781;bestel@vanbecelaere.be;055639605;14;2500;2019-08-07;N
+K00477;Declercq nv;Hoogstraat;31;0101;8500;Kortrijk;BE;BE0844460620;boekhouding@declercq.be;054536958;30;50000;2015-08-28;N
+K00478;Coussement Sanitair;Ambachtenstraat;104;2;9880;Aalter;BE;BE0742205693;administratie@coussement.be;058868164;30;15000;44394;N
+K00479;Vandenberghe bv;Brugsesteenweg;113;3;8870;Izegem;BE;BE0814351622;bestel@vandenberghe.be;059766269;60;15000;2016-07-27;N
+K00480;Vandenberghe Techniek vof;Gitsestraat;40;2;9000;Gent;BE;BE0588902440;bestel@vandenberghe.be;058798715;14;25000;2023-01-22;N
+K00481;Vandewalle comm.v;Westlaan;28;A;8400;Oostende;BE;BE0497601189;info@vandewalle.be;093432143;30;5000;2019-07-07;N
+K00482;Declercq vof;Meensesteenweg;16;;8710;Wielsbeke;BE;BE0225897558;boekhouding@declercq.be;099179472;30;10000;2021-03-02;N
+K00483;Verhoeve Klimaat Groep;Kerkstraat;151;0101;9800;Deinze;BE;BE0140681870;bestel@verhoeve.be;052399386;60;25000;2024-10-14;N
+K00484;Maertens & Zonen;Oostlaan;87;;8820;Torhout;BE;BE0055824785;bestel@maertens.be;054851784;45;5000;2012-11-18;N
+K00485;Vermeulen Techniek bv;Meensesteenweg;137;3;8600;Diksmuide;BE;BE0489495355;boekhouding@vermeulen.be;095632863;30;5000;2013-05-02;N
+K00486;Verhelst Renovatie;Nieuwstraat;217;A;8970;Poperinge;BE;BE0421748971;bestel@verhelst.be;055875188;60;2500;2017-08-06;J
+K00487;Desmet bv (BE0858203342);Oostlaan;14;A;8500;Kortrijk;BE;;boekhouding@desmet.be;094119504;60;10000;2012-10-03;N
+K00488;Soenen Sanitair Groep;Ambachtenstraat;19;A;8530;Harelbeke;BE;BE0479426953;administratie@soenen.be;056982543;30;10000;2013-04-03;N
+K00489;Mortier Bouw;Gitsestraat;240;3;8850;Ardooie;BE;BE0495670592;boekhouding@mortier.be;059006179;14;10000;2021-07-20;N
+K00490;Vanden Broucke Renovatie bvba;Nieuwstraat;206;;8850;Ardooie;BE;BE0816168490;bestel@vanden.be;055119960;45;5000;2023-05-17;N
+K00491;Deschacht bvba;Hoogstraat;109;;8000;Brugge;BE;BE0577827416;info@deschacht.be;055815853;60;50000;38696;N
+K00492;Maertens vof;Beverenstraat;32;2;8700;Tielt;BE;BE0727770907;info@maertens.be;058307926;30;5000;2009-06-17;N
+K00493;Vandewalle & Zonen;Rijksweg;119;0101;8820;Torhout;BE;BE0467196936;info@vandewalle.be;092666552;14;25000;2005-02-22;N
+k 00494;Loosveldt & Zonen;Gitsestraat;195;0101;8700;Tielt;Belgie;BE0690287137;administratie@loosveldt.be;097171741;30;10000;2023-06-10;N
+K00495;Vanden Broucke Renovatie bvba;Gitsestraat;98;2;9880;Aalter;BE;BE0395629247;bestel@vanden.be;058919584;45;5000;2020-11-18;N
+K00496;Vanhaverbeke vof;Nieuwstraat;46;0101;8890;Moorslede;BE;BE0122644721;info@vanhaverbeke.be;041484224;30;2500;2023-05-09;N
+K00497;Deprez Installaties bv;Brugsesteenweg;147;;8850;Ardooie;BE;BE0822503283;administratie@deprez.be;055735319;30;15000;2023-09-28;N
+K00498;Verhoeve Groep;Beverenstraat;93;;8870;Izegem;BE;BE0241896323;administratie@verhoeve.be;044095902;60;2500;2008-01-17;N
+K00499;Rommens Sanitair nv;Beverenstraat;140;2;9000;Gent;BE;BE0457467044;bestel@rommens.be;052116341;60;25000;2008-06-05;N
+K00500;Carron bv;Mandellaan;22;;9700;Oudenaarde;BE;BE0902214222;boekhouding@carron.be;048719415;30;10000;2014-11-20;N
+K00501;Vanden Broucke vof;Gitsestraat;212;;8700;Tielt;BE;BE0723032159;info@vanden.be;052404172;30;5000;2020-08-03;N
+K00502;Callewaert Bouw Groep;Molenstraat;80;;9700;Oudenaarde;BE;BE0468708651;x@x.x;042361137;30;2500;2011-12-28;N
+K00503;Hoornaert;Kerkstraat;160;;8500;Kortrijk;BE;BE0211333504;administratie@hoornaert.be;058302904;60;25000;2016-05-13;N
+K00504;Deschacht Verwarming Groep;Molenstraat;141;0101;9000;Gent;BE;BE0755942279;administratie@deschacht.be;058302570;30;15000;2008-11-10;N
+k 00505;Pattyn & Zonen;Noordlaan;20;;9700;Oudenaarde;BE;BE0653250062;bestel@pattyn.be;058650274;30;50000;2024-06-26;N
+K00506;Coussement Dakwerken nv;Mandellaan;224;;8850;Ardooie;B;BE0554858707;boekhouding@coussement.be;056385879;30;5000;2012-06-26;N
+k 00507;Verhoeve bv;Diksmuidsesteenweg;201;A;8870;Izegem;BE;BE0745204973;administratie@verhoeve.be;059090900;30;10000;2012-01-30;N
+K00508;Vanbecelaere Dakwerken vof;Vijverhoek;113;;9800;Deinze;BE;BE0327870787;boekhouding@vanbecelaere.be;043516101;30;25000;2013-11-30;N
+K00509;Deveux Elektro;Brugsesteenweg;41;;8000;Brugge;BE;BE0066863187;administratie@deveux.be;091172984;30;25000;2011-07-12;N
+K00510;Loosveldt Verwarming Groep;Hoogstraat;94;0101;8830;Hooglede;BE;BE0126494928;boekhouding@loosveldt.be;054411677;30;5000;2006-08-20;N
+K00511;Vanbecelaere Klimaat vof;Molenstraat;30;;8930;Menen;BE;BE0544819801;bestel@vanbecelaere.be;052817541;45;25000;2007-09-27;N
+k 00512;Verhoeve nv;Diksmuidsesteenweg;79;A;8980;Zonnebeke;BE;BE0681373728;info@verhoeve.be;053783834;30;15000;2016-09-09;N
+K00513;Deschacht bv;Kwadestraat;186;;9700;Oudenaarde;BE;BE0100918008;administratie@deschacht.be;053033555;30;50000;2023-07-20;N
+K00514;Vanbecelaere Bouw bvba;Stationsstraat;110;A;9880;Aalter;BE;BE0264298274;administratie@vanbecelaere.be;058995408;60;25000;44622;N
+K00515;Bruggeman Sanitair nv;Ambachtenstraat;148;A;8890;Moorslede;BE;BE0904997726;boekhouding@bruggeman.be;053055370;30;50000;2019-08-13;N
+K00516;Deschacht bv;Rijksweg;131;2;8980;Zonnebeke;BE;BE0309285290;bestel@deschacht.be;042667425;45;5000;2018-05-28;N
+K00517;Vanlerberghe;Meensesteenweg;206;;8810;Lichtervelde;BE;BE0992961086;info@vanlerberghe.be;058299830;45;25000;2009-03-16;N
+K00518;Decroix nv;Molenstraat;72;;8820;Torhout;BE;BE0795351894;bestel@decroix.be;042112038;30;15000;2017-02-11;N
+K00519;Delaere;Zuidstraat;69;0101;8600;Diksmuide;BE;BE0880096638;info@delaere.be;055793920;30;5000;2022-12-15;J
+K00520;Boussemaere bv;Rijksweg;80;3;8890;Moorslede;BE;BE0777273272;info@boussemaere.be;055007800;60;25000;2022-11-11;N
+K00521;Baert bvba;Meensesteenweg;152;;8830;Hooglede;BE;BE0513167612;bestel@baert.be;098093851;14;50000;2008-08-28;N
+K00522;Verhelst bv;Mandellaan;91;;8560;Wevelgem;BE;BE0422868431;bestel@verhelst.be;051297292;30;25000;2020-10-18;N
+K00523;Vandenberghe & Zonen;Molenstraat;197;3;9800;Deinze;BE;BE0531990362;administratie@vandenberghe.be;091362484;45;15000;2005-12-25;N
+K00524;Devos comm.v;Stationsstraat;153;;8980;Zonnebeke;BE;BE0480879379;info@devos.be;058989037;60;5000;2012-03-04;J
+K00525;Lefevere comm.v;Vijverhoek;210;A;8800;Roeselare;BE;BE0142151619;administratie@lefevere.be;096300110;45;15000;2013-11-03;N
+K00526;Dekeyser bv;Kwadestraat;170;A;8890;Moorslede;BE;BE0402551087;administratie@dekeyser.be;056686520;30;15000;42027;N
+K00527;ZZZ OUD - NIET GEBRUIKEN;Kwadestraat;207;2;8970;Poperinge;BE;BE0103415064;administratie@declercq.be;052797597;30;5000;2006-05-17;N
+K00528;Vanlerberghe bvba;Beverenstraat;9;;8890;Moorslede;BE;BE0573565750;bestel@vanlerberghe.be;094524162;60;10000;2009-10-26;N
+k 00529;Soenen bvba;Ambachtenstraat;240;;9700;Oudenaarde;BE;BE0690510732;info@soenen.be;059075536;30;2500;2014-01-29;N
+K00530;Hoornaert Techniek vof;Oostlaan;163;;8970;Poperinge;BE;BE0857780403;boekhouding@hoornaert.be;094396590;14;25000;2023-11-27;N
+K00531;Deveux Bouw bv;Noordlaan;184;0101;9880;Aalter;BE;BE0537339814;info@deveux.be;094921070;60;10000;2020-12-19;N
+K00532;Bruggeman Bouw bvba;Westlaan;208;;8970;Poperinge;BE;BE0863442233;bestel@bruggeman.be;049010829;30;50000;2011-11-24;J
+K00533;Goethals;Kerkstraat;159;0101;8400;Oostende;BE;BE0156195140;bestel@goethals.be;059466100;30;25000;45199;N
+K00534;Tanghe comm.v;Westlaan;218;A;9000;Gent;BE;BE0725472106;info@tanghe.be;046176356;45;5000;2010-08-21;N
+k 00535;Vandewalle Techniek vof;Kwadestraat;172;2;9700;Oudenaarde;BE;BE0842965038;administratie@vandewalle.be;051430048;30;2500;2004-09-08;N
+K00536;Lefevere Loodgieterij bv;Kwadestraat;33;0101;8560;Wevelgem;BE;BE0142211007;bestel@lefevere.be;042847983;60;2500;2021-02-28;N
+K00537;Soenen comm.v;Rijksweg;79;2;8700;Tielt;BE;BE0322344757;info@soenen.be;052599039;14;25000;2019-11-23;N
+K00538;Vanhoutte Renovatie comm.v;Westlaan;171;;9700;Oudenaarde;BE;BE0602368713;administratie@vanhoutte.be;048124555;30;10000;2023-03-12;N
+K00539;Cottenier Elektro vof;Hoogstraat;64;2;8900;Ieper;BE;BE0852565860;bestel@cottenier.be;053513571;60;15000;2005-02-11;N
+K00540;Coussement;Kwadestraat;57;0101;8710;Wielsbeke;BE;BE0859730794;info@coussement.be;056934192;30;5000;2014-10-03;N
+K00541;Maertens Dakwerken vof;Hoogstraat;194;2;8530;Harelbeke;BE;BE0474627334;info@maertens.be;048822564;14;50000;2012-08-07;J
+K00542;Loosveldt vof;Stationsstraat;147;3;8530;Harelbeke;BE;BE0075528653;x@x.x;042311634;30;2500;2012-12-08;N
+K00543;Dekeyser vof;Vijverhoek;135;;8830;Hooglede;BE;BE0843294640;bestel@dekeyser.be;046465850;45;5000;2006-08-13;N
+K00544;Mortier Loodgieterij Groep;Kwadestraat;135;;8560;Wevelgem;BE;BE0408437504;bestel@mortier.be;052792088;14;5000;2008-11-25;N
+K00545;Vanneste nv;Noordlaan;166;;8600;Diksmuide;BE;BE0315270784;info@vanneste.be;055334419;60;2500;2007-12-06;N
+K00546;Callewaert Elektro Groep;Oostlaan;11;;8400;Oostende;BE;BE0040438211;info@callewaert.be;057508659;14;15000;2022-10-04;N
+K00547;Decroix bvba;Kwadestraat;64;;9880;Aalter;BE;BE0700574778;administratie@decroix.be;057361170;14;25000;2015-04-23;N
+K00548;Vandenberghe nv;Rijksweg;230;0101;9000;Gent;BE;BE0089612360;info@vandenberghe.be;052072732;14;50000;2012-02-15;N
+K00549;Decroix Groep (BE0958075334);Stationsstraat;79;;8560;Wevelgem;BE;;bestel@decroix.be;056727330;30;10000;44408;N
+K00550;Deprez bvba;Mandellaan;197;2;8600;Diksmuide;BE;BE0680379378;info@deprez.be;055189054;45;2500;2011-04-11;N
+K00551;Declercq Groep;Kwadestraat;186;;9880;Aalter;BE;BE0294669271;administratie@declercq.be;054394347;30;15000;2013-08-23;N
+K00552;Carron Installaties comm.v;Ambachtenstraat;6;;8500;Kortrijk;BE;BE0518283767;info@carron.be;099730798;45;25000;2014-11-07;N
+K00553;Noppe nv;Diksmuidsesteenweg;65;0101;8530;Harelbeke;BE;BE0517605856;administratie@noppe.be;059774206;30;15000;2019-01-23;N
+K00554;Declercq Sanitair bvba;Vijverhoek;225;;8710;Wielsbeke;BE;BE0155979166;info@declercq.be;044269112;60;5000;2021-08-09;N
+K00555;Maertens vof;Oostlaan;164;;8790;Waregem;BE;BE0229176455;bestel@maertens.be;058869487;30;25000;2019-05-18;N
+K00556;Desmet bvba;Mandellaan;205;;8870;Izegem;BE;BE0410034836;boekhouding@desmet.be;056577860;30;15000;2019-09-30;N
+K00557;Callewaert Sanitair bv;Molenstraat;80;;8700;Tielt;BE;BE0194363650;noreply@noreply.be;046822822;30;50000;2015-03-18;N
+K00558;Delaere bv;Rijksweg;82;A;8970;Poperinge;BE;BE0675701703;info@delaere.be;051217841;14;10000;2006-07-16;N
+K00559;Debusschere Techniek & Zonen;Nieuwstraat;79;0101;8400;Oostende;BE;BE0723260110;administratie@debusschere.be;096728602;30;10000;2024-02-04;N
+K00560;Boussemaere Dakwerken vof;Vijverhoek;108;2;8800;Roeselare;BE;BE0779161507;info@boussemaere.be;043192461;30;50000;2022-02-08;N
+K00561;Vandewalle Techniek Groep;Brugsesteenweg;132;;9700;Oudenaarde;BE;BE0354668424;boekhouding@vandewalle.be;053449627;30;50000;2023-12-20;N
+K00562;Seynaeve Groep;Rijksweg;99;A;9800;Deinze;BE;BE0892089006;administratie@seynaeve.be;059488934;30;25000;2014-08-02;N
+K00563;Lefevere Bouw comm.v;Westlaan;121;;8980;Zonnebeke;BE;BE0638137660;noreply@noreply.be;096593567;60;15000;2007-06-28;N
+K00564;Vanbecelaere Loodgieterij Groep;Noordlaan;180;;8830;Hooglede;BE;BE0842218336;boekhouding@vanbecelaere.be;048349983;60;10000;9999-12-31;N
+K00565;Desmet Installaties nv;Ambachtenstraat;78;;8870;Izegem;BE;BE0258803423;boekhouding@desmet.be;099540472;30;5000;1899-12-30;N
+K00566;Deprez Installaties bvba;Kwadestraat;174;3;9700;Oudenaarde;BE;BE0723176273;boekhouding@deprez.be;099567340;45;5000;2019-08-12;N
+K00567;Deschacht Dakwerken nv;Westlaan;123;3;8810;Lichtervelde;BE;BE0715077169;administratie@deschacht.be;053827536;30;5000;2017-05-31;N
+K00568;Depoorter Loodgieterij & Zonen;Meensesteenweg;30;;8980;Zonnebeke;BE;BE0417840168;bestel@depoorter.be;054053718;14;5000;2012-01-23;N
+K00569;Cottenier comm.v;Meensesteenweg;204;;8710;Wielsbeke;BE;BE0946227872;info@cottenier.be;098887187;30;2500;2018-02-08;N
+K00570;Devos Elektro bvba;Kwadestraat;176;A;8560;Wevelgem;BE;BE0404790304;bestel@devos.be;nvt;45;15000;2014-12-17;N
+K00571;Vanneste Dakwerken;Gitsestraat;67;;8560;Wevelgem;BE;BE0074108493;bestel@vanneste.be;057319771;30;5000;2024-04-22;N
+K00572;Vanbecelaere;Mandellaan;63;3;8790;Waregem;BE;BE0319894518;bestel@vanbecelaere.be;000000000;45;50000;01/01/1900;N
+K00573;Desmet nv;Brugsesteenweg;117;A;9880;Aalter;BE;BE0161844696;boekhouding@desmet.be;053476553;45;10000;2009-05-06;N
+K00574;Deveux nv;Nieuwstraat;55;0101;8830;Hooglede;BE;BE0112640754;administratie@deveux.be;098506819;30;5000;2009-09-09;N
+K00575;Verschoore bv;Meensesteenweg;102;;8800;Roeselare;B;BE0110762815;administratie@verschoore.be;052595952;45;15000;2008-09-20;N
+K00576;Vandenberghe bvba;Hoogstraat;182;;8560;Wevelgem;BE;BE0859335668;noreply@noreply.be;057520585;45;5000;2024-07-27;N
+K00577;Verschoore vof;Westlaan;113;;8980;Zonnebeke;BE;BE0632635879;info@verschoore.be;046804407;14;5000;2004-01-26;N
+K00578;Declercq bv;Brugsesteenweg;33;0101;8820;Torhout;BE;BE0897065502;administratie@declercq.be;057201770;60;50000;2023-04-23;N
+K00579;Depoorter Bouw nv;Beverenstraat;240;;8930;Menen;BE;BE0746846946;boekhouding@depoorter.be;053306298;60;2500;2008-10-19;N
+k 00580;Baert Elektro bv;Diksmuidsesteenweg;104;2;8830;Hooglede;BE;BE0099397086;info@baert.be;046041185;45;10000;2018-09-03;N
+K00581;Lefevere Bouw comm.v;Oostlaan;14;0101;8600;Diksmuide;BE;BE0535197795;info@lefevere.be;058585694;60;5000;2009-03-10;N
+K00582;Deveux Groep;Diksmuidsesteenweg;71;0101;8980;Zonnebeke;BE;BE0526628242;info@deveux.be;056713492;14;15000;2017-07-24;J
+k 00583;Vandenberghe & Zonen;Industrielaan;218;2;8600;Diksmuide;BE;BE0078535257;administratie@vandenberghe.be;097626605;14;5000;2021-02-28;N
+K00584;Soenen Klimaat vof;Beverenstraat;145;2;9000;Gent;BE;BE0658157074;info@soenen.be;093131265;60;25000;2004-10-14;N
+K00585;Boussemaere Sanitair nv;Molenstraat;135;2;8400;Oostende;BE;BE0790435578;boekhouding@boussemaere.be;054505257;30;5000;2005-01-25;N
+K00586;Verhoeve Groep;Diksmuidsesteenweg;217;A;9800;Deinze;BE;BE0347724016;info@verhoeve.be;095000169;30;50000;2014-04-09;N
+K00587;Cottenier vof;Kwadestraat;175;2;8600;Diksmuide;BE;BE0773250247;bestel@cottenier.be;043429438;45;50000;2014-10-15;N
+K00588;Pattyn vof;Noordlaan;237;2;9700;Oudenaarde;BE;BE0587809607;info@pattyn.be;053975444;14;10000;2016-12-29;N
+K00589;Deprez;Zuidstraat;77;2;8930;Menen;BE;BE0450653783;administratie@deprez.be;051865365;60;25000;2012-12-11;J
+K00590;Carron Elektro bv;Industrielaan;199;;8820;Torhout;BE;BE0114800191;info@carron.be;051799216;14;15000;2004-11-09;N
+k 00591;Depoorter comm.v;Meensesteenweg;34;;9000;Gent;BE;BE0735619888;bestel@depoorter.be;052423628;30;10000;2023-09-29;N
+K00592;Delaere Groep;Zuidstraat;87;;8700;Tielt;BE;BE0343371783;administratie@delaere.be;092190348;30;2500;2022-09-05;N
+K00593;Cottenier bv;Rijksweg;193;;8710;Wielsbeke;BE;BE0701861514;info@cottenier.be;054924671;30;2500;2006-12-17;N
+K00594;Vandenberghe Elektro bvba;Meensesteenweg;43;;8400;Oostende;BE;BE0287458609;boekhouding@vandenberghe.be;054363146;14;5000;2007-11-29;N
+K00595;Goethals;Molenstraat;96;2;8930;Menen;BE;BE0926028910;boekhouding@goethals.be;000000000;45;50000;2015-03-05;N
+K00596;Noppe;Oostlaan;58;;8000;Brugge;BE;BE0605028194;boekhouding@noppe.be;053201960;60;5000;2006-08-30;N
+K00597;Verschoore;Gitsestraat;86;3;8830;Hooglede;B;BE0363049917;boekhouding@verschoore.be;053620976;30;15000;2008-11-23;N
+K00598;Vandenberghe;Hoogstraat;129;;8810;Lichtervelde;BE;BE0767228923;administratie@vandenberghe.be;059702668;45;25000;2009-04-20;N
+K00599;Coussement & Zonen;Stationsstraat;176;;8800;Roeselare;BE;BE0121147753;administratie@coussement.be;049727629;30;2500;2024-01-10;N
+k 00600;Beernaert bv;Westlaan;110;A;8560;Wevelgem;BE;BE0340483955;administratie@beernaert.be;095716996;30;10000;2008-10-28;N
+K00601;Decroix Dakwerken & Zonen;Rijksweg;125;A;9880;Aalter;BE;BE0267740784;info@decroix.be;055572515;14;5000;2011-03-15;N
+K00602;Depoorter Verwarming bv;Mandellaan;60;2;8800;Roeselare;BE;BE0410809252;bestel@depoorter.be;057344778;14;50000;2024-09-01;N
+K00603;Mortier Techniek vof;Stationsstraat;134;;8800;Roeselare;BE;BE0662768237;boekhouding@mortier.be;097721095;30;10000;2018-02-16;N
+K00604;Vanneste bvba;Brugsesteenweg;97;3;8000;Brugge;BE;BE0632687844;boekhouding@vanneste.be;095248514;60;15000;1899-12-30;N
+K00605;Deschacht bvba;Kwadestraat;175;;8500;Kortrijk;BE;BE0977323696;administratie@deschacht.be;098170596;60;5000;2011-12-31;N
+K00606;Pattyn;Mandellaan;113;;8890;Moorslede;BE;BE0311687625;geen@geen.be;055206612;45;2500;2007-01-31;N
+K00607;Beernaert Renovatie bv;Meensesteenweg;133;0101;8820;Torhout;BE;BE0600070308;bestel@beernaert.be;055705243;30;10000;2004-11-04;J
+K00608;Boussemaere comm.v;Gitsestraat;90;A;9880;Aalter;BE;BE0515354565;administratie@boussemaere.be;052613011;45;15000;01/01/1900;N
+K00609;Vandewalle Bouw Groep;Vijverhoek;76;;9700;Oudenaarde;BE;BE0794823047;boekhouding@vandewalle.be;058927736;14;2500;2012-07-15;N
+K00610;Declercq Bouw bv;Meensesteenweg;30;0101;9800;Deinze;BE;BE0093260055;info@declercq.be;093679929;14;15000;2013-04-14;N
+K00611;Mortier Groep;Rijksweg;186;;8870;Izegem;BE;BE0107273189;info@mortier.be;056413733;30;2500;1899-12-30;N
+K00612;Vanhaverbeke Loodgieterij bvba;Molenstraat;123;;8820;Torhout;BE;BE0302073242;boekhouding@vanhaverbeke.be;055124289;30;5000;2015-05-19;N
+K00613;Lammertyn vof;Industrielaan;185;;8790;Waregem;BE;BE0717682115;info@lammertyn.be;047545582;30;15000;2022-01-14;N
+K00614;Soenen bv;Industrielaan;193;3;8980;Zonnebeke;BE;BE0226907942;bestel@soenen.be;099650488;30;2500;2015-04-25;N
+K00615;Goethals Elektro comm.v;Meensesteenweg;69;;9880;Aalter;BE;BE0343682084;boekhouding@goethals.be;051105693;60;10000;2017-03-27;N
+K00616;Devos Techniek & Zonen;Gitsestraat;164;2;8500;Kortrijk;BE;BE0053599824;boekhouding@devos.be;059775966;30;2500;2010-07-13;N
+K00617;Dekeyser bvba;Zuidstraat;183;A;8820;Torhout;BE;BE0154689462;bestel@dekeyser.be;052505613;60;15000;2012-05-05;N
+K00618;Vanhoutte;Stationsstraat;42;;8970;Poperinge;BE;BE0534850773;bestel@vanhoutte.be;058701460;30;25000;2005-02-10;N
+K00619;Carron vof;Molenstraat;118;3;8930;Menen;BE;BE0764964269;info@carron.be;055020277;30;25000;41899;N
+K00620;Baert Elektro;Zuidstraat;147;;8530;Harelbeke;BE;BE0467794673;bestel@baert.be;057150356;14;5000;2020-04-27;N
+K00621;Vanhoutte & Zonen;Industrielaan;206;A;8400;Oostende;BE;BE0894692069;bestel@vanhoutte.be;058706398;30;15000;2020-09-29;N
+K00622;Vanbecelaere;Rijksweg;195;;8500;Kortrijk;BE;BE0593196273;info@vanbecelaere.be;054418663;14;25000;45237;N
+K00623;Vanden Broucke comm.v;Kwadestraat;57;2;8560;Wevelgem;BE;BE0956093663;info@vanden.be;091135033;30;5000;2016-02-16;N
+K00624;Callewaert bvba (BE0863502017);Diksmuidsesteenweg;6;A;8530;Harelbeke;BE;;administratie@callewaert.be;058827878;60;15000;2005-06-01;N
+k 00625;Deprez Klimaat bv;Rijksweg;114;A;8820;Torhout;BE;BE0377742051;boekhouding@deprez.be;045488019;14;5000;2012-07-01;N
+K00626;Mortier comm.v;Rijksweg;34;2;8800;Roeselare;BE;BE0697575795;/;054021361;14;5000;40991;N
+K00627;Devos;Brugsesteenweg;65;3;8850;Ardooie;BE;BE0128335156;bestel@devos.be;099499724;30;25000;2023-07-20;N
+k 00628;Carron vof;Noordlaan;224;3;8400;Oostende;BE;BE0563855357;info@carron.be;000000000;14;5000;2015-08-24;N
+K00629;Rommens vof;Kwadestraat;159;;8850;Ardooie;BE;BE0682839220;info@rommens.be;048861687;30;15000;2021-04-21;N
+K00630;Soenen vof;Nieuwstraat;234;;8600;Diksmuide;BE;BE0354035152;bestel@soenen.be;096254894;60;10000;2020-05-19;N
+K00631;Bruggeman Groep;Westlaan;222;0101;8980;Zonnebeke;BE;BE0790652245;bestel@bruggeman.be;055816610;30;25000;2024-02-20;N
+K00632;Pattyn Renovatie vof;Industrielaan;177;2;8830;Hooglede;BE;BE0207237926;bestel@pattyn.be;053790901;30;5000;2007-01-03;N
+K00633;Baert nv;Vijverhoek;96;;8000;Brugge;BE;BE0790755876;info@baert.be;099952206;30;2500;2007-03-09;N
+K00634;Deveux Loodgieterij vof;Diksmuidsesteenweg;17;3;8850;Ardooie;BE;BE0892451963;administratie@deveux.be;053254597;60;15000;2013-02-10;N
+K00635;Vandenberghe Sanitair Groep;Industrielaan;192;0101;8500;Kortrijk;BE;BE0844667486;administratie@vandenberghe.be;055657651;30;2500;2004-11-08;N
+K00636;Boussemaere bv;Mandellaan;156;;8900;Ieper;BE;BE0145967974;bestel@boussemaere.be;046200845;14;15000;2022-06-03;N
+K00637;Seynaeve Groep;Zuidstraat;16;3;9800;Deinze;BE;BE0659023740;info@seynaeve.be;058867878;14;2500;2015-05-10;N
+K00638;Verschoore vof;Rijksweg;92;;8710;Wielsbeke;BE;BE0570424138;administratie@verschoore.be;054116878;30;5000;2018-03-11;N
+K00639;Deprez vof;Diksmuidsesteenweg;106;A;8800;Roeselare;BE;BE0783086344;/;047635929;60;5000;2012-05-02;N
+K00640;Vandenberghe vof;Brugsesteenweg;238;3;8710;Wielsbeke;BE;BE0266387536;boekhouding@vandenberghe.be;052584823;30;10000;2004-06-18;J
+K00641;Vanhaverbeke;Brugsesteenweg;85;A;9000;Gent;BE;BE0113465947;geen@geen.be;054302387;60;2500;2013-05-24;N
+K00642;Delaere comm.v;Stationsstraat;98;;9800;Deinze;BE;BE0630780013;info@delaere.be;057829610;60;25000;2006-05-10;N
+K00643;Hoornaert Verwarming comm.v;Meensesteenweg;23;A;8000;Brugge;BE;BE0112216330;info@hoornaert.be;058636804;14;5000;2012-07-23;N
+K00644;Loosveldt Renovatie nv;Rijksweg;210;;9800;Deinze;BE;BE0385502051;administratie@loosveldt.be;054600585;14;50000;2010-12-09;N
+K00645;Boussemaere;Beverenstraat;1;A;8850;Ardooie;BE;BE0935163538;boekhouding@boussemaere.be;059767417;30;50000;2012-10-02;N
+K00646;Pattyn Groep;Ambachtenstraat;209;2;8560;Wevelgem;BE;BE0631113870;boekhouding@pattyn.be;042950519;60;10000;2008-04-15;N
+K00647;Devos Loodgieterij vof;Molenstraat;24;0101;8600;Diksmuide;BE;BE0756936134;administratie@devos.be;043654204;14;5000;38157;N
+K00648;Soenen Installaties & Zonen;Zuidstraat;116;3;8560;Wevelgem;BE;BE0266043977;administratie@soenen.be;056113042;30;2500;2015-11-18;N
+K00649;Bruggeman & Zonen;Brugsesteenweg;220;;8530;Harelbeke;BE;BE0756276534;administratie@bruggeman.be;052550558;45;2500;43355;N
+k 00650;Deprez Installaties;Industrielaan;65;;8850;Ardooie;BE;BE0760648858;bestel@deprez.be;052407821;45;10000;2009-10-10;N
+K00651;Vandenberghe Klimaat vof;Meensesteenweg;94;;9700;Oudenaarde;BE;BE0724730451;info@vandenberghe.be;057305912;60;10000;2018-01-03;N
+K00652;Noppe Loodgieterij comm.v (BE0774869850);Rijksweg;90;;8560;Wevelgem;BE;;info@noppe.be;056108375;14;2500;2024-02-08;N
+K00653;Pattyn comm.v;Hoogstraat;147;;8870;Izegem;BE;BE0346869426;boekhouding@pattyn.be;057925873;30;25000;2024-07-15;N
+K00654;Depoorter bvba;Kwadestraat;161;;8820;Torhout;Belgie;BE0140979602;info@depoorter.be;059961347;45;15000;2021-04-04;N
+K00655;Verhoeve Sanitair nv;Oostlaan;197;0101;8600;Diksmuide;BE;BE0940662844;bestel@verhoeve.be;057512562;30;10000;2008-11-04;N
+K00656;Beernaert Groep (BE0274783182);Brugsesteenweg;40;;8900;Ieper;BE;;bestel@beernaert.be;048347403;30;10000;2021-03-16;N
+K00657;Delaere Bouw & Zonen;Noordlaan;209;;9880;Aalter;BE;BE0462150758;boekhouding@delaere.be;048983937;30;2500;2011-02-27;N
+K00658;Decroix Techniek Groep;Vijverhoek;14;;8400;Oostende;BE;BE0135762881;bestel@decroix.be;053400406;30;5000;2010-11-18;N
+K00659;Goethals bvba;Nieuwstraat;62;A;9800;Deinze;BE;BE0080415374;administratie@goethals.be;051515507;30;2500;2021-06-24;N
+k 00660;Vanhoutte comm.v;Noordlaan;36;;8850;Ardooie;BE;BE0419807684;info@vanhoutte.be;056621579;60;5000;2015-04-07;N
+K00661;Lefevere Verwarming nv;Ambachtenstraat;162;A;8530;Harelbeke;BE;BE0439977647;bestel@lefevere.be;052324478;14;50000;2004-06-04;N
+K00662;Deschacht Klimaat;Industrielaan;187;;8400;Oostende;BE;BE0161672373;boekhouding@deschacht.be;057225131;30;10000;2020-06-07;N
+K00663;Noppe Klimaat & Zonen;Hoogstraat;27;;8560;Wevelgem;BE;BE0638814581;administratie@noppe.be;095597942;30;50000;2019-06-07;N
+K00664;Verhelst;Stationsstraat;75;3;8710;Wielsbeke;BE;BE0211800983;info@verhelst.be;043715387;30;2500;2021-10-14;N
+K00665;Mortier Verwarming bvba;Stationsstraat;88;;8400;Oostende;BE;BE0558931420;info@mortier.be;053408340;45;5000;2011-04-03;N
+K00666;Deveux Renovatie bv;Industrielaan;54;;9800;Deinze;BE;BE0454659487;info@deveux.be;054745422;30;25000;2020-09-10;N
+K00667;Vanhaverbeke comm.v;Hoogstraat;133;2;8710;Wielsbeke;BE;BE0728461189;boekhouding@vanhaverbeke.be;044769530;60;2500;2019-05-25;N
+K00668;Desmet Installaties bvba;Kwadestraat;169;A;8800;Roeselare;BE;BE0314972064;bestel@desmet.be;057178788;30;5000;2009-07-16;N
+k 00669;Devos comm.v;Kwadestraat;59;;8800;Roeselare;BE;BE0731395341;boekhouding@devos.be;059487934;30;2500;2011-12-13;N
+K00670;Dekeyser Dakwerken comm.v;Zuidstraat;124;;8870;Izegem;BE;BE0431675437;bestel@dekeyser.be;098798431;60;10000;2009-12-07;N
+K00671;Deprez Klimaat comm.v;Kerkstraat;215;2;8980;Zonnebeke;BE;BE0209994508;administratie@deprez.be;053719931;30;2500;2006-06-28;N
+k 00672;Beernaert Verwarming vof;Westlaan;141;;8870;Izegem;BE;BE0362814048;administratie@beernaert.be;052009328;30;50000;41372;N
+K00673;Devos;Kwadestraat;239;2;9800;Deinze;BE;BE0661210297;boekhouding@devos.be;056038987;45;2500;2015-12-09;N
+K00674;Bruggeman Klimaat nv;Mandellaan;23;;8850;Ardooie;BE;BE0650523075;info@bruggeman.be;057237134;60;10000;2011-08-17;N
+K00675;Declercq & Zonen;Rijksweg;95;;8850;Ardooie;BE;BE0451418303;boekhouding@declercq.be;054400579;14;15000;2021-01-16;N
+K00676;Deschacht Loodgieterij bv;Zuidstraat;164;;8400;Oostende;BE;BE0814140794;administratie@deschacht.be;057171239;30;5000;2022-06-12;N
+K00677;Declercq;Vijverhoek;200;3;8870;Izegem;BE;BE0995500211;info@declercq.be;091276455;60;25000;2013-02-18;N
+K00678;Debusschere bvba;Ambachtenstraat;221;;8800;Roeselare;BE;BE0252618781;info@debusschere.be;092444417;60;10000;2023-09-26;N
+K00679;Verschoore Elektro bv;Gitsestraat;219;2;8400;Oostende;BE;BE0156402305;bestel@verschoore.be;049553268;60;25000;42445;N
+K00680;Goethals Loodgieterij nv;Diksmuidsesteenweg;45;;8930;Menen;BE;BE0868780302;bestel@goethals.be;048800216;30;5000;2020-11-21;N
+K00681;Loosveldt Loodgieterij;Ambachtenstraat;151;;8800;Roeselare;BE;BE0052923693;info@loosveldt.be;047879085;30;10000;2004-09-23;N
+K00682;Tanghe bvba;Diksmuidsesteenweg;235;3;8530;Harelbeke;BE;BE0735008095;administratie@tanghe.be;045356491;45;2500;2021-06-20;N
+K00683;Debusschere Loodgieterij Groep;Oostlaan;94;;9700;Oudenaarde;BE;BE0063016544;bestel@debusschere.be;041154723;30;25000;2011-09-12;N
+K00684;Tanghe Elektro;Meensesteenweg;229;A;8870;Izegem;BE;BE0565619074;boekhouding@tanghe.be;041862151;30;50000;2013-12-30;N
+K00685;Callewaert Sanitair nv;Kwadestraat;45;;8930;Menen;BE;BE0695035286;boekhouding@callewaert.be;058432069;30;2500;1899-12-30;N
+K00686;Deprez comm.v;Vijverhoek;163;0101;8820;Torhout;BE;BE0064256758;info@deprez.be;057162033;30;2500;2012-04-30;N
+K00687;Deveux Groep;Kerkstraat;57;0101;9880;Aalter;BE;BE0077268616;boekhouding@deveux.be;/;14;50000;2020-10-26;N
+K00688;Pattyn Sanitair vof;Noordlaan;64;;9880;Aalter;BE;BE0128872913;administratie@pattyn.be;044232895;14;15000;2005-01-26;N
+K00689;Rommens bv (BE0512757044);Oostlaan;6;0101;8000;Brugge;BE;;boekhouding@rommens.be;095589530;30;15000;2004-04-29;N
+K00690;Deschacht & Zonen;Nieuwstraat;163;A;8790;Waregem;BE;BE0786240626;administratie@deschacht.be;093167655;30;5000;2015-12-08;N
+K00691;Bruggeman Bouw bv;Zuidstraat;8;3;9880;Aalter;BE;BE0999105443;bestel@bruggeman.be;054450751;30;5000;2018-02-14;N
+K00692;Verhelst Renovatie comm.v;Noordlaan;58;2;8820;Torhout;BE;BE0770468228;info@verhelst.be;049218366;30;50000;2023-02-20;N
+K00693;Baert Elektro bvba;Industrielaan;196;;8530;Harelbeke;BE;BE0309220756;bestel@baert.be;052118131;45;25000;2007-10-22;N
+K00694;Deprez Verwarming vof;Nieuwstraat;198;;8800;Roeselare;BE;BE0372985784;boekhouding@deprez.be;047494643;14;25000;2017-11-11;N
+K00695;Vanneste Groep;Ambachtenstraat;24;0101;8700;Tielt;BE;BE0620469507;info@vanneste.be;055168112;30;10000;2005-05-20;N
+K00696;Hoornaert Installaties Groep;Industrielaan;181;;8790;Waregem;BE;BE0128018917;boekhouding@hoornaert.be;056527167;30;15000;2009-07-24;N
+K00697;Beernaert vof;Beverenstraat;70;;9000;Gent;BE;BE0688284086;info@beernaert.be;049021180;14;50000;2004-04-23;N
+K00698;Bruggeman Groep;Nieuwstraat;205;;8560;Wevelgem;BE;BE0660742026;bestel@bruggeman.be;053391573;14;5000;2006-03-13;N
+K00699;Boussemaere bvba;Brugsesteenweg;160;A;8710;Wielsbeke;BE;BE0529447378;bestel@boussemaere.be;055493185;30;15000;2019-08-25;N
+K00700;aaa;Molenstraat;25;0101;8930;Menen;BE;BE0931955808;boekhouding@vanbecelaere.be;098528322;30;15000;2013-09-14;N
+K00701;Maertens vof;Industrielaan;220;;8400;Oostende;BE;BE0361488712;info@maertens.be;055598641;30;10000;1899-12-30;N
+K00702;Rommens Installaties nv;Industrielaan;154;2;8710;Wielsbeke;BE;BE0833937902;info@rommens.be;047493072;30;15000;2016-12-23;N
+K00703;Delaere Verwarming Groep;Hoogstraat;98;2;8890;Moorslede;BE;BE0648202401;administratie@delaere.be;041082580;60;5000;2019-10-22;N
+K00704;Cottenier bvba;Meensesteenweg;171;;8930;Menen;BE;BE0194348408;info@cottenier.be;099617126;60;10000;2013-04-03;N
+K00705;Deschacht Klimaat bv;Meensesteenweg;176;;8500;Kortrijk;BE;BE0122696585;boekhouding@deschacht.be;051445420;30;5000;2017-08-17;N
+K00706;Boussemaere Klimaat nv;Gitsestraat;219;;8800;Roeselare;BE;BE0107666436;info@boussemaere.be;054196769;30;10000;2013-12-10;N
+K00707;Depoorter Groep;Industrielaan;56;;8500;Kortrijk;BE;BE0246337240;administratie@depoorter.be;093715968;45;10000;2007-11-13;N
+K00708;Dekeyser Bouw;Westlaan;136;0101;8710;Wielsbeke;BE;BE0977862146;info@dekeyser.be;055640422;14;5000;2012-10-16;N
+K00709;Dekeyser Renovatie & Zonen;Gitsestraat;56;A;8830;Hooglede;BE;BE0436558002;info@dekeyser.be;044057487;30;50000;2016-11-25;N
+K00710;Seynaeve Groep;Diksmuidsesteenweg;165;A;9880;Aalter;BE;BE0862139364;bestel@seynaeve.be;058531074;14;50000;2015-04-17;N
+K00711;Bruggeman comm.v;Vijverhoek;184;;8400;Oostende;BE;BE0981862308;info@bruggeman.be;054417553;30;25000;2021-03-30;N
+K00712;Vanneste;Ambachtenstraat;60;;9800;Deinze;BE;BE0788687796;boekhouding@vanneste.be;057085093;14;25000;2017-11-13;N
+K00713;Tanghe Installaties nv;Ambachtenstraat;101;3;8850;Ardooie;BE;BE0694877910;noreply@noreply.be;096207118;14;5000;2012-04-05;N
+K00714;Seynaeve comm.v;Ambachtenstraat;175;2;8830;Hooglede;BE;BE0279962388;info@seynaeve.be;049822456;14;10000;2018-08-21;N
+k 00715;Verhelst Installaties bvba;Westlaan;119;;8530;Harelbeke;BE;BE0682471610;/;094686449;30;50000;2004-03-26;N
+K00716;Decroix comm.v;Rijksweg;82;2;8710;Wielsbeke;BE;BE0130199536;info@decroix.be;054196371;30;5000;2023-10-29;N
+k 00717;Callewaert Elektro;Noordlaan;181;0101;9880;Aalter;BE;BE0187488825;info@callewaert.be;054554179;30;10000;2019-01-05;N
+K00718;Desmet bv;Westlaan;7;;8400;Oostende;BE;BE0909121612;bestel@desmet.be;056451579;30;5000;2017-11-17;N
+K00719;Devos & Zonen;Westlaan;124;2;9800;Deinze;BE;BE0777309894;bestel@devos.be;054192210;30;25000;2023-01-07;N
+K00720;Verhoeve bvba;Molenstraat;73;2;8530;Harelbeke;BE;BE0093026661;administratie@verhoeve.be;098248640;30;2500;2008-10-28;N
+K00721;Boussemaere Groep;Kerkstraat;31;3;9700;Oudenaarde;BE;BE0467533466;info@boussemaere.be;093538452;14;50000;2013-03-23;N
+K00722;Cottenier Groep;Zuidstraat;188;2;9880;Aalter;BE;BE0720432658;info@cottenier.be;043119883;30;50000;2013-01-08;N
+K00723;Callewaert Loodgieterij & Zonen;Industrielaan;86;;8800;Roeselare;BE;BE0953202865;bestel@callewaert.be;047111393;30;10000;2009-02-15;N
+K00724;Boussemaere nv;Kerkstraat;80;3;8930;Menen;BE;BE0561480936;bestel@boussemaere.be;056366860;30;25000;2017-10-24;J
+K00725;Desmet bv;Hoogstraat;123;;8790;Waregem;BE;BE0643939349;info@desmet.be;057367129;60;50000;2017-11-18;N
+K00726;Goethals bvba;Oostlaan;10;;8790;Waregem;BE;BE0000000000;administratie@goethals.be;055854978;45;50000;2017-12-19;N
+K00727;Deveux bv;Hoogstraat;17;;8500;Kortrijk;BE;BE0974493078;bestel@deveux.be;099459899;30;5000;2022-12-09;N
+K00728;Delaere;Hoogstraat;46;;8500;Kortrijk;BE;BE0136887784;boekhouding@delaere.be;059075449;30;15000;2013-04-04;N
+K00729;Vanden Broucke Loodgieterij Groep;Mandellaan;155;3;9700;Oudenaarde;BE;BE0528970197;info@vanden.be;091652582;45;10000;2005-09-04;N
+K00730;Noppe vof;Stationsstraat;143;0101;8790;Waregem;BE;BE0044834091;noreply@noreply.be;097456464;30;5000;2019-09-03;N
+K00731;Dewitte Installaties Groep;Stationsstraat;216;A;8560;Wevelgem;BE;BE0130967222;info@dewitte.be;041241139;45;15000;2014-01-01;N
+K00732;Hoornaert Installaties nv;Oostlaan;165;0101;8810;Lichtervelde;BE;BE0448376263;administratie@hoornaert.be;057186543;45;25000;2007-10-25;N
+K00733;Hoornaert Klimaat bv;Zuidstraat;74;;8970;Poperinge;BE;BE0529493702;administratie@hoornaert.be;nvt;30;5000;2018-10-31;N
+K00734;Vandenberghe Sanitair comm.v (BE0170849860);Vijverhoek;104;;8530;Harelbeke;BE;;administratie@vandenberghe.be;052627976;30;25000;2018-12-18;N
+K00735;Boussemaere bvba;Nieuwstraat;185;2;8500;Kortrijk;XX;BE0071356366;info@boussemaere.be;052889704;30;10000;2014-05-07;N
+k 00736;Soenen & Zonen (BE0302887052);Vijverhoek;130;;9000;Gent;BE;;boekhouding@soenen.be;053476901;14;5000;2011-11-16;N
+K00737;Dewitte bvba;Industrielaan;82;0101;8710;Wielsbeke;BE;BE0300364557;info@dewitte.be;058540618;45;5000;2005-08-19;N
+K00738;Vanlerberghe bv;Rijksweg;186;3;8800;Roeselare;BE;BE0508774304;boekhouding@vanlerberghe.be;053116651;30;25000;2017-02-21;N
+K00739;Noppe vof;Rijksweg;45;;8820;Torhout;BE;BE0817643484;bestel@noppe.be;057658800;45;15000;2006-09-06;N
+K00740;Lefevere & Zonen;Ambachtenstraat;198;;8700;Tielt;BE;BE0953770811;administratie@lefevere.be;053024130;30;50000;2008-10-11;N
+K00741;Vermeulen vof;Beverenstraat;229;A;8970;Poperinge;BE;BE0116016849;administratie@vermeulen.be;052868975;60;2500;2024-02-02;N
+K00742;Decroix & Zonen;Molenstraat;140;0101;8890;Moorslede;BE;BE0437751892;boekhouding@decroix.be;059110394;30;10000;2020-07-30;N
+K00743;Decroix Groep;Nieuwstraat;178;2;8600;Diksmuide;BE;BE0699136111;bestel@decroix.be;046660506;30;10000;2020-01-23;N
+K00744;Devos Renovatie & Zonen;Gitsestraat;175;0101;8600;Diksmuide;BE;BE0047537225;boekhouding@devos.be;055446850;45;15000;39898;N
+K00745;Devos nv;Molenstraat;188;;8560;Wevelgem;BE;BE0762056348;info@devos.be;048193215;45;25000;2011-03-04;N
+K00746;Verhoeve nv;Stationsstraat;102;;8870;Izegem;BE;BE0185196457;boekhouding@verhoeve.be;054176521;60;50000;2014-01-17;N
+K00747;Vandewalle Loodgieterij Groep;Meensesteenweg;61;3;8560;Wevelgem;BE;BE0606220207;bestel@vandewalle.be;053394038;30;50000;2021-01-16;N
+K00748;Lammertyn bvba;Gitsestraat;157;2;8830;Hooglede;BE;BE0216808856;info@lammertyn.be;053623120;45;50000;2007-04-18;N
+K00749;Boussemaere & Zonen;Diksmuidsesteenweg;87;;8830;Hooglede;BE;BE0914283396;info@boussemaere.be;058058790;30;25000;2010-12-06;N
+K00750;Vanneste vof;Brugsesteenweg;100;A;8850;Ardooie;BE;BE0531073416;info@vanneste.be;055363148;60;5000;2013-08-29;N
+K00751;Noppe Klimaat vof;Molenstraat;101;;8800;Roeselare;BE;BE0894911112;boekhouding@noppe.be;098260634;45;10000;2016-09-02;N
+K00752;Depoorter Bouw & Zonen;Mandellaan;46;0101;8000;Brugge;BE;BE0833784581;administratie@depoorter.be;056631584;14;5000;2013-06-06;N
+K00753;Debusschere bv;Gitsestraat;175;;9000;Gent;BE;BE0066179635;bestel@debusschere.be;053320882;30;5000;43089;N
+k 00754;Vanhoutte & Zonen;Meensesteenweg;5;;8710;Wielsbeke;BE;BE0600368731;administratie@vanhoutte.be;096616411;60;10000;2024-09-03;N
+K00755;Vanden Broucke Groep;Mandellaan;54;A;8850;Ardooie;BE;BE0306303234;info@vanden.be;052158978;45;10000;2014-08-21;N
+K00756;Beernaert Techniek bv;Nieuwstraat;183;A;8710;Wielsbeke;BE;BE0169331019;info@beernaert.be;096855899;60;5000;2007-11-19;N
+K00757;Depoorter & Zonen;Gitsestraat;235;;8870;Izegem;BE;BE0743516777;info@depoorter.be;042124732;30;2500;2019-07-01;J
+K00758;Baert Loodgieterij comm.v;Nieuwstraat;90;3;8400;Oostende;BE;BE0658472127;bestel@baert.be;057595476;30;15000;2007-06-06;N
+K00759;Lammertyn & Zonen;Westlaan;16;;8400;Oostende;BE;BE0794411687;bestel@lammertyn.be;051854887;60;10000;2015-11-24;N
+K00760;Carron bv;Kerkstraat;19;;9000;Gent;BE;BE0901026961;info@carron.be;048216440;30;10000;2005-05-19;N
+k 00761;Pattyn Elektro comm.v;Gitsestraat;155;3;8820;Torhout;BE;BE0175042834;boekhouding@pattyn.be;057544462;30;15000;2004-02-14;N
+K00762;Verschoore nv;Stationsstraat;220;3;9880;Aalter;BE;BE0348122706;administratie@verschoore.be;059503239;14;25000;2010-11-08;N
+K00763;Mortier Klimaat & Zonen;Industrielaan;40;;8700;Tielt;BE;BE0744182812;administratie@mortier.be;058144293;14;5000;2023-10-19;N
+K00764;Dewitte nv;Molenstraat;160;;8890;Moorslede;BE;BE0310172445;administratie@dewitte.be;097031375;60;25000;2014-11-15;N
+k 00765;Deprez bv;Kerkstraat;99;;8820;Torhout;BE;BE0988435938;bestel@deprez.be;053721565;14;5000;2006-01-06;N
+K00766;Declercq bv;Kwadestraat;105;0101;8710;Wielsbeke;BE;BE0627079066;bestel@declercq.be;052557685;60;10000;2021-04-10;N
+K00767;Declercq bv;Ambachtenstraat;172;;8900;Ieper;BE;BE0350013117;info@declercq.be;049781999;45;50000;2020-02-13;N
+K00768;Deveux Groep;Stationsstraat;27;0101;8530;Harelbeke;BE;BE0106393657;info@deveux.be;046699234;14;5000;2013-02-21;N
+k 00769;Dekeyser bvba;Vijverhoek;210;3;8930;Menen;BE;BE0946485121;administratie@dekeyser.be;094939700;60;2500;2020-01-03;N
+K00770;Dekeyser Techniek bvba;Hoogstraat;47;0101;8710;Wielsbeke;BE;BE0592807679;administratie@dekeyser.be;042850814;14;5000;2023-10-24;N
+K00771;Debusschere Loodgieterij;Nieuwstraat;47;;8930;Menen;BE;BE0061745745;boekhouding@debusschere.be;055326380;30;15000;2004-10-20;N
+K00772;Vermeulen comm.v;Ambachtenstraat;120;2;8970;Poperinge;BE;BE0073579250;bestel@vermeulen.be;057570267;14;15000;2006-06-04;N
+K00773;Bruggeman Renovatie bvba;Vijverhoek;122;;8900;Ieper;BE;BE0641179304;administratie@bruggeman.be;047973228;30;2500;2022-09-07;N
+K00774;Decroix Verwarming comm.v;Meensesteenweg;145;2;8900;Ieper;BE;BE0238684138;bestel@decroix.be;094672949;60;5000;2008-12-22;N
+K00775;Verhoeve Elektro bv;Kerkstraat;53;;9000;Gent;BE;BE0147511066;administratie@verhoeve.be;051782125;30;50000;2023-09-25;N
+K00776;Vanlerberghe bvba;Zuidstraat;62;;8850;Ardooie;BE;BE0182205887;info@vanlerberghe.be;091838861;14;50000;2011-05-06;N
+K00777;Baert & Zonen;Molenstraat;10;;8530;Harelbeke;BE;BE0771165836;info@baert.be;056898959;30;5000;2024-02-07;N
+K00778;Seynaeve Verwarming nv;Noordlaan;34;;8970;Poperinge;B;BE0949020284;boekhouding@seynaeve.be;054355143;30;25000;2004-03-03;N
+K00779;Carron Groep;Nieuwstraat;23;;8700;Tielt;BE;BE0370871976;boekhouding@carron.be;097216957;45;15000;39029;N
+K00780;Maertens & Zonen;Brugsesteenweg;135;A;9800;Deinze;BE;BE0571773824;administratie@maertens.be;054108663;30;10000;2016-12-29;N
+K00781;Vandenberghe;Rijksweg;30;;8000;Brugge;BE;BE0171028123;boekhouding@vandenberghe.be;055210377;14;10000;2024-06-01;N
+k 00782;Hoornaert Techniek Groep;Noordlaan;91;A;8710;Wielsbeke;BE;BE0756751636;bestel@hoornaert.be;052354591;60;50000;2010-09-20;N
+K00783;Debusschere nv;Ambachtenstraat;150;;8970;Poperinge;BE;BE0629396178;bestel@debusschere.be;043866411;14;25000;2010-06-07;N
+K00784;Callewaert Loodgieterij vof;Rijksweg;217;;8970;Poperinge;B;BE9999999999;info@callewaert.be;099714017;30;10000;2020-06-12;N
+K00785;Vanlerberghe Dakwerken bv;Brugsesteenweg;14;0101;8870;Izegem;BE;BE0397461953;info@vanlerberghe.be;091238069;60;5000;2024-10-08;N
+K00786;Vanden Broucke Groep;Oostlaan;178;;8850;Ardooie;BE;BE0631543145;administratie@vanden.be;051541062;14;5000;2016-07-14;N
+K00787;Rommens Bouw;Gitsestraat;172;3;8850;Ardooie;BE;BE0249718580;bestel@rommens.be;045927340;14;2500;2010-03-11;J
+K00788;Bruggeman bvba;Hoogstraat;130;;8600;Diksmuide;BE;BE0623056239;bestel@bruggeman.be;059719372;60;10000;1899-12-30;N
+k 00789;Verhoeve Installaties Groep;Kwadestraat;54;A;8600;Diksmuide;BE;BE0733331579;boekhouding@verhoeve.be;051919553;30;2500;2008-12-07;N
+K00790;Verschoore comm.v;Hoogstraat;221;2;8930;Menen;BE;BE0801108251;boekhouding@verschoore.be;092077275;60;25000;2008-08-17;N
+K00791;Vanhaverbeke comm.v;Beverenstraat;120;;9880;Aalter;BE;BE0794488396;boekhouding@vanhaverbeke.be;049583590;30;5000;2011-05-28;N
+K00792;Vermeulen;Gitsestraat;144;;8870;Izegem;BE;BE0119016030;bestel@vermeulen.be;058693820;30;25000;2014-12-12;N
+K00793;Baert bvba;Vijverhoek;207;;8830;Hooglede;BE;BE0545252044;boekhouding@baert.be;053706682;30;25000;2020-07-16;N
+K00794;Maertens bv;Beverenstraat;10;3;8870;Izegem;BE;BE0902766231;bestel@maertens.be;056585263;60;2500;2017-07-09;N
+K00795;Vermeulen nv;Molenstraat;89;;8820;Torhout;BE;BE0189737740;noreply@noreply.be;054593610;30;50000;2014-06-16;N
+K00796;Dekeyser vof;Stationsstraat;161;A;8870;Izegem;BE;BE0121491609;boekhouding@dekeyser.be;053250788;30;5000;2005-01-21;N
+K00797;Soenen Renovatie bv;Kerkstraat;217;;8530;Harelbeke;BE;BE0080408743;administratie@soenen.be;056212185;30;5000;2016-05-23;N
+K00798;Decroix bvba;Rijksweg;70;3;9000;Gent;BE;BE0160170853;boekhouding@decroix.be;054550123;30;5000;2006-01-20;N
+K00799;Verhoeve bvba;Hoogstraat;99;;8810;Lichtervelde;BE;BE0353759889;boekhouding@verhoeve.be;055004564;45;5000;2007-03-29;J
+K00800;Decroix Verwarming Groep;Oostlaan;134;;8000;Brugge;BE;BE0191703177;administratie@decroix.be;054978307;14;10000;2004-04-25;N
+K00801;Beernaert Installaties vof;Kerkstraat;160;;8600;Diksmuide;BE;BE0626970881;info@beernaert.be;059539205;60;50000;2006-05-19;N
+K00802;Devos comm.v;Zuidstraat;95;;8930;Menen;BE;BE0327569295;info@devos.be;046992327;60;25000;2017-03-27;N
+K00803;Deveux comm.v;Meensesteenweg;184;;8970;Poperinge;BE;BE0427684480;boekhouding@deveux.be;059700528;30;5000;2017-01-06;N
+K00804;Lammertyn Loodgieterij bv;Brugsesteenweg;140;;8000;Brugge;BE;BE0201867094;bestel@lammertyn.be;059063161;60;10000;2014-07-31;N
+K00805;Vanbecelaere Verwarming;Vijverhoek;36;;9880;Aalter;BE;BE0491905707;administratie@vanbecelaere.be;041910688;30;2500;2019-11-18;N
+K00806;Bruggeman vof;Zuidstraat;187;A;9700;Oudenaarde;BE;BE0923609947;bestel@bruggeman.be;046633104;30;10000;2016-08-20;N
+K00807;Vandenberghe Installaties;Kerkstraat;132;;8970;Poperinge;BE;BE0310765135;administratie@vandenberghe.be;/;60;5000;2023-05-17;N
+K00808;Maertens comm.v;Mandellaan;209;;8980;Zonnebeke;BE;BE0080433883;info@maertens.be;098782591;30;5000;2021-02-18;N
+K00809;Vermeulen nv;Oostlaan;86;3;8500;Kortrijk;XX;BE0792595017;info@vermeulen.be;095933211;30;2500;2024-02-15;N
+K00810;Mortier;Hoogstraat;238;;8810;Lichtervelde;BE;BE0818702962;info@mortier.be;098542216;45;15000;2017-05-17;N
+K00811;Delaere Sanitair nv;Molenstraat;95;2;8890;Moorslede;BE;BE0223049223;info@delaere.be;093807331;60;25000;2022-07-21;N
+K00812;Vandenberghe Groep;Vijverhoek;70;;8600;Diksmuide;BE;BE0990891919;administratie@vandenberghe.be;051948853;30;25000;2024-04-04;N
+K00813;Maertens bvba;Zuidstraat;216;2;8400;Oostende;BE;BE0652540576;bestel@maertens.be;056574026;60;50000;2020-12-21;N
+K00814;Carron Renovatie Groep;Kwadestraat;37;;8700;Tielt;BE;BE0554030742;bestel@carron.be;054864117;60;2500;2010-06-17;N
+K00815;Deschacht nv;Rijksweg;222;;9700;Oudenaarde;BE;BE0156254528;administratie@deschacht.be;000000000;14;25000;2005-12-14;N
+K00816;Mortier bvba;Ambachtenstraat;67;0101;8710;Wielsbeke;BE;BE0670979385;bestel@mortier.be;091688622;30;15000;2015-07-11;N
+K00817;Loosveldt;Rijksweg;227;;8830;Hooglede;BE;BE0420316440;administratie@loosveldt.be;052660537;30;5000;2009-08-15;N
+K00818;Decroix Loodgieterij vof;Zuidstraat;73;;8970;Poperinge;BE;BE0674817716;bestel@decroix.be;043437031;30;2500;2021-02-11;N
+K00819;Tanghe Techniek bv;Zuidstraat;144;;8810;Lichtervelde;BE;BE0438541255;administratie@tanghe.be;052575400;30;5000;2018-11-11;N
+K00820;Delaere vof;Meensesteenweg;191;;8930;Menen;BE;BE0589102279;bestel@delaere.be;054417286;14;2500;2011-04-02;N
+K00821;Vanhoutte Loodgieterij Groep;Zuidstraat;10;;8900;Ieper;BE;BE0223970327;info@vanhoutte.be;059898466;30;5000;2011-10-05;N
+K00822;Vanbecelaere nv;Noordlaan;33;0101;8810;Lichtervelde;BE;BE0497984637;boekhouding@vanbecelaere.be;058330936;30;50000;2021-07-13;N
+K00823;Lefevere nv;Beverenstraat;116;;9880;Aalter;BE;BE0462719296;administratie@lefevere.be;049466153;30;15000;2007-06-20;N
+K00824;Declercq Techniek & Zonen;Meensesteenweg;111;2;8500;Kortrijk;BE;BE0135556708;info@declercq.be;044054160;30;15000;2021-12-21;J
+K00825;Noppe Renovatie bvba;Stationsstraat;15;2;8500;Kortrijk;BE;BE0534690427;bestel@noppe.be;051761391;30;2500;2021-11-28;N
+K00826;Deschacht Groep;Noordlaan;92;A;8700;Tielt;BE;BE0427564716;boekhouding@deschacht.be;055474728;30;15000;2022-06-26;N
+K00827;Beernaert bv;Molenstraat;16;2;9000;Gent;BE;BE0257474028;administratie@beernaert.be;055324956;30;5000;2004-07-21;N
+K00828;Deschacht bvba;Brugsesteenweg;156;;8970;Poperinge;BE;BE0098116983;geen@geen.be;053920681;30;25000;1899-12-30;N
+K00829;Goethals;Noordlaan;203;;8970;Poperinge;BE;BE0638902277;info@goethals.be;056646170;30;15000;2014-10-15;N
+k 00830;Goethals Klimaat bv;Kwadestraat;122;0101;8810;Lichtervelde;BE;BE0701516569;administratie@goethals.be;092689705;30;5000;38284;N
+K00831;Vanacker bvba;Diksmuidsesteenweg;171;;8820;Torhout;BE;BE0200520081;administratie@vanacker.be;047010724;30;15000;2012-12-22;N
+K00832;Vanbecelaere Installaties;Zuidstraat;215;;8970;Poperinge;BE;BE0841152425;boekhouding@vanbecelaere.be;056188388;30;50000;2023-11-28;N
+K00833;Hoornaert Loodgieterij nv;Kerkstraat;123;;8790;Waregem;BE;BE0137615086;bestel@hoornaert.be;058633506;30;10000;2009-10-17;N
+K00834;Vanhaverbeke comm.v;Oostlaan;62;2;8890;Moorslede;BE;BE0345517265;administratie@vanhaverbeke.be;nvt;30;15000;2020-08-07;N
+K00835;Deveux comm.v;Diksmuidsesteenweg;155;A;8400;Oostende;BE;BE0696556307;bestel@deveux.be;056755708;30;5000;2023-01-01;N
+K00836;Deprez Techniek;Nieuwstraat;234;;9880;Aalter;BE;BE0139467588;bestel@deprez.be;046414594;14;25000;2006-08-08;N
+K00837;Tanghe Sanitair nv;Noordlaan;185;;8710;Wielsbeke;BELG;BE0726555635;boekhouding@tanghe.be;051700455;60;2500;2008-03-03;N
+K00838;Baert Renovatie comm.v;Zuidstraat;10;;8870;Izegem;BE;BE0768287510;administratie@baert.be;056476791;60;5000;2023-01-17;N
+K00839;Declercq Klimaat vof;Meensesteenweg;9;;9800;Deinze;BE;BE9999999999;x@x.x;053999937;30;5000;2012-05-31;N
+K00840;Hoornaert;Nieuwstraat;97;;9880;Aalter;BE;BE0672401723;boekhouding@hoornaert.be;098909844;30;2500;2016-04-08;N

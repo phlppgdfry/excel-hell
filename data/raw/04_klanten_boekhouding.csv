@@ -1,0 +1,439 @@
+klantnr;naam;gemeente;btw;limiet
+K00217;Vanhoutte Techniek & Zonen†;Diksmuide;BE0822851988;5000,00
+K00604;  Vann√©ste  bvba  ;Brugge;BE0632687844;15000,00
+K00707;Depoorter Groep;Kortrijk;BE0246337240;10000,00
+K00807;  Vandenberghe Installaties  ;Poperinge;BE0310765135;5000,00
+K00786;  Vanden Broucke Groep  ;Ardooie;BE0631543145;5000,00
+K00188;Pattyn bvba;Wielsbeke;BE0399405121;50000,00
+K00622;Vanbecelaere;Kortrijk;BE0593196273;25000,00
+K00700;Vanbecelaere†Renovatie bv;Menen;BE0931955808;15000,00
+K00008;  Romm√©ns Verwarming & Zonen  ;W√Øelsbeke;BE0433327011;5000,00
+K00064;Vanlerberghe & Zonen;Aalter;BE0172376918;2500,00
+K00806;Bruggeman†vof;Oudenaarde;BE0923609947;10000,00
+K00679;  Verschoore Elektro  bv  ;Oostende;BE0156402305;25000,00
+K00539;  Cottenier Elektro vof  ;Ieper;BE0852565860;15000,00
+K00420;Mortier Groep;Zonnebeke;BE0742846982;15000,00
+K00419;  Pattyn Bouw Groep  ;Poperinge;BE0258974261;50000,00
+K00405;Pattyn Dakw√©rken bv;Menen;BE0806003187;5000,00
+K00034;V√©rmeulen Sanitair & Zonen;D√Øksmuide;BE0965571652;2500,00
+K00479;Vandenberghe bv†;Izegem;BE0814351622;15000,00
+K00554;Declercq Sanitair bvba;Wielsbeke;BE0155979166;5000,00
+K00440;Vanneste Elektro nv†;Poperinge;BE0677289929;10000,00
+K00426;  V√©rschoore†Elektro  bv  ;Waregem;BE0564496349;2500,00
+K00728;Delaere;Kortrijk;BE0136887784;15000,00
+K00805;Vanb√©celaere†Verwarming;Aalter;BE0491905707;2500,00
+K00012;Baert nv;Brugge;BE0517680585;2500,00
+K00572;Vanbecelaere;Waregem;BE0319894518;50000,00
+K00289;Boussemaere Sanitair;Brugge;BE0411939006;10000,00
+K00425;  Rommens Elektro nv  ;Zonnebeke;BE0293107076;25000,00
+K00682;Tanghe bvba;Harelbeke;BE0735008095;2500,00
+K00580;  Baert Elektro  bv  ;Hooglede;BE0099397086;10000,00
+K00205;Callewaert Techniek nv†;Zonnebeke;BE0365233407;15000,00
+K00640;Vand√©nberghe vof;W√Øelsbeke;BE0266387536;10000,00
+K00266;Soenen Sanitair & Zonen†;Waregem;BE0181851640;15000,00
+K00559;  Debusschere Techniek & Zonen†  ;Oostende;BE0723260110;10000,00
+K00080;Verhoeve bvba;Wielsbeke;BE0358425688;50000,00
+K00798;  Decroix†bvba  ;Gent;BE0160170853;5000,00
+K00635;Vandenberghe Sanitair Groep;Kortrijk;BE0844667486;2500,00
+K00681;Loosveldt†Loodgieterij;Roeselare;BE0052923693;10000,00
+K00143;Verhoeve vof;Kortrijk;BE0095028326;5000,00
+K00218;Hoornaert†vof;Ieper;BE0112461305;15000,00
+K00532;Bruggeman Bouw bvba;Poperinge;BE0863442233;50000,00
+K00421;Delaere Klimaat bv;Ieper;BE0087000882;50000,00
+K00556;Desmet bvba;Izegem;BE0410034836;15000,00
+K00590;Carron Elektro bv†;Torhout;BE0114800191;15000,00
+K00396;Debusschere bvba†;Menen;BE0452147385;15000,00
+K00501;Vanden Broucke vof†;Tielt;BE0723032159;5000,00
+K00374;  Hoornaert Klimaat  bvba  ;Aalter;BE0904312390;10000,00
+K00098;Verhoeve Dakwerken Groep;Gent;BE0812711332;15000,00
+K00015;Lammertyn Bouw bvba;Zonnebeke;BE0171963281;5000,00
+K00488;  Soenen Sanitair Groep  ;Harelbeke;BE0479426953;10000,00
+K00705;Deschacht Klimaat bv;Kortrijk;BE0122696585;5000,00
+K00608;Boussemaere comm.v;Aalter;BE0515354565;15000,00
+K00010;Debusschere Renovatie Groep;Wevelgem;BE0272022246;25000,00
+K00410;Bruggeman comm.v;Roeselare;BE0632960038;15000,00
+K00671;Deprez Klimaat comm.v;Zonnebeke;BE0209994508;2500,00
+K00352;Dewitte Verwarming vof;Wevelgem;BE0995943540;15000,00
+K00099;Morti√©r nv;Wevelgem;BE0041824717;10000,00
+K00837;  Tanghe Sanitair nv  ;Wielsbeke;BE0726555635;2500,00
+K00827;Beernaert bv;Gent;BE0257474028;5000,00
+K00815;  Deschacht nv  ;Oudenaarde;BE0156254528;25000,00
+K00437;Loosv√©ldt Loodgieterij;Kortr√Øjk;BE0312375830;50000,00
+K00533;Go√©thals;Oostende;BE0156195140;25000,00
+K00449;  Maertens Loodgieterij nv  ;Poperinge;BE0867535534;15000,00
+K00691;  Bruggeman Bouw  bv  ;Aalter;BE0999105443;5000,00
+K00036;D√©vos vof;Harelbeke;BE0406697739;5000,00
+K00773;Bruggeman Renovatie bvba;Ieper;BE0641179304;2500,00
+K00324;Noppe Loodgieterij bvba;Brugge;BE0764671784;15000,00
+K00321;Deprez vof;Torhout;BE0266443261;15000,00
+K00359;Vand√©walle Loodgieterij comm.v;Roeselare;BE0623112360;5000,00
+K00561;Vand√©walle Techniek Groep†;Oudenaarde;BE0354668424;50000,00
+K00053;  Ba√©rt Sanitair & Zonen  ;Torhout;BE0806457109;5000,00
+K00141;Goethals Techniek bv;Poperinge;BE0192300223;50000,00
+K00457;Vanb√©celaere†comm.v;Roeselare;BE0126499678;10000,00
+K00208;  Bouss√©maere comm.v  ;Roeselare;BE0403847919;15000,00
+K00007;Hoornaert Groep;Oostende;BE0261069758;5000,00
+K00244;Lammertyn Bouw;Ardooie;BE0100841495;5000,00
+K00150;  Bruggeman Loodgieterij vof  ;Poperinge;BE0684690930;15000,00
+K00785;  Vanl√©rberghe Dakwerken  bv  ;Izegem;BE0397461953;5000,00
+K00068;Rommens Dakwerken bvba;Poperinge;BE0376675051;50000,00
+K00003;Carron Klimaat vof;Ieper;BE0541026606;2500,00
+K00069;Vanacker Installaties;Menen;BE0729909756;2500,00
+K00839;  Declercq Klimaat vof  ;Deinze;BE0092048842;5000,00
+K00180;Vanlerberghe Sanitair comm.v;Poperinge;BE0092211762;25000,00
+K00166;Carron El√©ktro nv;De√Ønze;BE0253465057;50000,00
+K00625;  Deprez Klimaat  bv  ;Torhout;BE0377742051;5000,00
+K00400;Vanneste Installaties†;Ieper;BE0709509963;2500,00
+K00303;Goethals Dakwerken comm.v;Oostende;BE0488803487;25000,00
+K00366;  Hoornaert Installaties  ;Waregem;BE0992244474;50000,00
+K00454;Rommens comm.v;Hooglede;BE0707231057;10000,00
+K00391;Bruggeman;Ardooie;BE0225345648;2500,00
+K00062;Decroix vof;Menen;BE0668500145;5000,00
+K00302;Verhoeve;Lichtervelde;BE0192511643;5000,00
+K00523;Vand√©nberghe & Zonen;De√Ønze;BE0531990362;15000,00
+K00370;Devos Groep;Wevelgem;BE0366384539;50000,00
+K00560;  Bouss√©maere Dakwerken vof†  ;Roeselare;BE0779161507;50000,00
+K00717;Call√©waert Elektro;Aalter;BE0187488825;10000,00
+K00592;  D√©laere Groep  ;T√Øelt;BE0343371783;2500,00
+K00216;Vanacker Groep†;Oudenaarde;BE0315873174;25000,00
+K00726;Go√©thals bvba;Waregem;BE0769580776;50000,00
+K00432;Vandewalle†Verwarming Groep;Torhout;BE0998403677;25000,00
+K00650;  D√©prez Installaties  ;Ardoo√Øe;BE0760648858;10000,00
+K00480;Vand√©nberghe Techniek vof;Gent;BE0588902440;25000,00
+K00713;Tanghe Installaties nv;Ardooie;BE0694877910;5000,00
+K00793;  Baert  bvba†  ;Hooglede;BE0545252044;25000,00
+K00579;Depoorter Bouw nv;Menen;BE0746846946;2500,00
+K00056;D√©poorter comm.v;Harelbeke;BE0507458171;5000,00
+K00346;D√©keyser Techniek & Zonen;Poper√Ønge;BE0791452001;50000,00
+K00377;Soenen bvba;Izegem;BE0361331235;25000,00
+K00494;Loosv√©ldt & Zonen;T√Øelt;BE0690287137;10000,00
+K00030;Vand√©n Broucke nv;L√Øchtervelde;BE0634217969;25000,00
+K00381;D√©poorter Techniek Groep;Roeselare;BE0269642281;25000,00
+K00253;V√©rmeulen bvba†;Wevelgem;BE0968226284;5000,00
+K00790;V√©rschoore comm.v†;Menen;BE0801108251;25000,00
+K00018;D√©poorter & Zonen;Wevelgem;BE0229646015;10000,00
+K00709;D√©keyser Renovatie & Zonen;Hooglede;BE0436558002;50000,00
+K00531;Deveux†Bouw bv;Aalter;BE0537339814;10000,00
+K00395;Morti√©r bv;Menen;BE0095228759;25000,00
+K00794;Ma√©rtens bv;Izegem;BE0902766231;2500,00
+K00225;  Mortier  bv  ;Waregem;BE0263531578;5000,00
+K00467;  D√©schacht Loodgieterij  bv  ;Menen;BE0252076670;15000,00
+K00023;D√©clercq & Zonen;Moorslede;BE0316090435;50000,00
+K00287;Vanacker nv;Diksmuide;BE0259462033;2500,00
+K00255;  Soenen  bv  ;Harelbeke;BE0044491722;5000,00
+K00734;Vandenberghe Sanitair comm.v†;Harelbeke;BE0170849860;25000,00
+K00091;Vanneste Techniek & Zonen†;Brugge;BE0407976555;5000,00
+K00716;Decroix comm.v†;Wielsbeke;BE0130199536;5000,00
+K00025;Vanlerberghe bv;Moorslede;BE0118464714;25000,00
+K00708;Dekeyser Bouw;Wielsbeke;BE0977862146;5000,00
+K00297;Depoorter Klimaat;Diksmuide;BE0117799768;10000,00
+K00358;  Pattyn Elektro comm.v  ;Roeselare;BE0345087594;15000,00
+K00568;Depoorter Loodgieterij & Zonen;Zonnebeke;BE0417840168;5000,00
+K00004;Vanden Broucke & Zonen;Hooglede;BE0567511564;5000,00
+K00258;Goethals Verwarming nv†;Ardooie;BE0274056573;10000,00
+K00371;Vann√©ste Installaties bvba;Gent;BE0871263403;5000,00
+K00719;Devos & Zonen;Deinze;BE0777309894;25000,00
+K00710;  Seynaeve Groep†  ;Aalter;BE0862139364;50000,00
+K00055;Vanacker nv;Gent;BE0572994935;10000,00
+K00135;Vanneste & Zonen;Deinze;BE0218295926;50000,00
+K00618;Vanhoutte†;Poperinge;BE0534850773;25000,00
+K00198;Debusschere vof;Wielsbeke;BE0866166844;50000,00
+K00020;Callewaert & Zonen;Deinze;BE0406378629;50000,00
+K00597;Verschoore;Hooglede;BE0363049917;15000,00
+K00049;Verhoeve nv;Zonnebeke;BE0388071264;5000,00
+K00124;Deprez comm.v;Oostende;BE0487462414;25000,00
+K00348;Snauwaert Bouw & Zonen;Izegem;BE0159271525;5000,00
+K00131;Vanden Broucke Elektro bv;Poperinge;BE0326147454;15000,00
+K00447;Vermeulen comm.v;Gent;BE0573792711;25000,00
+K00672;Beernaert Verwarming vof;Izegem;BE0362814048;50000,00
+K00280;Vanden Broucke Dakwerken vof;Harelbeke;BE0776103136;5000,00
+K00652;Noppe†Loodgieterij comm.v;Wevelgem;BE0774869850;2500,00
+K00547;Decroix bvba;Aalter;BE0700574778;25000,00
+K00528;Vanlerberghe bvba;Moorslede;BE0573565750;10000,00
+K00584;So√©nen Klimaat vof;Gent;BE0658157074;25000,00
+K00177;  Vanden Broucke Sanitair Groep  ;Lichtervelde;BE0644133547;5000,00
+K00492;  Maertens vof  ;Tielt;BE0727770907;5000,00
+K00021;Vanden Broucke Klimaat;Aalter;BE0581771356;5000,00
+K00638;Verschoore vof;Wielsbeke;BE0570424138;5000,00
+K00476;  Vanb√©celaere Verwarming  bv  ;D√Øksmuide;BE0254752781;2500,00
+K00782;  Hoornaert Techniek Groep†  ;Wielsbeke;BE0756751636;50000,00
+K00283;Cottenier†Bouw bvba;Lichtervelde;BE0701818754;2500,00
+K00417;Vermeulen Elektro bvba;Wielsbeke;BE0811979080;5000,00
+K00281;Rommens†;Gent;BE0910782488;10000,00
+K00209;Hoorna√©rt Installaties;Ieper;BE0528206174;5000,00
+K00534;  Tanghe comm.v  ;Gent;BE0725472106;5000,00
+K00738;  Vanlerberghe  bv  ;Roeselare;BE0508774304;25000,00
+K00477;D√©clercq nv;Kortr√Øjk;BE0844460620;50000,00
+K00836;Deprez Techniek;Aalter;BE0139467588;25000,00
+K00211;Vandenberghe Sanitair†;Izegem;BE0902897180;2500,00
+K00052;Declercq comm.v;Izegem;BE0637916441;15000,00
+K00365;  Deveux†nv  ;Wielsbeke;BE0656688911;2500,00
+K00017;Loosveldt Elektro nv;Torhout;BE0527638230;50000,00
+K00741;V√©rmeulen vof;Poper√Ønge;BE0116016849;2500,00
+K00331;Devos Klimaat vof;Harelbeke;BE0209530193;15000,00
+K00456;Baert;Aalter;BE0958432848;15000,00
+K00210;D√©busschere†comm.v;Kortr√Øjk;BE0724703331;10000,00
+K00441;Lammertyn bv;Moorslede;BE0769484568;5000,00
+K00133;  Ma√©rtens Groep  ;Waregem;BE0040979926;5000,00
+K00337;Noppe†Elektro Groep;Diksmuide;BE0471823737;5000,00
+K00802;Devos comm.v†;Menen;BE0327569295;25000,00
+K00545;Vanneste nv;Diksmuide;BE0315270784;2500,00
+K00115;  V√©rhelst Elektro  bv  ;Poper√Ønge;BE0070313419;2500,00
+K00459;Noppe bvba;Waregem;BE0061706450;10000,00
+K00620;  Ba√©rt Elektro  ;Harelbeke;BE0467794673;5000,00
+K00173;D√©schacht Bouw;Ardoo√Øe;BE0742233409;5000,00
+K00187;Rommens Loodgieterij & Zonen;Torhout;BE0388858449;5000,00
+K00407;  Verhelst  ;Tielt;BE0936914189;5000,00
+K00031;Deschacht vof;Izegem;BE0475158656;2500,00
+K00317;Verhoeve Klimaat bv;Gent;BE0253358753;50000,00
+K00586;Verhoeve Groep;Deinze;BE0347724016;50000,00
+K00660;  Vanhoutte comm.v  ;Ardooie;BE0419807684;5000,00
+K00744;D√©vos Renovatie & Zonen;D√Øksmuide;BE0047537225;15000,00
+K00557;  Callewaert†Sanitair  bv  ;Tielt;BE0194363650;50000,00
+K00674;  Brugg√©man Klimaat nv  ;Ardoo√Øe;BE0650523075;10000,00
+K00165;  Lefevere  bv  ;Lichtervelde;BE0423976013;50000,00
+K00307;  Snauwa√©rt Installaties Groep  ;Wevelgem;BE0837592030;50000,00
+K00645;Boussemaere;Ardooie;BE0935163538;50000,00
+K00388;  Vanack√©r Verwarming comm.v  ;Aalter;BE0872973076;2500,00
+K00367;Vanbecelaere;Oudenaarde;BE0442192613;2500,00
+K00193;Pattyn comm.v†;T√Øelt;BE0961836261;2500,00
+K00498;Verhoeve Groep;Izegem;BE0241896323;2500,00
+K00829;  Goethals  ;Poperinge;BE0638902277;15000,00
+K00383;Devos bv;Aalter;BE0682138939;10000,00
+K00229;Verhelst nv;Tielt;BE0749595709;2500,00
+K00629;Rommens†vof;Ardooie;BE0682839220;15000,00
+K00631;Bruggeman Groep†;Zonnebeke;BE0790652245;25000,00
+K00439;Go√©thals & Zonen;Kortr√Øjk;BE0823970161;5000,00
+K00446;Pattyn Groep;Aalter;BE0879847705;5000,00
+K00070;Vanlerberghe†Sanitair nv;Brugge;BE0457374893;5000,00
+K00703;Delaere Verwarming Groep;Moorslede;BE0648202401;5000,00
+K00502;Callewaert Bouw Groep;Oudenaarde;BE0468708651;2500,00
+K00167;Verschoore Verwarming bvba;Zonnebeke;BE0394254421;5000,00
+K00812;Vand√©nberghe Groep;D√Øksmuide;BE0990891919;25000,00
+K00418;  Vermeulen  bvba  ;Wevelgem;BE0332591917;10000,00
+K00739;Noppe vof†;Torhout;BE0817643484;15000,00
+K00319;Cottenier Klimaat & Zonen†;Ardooie;BE0617737570;5000,00
+K00562;Seynaeve Groep†;Deinze;BE0892089006;25000,00
+K00791;Vanhav√©rbeke comm.v;Aalter;BE0794488396;5000,00
+K00164;Vanbecelaere & Zonen†;Aalter;BE0224326356;2500,00
+K00153;Vanack√©r†comm.v;Waregem;BE0689906164;5000,00
+K00648;So√©nen Installaties & Zonen;Wevelgem;BE0266043977;2500,00
+K00386;Snauwa√©rt Loodgieterij bv;Torhout;BE0078234062;25000,00
+K00721;Boussemaere†Groep;Oudenaarde;BE0467533466;50000,00
+K00761;Pattyn Elektro comm.v;Torhout;BE0175042834;15000,00
+K00546;Callewaert Elektro Groep;Oostende;BE0040438211;15000,00
+K00174;Cottenier vof;Ieper;BE0124018359;15000,00
+K00257;  Baert nv  ;Ieper;BE0718542544;5000,00
+K00002;Soenen bvba;Diksmuide;BE0860013777;25000,00
+K00778;Seynaeve Verwarming nv;Poperinge;BE0949020284;25000,00
+K00460;Cott√©nier†Installaties comm.v;Menen;BE0182792540;25000,00
+K00496;Vanhaverbeke vof;Moorslede;BE0122644721;2500,00
+K00683;Debusschere Loodgieterij Groep;Oudenaarde;BE0063016544;25000,00
+K00276;Pattyn nv;Diksmuide;BE0937322183;25000,00
+K00615;Goethals Elektro comm.v;Aalter;BE0343682084;10000,00
+K00663;Noppe Klimaat & Zonen†;Wevelgem;BE0638814581;50000,00
+K00204;Vanacker Groep;Harelbeke;BE0300048021;5000,00
+K00628;  Carron vof  ;Oostende;BE0563855357;5000,00
+K00515;  Brugg√©man Sanitair nv  ;Moorslede;BE0904997726;50000,00
+K00397;Vandenberghe Renovatie & Zonen;Ardooie;BE0525418910;15000,00
+K00686;Deprez comm.v;Torhout;BE0064256758;2500,00
+K00233;  Beernaert Groep†  ;Ardooie;BE0614265663;50000,00
+K00341;  Debusschere  bvba  ;Menen;BE0429660906;15000,00
+K00121;Verschoore Verwarming vof;Menen;BE0750353297;10000,00
+K00195;Deschacht Renovatie & Zonen;Torhout;BE0225178372;5000,00
+K00783;Debusschere†nv;Poperinge;BE0629396178;25000,00
+K00215;Boussemaere Loodgieterij vof;Oudenaarde;BE0861375143;10000,00
+K00095;Vanbecelaere Installaties nv;Ieper;BE0075404632;25000,00
+K00612;Vanhav√©rbeke Loodgieterij bvba;Torhout;BE0302073242;5000,00
+K00355;  Vermeulen vof  ;Izegem;BE0246565189;10000,00
+K00553;  Noppe nv  ;Harelbeke;BE0517605856;15000,00
+K00701;Maertens vof;Oostende;BE0361488712;10000,00
+K00176;Vanb√©celaere Bouw bv;Menen;BE0354239644;50000,00
+K00838;Baert†Renovatie comm.v;Izegem;BE0768287510;5000,00
+K00692;Verhelst Renovatie comm.v;Torhout;BE0770468228;50000,00
+K00444;Tangh√© bv†;Oudenaarde;BE0798526665;10000,00
+K00831;  Vanacker  bvba  ;Torhout;BE0200520081;15000,00
+K00294;  Vann√©ste†nv  ;D√Øksmuide;BE0600795927;50000,00
+K00643;Hoornaert Verwarming comm.v;Brugge;BE0112216330;5000,00
+K00503;Hoornaert;Kortrijk;BE0211333504;25000,00
+K00024;D√©veux†bvba;Oudenaarde;BE0777369381;50000,00
+K00197;Delaere bvba;Zonnebeke;BE0948173713;2500,00
+K00394;B√©ernaert Groep;Aalter;BE0920456259;25000,00
+K00184;D√©laere Installaties & Zonen;W√Øelsbeke;BE0627225061;10000,00
+K00035;Vanden Broucke Klimaat vof;Menen;BE0068451118;2500,00
+K00054;Goethals Installaties bv;Diksmuide;BE0183486584;50000,00
+K00342;Snauwaert†Techniek & Zonen;Hooglede;BE0075344650;10000,00
+K00729;Vand√©n Broucke Loodgieterij Groep;Oudenaarde;BE0528970197;10000,00
+K00563;  L√©fevere Bouw comm.v†  ;Zonnebeke;BE0638137660;15000,00
+K00338;Vandenberghe Elektro Groep;Tielt;BE0155851977;10000,00
+K00452;Snauwaert;Poperinge;BE0151753827;5000,00
+K00254;  D√©schacht vof†  ;Oostende;BE0270247641;10000,00
+K00491;Deschacht bvba;Brugge;BE0577827416;50000,00
+K00189;Hoornaert Verwarming bv;Wielsbeke;BE0459311628;10000,00
+K00493;  Vandewalle†& Zonen  ;Torhout;BE0467196936;25000,00
+K00526;Dekeyser†bv;Moorslede;BE0402551087;15000,00
+K00538;Vanhoutte Renovatie comm.v;Oudenaarde;BE0602368713;10000,00
+K00626;  Morti√©r comm.v  ;Roeselare;BE0697575795;5000,00
+K00304;  Lammertyn Dakwerken Groep  ;Ieper;BE0815164739;15000,00
+K00465;Declercq Elektro;Brugge;BE0322166791;25000,00
+K00693;  Baert Elektro  bvba†  ;Harelbeke;BE0309220756;25000,00
+K00212;Loosveldt Renovatie bvba;Harelbeke;BE0594502211;5000,00
+K00797;So√©nen Renovatie bv†;Harelbeke;BE0080408743;5000,00
+K00102;Bruggeman bvba;Deinze;BE0443025625;50000,00
+K00662;  Deschacht Klimaat  ;Oostende;BE0161672373;10000,00
+K00490;  Vand√©n Broucke Renovatie  bvba  ;Ardoo√Øe;BE0816168490;5000,00
+K00706;Bouss√©maere Klimaat nv;Roeselare;BE0107666436;10000,00
+K00677;  Declercq  ;Izegem;BE0995500211;25000,00
+K00411;Carron†R√©novatie;Moorslede;BE0198516240;5000,00
+K00646;  Pattyn Gro√©p  ;Wevelgem;BE0631113870;10000,00
+K00661;Lefevere Verwarming nv†;Harelbeke;BE0439977647;50000,00
+K00413;Seynaeve & Zonen;Harelbeke;BE0246376040;5000,00
+K00685;Callewaert Sanitair nv;Menen;BE0695035286;2500,00
+K00659;Go√©thals bvba;De√Ønze;BE0080415374;2500,00
+K00213;  Vandenberghe Loodgieterij  bvba  ;Poperinge;BE0750680921;5000,00
+K00379;Callewaert comm.v†;Poperinge;BE0887035207;5000,00
+K00516;Deschacht†bv;Zonnebeke;BE0309285290;5000,00
+K00621;  Vanhoutte & Zonen  ;Oostende;BE0894692069;15000,00
+K00116;Lefevere vof;Menen;BE0068835851;5000,00
+K00146;Vanlerberghe Sanitair bv;Moorslede;BE0083001514;15000,00
+K00112;Vanb√©celaere vof;Waregem;BE0966049625;5000,00
+K00308;Seynaeve†& Zonen;Izegem;BE0074176492;5000,00
+K00101;  Deveux Dakwerken comm.v  ;Moorslede;BE0211514141;15000,00
+K00651;  Vandenberghe Klimaat vof†  ;Oudenaarde;BE0724730451;10000,00
+K00360;Vanl√©rberghe Renovatie bvba;Torhout;BE0919718267;5000,00
+K00486;Verhelst Renovatie;Poperinge;BE0421748971;2500,00
+K00609;Vandewalle Bouw Groep;Oudenaarde;BE0794823047;2500,00
+K00084;Dekeyser nv;Torhout;BE0415695478;15000,00
+K00776;Vanl√©rberghe†bvba;Ardoo√Øe;BE0182205887;50000,00
+K00299;Vand√©n Broucke Dakwerken bvba†;Moorslede;BE0063924285;50000,00
+K00825;Nopp√© Renovatie bvba;Kortr√Øjk;BE0534690427;2500,00
+K00811;D√©laere†Sanitair nv;Moorslede;BE0223049223;25000,00
+K00275;B√©ernaert;Aalter;BE0563177248;50000,00
+K00466;Mortier Renovatie bvba;Brugge;BE0754147086;15000,00
+K00347;Vanden Broucke Dakwerken;Wielsbeke;BE0503881148;2500,00
+K00375;Vanneste bv;Izegem;BE0825983506;10000,00
+K00234;  Hoorna√©rt  bvba  ;L√Øchtervelde;BE0454803603;5000,00
+K00513;Deschacht bv;Oudenaarde;BE0100918008;50000,00
+K00822;Vanbecelaere nv;Lichtervelde;BE0497984637;50000,00
+K00696;  Hoornaert Installaties Groep  ;Waregem;BE0128018917;15000,00
+K00473;  Romm√©ns†comm.v  ;Oostende;BE0075166882;5000,00
+K00758;Baert Loodgieterij comm.v;Oostende;BE0658472127;15000,00
+K00575;Verschoore bv;Roeselare;BE0110762815;15000,00
+K00100;Maertens†bv;Kortrijk;BE0853394221;5000,00
+K00508;Vanbecelaere Dakwerken vof;Deinze;BE0327870787;25000,00
+K00521;  Baert  bvba  ;Hooglede;BE0513167612;50000,00
+K00752;Depoorter Bouw & Zonen;Brugge;BE0833784581;5000,00
+K00613;Lammertyn vof;Waregem;BE0717682115;15000,00
+K00788;Brugg√©man bvba;D√Øksmuide;BE0623056239;10000,00
+K00588;Pattyn vof;Oudenaarde;BE0587809607;10000,00
+K00067;Dekeyser Techniek†;Deinze;BE0384051209;2500,00
+K00332;Loosveldt Klimaat nv;Poperinge;BE0078262964;25000,00
+K00088;Vanlerberghe;Izegem;BE0844670852;50000,00
+K00393;  Verhelst Renovatie  bvba  ;Oudenaarde;BE0476161716;25000,00
+K00527;Declercq Dakwerken & Zonen;Poperinge;BE0103415064;5000,00
+K00129;  Decroix Loodgieterij  bv†  ;Oostende;BE0812731623;10000,00
+K00434;D√©keyser comm.v;Aalter;BE0919464384;5000,00
+K00525;Lefevere comm.v;Roeselare;BE0142151619;15000,00
+K00081;Pattyn Techniek bv;Tielt;BE0318903237;5000,00
+K00636;Boussemaere bv†;Ieper;BE0145967974;15000,00
+K00606;Pattyn;Moorslede;BE0311687625;2500,00
+K00433;Vandewalle & Zonen;Kortrijk;BE0779036296;5000,00
+K00771;  D√©busschere Loodgieterij  ;Menen;BE0061745745;15000,00
+K00764;D√©witte nv;Moorslede;BE0310172445;25000,00
+K00715;  Verhelst Installaties  bvba  ;Harelbeke;BE0682471610;50000,00
+K00073;  Verhelst Loodgieterij vof†  ;Harelbeke;BE0802334213;15000,00
+K00306;Maertens Bouw Groep;Wevelgem;BE0289420779;15000,00
+K00770;  Dekeyser Techniek  bvba  ;Wielsbeke;BE0592807679;5000,00
+K00667;Vanhaverbeke comm.v;Wielsbeke;BE0728461189;2500,00
+K00599;Couss√©ment & Zonen†;Roeselare;BE0121147753;2500,00
+K00570;  Devos Elektro  bvba†  ;Wevelgem;BE0404790304;15000,00
+K00818;D√©croix Loodgieterij vof;Poper√Ønge;BE0674817716;2500,00
+K00462;Baert vof;Zonnebeke;BE0627605044;15000,00
+K00325;D√©croix vof†;Kortr√Øjk;BE0378251795;25000,00
+K00224;Vanacker Loodgieterij;Tielt;BE0481652114;15000,00
+K00076;Seynaeve;Torhout;BE0811566930;5000,00
+K00363;Vanbecelaere nv†;Menen;BE0907385411;2500,00
+K00345;Vandenberghe Loodgieterij;Roeselare;BE0831829438;50000,00
+K00111;Call√©waert nv;Brugge;BE0111625818;5000,00
+K00313;Ba√©rt & Zonen;Moorslede;BE0364513330;15000,00
+K00037;  Rommens†vof  ;Harelbeke;BE0394078336;5000,00
+K00093;  Vand√©n Broucke comm.v  ;Oudenaarde;BE0396523726;10000,00
+K00542;  Loosveldt vof  ;Harelbeke;BE0075528653;2500,00
+K00199;Vann√©ste Verwarming comm.v;De√Ønze;BE0240492791;50000,00
+K00760;  Carron†bv  ;Gent;BE0901026961;10000,00
+K00243;Deprez Verwarming;Oudenaarde;BE0295866034;10000,00
+K00328;  Baert  bvba  ;Brugge;BE0484737110;5000,00
+K00537;Soenen comm.v;Tielt;BE0322344757;25000,00
+K00300;Maertens & Zonen;Brugge;BE0243624606;50000,00
+K00775;  Verhoeve†Elektro  bv  ;Gent;BE0147511066;50000,00
+K00740;Lefevere & Zonen;Tielt;BE0953770811;50000,00
+K00448;D√©prez Groep;Ardoo√Øe;BE0529590702;50000,00
+K00585;Boussemaere Sanitair nv†;Oostende;BE0790435578;5000,00
+K00282;Deschacht Verwarming vof†;Gent;BE0237604765;10000,00
+K00689;Romm√©ns bv;Brugge;BE0512757044;15000,00
+K00270;  D√©poorter comm.v  ;De√Ønze;BE0907809934;2500,00
+K00123;Baert Groep;Gent;BE0286545027;5000,00
+K00780;Maertens & Zonen;Deinze;BE0571773824;10000,00
+K00743;  Decroix Groep  ;Diksmuide;BE0699136111;10000,00
+K00323;  Deveux Groep  ;Ieper;BE0666024368;25000,00
+K00138;Pattyn†Loodgieterij comm.v;Lichtervelde;BE0447683308;50000,00
+K00263;Desmet Dakwerken;Kortrijk;BE0326711143;50000,00
+K00134;Verhelst Klimaat & Zonen;Menen;BE0738987669;5000,00
+K00518;Decroix nv;Torhout;BE0795351894;15000,00
+K00320;Vanhaverbeke vof;Oostende;BE0543741715;10000,00
+K00576;Vandenberghe bvba;Wevelgem;BE0859335668;5000,00
+K00147;Beernaert Loodgieterij bv;Wielsbeke;BE0104422676;15000,00
+K00733;Hoornaert Klimaat bv;Poperinge;BE0529493702;5000,00
+K00566;  Deprez Installaties  bvba  ;Oudenaarde;BE0723176273;5000,00
+K00186;  Hoornaert Dakwerken  bv  ;Wevelgem;BE0600318746;25000,00
+K00505;Pattyn & Zon√©n;Oudenaarde;BE0653250062;50000,00
+K00295;Coussement†Klimaat comm.v;Izegem;BE0785759188;50000,00
+K00564;Vanbecelaere Loodgieterij Groep;Hooglede;BE0842218336;10000,00
+K00762;Verschoore nv†;Aalter;BE0348122706;25000,00
+K00353;  Pattyn V√©rwarming  bvba  ;T√Øelt;BE0469310645;15000,00
+K00163;Vandenberghe nv†;Diksmuide;BE0487474191;5000,00
+K00361;D√©poorter†Klimaat vof;Moorslede;BE0403962933;5000,00
+K00835;D√©veux comm.v;Oostende;BE0696556307;5000,00
+K00113;Vandenberghe Groep;Ieper;BE0093231846;2500,00
+K00118;Noppe Elektro vof;Oudenaarde;BE0345555768;15000,00
+K00736;Soenen & Zonen†;Gent;BE0302887052;5000,00
+K00301;Delaere & Zonen;Moorslede;BE0368793406;25000,00
+K00179;Lefevere vof;Deinze;BE0075574381;50000,00
+K00732;Hoorna√©rt Installaties nv†;L√Øchtervelde;BE0448376263;25000,00
+K00028;Hoorna√©rt Elektro;Harelbeke;BE0716984903;5000,00
+K00601;Decroix Dakwerken & Zonen;Aalter;BE0267740784;5000,00
+K00082;Baert nv;Oostende;BE0508307714;25000,00
+K00048;Baert & Zonen;Torhout;BE0890201860;2500,00
+K00042;Dewitte Techniek;Roeselare;BE0109132621;50000,00
+K00256;  Hoornaert†nv  ;Ardooie;BE0419586267;10000,00
+K00571;Vanneste†Dakwerken;Wevelgem;BE0074108493;5000,00
+K00464;Ba√©rt Groep;Kortr√Øjk;BE0626462523;5000,00
+K00222;Deprez†bvba;Torhout;BE0615548142;50000,00
+K00455;  V√©rhelst†bvba  ;Waregem;BE0528603082;10000,00
+K00077;Tanghe Verwarming comm.v;Roeselare;BE0943684195;25000,00
+K00655;  Verhoeve Sanitair nv  ;Diksmuide;BE0940662844;10000,00
+K00504;D√©schacht Verwarming Groep;Gent;BE0755942279;15000,00
+K00757;  Depoorter & Zonen  ;Izegem;BE0743516777;2500,00
+K00041;Vann√©ste†Elektro bvba;Torhout;BE0887009075;50000,00
+K00333;  Lammertyn†Dakwerken  ;Wevelgem;BE0928654541;5000,00
+K00291;Delaere Sanitair nv†;Ieper;BE0096261612;10000,00
+K00711;Bruggeman comm.v†;Oostende;BE0981862308;25000,00
+K00022;Boussemaere Dakwerken vof;Harelbeke;BE0598089825;5000,00
+K00683B;Debusschere Direct;Oudenaarde;BE0063016544;0,00
+K00546B;Callewaert Direct;Oostende;BE0040438211;0,00
+K00728B;Delaere Shop;Kortrijk;BE0136887784;0,00
+K00612B;Vanhaverbeke Direct;Torhout;BE0302073242;0,00
+K00197B;Delaere Direct;Zonnebeke;BE0948173713;0,00
+K00342B;Snauwaert Shop;Hooglede;BE0075344650;0,00
+K00696B;Hoornaert Shop;Waregem;BE0128018917;0,00
+K00024B;Deveux Store;Oudenaarde;BE0777369381;0,00
+K00491B;Deschacht Store;Brugge;BE0577827416;0,00
+K00621B;Vanhoutte Direct;Oostende;BE0894692069;0,00
+K00503B;Hoornaert Direct;Kortrijk;BE0211333504;0,00
+K00570B;Devos Direct;Wevelgem;BE0404790304;0,00
+K00195B;Deschacht Store;Torhout;BE0225178372;0,00
+K00794B;Maertens Store;Izegem;BE0902766231;0,00
+K00636B;Boussemaere Store;Ieper;BE0145967974;0,00
+K00062B;Decroix Direct;Menen;BE0668500145;0,00
+K00037B;Rommens Store;Harelbeke;BE0394078336;0,00
+K00432B;Vandewalle Direct;Torhout;BE0998403677;0,00

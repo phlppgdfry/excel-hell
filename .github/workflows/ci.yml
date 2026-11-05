@@ -1,0 +1,57 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: astral-sh/setup-uv@v5
+        with:
+          enable-cache: true
+
+      - name: Install
+        run: uv venv && uv pip install -e ".[dev]"
+
+      - name: Lint
+        run: uv run ruff check .
+
+      - name: Tests
+        run: uv run pytest -q
+
+      - name: Dry run
+        # A failing gate is the expected outcome on this dataset: the planted
+        # compensating pair must block the load. Exit 1 here is the control
+        # working, so CI asserts the code rather than ignoring it.
+        run: |
+          uv run dante forge
+          set +e; uv run dante run; code=$?; set -e
+          if [ "$code" -ne 1 ]; then
+            echo "::error::expected exit 1 (NO-GO), got $code"
+            exit 1
+          fi
+          uv run dante report
+
+      - name: The published site matches a fresh run
+        # docs/data/run-summary.json is what the site and the README numbers are
+        # read from. If a code change moves a number, the committed site data has
+        # to move with it.
+        #
+        # data/raw/*.xlsx is deliberately not checked: openpyxl stamps a creation
+        # time into the zip container, so those bytes differ on every forge while
+        # the data inside them is identical. The CSVs and the ground truth are
+        # byte-stable and are checked.
+        run: |
+          git diff --exit-code -- \
+            docs/data/run-summary.json \
+            docs/audit-report.html \
+            data/truth/planted-defects.json \
+            data/raw/01_klanten_mercurius.csv \
+            data/raw/04_klanten_boekhouding.csv \
+            data/raw/05_artikelen_mercurius.csv

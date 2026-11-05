@@ -1,0 +1,5968 @@
+{
+ "client": "Vanhulle Techniek nv",
+ "legacy_system": "Mercurius 4.2",
+ "verdict": "NO-GO",
+ "source_rows": 4472,
+ "totals": {
+  "paradiso": 2634,
+  "purgatorio": 1725,
+  "inferno": 113
+ },
+ "counts": {
+  "customer": {
+   "paradiso": 1117,
+   "purgatorio": 734,
+   "inferno": 23,
+   "source_rows": 1874
+  },
+  "supplier": {
+   "paradiso": 63,
+   "purgatorio": 5,
+   "inferno": 2,
+   "source_rows": 70
+  },
+  "article": {
+   "paradiso": 562,
+   "purgatorio": 592,
+   "inferno": 26,
+   "source_rows": 1180
+  },
+  "open_item": {
+   "paradiso": 711,
+   "purgatorio": 394,
+   "inferno": 23,
+   "source_rows": 1128
+  },
+  "discount": {
+   "paradiso": 181,
+   "purgatorio": 0,
+   "inferno": 39,
+   "source_rows": 220
+  }
+ },
+ "findings_total": 9737,
+ "findings_by_rule": {
+  "R-I-01": 153,
+  "R-I-02": 392,
+  "R-I-03": 195,
+  "R-I-04": 1,
+  "R-I-05": 126,
+  "R-II-01": 1199,
+  "R-II-02": 526,
+  "R-II-03": 220,
+  "R-II-04": 154,
+  "R-III-01": 296,
+  "R-III-02": 147,
+  "R-III-03": 65,
+  "R-III-04": 18,
+  "R-III-05": 17,
+  "R-IV-01": 3026,
+  "R-IV-02": 915,
+  "R-IV-03": 408,
+  "R-IV-04": 40,
+  "R-IV-05": 16,
+  "R-IX-03": 1,
+  "R-IX-04": 1,
+  "R-V-01": 75,
+  "R-V-02": 323,
+  "R-V-03": 50,
+  "R-VI-01": 9,
+  "R-VI-02": 41,
+  "R-VI-03": 51,
+  "R-VI-04": 7,
+  "R-VI-05": 21,
+  "R-VII-01": 41,
+  "R-VII-02": 102,
+  "R-VII-03": 469,
+  "R-VII-04": 405,
+  "R-VII-05": 23,
+  "R-VIII-01": 40,
+  "R-VIII-02": 32,
+  "R-VIII-03": 12,
+  "R-VIII-04": 120
+ },
+ "findings_by_circle": {
+  "1": 867,
+  "2": 2099,
+  "3": 543,
+  "4": 4405,
+  "5": 448,
+  "6": 129,
+  "7": 1040,
+  "8": 204,
+  "9": 2
+ },
+ "backlog_by_owner": {
+  "finance": 1007,
+  "operations": 116,
+  "purchasing": 202,
+  "sales": 785
+ },
+ "backlog_total": 2110,
+ "unmatched_attribute_rows": 106,
+ "gates": [
+  {
+   "rule": "R-IX-01",
+   "title": "Row count reconciliation per entity",
+   "owner": "finance",
+   "passed": true,
+   "message": "4472 source rows, 4472 placed",
+   "evidence": {
+    "per_entity": [
+     {
+      "entity": "customer",
+      "source_rows": 1874,
+      "placed": 1874,
+      "delta": 0
+     },
+     {
+      "entity": "supplier",
+      "source_rows": 70,
+      "placed": 70,
+      "delta": 0
+     },
+     {
+      "entity": "article",
+      "source_rows": 1180,
+      "placed": 1180,
+      "delta": 0
+     },
+     {
+      "entity": "open_item",
+      "source_rows": 1128,
+      "placed": 1128,
+      "delta": 0
+     },
+     {
+      "entity": "discount",
+      "source_rows": 220,
+      "placed": 220,
+      "delta": 0
+     }
+    ]
+   }
+  },
+  {
+   "rule": "R-IX-02",
+   "title": "Open receivables reconcile to the cent",
+   "owner": "finance",
+   "passed": true,
+   "message": "source detail 5,333,662.11 vs triaged 5,333,662.11, difference 0.00",
+   "evidence": {
+    "source_detail": "5333662.11",
+    "paradiso": "3417194.51",
+    "purgatorio": "1868746.00",
+    "inferno": "47721.60",
+    "unparseable_rows": 11
+   }
+  },
+  {
+   "rule": "R-IX-03",
+   "title": "Compensating errors detected by gross movement",
+   "owner": "finance",
+   "passed": false,
+   "message": "unexplained difference nets to 0.00 while gross movement is 2,495.00 across 2 customers \u2014 net zero with gross movement is betrayal, not balance",
+   "evidence": {
+    "trial_balance_total": "5380992.54",
+    "source_detail_total": "5333662.11",
+    "total_difference": "-47330.43",
+    "explained_orphan_detail": "0.00",
+    "explained_unquantifiable": "-47330.43",
+    "unexplained_net": "0.00",
+    "unexplained_gross": "2495.00",
+    "compensating_pattern": true,
+    "customers_affected": 2,
+    "orphan_customers": 0,
+    "worst": [
+     {
+      "customer": "K00008",
+      "trial": "3677.13",
+      "detail": "4924.63",
+      "difference": "1247.50"
+     },
+     {
+      "customer": "K00068",
+      "trial": "6724.81",
+      "detail": "5477.31",
+      "difference": "-1247.50"
+     }
+    ]
+   }
+  },
+  {
+   "rule": "R-IX-04",
+   "title": "No customer may lose its entire open balance",
+   "owner": "finance",
+   "passed": false,
+   "message": "153 customers would arrive with a zero balance, holding 794,130.93 between them",
+   "evidence": {
+    "customers": 153,
+    "amount": "794130.93",
+    "worst": [
+     {
+      "customer": "K00219",
+      "trial": "21854.23",
+      "migrated": "0.00"
+     },
+     {
+      "customer": "K00615",
+      "trial": "17717.99",
+      "migrated": "0.00"
+     },
+     {
+      "customer": "K00266",
+      "trial": "15873.75",
+      "migrated": "0.00"
+     },
+     {
+      "customer": "K00751",
+      "trial": "14072.93",
+      "migrated": "0.00"
+     },
+     {
+      "customer": "K00638",
+      "trial": "13558.79",
+      "migrated": "0.00"
+     },
+     {
+      "customer": "K00529",
+      "trial": "13514.53",
+      "migrated": "0.00"
+     },
+     {
+      "customer": "K00201",
+      "trial": "13266.60",
+      "migrated": "0.00"
+     },
+     {
+      "customer": "K00706",
+      "trial": "11141.54",
+      "migrated": "0.00"
+     },
+     {
+      "customer": "K00820",
+      "trial": "9926.83",
+      "migrated": "0.00"
+     },
+     {
+      "customer": "K00759",
+      "trial": "9360.64",
+      "migrated": "0.00"
+     },
+     {
+      "customer": "K00242",
+      "trial": "9287.87",
+      "migrated": "0.00"
+     },
+     {
+      "customer": "K00520",
+      "trial": "9204.93",
+      "migrated": "0.00"
+     }
+    ]
+   }
+  }
+ ],
+ "ledger": {
+  "trial_balance_total": "5380992.54",
+  "source_detail_total": "5333662.11",
+  "migrated": "3417194.51",
+  "held": "1868746.00",
+  "rejected": "47721.60",
+  "unparseable_rows": 11
+ },
+ "stats": {
+  "sources": [
+   {
+    "feed": "cust_master",
+    "file": "01_klanten_mercurius.csv",
+    "rows": 840,
+    "columns": 15
+   },
+   {
+    "feed": "cust_jan",
+    "file": "02_klanten_verkoop_jan.xlsx!Blad1",
+    "rows": 310,
+    "columns": 5
+   },
+   {
+    "feed": "cust_sofie",
+    "file": "03_klanten_verkoop_sofie.xlsx!klanten",
+    "rows": 286,
+    "columns": 8
+   },
+   {
+    "feed": "cust_acc",
+    "file": "04_klanten_boekhouding.csv",
+    "rows": 438,
+    "columns": 5
+   },
+   {
+    "feed": "art_master",
+    "file": "05_artikelen_mercurius.csv",
+    "rows": 1180,
+    "columns": 10
+   },
+   {
+    "feed": "art_price",
+    "file": "06_artikelen_prijzen_2024.xlsx!prijzen 2024",
+    "rows": 1180,
+    "columns": 5
+   },
+   {
+    "feed": "art_stock",
+    "file": "07_artikelen_voorraad.xlsx!voorraad",
+    "rows": 1180,
+    "columns": 3
+   },
+   {
+    "feed": "art_uom",
+    "file": "08_artikelen_eenheden.xlsx!eenheden",
+    "rows": 1180,
+    "columns": 3
+   },
+   {
+    "feed": "art_supp",
+    "file": "09_artikelen_leverancier.xlsx!leverancier",
+    "rows": 1180,
+    "columns": 3
+   },
+   {
+    "feed": "supp_master",
+    "file": "10_leveranciers.xlsx!leveranciers",
+    "rows": 70,
+    "columns": 10
+   },
+   {
+    "feed": "open_items",
+    "file": "11_openstaande_posten.xlsx!Posten",
+    "rows": 1128,
+    "columns": 5
+   },
+   {
+    "feed": "trial_balance",
+    "file": "11_openstaande_posten.xlsx!Saldilijst",
+    "rows": 612,
+    "columns": 2
+   },
+   {
+    "feed": "discounts",
+    "file": "12_korting_afspraken.xlsx!afspraken",
+    "rows": 220,
+    "columns": 5
+   }
+  ],
+  "limbo_repaired_cells": 743,
+  "candidates": {
+   "customer": 1874,
+   "supplier": 70,
+   "article": 1180,
+   "open_item": 1128,
+   "discount": 220
+  },
+  "customer_clusters": 391,
+  "customer_comparisons": 7785,
+  "uom_conflicts": 75,
+  "date_format_doc_date": {
+   "verdict": "dmy",
+   "evidence": {
+    "dmy": 656
+   }
+  },
+  "date_format_due_date": {
+   "verdict": "mixed",
+   "evidence": {
+    "dmy": 588,
+    "mdy": 74
+   }
+  }
+ },
+ "circles": [
+  {
+   "number": 1,
+   "name": "Limbo",
+   "sin": "Data that is almost right",
+   "description": "Nothing here is wrong on purpose. Encodings drifted, spaces crept in, a BOM rode along. These rows are not sinners, they are the unbaptised: they never got a chance to be correct. All of it is repairable.\n",
+   "findings": 867,
+   "rules": [
+    {
+     "id": "R-I-01",
+     "circle": 1,
+     "title": "Mojibake from a latin-1 export read as UTF-8",
+     "entity": [
+      "customer",
+      "supplier"
+     ],
+     "action": "repair",
+     "owner": "engine",
+     "rationale": "The accounting export is latin-1. Read as UTF-8 it yields \"Vanacker\u00c2 \", \"Kortr\u00c3\u00afjk\". The mapping is lossless and reversible, so the engine fixes it and logs the original bytes.",
+     "findings": 153
+    },
+    {
+     "id": "R-I-02",
+     "circle": 1,
+     "title": "Non-breaking spaces and zero-width characters",
+     "entity": [
+      "customer",
+      "supplier",
+      "article"
+     ],
+     "action": "repair",
+     "owner": "engine",
+     "rationale": "U+00A0 and U+200B survive every trim() a user tries. They break joins silently because the strings look identical on screen.",
+     "findings": 392
+    },
+    {
+     "id": "R-I-03",
+     "circle": 1,
+     "title": "Leading, trailing and doubled whitespace",
+     "entity": [
+      "customer",
+      "supplier",
+      "article"
+     ],
+     "action": "repair",
+     "owner": "engine",
+     "rationale": "Cosmetic in the source and join-breaking in the target. A trailing space is invisible in every spreadsheet and decisive in every lookup, so two records that read identically on screen refuse to match on load.",
+     "findings": 195
+    },
+    {
+     "id": "R-I-04",
+     "circle": 1,
+     "title": "Byte order mark on the first column header",
+     "entity": [
+      "customer",
+      "article"
+     ],
+     "action": "repair",
+     "owner": "engine",
+     "rationale": "A BOM makes the first column unaddressable by name, which usually surfaces as a missing mandatory field rather than as an encoding issue.",
+     "findings": 1
+    },
+    {
+     "id": "R-I-05",
+     "circle": 1,
+     "title": "Entity codes in mixed case and with inner spaces",
+     "entity": [
+      "customer",
+      "supplier",
+      "article"
+     ],
+     "action": "repair",
+     "owner": "engine",
+     "rationale": "\"san-0098\", \"SAN 0098\" and \"SAN-0098\" are one article. Codes are case-folded and space-stripped before any matching happens.",
+     "findings": 126
+    }
+   ]
+  },
+  {
+   "number": 2,
+   "name": "Lust",
+   "sin": "The same customer, five times over",
+   "description": "Four sources, no shared key. Every sales rep kept their own list, so \"Vanacker BVBA\", \"Vanacker b.v.b.a.\" and \"VANACKER\" are one company with three credit limits. Matching is cheap; deciding which record survives is not.\n",
+   "findings": 2099,
+   "rules": [
+    {
+     "id": "R-II-01",
+     "circle": 2,
+     "title": "Near-duplicate customers above the auto-merge threshold",
+     "entity": [
+      "customer"
+     ],
+     "action": "repair",
+     "owner": "engine",
+     "rationale": "Blocking on postcode plus normalised name, scored with token_set_ratio. At or above 92 the pair is the same legal entity in every sample we reviewed, so the engine merges and records the losing record.",
+     "findings": 1199
+    },
+    {
+     "id": "R-II-02",
+     "circle": 2,
+     "title": "Near-duplicate customers in the grey band",
+     "entity": [
+      "customer"
+     ],
+     "action": "quarantine",
+     "owner": "sales",
+     "rationale": "Between 80 and 92 the score cannot separate \"Bouwbedrijf Deveux\" from \"Bouwbedrijf Deveux Zonen\", which are a parent and its subsidiary with separate credit limits. A wrong merge destroys a credit history, so sales decides.",
+     "findings": 526
+    },
+    {
+     "id": "R-II-03",
+     "circle": 2,
+     "title": "Survivorship conflict on merge",
+     "entity": [
+      "customer"
+     ],
+     "action": "quarantine",
+     "owner": "sales",
+     "rationale": "When two matched records disagree on payment terms or credit limit, completeness cannot pick a winner. Merging on \"most complete record\" would silently raise a credit limit.",
+     "findings": 220
+    },
+    {
+     "id": "R-II-04",
+     "circle": 2,
+     "title": "Identical VAT number on records with different names",
+     "entity": [
+      "customer",
+      "supplier"
+     ],
+     "action": "quarantine",
+     "owner": "finance",
+     "rationale": "A shared VAT number is strong evidence of one entity, but it is also how a trading name and its legal entity appear. Finance owns the call.",
+     "findings": 154
+    }
+   ]
+  },
+  {
+   "number": 3,
+   "name": "Gluttony",
+   "sin": "One cell, swallowing everything",
+   "description": "A single column holding a street, a box number, a postcode, a VAT number and two email addresses. The legacy system had no field for it, so the users made one.\n",
+   "findings": 543,
+   "rules": [
+    {
+     "id": "R-III-01",
+     "circle": 3,
+     "title": "Postcode and city embedded in the street field",
+     "entity": [
+      "customer",
+      "supplier"
+     ],
+     "action": "repair",
+     "owner": "engine",
+     "rationale": "Belgian postcodes are four digits in a known range and appear in a fixed position relative to the city name, which makes the split deterministic.",
+     "findings": 296
+    },
+    {
+     "id": "R-III-02",
+     "circle": 3,
+     "title": "Box number inside the house number",
+     "entity": [
+      "customer",
+      "supplier"
+     ],
+     "action": "repair",
+     "owner": "engine",
+     "rationale": "\"12 bus 3\", \"12/3\" and \"12 b3\" are one house number and one box. The target ERP has separate fields and rejects the combined value.",
+     "findings": 147
+    },
+    {
+     "id": "R-III-03",
+     "circle": 3,
+     "title": "Multiple email addresses in one cell",
+     "entity": [
+      "customer",
+      "supplier"
+     ],
+     "action": "repair",
+     "owner": "engine",
+     "rationale": "Split on the usual separators, first address becomes primary, the rest become additional contacts. Order is preserved because the first address is the one the users have been mailing.",
+     "findings": 65
+    },
+    {
+     "id": "R-III-04",
+     "circle": 3,
+     "title": "Unparseable address soup",
+     "entity": [
+      "customer",
+      "supplier"
+     ],
+     "action": "quarantine",
+     "owner": "sales",
+     "rationale": "\"achter de kerk, bellen bij de poort\" is a real delivery instruction and not an address. Guessing a street here invents data.",
+     "findings": 18
+    },
+    {
+     "id": "R-III-05",
+     "circle": 3,
+     "title": "VAT number hidden in the company name",
+     "entity": [
+      "customer",
+      "supplier"
+     ],
+     "action": "repair",
+     "owner": "engine",
+     "rationale": "Users with no VAT field typed it into the name. Extracting it recovers a mandatory field, and the pattern is unambiguous.",
+     "findings": 17
+    }
+   ]
+  },
+  {
+   "number": 4,
+   "name": "Greed",
+   "sin": "Money that will not say what it means",
+   "description": "Comma or dot, euro or franc-era text, VAT in or VAT out, discount baked into the unit price. Every one of these is a cent that lands in the wrong ledger.\n",
+   "findings": 4405,
+   "rules": [
+    {
+     "id": "R-IV-01",
+     "circle": 4,
+     "title": "Decimal comma, dot or both as thousand separator",
+     "entity": [
+      "article",
+      "open_item"
+     ],
+     "action": "repair",
+     "owner": "engine",
+     "rationale": "\"1.247,50\", \"1,247.50\" and \"1247.5\" are the same amount. The engine uses the separator order within the string, never locale guessing.",
+     "findings": 3026
+    },
+    {
+     "id": "R-IV-02",
+     "circle": 4,
+     "title": "Amounts stored as text with currency symbols",
+     "entity": [
+      "article",
+      "open_item"
+     ],
+     "action": "repair",
+     "owner": "engine",
+     "rationale": "\"\u20ac 1.247,50\", \"EUR 1247,50\" and \"1247,50 euro\" are one amount written by three people. The currency text carries no information here, because the whole ledger is in euro, so stripping it loses nothing and makes the column numeric.",
+     "findings": 915
+    },
+    {
+     "id": "R-IV-03",
+     "circle": 4,
+     "title": "Ambiguous VAT treatment on a price",
+     "entity": [
+      "article"
+     ],
+     "action": "quarantine",
+     "owner": "finance",
+     "rationale": "The price file has an \"incl\" column that is populated for 61 percent of rows and contradicted by the article VAT rate for some of them. A wrong reading moves 21 percent of a sales price. Finance decides per row.",
+     "findings": 408
+    },
+    {
+     "id": "R-IV-04",
+     "circle": 4,
+     "title": "Discount baked into the unit price",
+     "entity": [
+      "article"
+     ],
+     "action": "quarantine",
+     "owner": "finance",
+     "rationale": "Where the unit price is below cost and a discount agreement exists for the same article, the discount was almost certainly applied twice. The engine flags the pair instead of unwinding it.",
+     "findings": 40
+    },
+    {
+     "id": "R-IV-05",
+     "circle": 4,
+     "title": "Negative or zero unit price on a sellable article",
+     "entity": [
+      "article"
+     ],
+     "action": "reject",
+     "owner": "finance",
+     "rationale": "A sellable article with a price of zero or less cannot be migrated: the target ERP will create order lines from it on day one.",
+     "findings": 16
+    }
+   ]
+  },
+  {
+   "number": 5,
+   "name": "Wrath",
+   "sin": "Sources at war with each other",
+   "description": "The same article is sold per piece in one file, per box in another and per metre in a third. No file is wrong on its own. Together they cannot all be true.\n",
+   "findings": 448,
+   "rules": [
+    {
+     "id": "R-V-01",
+     "circle": 5,
+     "title": "Conflicting unit of measure across sources",
+     "entity": [
+      "article"
+     ],
+     "action": "quarantine",
+     "owner": "operations",
+     "rationale": "Piece, box and metre for one article differ by a factor of 50 in stock value. Source precedence cannot settle it because the warehouse file is the most accurate and the least authoritative.",
+     "findings": 75
+    },
+    {
+     "id": "R-V-02",
+     "circle": 5,
+     "title": "Conflicting article description across sources",
+     "entity": [
+      "article"
+     ],
+     "action": "repair",
+     "owner": "engine",
+     "rationale": "Descriptions are not load-critical. The engine takes the master file and keeps the alternatives as a note, so nothing is lost and nobody is asked.",
+     "findings": 323
+    },
+    {
+     "id": "R-V-03",
+     "circle": 5,
+     "title": "Conflicting primary supplier for one article",
+     "entity": [
+      "article"
+     ],
+     "action": "quarantine",
+     "owner": "purchasing",
+     "rationale": "Purchasing drives replenishment from this field. A wrong supplier places real orders.",
+     "findings": 50
+    }
+   ]
+  },
+  {
+   "number": 6,
+   "name": "Heresy",
+   "sin": "Values that pass every format check and are still false",
+   "description": "BE0000000000 is a structurally valid VAT number. 1900-01-01 is a valid date. noreply@noreply.be is a valid address. These rows pass validation and poison the ERP, which is exactly what makes them heretics: they look like believers.\n",
+   "findings": 129,
+   "rules": [
+    {
+     "id": "R-VI-01",
+     "circle": 6,
+     "title": "Structurally valid but placeholder VAT number",
+     "entity": [
+      "customer",
+      "supplier"
+     ],
+     "action": "reject",
+     "owner": "finance",
+     "rationale": "BE0000000000 and BE9999999999 satisfy the modulo check and identify nobody. Migrating them produces invoices that cannot be reported.",
+     "findings": 9
+    },
+    {
+     "id": "R-VI-02",
+     "circle": 6,
+     "title": "Sentinel dates standing in for \"unknown\"",
+     "entity": [
+      "customer",
+      "open_item"
+     ],
+     "action": "repair",
+     "owner": "engine",
+     "rationale": "1900-01-01, 1899-12-30 and 9999-12-31 are the legacy system's way of saying null. They become null, which is what they always meant.",
+     "findings": 41
+    },
+    {
+     "id": "R-VI-03",
+     "circle": 6,
+     "title": "Placeholder contact details",
+     "entity": [
+      "customer",
+      "supplier"
+     ],
+     "action": "repair",
+     "owner": "engine",
+     "rationale": "noreply@, geen@geen.be, phone 000000000 and \"/\" are absence written as presence. Nulling them is honest; keeping them sends mail to nowhere.",
+     "findings": 51
+    },
+    {
+     "id": "R-VI-04",
+     "circle": 6,
+     "title": "Test and scratch records left in the master file",
+     "entity": [
+      "customer",
+      "supplier",
+      "article"
+     ],
+     "action": "reject",
+     "owner": "sales",
+     "rationale": "\"TEST\", \"ZZZ OUD - NIET GEBRUIKEN\", \"KLANT NIEUW\" and \"aaa\" are working notes. They have order history, which is why nobody ever dared delete them.",
+     "findings": 7
+    },
+    {
+     "id": "R-VI-05",
+     "circle": 6,
+     "title": "Country code outside ISO 3166-1 alpha-2",
+     "entity": [
+      "customer",
+      "supplier"
+     ],
+     "action": "quarantine",
+     "owner": "sales",
+     "rationale": "\"XX\", \"B\" and \"BELG\" are each recoverable, but \"B\" is also a legacy code for Belgium and a valid code for nothing. Low volume, so ask.",
+     "findings": 21
+    }
+   ]
+  },
+  {
+   "number": 7,
+   "name": "Violence",
+   "sin": "What Excel did to the data on its way here",
+   "description": "Article codes turned into 1.23E+11. Leading zeros eaten off an EAN. Dates silently converted to serial numbers, or worse, to a US reading that is also a valid European one. The user never touched these cells.\n",
+   "findings": 1040,
+   "rules": [
+    {
+     "id": "R-VII-01",
+     "circle": 7,
+     "title": "Article code converted to scientific notation",
+     "entity": [
+      "article"
+     ],
+     "action": "quarantine",
+     "owner": "operations",
+     "rationale": "1.23E+11 lost its trailing digits when Excel stored it as a float. The value cannot be recovered from the cell, only from a second source, so the engine pairs it with the master file and asks for confirmation.",
+     "findings": 41
+    },
+    {
+     "id": "R-VII-02",
+     "circle": 7,
+     "title": "Leading zeros stripped from EAN and postcode",
+     "entity": [
+      "article",
+      "customer"
+     ],
+     "action": "repair",
+     "owner": "engine",
+     "rationale": "An EAN is fixed-length and carries a check digit, so left-padding is verifiable rather than assumed. Postcodes are four digits in Belgium.",
+     "findings": 102
+    },
+    {
+     "id": "R-VII-03",
+     "circle": 7,
+     "title": "Date stored as an Excel serial number",
+     "entity": [
+      "customer",
+      "open_item"
+     ],
+     "action": "repair",
+     "owner": "engine",
+     "rationale": "45291 is 2023-12-27. Deterministic, given the 1900 epoch and the leap-year bug.",
+     "findings": 469
+    },
+    {
+     "id": "R-VII-04",
+     "circle": 7,
+     "title": "Date ambiguous between US and European reading",
+     "entity": [
+      "open_item"
+     ],
+     "action": "quarantine",
+     "owner": "finance",
+     "rationale": "\"03/04/2024\" is 3 April and 4 March. Both are plausible due dates and the difference decides whether an invoice is overdue. Guessing here is how an aging report starts lying.",
+     "findings": 405
+    },
+    {
+     "id": "R-VII-05",
+     "circle": 7,
+     "title": "Numeric field containing a formula error",
+     "entity": [
+      "article",
+      "open_item"
+     ],
+     "action": "reject",
+     "owner": "engine",
+     "rationale": "#REF!, #N/B and #DIV/0! are not values. The cell never held one.",
+     "findings": 23
+    }
+   ]
+  },
+  {
+   "number": 8,
+   "name": "Fraud",
+   "sin": "References to things that do not exist",
+   "description": "Discount agreements for customers that were deleted in 2019. Articles assigned to a supplier that went bankrupt. Open items for a customer number that is not in any master file. The keys look fine. They point at nothing.\n",
+   "findings": 204,
+   "rules": [
+    {
+     "id": "R-VIII-01",
+     "circle": 8,
+     "title": "Discount agreement for a customer that does not exist",
+     "entity": [
+      "discount"
+     ],
+     "action": "reject",
+     "owner": "sales",
+     "rationale": "An orphan agreement cannot be migrated and would otherwise be silently dropped by the loader, which is worse than rejecting it loudly.",
+     "findings": 40
+    },
+    {
+     "id": "R-VIII-02",
+     "circle": 8,
+     "title": "Article pointing at a supplier that is not in the master",
+     "entity": [
+      "article"
+     ],
+     "action": "quarantine",
+     "owner": "purchasing",
+     "rationale": "The article is real and sellable. Only its replenishment link is broken, so rejecting the article would be an overreaction.",
+     "findings": 32
+    },
+    {
+     "id": "R-VIII-03",
+     "circle": 8,
+     "title": "Open item for an unknown customer number",
+     "entity": [
+      "open_item"
+     ],
+     "action": "reject",
+     "owner": "finance",
+     "rationale": "An open receivable without a customer cannot be migrated, and it must be reported rather than dropped because it is money owed.",
+     "findings": 12
+    },
+    {
+     "id": "R-VIII-04",
+     "circle": 8,
+     "title": "Active article sourced from a blocked supplier",
+     "entity": [
+      "article"
+     ],
+     "action": "quarantine",
+     "owner": "purchasing",
+     "rationale": "The reference is intact and the data is consistent. The business fact is the problem, and only purchasing can decide whether to reroute or block.",
+     "findings": 120
+    }
+   ]
+  },
+  {
+   "number": 9,
+   "name": "Treachery",
+   "sin": "The data that is clean, loads fine and is still wrong",
+   "description": "The deepest circle is reserved for betrayal. A migration that balances to zero because two errors cancel each other out will pass a net-total reconciliation, load without a single warning, and be discovered by the accountant in March. Only component-level reconciliation catches it.\n",
+   "findings": 2,
+   "rules": [
+    {
+     "id": "R-IX-01",
+     "circle": 9,
+     "title": "Row count reconciliation per entity",
+     "entity": [
+      "all"
+     ],
+     "action": "gate",
+     "owner": "finance",
+     "rationale": "Every source row must end in exactly one of Paradiso, Purgatorio or Inferno.",
+     "findings": 0
+    },
+    {
+     "id": "R-IX-02",
+     "circle": 9,
+     "title": "Open receivables reconcile to the cent",
+     "entity": [
+      "open_item"
+     ],
+     "action": "gate",
+     "owner": "finance",
+     "rationale": "The sum of migrated plus held plus rejected open items must equal the source total exactly. Cents are not a rounding concern here, they are the test that nothing was invented or lost.",
+     "findings": 0
+    },
+    {
+     "id": "R-IX-03",
+     "circle": 9,
+     "title": "Compensating errors detected by gross movement",
+     "entity": [
+      "open_item"
+     ],
+     "action": "gate",
+     "owner": "finance",
+     "rationale": "This is the ninth circle. A net total of zero difference can hide a pair of equal and opposite errors, so the gate also compares the sum of absolute per-customer differences. Net zero with gross movement is betrayal, not balance, and it fails the run.",
+     "findings": 1
+    },
+    {
+     "id": "R-IX-04",
+     "circle": 9,
+     "title": "No customer may lose its entire open balance",
+     "entity": [
+      "open_item"
+     ],
+     "action": "gate",
+     "owner": "finance",
+     "rationale": "A customer whose source balance is non-zero and whose migrated balance is zero is the single most expensive migration defect: it is invisible in totals and discovered when the customer stops paying.",
+     "findings": 1
+    }
+   ]
+  }
+ ],
+ "samples": {
+  "R-I-05": [
+   {
+    "rule": "R-I-05",
+    "circle": 1,
+    "entity": "customer",
+    "key": "K00009",
+    "field": "KLANTNR",
+    "source": "01_klanten_mercurius.csv",
+    "action": "repair",
+    "owner": "engine",
+    "raw": "k 00009",
+    "repaired": "K00009",
+    "message": "entity code folded before matching",
+    "evidence": {}
+   },
+   {
+    "rule": "R-I-05",
+    "circle": 1,
+    "entity": "customer",
+    "key": "K00036",
+    "field": "KLANTNR",
+    "source": "01_klanten_mercurius.csv",
+    "action": "repair",
+    "owner": "engine",
+    "raw": "k 00036",
+    "repaired": "K00036",
+    "message": "entity code folded before matching",
+    "evidence": {}
+   },
+   {
+    "rule": "R-I-05",
+    "circle": 1,
+    "entity": "customer",
+    "key": "K00130",
+    "field": "KLANTNR",
+    "source": "01_klanten_mercurius.csv",
+    "action": "repair",
+    "owner": "engine",
+    "raw": "k 00130",
+    "repaired": "K00130",
+    "message": "entity code folded before matching",
+    "evidence": {}
+   },
+   {
+    "rule": "R-I-05",
+    "circle": 1,
+    "entity": "customer",
+    "key": "K00141",
+    "field": "KLANTNR",
+    "source": "01_klanten_mercurius.csv",
+    "action": "repair",
+    "owner": "engine",
+    "raw": "k 00141",
+    "repaired": "K00141",
+    "message": "entity code folded before matching",
+    "evidence": {}
+   },
+   {
+    "rule": "R-I-05",
+    "circle": 1,
+    "entity": "customer",
+    "key": "K00143",
+    "field": "KLANTNR",
+    "source": "01_klanten_mercurius.csv",
+    "action": "repair",
+    "owner": "engine",
+    "raw": "k 00143",
+    "repaired": "K00143",
+    "message": "entity code folded before matching",
+    "evidence": {}
+   },
+   {
+    "rule": "R-I-05",
+    "circle": 1,
+    "entity": "customer",
+    "key": "K00155",
+    "field": "KLANTNR",
+    "source": "01_klanten_mercurius.csv",
+    "action": "repair",
+    "owner": "engine",
+    "raw": "k 00155",
+    "repaired": "K00155",
+    "message": "entity code folded before matching",
+    "evidence": {}
+   }
+  ],
+  "R-I-03": [
+   {
+    "rule": "R-I-03",
+    "circle": 1,
+    "entity": "customer",
+    "key": "row 171",
+    "field": "klant",
+    "source": "02_klanten_verkoop_jan.xlsx!Blad1",
+    "action": "repair",
+    "owner": "engine",
+    "raw": "'Vanneste Bouw&  Zonen'",
+    "repaired": "Vanneste Bouw& Zonen",
+    "message": "Leading, trailing and doubled whitespace",
+    "evidence": {}
+   },
+   {
+    "rule": "R-I-03",
+    "circle": 1,
+    "entity": "customer",
+    "key": "row 186",
+    "field": "klant",
+    "source": "02_klanten_verkoop_jan.xlsx!Blad1",
+    "action": "repair",
+    "owner": "engine",
+    "raw": "'Loosveldt&  Zonen'",
+    "repaired": "Loosveldt& Zonen",
+    "message": "Leading, trailing and doubled whitespace",
+    "evidence": {}
+   },
+   {
+    "rule": "R-I-03",
+    "circle": 1,
+    "entity": "customer",
+    "key": "K00217",
+    "field": "naam",
+    "source": "04_klanten_boekhouding.csv",
+    "action": "repair",
+    "owner": "engine",
+    "raw": "'Vanhoutte Techniek & Zonen\\xa0'",
+    "repaired": "Vanhoutte Techniek & Zonen",
+    "message": "Leading, trailing and doubled whitespace",
+    "evidence": {}
+   },
+   {
+    "rule": "R-I-03",
+    "circle": 1,
+    "entity": "customer",
+    "key": "K00604",
+    "field": "naam",
+    "source": "04_klanten_boekhouding.csv",
+    "action": "repair",
+    "owner": "engine",
+    "raw": "'  Vann\u00c3\u00a9ste  bvba  '",
+    "repaired": "Vann\u00e9ste bvba",
+    "message": "Leading, trailing and doubled whitespace",
+    "evidence": {}
+   },
+   {
+    "rule": "R-I-03",
+    "circle": 1,
+    "entity": "customer",
+    "key": "K00807",
+    "field": "naam",
+    "source": "04_klanten_boekhouding.csv",
+    "action": "repair",
+    "owner": "engine",
+    "raw": "'  Vandenberghe Installaties  '",
+    "repaired": "Vandenberghe Installaties",
+    "message": "Leading, trailing and doubled whitespace",
+    "evidence": {}
+   },
+   {
+    "rule": "R-I-03",
+    "circle": 1,
+    "entity": "customer",
+    "key": "K00786",
+    "field": "naam",
+    "source": "04_klanten_boekhouding.csv",
+    "action": "repair",
+    "owner": "engine",
+    "raw": "'  Vanden Broucke Groep  '",
+    "repaired": "Vanden Broucke Groep",
+    "message": "Leading, trailing and doubled whitespace",
+    "evidence": {}
+   }
+  ],
+  "R-I-02": [
+   {
+    "rule": "R-I-02",
+    "circle": 1,
+    "entity": "customer",
+    "key": "K00217",
+    "field": "naam",
+    "source": "04_klanten_boekhouding.csv",
+    "action": "repair",
+    "owner": "engine",
+    "raw": "'Vanhoutte Techniek & Zonen\\xa0'",
+    "repaired": "Vanhoutte Techniek & Zonen ",
+    "message": "invisible character removed",
+    "evidence": {}
+   },
+   {
+    "rule": "R-I-02",
+    "circle": 1,
+    "entity": "customer",
+    "key": "K00700",
+    "field": "naam",
+    "source": "04_klanten_boekhouding.csv",
+    "action": "repair",
+    "owner": "engine",
+    "raw": "'Vanbecelaere\\xa0Renovatie bv'",
+    "repaired": "Vanbecelaere Renovatie bv",
+    "message": "invisible character removed",
+    "evidence": {}
+   },
+   {
+    "rule": "R-I-02",
+    "circle": 1,
+    "entity": "customer",
+    "key": "K00806",
+    "field": "naam",
+    "source": "04_klanten_boekhouding.csv",
+    "action": "repair",
+    "owner": "engine",
+    "raw": "'Bruggeman\\xa0vof'",
+    "repaired": "Bruggeman vof",
+    "message": "invisible character removed",
+    "evidence": {}
+   },
+   {
+    "rule": "R-I-02",
+    "circle": 1,
+    "entity": "customer",
+    "key": "K00479",
+    "field": "naam",
+    "source": "04_klanten_boekhouding.csv",
+    "action": "repair",
+    "owner": "engine",
+    "raw": "'Vandenberghe bv\\xa0'",
+    "repaired": "Vandenberghe bv ",
+    "message": "invisible character removed",
+    "evidence": {}
+   },
+   {
+    "rule": "R-I-02",
+    "circle": 1,
+    "entity": "customer",
+    "key": "K00440",
+    "field": "naam",
+    "source": "04_klanten_boekhouding.csv",
+    "action": "repair",
+    "owner": "engine",
+    "raw": "'Vanneste Elektro nv\\xa0'",
+    "repaired": "Vanneste Elektro nv ",
+    "message": "invisible character removed",
+    "evidence": {}
+   },
+   {
+    "rule": "R-I-02",
+    "circle": 1,
+    "entity": "customer",
+    "key": "K00426",
+    "field": "naam",
+    "source": "04_klanten_boekhouding.csv",
+    "action": "repair",
+    "owner": "engine",
+    "raw": "'  V\u00c3\u00a9rschoore\\xa0Elektro  bv  '",
+    "repaired": "  V\u00e9rschoore Elektro  bv  ",
+    "message": "invisible character removed",
+    "evidence": {}
+   }
+  ],
+  "R-I-01": [
+   {
+    "rule": "R-I-01",
+    "circle": 1,
+    "entity": "customer",
+    "key": "K00604",
+    "field": "naam",
+    "source": "04_klanten_boekhouding.csv",
+    "action": "repair",
+    "owner": "engine",
+    "raw": "  Vann\u00c3\u00a9ste  bvba  ",
+    "repaired": "  Vann\u00e9ste  bvba  ",
+    "message": "latin-1 bytes read as UTF-8",
+    "evidence": {}
+   },
+   {
+    "rule": "R-I-01",
+    "circle": 1,
+    "entity": "customer",
+    "key": "K00008",
+    "field": "naam",
+    "source": "04_klanten_boekhouding.csv",
+    "action": "repair",
+    "owner": "engine",
+    "raw": "  Romm\u00c3\u00a9ns Verwarming & Zonen  ",
+    "repaired": "  Romm\u00e9ns Verwarming & Zonen  ",
+    "message": "latin-1 bytes read as UTF-8",
+    "evidence": {}
+   },
+   {
+    "rule": "R-I-01",
+    "circle": 1,
+    "entity": "customer",
+    "key": "K00405",
+    "field": "naam",
+    "source": "04_klanten_boekhouding.csv",
+    "action": "repair",
+    "owner": "engine",
+    "raw": "Pattyn Dakw\u00c3\u00a9rken bv",
+    "repaired": "Pattyn Dakw\u00e9rken bv",
+    "message": "latin-1 bytes read as UTF-8",
+    "evidence": {}
+   },
+   {
+    "rule": "R-I-01",
+    "circle": 1,
+    "entity": "customer",
+    "key": "K00034",
+    "field": "naam",
+    "source": "04_klanten_boekhouding.csv",
+    "action": "repair",
+    "owner": "engine",
+    "raw": "V\u00c3\u00a9rmeulen Sanitair & Zonen",
+    "repaired": "V\u00e9rmeulen Sanitair & Zonen",
+    "message": "latin-1 bytes read as UTF-8",
+    "evidence": {}
+   },
+   {
+    "rule": "R-I-01",
+    "circle": 1,
+    "entity": "customer",
+    "key": "K00426",
+    "field": "naam",
+    "source": "04_klanten_boekhouding.csv",
+    "action": "repair",
+    "owner": "engine",
+    "raw": "  V\u00c3\u00a9rschoore\u00a0Elektro  bv  ",
+    "repaired": "  V\u00e9rschoore\u00a0Elektro  bv  ",
+    "message": "latin-1 bytes read as UTF-8",
+    "evidence": {}
+   },
+   {
+    "rule": "R-I-01",
+    "circle": 1,
+    "entity": "customer",
+    "key": "K00805",
+    "field": "naam",
+    "source": "04_klanten_boekhouding.csv",
+    "action": "repair",
+    "owner": "engine",
+    "raw": "Vanb\u00c3\u00a9celaere\u00a0Verwarming",
+    "repaired": "Vanb\u00e9celaere\u00a0Verwarming",
+    "message": "latin-1 bytes read as UTF-8",
+    "evidence": {}
+   }
+  ],
+  "R-I-04": [
+   {
+    "rule": "R-I-04",
+    "circle": 1,
+    "entity": "customer",
+    "key": "<header>",
+    "field": "KLANTNR",
+    "source": "01_klanten_mercurius.csv",
+    "action": "repair",
+    "owner": "engine",
+    "raw": "BOM + 'KLANTNR'",
+    "repaired": "KLANTNR",
+    "message": "byte order mark on the first column header",
+    "evidence": {}
+   }
+  ],
+  "R-II-01": [
+   {
+    "rule": "R-II-01",
+    "circle": 2,
+    "entity": "customer",
+    "key": "K00002",
+    "field": "name",
+    "source": "01_klanten_mercurius.csv",
+    "action": "repair",
+    "owner": "engine",
+    "raw": "Soenen vof",
+    "repaired": "Soenen bvba",
+    "message": "merged at score 100",
+    "evidence": {
+     "score": 100.0,
+     "other_row": 631
+    }
+   },
+   {
+    "rule": "R-II-01",
+    "circle": 2,
+    "entity": "customer",
+    "key": "K00002",
+    "field": "name",
+    "source": "03_klanten_verkoop_sofie.xlsx!klanten",
+    "action": "repair",
+    "owner": "engine",
+    "raw": "Soenen bvba",
+    "repaired": "Soenen bvba",
+    "message": "merged at score 100",
+    "evidence": {
+     "score": 100.0,
+     "other_row": 78
+    }
+   },
+   {
+    "rule": "R-II-01",
+    "circle": 2,
+    "entity": "customer",
+    "key": "K00630",
+    "field": "name",
+    "source": "03_klanten_verkoop_sofie.xlsx!klanten",
+    "action": "repair",
+    "owner": "engine",
+    "raw": "Soenen bvba",
+    "repaired": "Soenen vof",
+    "message": "merged at score 100",
+    "evidence": {
+     "score": 100.0,
+     "other_row": 78
+    }
+   },
+   {
+    "rule": "R-II-01",
+    "circle": 2,
+    "entity": "customer",
+    "key": "K00012",
+    "field": "name",
+    "source": "01_klanten_mercurius.csv",
+    "action": "repair",
+    "owner": "engine",
+    "raw": "Baert bvba",
+    "repaired": "Baert nv",
+    "message": "merged at score 100",
+    "evidence": {
+     "score": 100.0,
+     "other_row": 329
+    }
+   },
+   {
+    "rule": "R-II-01",
+    "circle": 2,
+    "entity": "customer",
+    "key": "K00012",
+    "field": "name",
+    "source": "01_klanten_mercurius.csv",
+    "action": "repair",
+    "owner": "engine",
+    "raw": "Baert nv",
+    "repaired": "Baert nv",
+    "message": "merged at score 100",
+    "evidence": {
+     "score": 100.0,
+     "other_row": 634
+    }
+   },
+   {
+    "rule": "R-II-01",
+    "circle": 2,
+    "entity": "customer",
+    "key": "K00012",
+    "field": "name",
+    "source": "03_klanten_verkoop_sofie.xlsx!klanten",
+    "action": "repair",
+    "owner": "engine",
+    "raw": "Baert bvba",
+    "repaired": "Baert nv",
+    "message": "merged at score 100",
+    "evidence": {
+     "score": 100.0,
+     "other_row": 254
+    }
+   }
+  ],
+  "R-II-02": [
+   {
+    "rule": "R-II-02",
+    "circle": 2,
+    "entity": "customer",
+    "key": "K00416",
+    "field": "name",
+    "source": "01_klanten_mercurius.csv",
+    "action": "quarantine",
+    "owner": "sales",
+    "raw": "Declercq Verwarming & Zonen",
+    "repaired": null,
+    "message": "score 76 sits between 75 and 92",
+    "evidence": {
+     "score": 75.55555555555556,
+     "candidate": "Declercq & Zonen",
+     "candidate_row": 24
+    }
+   },
+   {
+    "rule": "R-II-02",
+    "circle": 2,
+    "entity": "customer",
+    "key": "cust_sofie#36",
+    "field": "name",
+    "source": "03_klanten_verkoop_sofie.xlsx!klanten",
+    "action": "quarantine",
+    "owner": "sales",
+    "raw": "declercq verwarming & zonen",
+    "repaired": null,
+    "message": "score 76 sits between 75 and 92",
+    "evidence": {
+     "score": 75.55555555555556,
+     "candidate": "Declercq & Zonen",
+     "candidate_row": 24
+    }
+   },
+   {
+    "rule": "R-II-02",
+    "circle": 2,
+    "entity": "customer",
+    "key": "K00416",
+    "field": "name",
+    "source": "01_klanten_mercurius.csv",
+    "action": "quarantine",
+    "owner": "sales",
+    "raw": "Declercq Verwarming & Zonen",
+    "repaired": null,
+    "message": "score 76 sits between 75 and 92",
+    "evidence": {
+     "score": 75.55555555555556,
+     "candidate": "Declercq & Zonen",
+     "candidate_row": 67
+    }
+   },
+   {
+    "rule": "R-II-02",
+    "circle": 2,
+    "entity": "customer",
+    "key": "cust_sofie#36",
+    "field": "name",
+    "source": "03_klanten_verkoop_sofie.xlsx!klanten",
+    "action": "quarantine",
+    "owner": "sales",
+    "raw": "declercq verwarming & zonen",
+    "repaired": null,
+    "message": "score 76 sits between 75 and 92",
+    "evidence": {
+     "score": 75.55555555555556,
+     "candidate": "Declercq & Zonen",
+     "candidate_row": 67
+    }
+   },
+   {
+    "rule": "R-II-02",
+    "circle": 2,
+    "entity": "customer",
+    "key": "cust_sofie#15",
+    "field": "name",
+    "source": "03_klanten_verkoop_sofie.xlsx!klanten",
+    "action": "quarantine",
+    "owner": "sales",
+    "raw": "Declercq & Zonen",
+    "repaired": null,
+    "message": "score 76 sits between 75 and 92",
+    "evidence": {
+     "score": 75.55555555555556,
+     "candidate": "Declercq Verwarming & Zonen",
+     "candidate_row": 417
+    }
+   },
+   {
+    "rule": "R-II-02",
+    "circle": 2,
+    "entity": "customer",
+    "key": "cust_sofie#36",
+    "field": "name",
+    "source": "03_klanten_verkoop_sofie.xlsx!klanten",
+    "action": "quarantine",
+    "owner": "sales",
+    "raw": "declercq verwarming & zonen",
+    "repaired": null,
+    "message": "score 76 sits between 75 and 92",
+    "evidence": {
+     "score": 75.55555555555556,
+     "candidate": "Declercq & Zonen",
+     "candidate_row": 15
+    }
+   }
+  ],
+  "R-II-03": [
+   {
+    "rule": "R-II-03",
+    "circle": 2,
+    "entity": "customer",
+    "key": "K00002",
+    "field": "payment_terms",
+    "source": "cust_master+cust_sofie",
+    "action": "quarantine",
+    "owner": "sales",
+    "raw": "14 vs 60",
+    "repaired": null,
+    "message": "2 values for payment_terms in one cluster",
+    "evidence": {
+     "values": [
+      "14",
+      "60"
+     ]
+    }
+   },
+   {
+    "rule": "R-II-03",
+    "circle": 2,
+    "entity": "customer",
+    "key": "K00002",
+    "field": "credit_limit",
+    "source": "cust_master+cust_sofie",
+    "action": "quarantine",
+    "owner": "sales",
+    "raw": "10000 vs 25000",
+    "repaired": null,
+    "message": "2 values for credit_limit in one cluster",
+    "evidence": {
+     "values": [
+      "10000",
+      "25000"
+     ]
+    }
+   },
+   {
+    "rule": "R-II-03",
+    "circle": 2,
+    "entity": "customer",
+    "key": "K00012",
+    "field": "payment_terms",
+    "source": "cust_master+cust_sofie",
+    "action": "quarantine",
+    "owner": "sales",
+    "raw": "30 vs 45",
+    "repaired": null,
+    "message": "2 values for payment_terms in one cluster",
+    "evidence": {
+     "values": [
+      "30",
+      "45"
+     ]
+    }
+   },
+   {
+    "rule": "R-II-03",
+    "circle": 2,
+    "entity": "customer",
+    "key": "K00012",
+    "field": "credit_limit",
+    "source": "cust_master+cust_sofie",
+    "action": "quarantine",
+    "owner": "sales",
+    "raw": "2500 vs 5000",
+    "repaired": null,
+    "message": "2 values for credit_limit in one cluster",
+    "evidence": {
+     "values": [
+      "2500",
+      "5000"
+     ]
+    }
+   },
+   {
+    "rule": "R-II-03",
+    "circle": 2,
+    "entity": "customer",
+    "key": "K00019",
+    "field": "credit_limit",
+    "source": "cust_master+cust_sofie",
+    "action": "quarantine",
+    "owner": "sales",
+    "raw": "15000 vs 5000",
+    "repaired": null,
+    "message": "2 values for credit_limit in one cluster",
+    "evidence": {
+     "values": [
+      "15000",
+      "5000"
+     ]
+    }
+   },
+   {
+    "rule": "R-II-03",
+    "circle": 2,
+    "entity": "customer",
+    "key": "K00023",
+    "field": "payment_terms",
+    "source": "cust_master+cust_sofie",
+    "action": "quarantine",
+    "owner": "sales",
+    "raw": "45 vs 60",
+    "repaired": null,
+    "message": "2 values for payment_terms in one cluster",
+    "evidence": {
+     "values": [
+      "45",
+      "60"
+     ]
+    }
+   }
+  ],
+  "R-II-04": [
+   {
+    "rule": "R-II-04",
+    "circle": 2,
+    "entity": "customer",
+    "key": "K00008",
+    "field": "vat",
+    "source": "01_klanten_mercurius.csv",
+    "action": "quarantine",
+    "owner": "finance",
+    "raw": "BE0433327011",
+    "repaired": null,
+    "message": "2 different names on one VAT number",
+    "evidence": {
+     "names": [
+      "romm ns verwarming en zonen",
+      "test"
+     ]
+    }
+   },
+   {
+    "rule": "R-II-04",
+    "circle": 2,
+    "entity": "customer",
+    "key": "K00018",
+    "field": "vat",
+    "source": "01_klanten_mercurius.csv",
+    "action": "quarantine",
+    "owner": "finance",
+    "raw": "BE0229646015",
+    "repaired": null,
+    "message": "2 different names on one VAT number",
+    "evidence": {
+     "names": [
+      "d poorter en zonen",
+      "depoorter en zonen"
+     ]
+    }
+   },
+   {
+    "rule": "R-II-04",
+    "circle": 2,
+    "entity": "customer",
+    "key": "K00023",
+    "field": "vat",
+    "source": "01_klanten_mercurius.csv",
+    "action": "quarantine",
+    "owner": "finance",
+    "raw": "BE0316090435",
+    "repaired": null,
+    "message": "2 different names on one VAT number",
+    "evidence": {
+     "names": [
+      "d clercq en zonen",
+      "declercq en zonen"
+     ]
+    }
+   },
+   {
+    "rule": "R-II-04",
+    "circle": 2,
+    "entity": "customer",
+    "key": "K00024",
+    "field": "vat",
+    "source": "01_klanten_mercurius.csv",
+    "action": "quarantine",
+    "owner": "finance",
+    "raw": "BE0777369381",
+    "repaired": null,
+    "message": "3 different names on one VAT number",
+    "evidence": {
+     "names": [
+      "d veux",
+      "deveux",
+      "deveux store"
+     ]
+    }
+   },
+   {
+    "rule": "R-II-04",
+    "circle": 2,
+    "entity": "customer",
+    "key": "K00028",
+    "field": "vat",
+    "source": "01_klanten_mercurius.csv",
+    "action": "quarantine",
+    "owner": "finance",
+    "raw": "BE0716984903",
+    "repaired": null,
+    "message": "2 different names on one VAT number",
+    "evidence": {
+     "names": [
+      "hoorna rt elektro",
+      "hoornaert elektro"
+     ]
+    }
+   },
+   {
+    "rule": "R-II-04",
+    "circle": 2,
+    "entity": "customer",
+    "key": "K00030",
+    "field": "vat",
+    "source": "01_klanten_mercurius.csv",
+    "action": "quarantine",
+    "owner": "finance",
+    "raw": "BE0634217969",
+    "repaired": null,
+    "message": "2 different names on one VAT number",
+    "evidence": {
+     "names": [
+      "vand n broucke",
+      "vanden broucke"
+     ]
+    }
+   }
+  ],
+  "R-III-05": [
+   {
+    "rule": "R-III-05",
+    "circle": 3,
+    "entity": "customer",
+    "key": "K00143",
+    "field": "vat",
+    "source": "01_klanten_mercurius.csv",
+    "action": "repair",
+    "owner": "engine",
+    "raw": "Verhoeve vof (BE0095028326)",
+    "repaired": "Verhoeve vof | BE0095028326",
+    "message": "VAT number recovered from the name field",
+    "evidence": {}
+   },
+   {
+    "rule": "R-III-05",
+    "circle": 3,
+    "entity": "customer",
+    "key": "K00162",
+    "field": "vat",
+    "source": "01_klanten_mercurius.csv",
+    "action": "repair",
+    "owner": "engine",
+    "raw": "Verhoeve Bouw comm.v (BE0865636017)",
+    "repaired": "Verhoeve Bouw comm.v | BE0865636017",
+    "message": "VAT number recovered from the name field",
+    "evidence": {}
+   },
+   {
+    "rule": "R-III-05",
+    "circle": 3,
+    "entity": "customer",
+    "key": "K00172",
+    "field": "vat",
+    "source": "01_klanten_mercurius.csv",
+    "action": "repair",
+    "owner": "engine",
+    "raw": "Verschoore bvba (BE0370997185)",
+    "repaired": "Verschoore bvba | BE0370997185",
+    "message": "VAT number recovered from the name field",
+    "evidence": {}
+   },
+   {
+    "rule": "R-III-05",
+    "circle": 3,
+    "entity": "customer",
+    "key": "K00363",
+    "field": "vat",
+    "source": "01_klanten_mercurius.csv",
+    "action": "repair",
+    "owner": "engine",
+    "raw": "Vanbecelaere nv (BE0907385411)",
+    "repaired": "Vanbecelaere nv | BE0907385411",
+    "message": "VAT number recovered from the name field",
+    "evidence": {}
+   },
+   {
+    "rule": "R-III-05",
+    "circle": 3,
+    "entity": "customer",
+    "key": "K00379",
+    "field": "vat",
+    "source": "01_klanten_mercurius.csv",
+    "action": "repair",
+    "owner": "engine",
+    "raw": "Callewaert comm.v (BE0887035207)",
+    "repaired": "Callewaert comm.v | BE0887035207",
+    "message": "VAT number recovered from the name field",
+    "evidence": {}
+   },
+   {
+    "rule": "R-III-05",
+    "circle": 3,
+    "entity": "customer",
+    "key": "K00382",
+    "field": "vat",
+    "source": "01_klanten_mercurius.csv",
+    "action": "repair",
+    "owner": "engine",
+    "raw": "Cottenier nv (BE0231383404)",
+    "repaired": "Cottenier nv | BE0231383404",
+    "message": "VAT number recovered from the name field",
+    "evidence": {}
+   }
+  ],
+  "R-III-01": [
+   {
+    "rule": "R-III-01",
+    "circle": 3,
+    "entity": "customer",
+    "key": "cust_jan#6",
+    "field": "address",
+    "source": "02_klanten_verkoop_jan.xlsx!Blad1",
+    "action": "repair",
+    "owner": "engine",
+    "raw": "Noordlaan 77 bus 3, 8850 Ardooie",
+    "repaired": "Noordlaan 77 | 8850 Ardooie",
+    "message": "postcode and city split off the street field",
+    "evidence": {
+     "street": "Noordlaan",
+     "house_no": "77",
+     "box": "3",
+     "postcode": "8850",
+     "city": "Ardooie"
+    }
+   },
+   {
+    "rule": "R-III-01",
+    "circle": 3,
+    "entity": "customer",
+    "key": "cust_jan#7",
+    "field": "address",
+    "source": "02_klanten_verkoop_jan.xlsx!Blad1",
+    "action": "repair",
+    "owner": "engine",
+    "raw": "Zuidstraat 43, 8600 Diksmuide",
+    "repaired": "Zuidstraat 43 | 8600 Diksmuide",
+    "message": "postcode and city split off the street field",
+    "evidence": {
+     "street": "Zuidstraat",
+     "house_no": "43",
+     "box": null,
+     "postcode": "8600",
+     "city": "Diksmuide"
+    }
+   },
+   {
+    "rule": "R-III-01",
+    "circle": 3,
+    "entity": "customer",
+    "key": "cust_jan#8",
+    "field": "address",
+    "source": "02_klanten_verkoop_jan.xlsx!Blad1",
+    "action": "repair",
+    "owner": "engine",
+    "raw": "Oostlaan 100, 8870 Izegem",
+    "repaired": "Oostlaan 100 | 8870 Izegem",
+    "message": "postcode and city split off the street field",
+    "evidence": {
+     "street": "Oostlaan",
+     "house_no": "100",
+     "box": null,
+     "postcode": "8870",
+     "city": "Izegem"
+    }
+   },
+   {
+    "rule": "R-III-01",
+    "circle": 3,
+    "entity": "customer",
+    "key": "cust_jan#9",
+    "field": "address",
+    "source": "02_klanten_verkoop_jan.xlsx!Blad1",
+    "action": "repair",
+    "owner": "engine",
+    "raw": "Ambachtenstraat 214, 8810 Lichtervelde",
+    "repaired": "Ambachtenstraat 214 | 8810 Lichtervelde",
+    "message": "postcode and city split off the street field",
+    "evidence": {
+     "street": "Ambachtenstraat",
+     "house_no": "214",
+     "box": null,
+     "postcode": "8810",
+     "city": "Lichtervelde"
+    }
+   },
+   {
+    "rule": "R-III-01",
+    "circle": 3,
+    "entity": "customer",
+    "key": "cust_jan#10",
+    "field": "address",
+    "source": "02_klanten_verkoop_jan.xlsx!Blad1",
+    "action": "repair",
+    "owner": "engine",
+    "raw": "Diksmuidsesteenweg 65 bus 0101, 8530 Harelbeke",
+    "repaired": "Diksmuidsesteenweg 65 | 8530 Harelbeke",
+    "message": "postcode and city split off the street field",
+    "evidence": {
+     "street": "Diksmuidsesteenweg",
+     "house_no": "65",
+     "box": "0101",
+     "postcode": "8530",
+     "city": "Harelbeke"
+    }
+   },
+   {
+    "rule": "R-III-01",
+    "circle": 3,
+    "entity": "customer",
+    "key": "cust_jan#12",
+    "field": "address",
+    "source": "02_klanten_verkoop_jan.xlsx!Blad1",
+    "action": "repair",
+    "owner": "engine",
+    "raw": "Industrielaan 56, 8500 Kortrijk",
+    "repaired": "Industrielaan 56 | 8500 Kortrijk",
+    "message": "postcode and city split off the street field",
+    "evidence": {
+     "street": "Industrielaan",
+     "house_no": "56",
+     "box": null,
+     "postcode": "8500",
+     "city": "Kortrijk"
+    }
+   }
+  ],
+  "R-III-02": [
+   {
+    "rule": "R-III-02",
+    "circle": 3,
+    "entity": "customer",
+    "key": "cust_jan#6",
+    "field": "house_no",
+    "source": "02_klanten_verkoop_jan.xlsx!Blad1",
+    "action": "repair",
+    "owner": "engine",
+    "raw": "Noordlaan 77 bus 3, 8850 Ardooie",
+    "repaired": "nr 77 / bus 3",
+    "message": "box number separated from the house number",
+    "evidence": {}
+   },
+   {
+    "rule": "R-III-02",
+    "circle": 3,
+    "entity": "customer",
+    "key": "cust_jan#10",
+    "field": "house_no",
+    "source": "02_klanten_verkoop_jan.xlsx!Blad1",
+    "action": "repair",
+    "owner": "engine",
+    "raw": "Diksmuidsesteenweg 65 bus 0101, 8530 Harelbeke",
+    "repaired": "nr 65 / bus 0101",
+    "message": "box number separated from the house number",
+    "evidence": {}
+   },
+   {
+    "rule": "R-III-02",
+    "circle": 3,
+    "entity": "customer",
+    "key": "cust_jan#14",
+    "field": "house_no",
+    "source": "02_klanten_verkoop_jan.xlsx!Blad1",
+    "action": "repair",
+    "owner": "engine",
+    "raw": "Industrielaan 7 bus A, 8600 Diksmuide",
+    "repaired": "nr 7 / bus A",
+    "message": "box number separated from the house number",
+    "evidence": {}
+   },
+   {
+    "rule": "R-III-02",
+    "circle": 3,
+    "entity": "customer",
+    "key": "cust_jan#15",
+    "field": "house_no",
+    "source": "02_klanten_verkoop_jan.xlsx!Blad1",
+    "action": "repair",
+    "owner": "engine",
+    "raw": "Molenstraat 28 bus A, 8790 Waregem",
+    "repaired": "nr 28 / bus A",
+    "message": "box number separated from the house number",
+    "evidence": {}
+   },
+   {
+    "rule": "R-III-02",
+    "circle": 3,
+    "entity": "customer",
+    "key": "cust_jan#16",
+    "field": "house_no",
+    "source": "02_klanten_verkoop_jan.xlsx!Blad1",
+    "action": "repair",
+    "owner": "engine",
+    "raw": "Stationsstraat 52 bus 2, 8830 Hooglede",
+    "repaired": "nr 52 / bus 2",
+    "message": "box number separated from the house number",
+    "evidence": {}
+   },
+   {
+    "rule": "R-III-02",
+    "circle": 3,
+    "entity": "customer",
+    "key": "cust_jan#17",
+    "field": "house_no",
+    "source": "02_klanten_verkoop_jan.xlsx!Blad1",
+    "action": "repair",
+    "owner": "engine",
+    "raw": "Rijksweg 181 bus A, 8400 Oostende",
+    "repaired": "nr 181 / bus A",
+    "message": "box number separated from the house number",
+    "evidence": {}
+   }
+  ],
+  "R-III-04": [
+   {
+    "rule": "R-III-04",
+    "circle": 3,
+    "entity": "customer",
+    "key": "cust_jan#11",
+    "field": "address",
+    "source": "02_klanten_verkoop_jan.xlsx!Blad1",
+    "action": "quarantine",
+    "owner": "sales",
+    "raw": "achter de kerk, bellen bij de poort",
+    "repaired": null,
+    "message": "a delivery instruction, not an address",
+    "evidence": {}
+   },
+   {
+    "rule": "R-III-04",
+    "circle": 3,
+    "entity": "customer",
+    "key": "cust_jan#13",
+    "field": "address",
+    "source": "02_klanten_verkoop_jan.xlsx!Blad1",
+    "action": "quarantine",
+    "owner": "sales",
+    "raw": "achter de kerk, bellen bij de poort",
+    "repaired": null,
+    "message": "a delivery instruction, not an address",
+    "evidence": {}
+   },
+   {
+    "rule": "R-III-04",
+    "circle": 3,
+    "entity": "customer",
+    "key": "cust_jan#24",
+    "field": "address",
+    "source": "02_klanten_verkoop_jan.xlsx!Blad1",
+    "action": "quarantine",
+    "owner": "sales",
+    "raw": "nieuw adres volgt",
+    "repaired": null,
+    "message": "a delivery instruction, not an address",
+    "evidence": {}
+   },
+   {
+    "rule": "R-III-04",
+    "circle": 3,
+    "entity": "customer",
+    "key": "cust_jan#59",
+    "field": "address",
+    "source": "02_klanten_verkoop_jan.xlsx!Blad1",
+    "action": "quarantine",
+    "owner": "sales",
+    "raw": "werf Izegem - zie Jan",
+    "repaired": null,
+    "message": "a delivery instruction, not an address",
+    "evidence": {}
+   },
+   {
+    "rule": "R-III-04",
+    "circle": 3,
+    "entity": "customer",
+    "key": "cust_jan#63",
+    "field": "address",
+    "source": "02_klanten_verkoop_jan.xlsx!Blad1",
+    "action": "quarantine",
+    "owner": "sales",
+    "raw": "achter de kerk, bellen bij de poort",
+    "repaired": null,
+    "message": "a delivery instruction, not an address",
+    "evidence": {}
+   },
+   {
+    "rule": "R-III-04",
+    "circle": 3,
+    "entity": "customer",
+    "key": "cust_jan#84",
+    "field": "address",
+    "source": "02_klanten_verkoop_jan.xlsx!Blad1",
+    "action": "quarantine",
+    "owner": "sales",
+    "raw": "nieuw adres volgt",
+    "repaired": null,
+    "message": "a delivery instruction, not an address",
+    "evidence": {}
+   }
+  ],
+  "R-III-03": [
+   {
+    "rule": "R-III-03",
+    "circle": 3,
+    "entity": "customer",
+    "key": "cust_sofie#5",
+    "field": "email",
+    "source": "03_klanten_verkoop_sofie.xlsx!klanten",
+    "action": "repair",
+    "owner": "engine",
+    "raw": "bestel@callewaert.be; bestel@callewaert.be",
+    "repaired": "bestel@callewaert.be",
+    "message": "first address kept as primary, rest as extra contacts",
+    "evidence": {}
+   },
+   {
+    "rule": "R-III-03",
+    "circle": 3,
+    "entity": "customer",
+    "key": "cust_sofie#11",
+    "field": "email",
+    "source": "03_klanten_verkoop_sofie.xlsx!klanten",
+    "action": "repair",
+    "owner": "engine",
+    "raw": "boekhouding@verschoore.be / jan@verschoore.be",
+    "repaired": "boekhouding@verschoore.be",
+    "message": "first address kept as primary, rest as extra contacts",
+    "evidence": {}
+   },
+   {
+    "rule": "R-III-03",
+    "circle": 3,
+    "entity": "customer",
+    "key": "cust_sofie#21",
+    "field": "email",
+    "source": "03_klanten_verkoop_sofie.xlsx!klanten",
+    "action": "repair",
+    "owner": "engine",
+    "raw": "info@hoornaert.be, info@hoornaert.be",
+    "repaired": "info@hoornaert.be",
+    "message": "first address kept as primary, rest as extra contacts",
+    "evidence": {}
+   },
+   {
+    "rule": "R-III-03",
+    "circle": 3,
+    "entity": "customer",
+    "key": "cust_sofie#22",
+    "field": "email",
+    "source": "03_klanten_verkoop_sofie.xlsx!klanten",
+    "action": "repair",
+    "owner": "engine",
+    "raw": "administratie@pattyn.be / sofie@pattyn.be",
+    "repaired": "administratie@pattyn.be",
+    "message": "first address kept as primary, rest as extra contacts",
+    "evidence": {}
+   },
+   {
+    "rule": "R-III-03",
+    "circle": 3,
+    "entity": "customer",
+    "key": "cust_sofie#23",
+    "field": "email",
+    "source": "03_klanten_verkoop_sofie.xlsx!klanten",
+    "action": "repair",
+    "owner": "engine",
+    "raw": "boekhouding@goethals.be, sofie@goethals.be",
+    "repaired": "boekhouding@goethals.be",
+    "message": "first address kept as primary, rest as extra contacts",
+    "evidence": {}
+   },
+   {
+    "rule": "R-III-03",
+    "circle": 3,
+    "entity": "customer",
+    "key": "cust_sofie#29",
+    "field": "email",
+    "source": "03_klanten_verkoop_sofie.xlsx!klanten",
+    "action": "repair",
+    "owner": "engine",
+    "raw": "boekhouding@deschacht.be; jan@deschacht.be",
+    "repaired": "boekhouding@deschacht.be",
+    "message": "first address kept as primary, rest as extra contacts",
+    "evidence": {}
+   }
+  ],
+  "R-IV-01": [
+   {
+    "rule": "R-IV-01",
+    "circle": 4,
+    "entity": "article",
+    "key": "SAN-0001",
+    "field": "cost_price",
+    "source": "05_artikelen_mercurius.csv",
+    "action": "repair",
+    "owner": "engine",
+    "raw": "470,06",
+    "repaired": "470.06",
+    "message": "decimal separator resolved by position",
+    "evidence": {}
+   },
+   {
+    "rule": "R-IV-01",
+    "circle": 4,
+    "entity": "article",
+    "key": "SAN-0002",
+    "field": "cost_price",
+    "source": "05_artikelen_mercurius.csv",
+    "action": "repair",
+    "owner": "engine",
+    "raw": "622,31",
+    "repaired": "622.31",
+    "message": "decimal separator resolved by position",
+    "evidence": {}
+   },
+   {
+    "rule": "R-IV-01",
+    "circle": 4,
+    "entity": "article",
+    "key": "SAN-0003",
+    "field": "cost_price",
+    "source": "05_artikelen_mercurius.csv",
+    "action": "repair",
+    "owner": "engine",
+    "raw": "555,84",
+    "repaired": "555.84",
+    "message": "decimal separator resolved by position",
+    "evidence": {}
+   },
+   {
+    "rule": "R-IV-01",
+    "circle": 4,
+    "entity": "article",
+    "key": "SAN-0004",
+    "field": "cost_price",
+    "source": "05_artikelen_mercurius.csv",
+    "action": "repair",
+    "owner": "engine",
+    "raw": "171,74",
+    "repaired": "171.74",
+    "message": "decimal separator resolved by position",
+    "evidence": {}
+   },
+   {
+    "rule": "R-IV-01",
+    "circle": 4,
+    "entity": "article",
+    "key": "SAN-0005",
+    "field": "cost_price",
+    "source": "05_artikelen_mercurius.csv",
+    "action": "repair",
+    "owner": "engine",
+    "raw": "171,40",
+    "repaired": "171.40",
+    "message": "decimal separator resolved by position",
+    "evidence": {}
+   },
+   {
+    "rule": "R-IV-01",
+    "circle": 4,
+    "entity": "article",
+    "key": "SAN-0006",
+    "field": "cost_price",
+    "source": "05_artikelen_mercurius.csv",
+    "action": "repair",
+    "owner": "engine",
+    "raw": "414,45",
+    "repaired": "414.45",
+    "message": "decimal separator resolved by position",
+    "evidence": {}
+   }
+  ],
+  "R-IV-02": [
+   {
+    "rule": "R-IV-02",
+    "circle": 4,
+    "entity": "article",
+    "key": "SAN-0001",
+    "field": "price",
+    "source": "06_artikelen_prijzen_2024.xlsx!prijzen 2024",
+    "action": "repair",
+    "owner": "engine",
+    "raw": "\u20ac 758,41",
+    "repaired": "758.41",
+    "message": "currency text stripped",
+    "evidence": {}
+   },
+   {
+    "rule": "R-IV-02",
+    "circle": 4,
+    "entity": "article",
+    "key": "SAN-0002",
+    "field": "price",
+    "source": "06_artikelen_prijzen_2024.xlsx!prijzen 2024",
+    "action": "repair",
+    "owner": "engine",
+    "raw": "EUR 1190,45",
+    "repaired": "1190.45",
+    "message": "currency text stripped",
+    "evidence": {}
+   },
+   {
+    "rule": "R-IV-02",
+    "circle": 4,
+    "entity": "article",
+    "key": "SAN-0004",
+    "field": "price",
+    "source": "06_artikelen_prijzen_2024.xlsx!prijzen 2024",
+    "action": "repair",
+    "owner": "engine",
+    "raw": "\u20ac 216,71",
+    "repaired": "216.71",
+    "message": "currency text stripped",
+    "evidence": {}
+   },
+   {
+    "rule": "R-IV-02",
+    "circle": 4,
+    "entity": "article",
+    "key": "SAN-0011",
+    "field": "price",
+    "source": "06_artikelen_prijzen_2024.xlsx!prijzen 2024",
+    "action": "repair",
+    "owner": "engine",
+    "raw": "EUR 696,72",
+    "repaired": "696.72",
+    "message": "currency text stripped",
+    "evidence": {}
+   },
+   {
+    "rule": "R-IV-02",
+    "circle": 4,
+    "entity": "article",
+    "key": "SAN-0012",
+    "field": "price",
+    "source": "06_artikelen_prijzen_2024.xlsx!prijzen 2024",
+    "action": "repair",
+    "owner": "engine",
+    "raw": "\u20ac 86,98",
+    "repaired": "86.98",
+    "message": "currency text stripped",
+    "evidence": {}
+   },
+   {
+    "rule": "R-IV-02",
+    "circle": 4,
+    "entity": "article",
+    "key": "SAN-0013",
+    "field": "price",
+    "source": "06_artikelen_prijzen_2024.xlsx!prijzen 2024",
+    "action": "repair",
+    "owner": "engine",
+    "raw": "EUR 934,18",
+    "repaired": "934.18",
+    "message": "currency text stripped",
+    "evidence": {}
+   }
+  ],
+  "R-IV-03": [
+   {
+    "rule": "R-IV-03",
+    "circle": 4,
+    "entity": "article",
+    "key": "SAN-0001",
+    "field": "price",
+    "source": "06_artikelen_prijzen_2024.xlsx!prijzen 2024",
+    "action": "quarantine",
+    "owner": "finance",
+    "raw": "\u20ac 758,41",
+    "repaired": null,
+    "message": "flag says VAT-inclusive, amount equals the exclusive price",
+    "evidence": {
+     "vat_rate": "6",
+     "flag": "1",
+     "master_price": "758.41",
+     "inclusive_would_be": "803.91"
+    }
+   },
+   {
+    "rule": "R-IV-03",
+    "circle": 4,
+    "entity": "article",
+    "key": "SAN-0002",
+    "field": "price",
+    "source": "06_artikelen_prijzen_2024.xlsx!prijzen 2024",
+    "action": "quarantine",
+    "owner": "finance",
+    "raw": "EUR 1190,45",
+    "repaired": null,
+    "message": "flag says VAT-inclusive, amount equals the exclusive price",
+    "evidence": {
+     "vat_rate": "21",
+     "flag": "ja",
+     "master_price": "1190.45",
+     "inclusive_would_be": "1440.44"
+    }
+   },
+   {
+    "rule": "R-IV-03",
+    "circle": 4,
+    "entity": "article",
+    "key": "SAN-0004",
+    "field": "price",
+    "source": "06_artikelen_prijzen_2024.xlsx!prijzen 2024",
+    "action": "quarantine",
+    "owner": "finance",
+    "raw": "\u20ac 216,71",
+    "repaired": null,
+    "message": "flag says VAT-inclusive, amount equals the exclusive price",
+    "evidence": {
+     "vat_rate": "21",
+     "flag": "ja",
+     "master_price": "216.71",
+     "inclusive_would_be": "262.22"
+    }
+   },
+   {
+    "rule": "R-IV-03",
+    "circle": 4,
+    "entity": "article",
+    "key": "SAN-0005",
+    "field": "price",
+    "source": "06_artikelen_prijzen_2024.xlsx!prijzen 2024",
+    "action": "quarantine",
+    "owner": "finance",
+    "raw": "294,63",
+    "repaired": null,
+    "message": "flag says VAT-inclusive, amount equals the exclusive price",
+    "evidence": {
+     "vat_rate": "21",
+     "flag": "ja",
+     "master_price": "294.63",
+     "inclusive_would_be": "356.50"
+    }
+   },
+   {
+    "rule": "R-IV-03",
+    "circle": 4,
+    "entity": "article",
+    "key": "SAN-0013",
+    "field": "price",
+    "source": "06_artikelen_prijzen_2024.xlsx!prijzen 2024",
+    "action": "quarantine",
+    "owner": "finance",
+    "raw": "EUR 934,18",
+    "repaired": null,
+    "message": "flag says VAT-inclusive, amount equals the exclusive price",
+    "evidence": {
+     "vat_rate": "6",
+     "flag": "ja",
+     "master_price": "934.18",
+     "inclusive_would_be": "990.23"
+    }
+   },
+   {
+    "rule": "R-IV-03",
+    "circle": 4,
+    "entity": "article",
+    "key": "SAN-0014",
+    "field": "price",
+    "source": "06_artikelen_prijzen_2024.xlsx!prijzen 2024",
+    "action": "quarantine",
+    "owner": "finance",
+    "raw": "EUR 166,73",
+    "repaired": null,
+    "message": "flag says VAT-inclusive, amount equals the exclusive price",
+    "evidence": {
+     "vat_rate": "21",
+     "flag": "1",
+     "master_price": "166.73",
+     "inclusive_would_be": "201.74"
+    }
+   }
+  ],
+  "R-IV-04": [
+   {
+    "rule": "R-IV-04",
+    "circle": 4,
+    "entity": "article",
+    "key": "SAN-0008",
+    "field": "price",
+    "source": "06_artikelen_prijzen_2024.xlsx!prijzen 2024",
+    "action": "quarantine",
+    "owner": "finance",
+    "raw": "595,40",
+    "repaired": null,
+    "message": "unit price below cost while a discount agreement exists",
+    "evidence": {
+     "cost": "676.59",
+     "price": "595.40"
+    }
+   },
+   {
+    "rule": "R-IV-04",
+    "circle": 4,
+    "entity": "article",
+    "key": "SAN-0051",
+    "field": "price",
+    "source": "06_artikelen_prijzen_2024.xlsx!prijzen 2024",
+    "action": "quarantine",
+    "owner": "finance",
+    "raw": "\u20ac 450,01",
+    "repaired": null,
+    "message": "unit price below cost while a discount agreement exists",
+    "evidence": {
+     "cost": "511.37",
+     "price": "450.01"
+    }
+   },
+   {
+    "rule": "R-IV-04",
+    "circle": 4,
+    "entity": "article",
+    "key": "SAN-0087",
+    "field": "price",
+    "source": "06_artikelen_prijzen_2024.xlsx!prijzen 2024",
+    "action": "quarantine",
+    "owner": "finance",
+    "raw": "\u20ac 449,82",
+    "repaired": null,
+    "message": "unit price below cost while a discount agreement exists",
+    "evidence": {
+     "cost": "511.16",
+     "price": "449.82"
+    }
+   },
+   {
+    "rule": "R-IV-04",
+    "circle": 4,
+    "entity": "article",
+    "key": "SAN-0139",
+    "field": "price",
+    "source": "06_artikelen_prijzen_2024.xlsx!prijzen 2024",
+    "action": "quarantine",
+    "owner": "finance",
+    "raw": "139,02",
+    "repaired": null,
+    "message": "unit price below cost while a discount agreement exists",
+    "evidence": {
+     "cost": "157.98",
+     "price": "139.02"
+    }
+   },
+   {
+    "rule": "R-IV-04",
+    "circle": 4,
+    "entity": "article",
+    "key": "SAN-0147",
+    "field": "price",
+    "source": "06_artikelen_prijzen_2024.xlsx!prijzen 2024",
+    "action": "quarantine",
+    "owner": "finance",
+    "raw": "EUR 592,88",
+    "repaired": null,
+    "message": "unit price below cost while a discount agreement exists",
+    "evidence": {
+     "cost": "673.73",
+     "price": "592.88"
+    }
+   },
+   {
+    "rule": "R-IV-04",
+    "circle": 4,
+    "entity": "article",
+    "key": "SAN-0183",
+    "field": "price",
+    "source": "06_artikelen_prijzen_2024.xlsx!prijzen 2024",
+    "action": "quarantine",
+    "owner": "finance",
+    "raw": "EUR 30,76",
+    "repaired": null,
+    "message": "unit price below cost while a discount agreement exists",
+    "evidence": {
+     "cost": "34.96",
+     "price": "30.76"
+    }
+   }
+  ],
+  "R-IV-05": [
+   {
+    "rule": "R-IV-05",
+    "circle": 4,
+    "entity": "article",
+    "key": "SAN-0217",
+    "field": "price",
+    "source": "06_artikelen_prijzen_2024.xlsx!prijzen 2024",
+    "action": "reject",
+    "owner": "finance",
+    "raw": "0",
+    "repaired": null,
+    "message": "a sellable article priced at zero or less",
+    "evidence": {}
+   },
+   {
+    "rule": "R-IV-05",
+    "circle": 4,
+    "entity": "article",
+    "key": "SAN-0226",
+    "field": "price",
+    "source": "06_artikelen_prijzen_2024.xlsx!prijzen 2024",
+    "action": "reject",
+    "owner": "finance",
+    "raw": "0,00",
+    "repaired": null,
+    "message": "a sellable article priced at zero or less",
+    "evidence": {}
+   },
+   {
+    "rule": "R-IV-05",
+    "circle": 4,
+    "entity": "article",
+    "key": "SAN-0289",
+    "field": "price",
+    "source": "06_artikelen_prijzen_2024.xlsx!prijzen 2024",
+    "action": "reject",
+    "owner": "finance",
+    "raw": "0,00",
+    "repaired": null,
+    "message": "a sellable article priced at zero or less",
+    "evidence": {}
+   },
+   {
+    "rule": "R-IV-05",
+    "circle": 4,
+    "entity": "article",
+    "key": "VRW-0064",
+    "field": "price",
+    "source": "06_artikelen_prijzen_2024.xlsx!prijzen 2024",
+    "action": "reject",
+    "owner": "finance",
+    "raw": "0",
+    "repaired": null,
+    "message": "a sellable article priced at zero or less",
+    "evidence": {}
+   },
+   {
+    "rule": "R-IV-05",
+    "circle": 4,
+    "entity": "article",
+    "key": "VRW-0065",
+    "field": "price",
+    "source": "06_artikelen_prijzen_2024.xlsx!prijzen 2024",
+    "action": "reject",
+    "owner": "finance",
+    "raw": "-696,64",
+    "repaired": null,
+    "message": "a sellable article priced at zero or less",
+    "evidence": {}
+   },
+   {
+    "rule": "R-IV-05",
+    "circle": 4,
+    "entity": "article",
+    "key": "VRW-0173",
+    "field": "price",
+    "source": "06_artikelen_prijzen_2024.xlsx!prijzen 2024",
+    "action": "reject",
+    "owner": "finance",
+    "raw": "0",
+    "repaired": null,
+    "message": "a sellable article priced at zero or less",
+    "evidence": {}
+   }
+  ],
+  "R-VII-05": [
+   {
+    "rule": "R-VII-05",
+    "circle": 7,
+    "entity": "open_item",
+    "key": "VF240209",
+    "field": "amount",
+    "source": "11_openstaande_posten.xlsx!Posten",
+    "action": "reject",
+    "owner": "engine",
+    "raw": "#REF!",
+    "repaired": null,
+    "message": "a receivable with no amount",
+    "evidence": {}
+   },
+   {
+    "rule": "R-VII-05",
+    "circle": 7,
+    "entity": "open_item",
+    "key": "VF240228",
+    "field": "amount",
+    "source": "11_openstaande_posten.xlsx!Posten",
+    "action": "reject",
+    "owner": "engine",
+    "raw": "#REF!",
+    "repaired": null,
+    "message": "a receivable with no amount",
+    "evidence": {}
+   },
+   {
+    "rule": "R-VII-05",
+    "circle": 7,
+    "entity": "open_item",
+    "key": "VF240343",
+    "field": "amount",
+    "source": "11_openstaande_posten.xlsx!Posten",
+    "action": "reject",
+    "owner": "engine",
+    "raw": "#REF!",
+    "repaired": null,
+    "message": "a receivable with no amount",
+    "evidence": {}
+   },
+   {
+    "rule": "R-VII-05",
+    "circle": 7,
+    "entity": "open_item",
+    "key": "VF240445",
+    "field": "amount",
+    "source": "11_openstaande_posten.xlsx!Posten",
+    "action": "reject",
+    "owner": "engine",
+    "raw": "#REF!",
+    "repaired": null,
+    "message": "a receivable with no amount",
+    "evidence": {}
+   },
+   {
+    "rule": "R-VII-05",
+    "circle": 7,
+    "entity": "open_item",
+    "key": "VF240533",
+    "field": "amount",
+    "source": "11_openstaande_posten.xlsx!Posten",
+    "action": "reject",
+    "owner": "engine",
+    "raw": "#REF!",
+    "repaired": null,
+    "message": "a receivable with no amount",
+    "evidence": {}
+   },
+   {
+    "rule": "R-VII-05",
+    "circle": 7,
+    "entity": "open_item",
+    "key": "VF240672",
+    "field": "amount",
+    "source": "11_openstaande_posten.xlsx!Posten",
+    "action": "reject",
+    "owner": "engine",
+    "raw": "#REF!",
+    "repaired": null,
+    "message": "a receivable with no amount",
+    "evidence": {}
+   }
+  ],
+  "R-V-02": [
+   {
+    "rule": "R-V-02",
+    "circle": 5,
+    "entity": "article",
+    "key": "SAN-0001",
+    "field": "description",
+    "source": "08_artikelen_eenheden.xlsx!eenheden",
+    "action": "repair",
+    "owner": "engine",
+    "raw": "DOUCHESLANG 1/2\" 1750 MM",
+    "repaired": "Doucheslang 1/2\" 1750 mm verzinkt",
+    "message": "master wins, alternative kept as a note",
+    "evidence": {}
+   },
+   {
+    "rule": "R-V-02",
+    "circle": 5,
+    "entity": "article",
+    "key": "SAN-0002",
+    "field": "description",
+    "source": "08_artikelen_eenheden.xlsx!eenheden",
+    "action": "repair",
+    "owner": "engine",
+    "raw": "CLOSETZITTING SOFTCLOSE (OUD)",
+    "repaired": "Closetzitting softclose wit zwart",
+    "message": "master wins, alternative kept as a note",
+    "evidence": {}
+   },
+   {
+    "rule": "R-V-02",
+    "circle": 5,
+    "entity": "article",
+    "key": "SAN-0003",
+    "field": "description",
+    "source": "08_artikelen_eenheden.xlsx!eenheden",
+    "action": "repair",
+    "owner": "engine",
+    "raw": "INBOUWRESERVOIR 500 MM F (OUD)",
+    "repaired": "Inbouwreservoir 500 mm frontbediening",
+    "message": "master wins, alternative kept as a note",
+    "evidence": {}
+   },
+   {
+    "rule": "R-V-02",
+    "circle": 5,
+    "entity": "article",
+    "key": "SAN-0005",
+    "field": "description",
+    "source": "08_artikelen_eenheden.xlsx!eenheden",
+    "action": "repair",
+    "owner": "engine",
+    "raw": "CLOSETZITTING SOFTCLOSE",
+    "repaired": "Closetzitting softclose wit verzinkt",
+    "message": "master wins, alternative kept as a note",
+    "evidence": {}
+   },
+   {
+    "rule": "R-V-02",
+    "circle": 5,
+    "entity": "article",
+    "key": "SAN-0007",
+    "field": "description",
+    "source": "08_artikelen_eenheden.xlsx!eenheden",
+    "action": "repair",
+    "owner": "engine",
+    "raw": "SIFON WASTAFEL 5/4 CHROO",
+    "repaired": "Sifon wastafel 5/4 chroom verzinkt",
+    "message": "master wins, alternative kept as a note",
+    "evidence": {}
+   },
+   {
+    "rule": "R-V-02",
+    "circle": 5,
+    "entity": "article",
+    "key": "SAN-0014",
+    "field": "description",
+    "source": "08_artikelen_eenheden.xlsx!eenheden",
+    "action": "repair",
+    "owner": "engine",
+    "raw": "RADIATORKRAAN 1/2\" RECHT",
+    "repaired": "Radiatorkraan 1/2\" recht verchroomd wit",
+    "message": "master wins, alternative kept as a note",
+    "evidence": {}
+   }
+  ],
+  "R-V-01": [
+   {
+    "rule": "R-V-01",
+    "circle": 5,
+    "entity": "article",
+    "key": "SAN-0007",
+    "field": "uom",
+    "source": "08_artikelen_eenheden.xlsx!eenheden",
+    "action": "quarantine",
+    "owner": "operations",
+    "raw": "ST (master) vs RL (warehouse)",
+    "repaired": null,
+    "message": "two sources, two units, a factor fifty in stock value",
+    "evidence": {
+     "master": "ST",
+     "warehouse": "RL"
+    }
+   },
+   {
+    "rule": "R-V-01",
+    "circle": 5,
+    "entity": "article",
+    "key": "SAN-0025",
+    "field": "uom",
+    "source": "08_artikelen_eenheden.xlsx!eenheden",
+    "action": "quarantine",
+    "owner": "operations",
+    "raw": "ST (master) vs PK (warehouse)",
+    "repaired": null,
+    "message": "two sources, two units, a factor fifty in stock value",
+    "evidence": {
+     "master": "ST",
+     "warehouse": "PK"
+    }
+   },
+   {
+    "rule": "R-V-01",
+    "circle": 5,
+    "entity": "article",
+    "key": "SAN-0036",
+    "field": "uom",
+    "source": "08_artikelen_eenheden.xlsx!eenheden",
+    "action": "quarantine",
+    "owner": "operations",
+    "raw": "ST (master) vs RL (warehouse)",
+    "repaired": null,
+    "message": "two sources, two units, a factor fifty in stock value",
+    "evidence": {
+     "master": "ST",
+     "warehouse": "RL"
+    }
+   },
+   {
+    "rule": "R-V-01",
+    "circle": 5,
+    "entity": "article",
+    "key": "SAN-0037",
+    "field": "uom",
+    "source": "08_artikelen_eenheden.xlsx!eenheden",
+    "action": "quarantine",
+    "owner": "operations",
+    "raw": "ST (master) vs RL (warehouse)",
+    "repaired": null,
+    "message": "two sources, two units, a factor fifty in stock value",
+    "evidence": {
+     "master": "ST",
+     "warehouse": "RL"
+    }
+   },
+   {
+    "rule": "R-V-01",
+    "circle": 5,
+    "entity": "article",
+    "key": "SAN-0078",
+    "field": "uom",
+    "source": "08_artikelen_eenheden.xlsx!eenheden",
+    "action": "quarantine",
+    "owner": "operations",
+    "raw": "ST (master) vs RL (warehouse)",
+    "repaired": null,
+    "message": "two sources, two units, a factor fifty in stock value",
+    "evidence": {
+     "master": "ST",
+     "warehouse": "RL"
+    }
+   },
+   {
+    "rule": "R-V-01",
+    "circle": 5,
+    "entity": "article",
+    "key": "SAN-0096",
+    "field": "uom",
+    "source": "08_artikelen_eenheden.xlsx!eenheden",
+    "action": "quarantine",
+    "owner": "operations",
+    "raw": "ST (master) vs RL (warehouse)",
+    "repaired": null,
+    "message": "two sources, two units, a factor fifty in stock value",
+    "evidence": {
+     "master": "ST",
+     "warehouse": "RL"
+    }
+   }
+  ],
+  "R-V-03": [
+   {
+    "rule": "R-V-03",
+    "circle": 5,
+    "entity": "article",
+    "key": "SAN-0001",
+    "field": "supplier_no",
+    "source": "09_artikelen_leverancier.xlsx!leverancier",
+    "action": "quarantine",
+    "owner": "purchasing",
+    "raw": "L0031 (master) vs L0069 (purchasing)",
+    "repaired": null,
+    "message": "purchasing drives replenishment from this field",
+    "evidence": {
+     "master": "L0031",
+     "purchasing": "L0069"
+    }
+   },
+   {
+    "rule": "R-V-03",
+    "circle": 5,
+    "entity": "article",
+    "key": "SAN-0075",
+    "field": "supplier_no",
+    "source": "09_artikelen_leverancier.xlsx!leverancier",
+    "action": "quarantine",
+    "owner": "purchasing",
+    "raw": "L0070 (master) vs L0064 (purchasing)",
+    "repaired": null,
+    "message": "purchasing drives replenishment from this field",
+    "evidence": {
+     "master": "L0070",
+     "purchasing": "L0064"
+    }
+   },
+   {
+    "rule": "R-V-03",
+    "circle": 5,
+    "entity": "article",
+    "key": "SAN-0080",
+    "field": "supplier_no",
+    "source": "09_artikelen_leverancier.xlsx!leverancier",
+    "action": "quarantine",
+    "owner": "purchasing",
+    "raw": "L0043 (master) vs L0059 (purchasing)",
+    "repaired": null,
+    "message": "purchasing drives replenishment from this field",
+    "evidence": {
+     "master": "L0043",
+     "purchasing": "L0059"
+    }
+   },
+   {
+    "rule": "R-V-03",
+    "circle": 5,
+    "entity": "article",
+    "key": "SAN-0085",
+    "field": "supplier_no",
+    "source": "09_artikelen_leverancier.xlsx!leverancier",
+    "action": "quarantine",
+    "owner": "purchasing",
+    "raw": "L0025 (master) vs L0023 (purchasing)",
+    "repaired": null,
+    "message": "purchasing drives replenishment from this field",
+    "evidence": {
+     "master": "L0025",
+     "purchasing": "L0023"
+    }
+   },
+   {
+    "rule": "R-V-03",
+    "circle": 5,
+    "entity": "article",
+    "key": "SAN-0096",
+    "field": "supplier_no",
+    "source": "09_artikelen_leverancier.xlsx!leverancier",
+    "action": "quarantine",
+    "owner": "purchasing",
+    "raw": "L0015 (master) vs L0027 (purchasing)",
+    "repaired": null,
+    "message": "purchasing drives replenishment from this field",
+    "evidence": {
+     "master": "L0015",
+     "purchasing": "L0027"
+    }
+   },
+   {
+    "rule": "R-V-03",
+    "circle": 5,
+    "entity": "article",
+    "key": "SAN-0109",
+    "field": "supplier_no",
+    "source": "09_artikelen_leverancier.xlsx!leverancier",
+    "action": "quarantine",
+    "owner": "purchasing",
+    "raw": "L0020 (master) vs L0049 (purchasing)",
+    "repaired": null,
+    "message": "purchasing drives replenishment from this field",
+    "evidence": {
+     "master": "L0020",
+     "purchasing": "L0049"
+    }
+   }
+  ],
+  "R-VI-04": [
+   {
+    "rule": "R-VI-04",
+    "circle": 6,
+    "entity": "customer",
+    "key": "K00008",
+    "field": "name",
+    "source": "01_klanten_mercurius.csv",
+    "action": "reject",
+    "owner": "sales",
+    "raw": "TEST",
+    "repaired": null,
+    "message": "a working note with order history behind it",
+    "evidence": {}
+   },
+   {
+    "rule": "R-VI-04",
+    "circle": 6,
+    "entity": "customer",
+    "key": "K00181",
+    "field": "name",
+    "source": "01_klanten_mercurius.csv",
+    "action": "reject",
+    "owner": "sales",
+    "raw": "ZZZ OUD - NIET GEBRUIKEN",
+    "repaired": null,
+    "message": "a working note with order history behind it",
+    "evidence": {}
+   },
+   {
+    "rule": "R-VI-04",
+    "circle": 6,
+    "entity": "customer",
+    "key": "K00354",
+    "field": "name",
+    "source": "01_klanten_mercurius.csv",
+    "action": "reject",
+    "owner": "sales",
+    "raw": "KLANT NIEUW",
+    "repaired": null,
+    "message": "a working note with order history behind it",
+    "evidence": {}
+   },
+   {
+    "rule": "R-VI-04",
+    "circle": 6,
+    "entity": "customer",
+    "key": "K00527",
+    "field": "name",
+    "source": "01_klanten_mercurius.csv",
+    "action": "reject",
+    "owner": "sales",
+    "raw": "ZZZ OUD - NIET GEBRUIKEN",
+    "repaired": null,
+    "message": "a working note with order history behind it",
+    "evidence": {}
+   },
+   {
+    "rule": "R-VI-04",
+    "circle": 6,
+    "entity": "customer",
+    "key": "K00700",
+    "field": "name",
+    "source": "01_klanten_mercurius.csv",
+    "action": "reject",
+    "owner": "sales",
+    "raw": "aaa",
+    "repaired": null,
+    "message": "a working note with order history behind it",
+    "evidence": {}
+   },
+   {
+    "rule": "R-VI-04",
+    "circle": 6,
+    "entity": "supplier",
+    "key": "L0009",
+    "field": "name",
+    "source": "10_leveranciers.xlsx!leveranciers",
+    "action": "reject",
+    "owner": "sales",
+    "raw": "TEST LEVERANCIER",
+    "repaired": null,
+    "message": "a working note with order history behind it",
+    "evidence": {}
+   }
+  ],
+  "R-VI-01": [
+   {
+    "rule": "R-VI-01",
+    "circle": 6,
+    "entity": "customer",
+    "key": "K00020",
+    "field": "vat",
+    "source": "01_klanten_mercurius.csv",
+    "action": "reject",
+    "owner": "finance",
+    "raw": "BE9999999999",
+    "repaired": null,
+    "message": "structurally valid, identifies nobody",
+    "evidence": {}
+   },
+   {
+    "rule": "R-VI-01",
+    "circle": 6,
+    "entity": "customer",
+    "key": "K00061",
+    "field": "vat",
+    "source": "01_klanten_mercurius.csv",
+    "action": "reject",
+    "owner": "finance",
+    "raw": "BE0000000000",
+    "repaired": null,
+    "message": "structurally valid, identifies nobody",
+    "evidence": {}
+   },
+   {
+    "rule": "R-VI-01",
+    "circle": 6,
+    "entity": "customer",
+    "key": "K00146",
+    "field": "vat",
+    "source": "01_klanten_mercurius.csv",
+    "action": "reject",
+    "owner": "finance",
+    "raw": "BE0123456749",
+    "repaired": null,
+    "message": "structurally valid, identifies nobody",
+    "evidence": {}
+   },
+   {
+    "rule": "R-VI-01",
+    "circle": 6,
+    "entity": "customer",
+    "key": "K00217",
+    "field": "vat",
+    "source": "01_klanten_mercurius.csv",
+    "action": "reject",
+    "owner": "finance",
+    "raw": "BE0000000000",
+    "repaired": null,
+    "message": "structurally valid, identifies nobody",
+    "evidence": {}
+   },
+   {
+    "rule": "R-VI-01",
+    "circle": 6,
+    "entity": "customer",
+    "key": "K00437",
+    "field": "vat",
+    "source": "01_klanten_mercurius.csv",
+    "action": "reject",
+    "owner": "finance",
+    "raw": "BE0123456749",
+    "repaired": null,
+    "message": "structurally valid, identifies nobody",
+    "evidence": {}
+   },
+   {
+    "rule": "R-VI-01",
+    "circle": 6,
+    "entity": "customer",
+    "key": "K00451",
+    "field": "vat",
+    "source": "01_klanten_mercurius.csv",
+    "action": "reject",
+    "owner": "finance",
+    "raw": "BE0123456749",
+    "repaired": null,
+    "message": "structurally valid, identifies nobody",
+    "evidence": {}
+   }
+  ],
+  "R-VI-02": [
+   {
+    "rule": "R-VI-02",
+    "circle": 6,
+    "entity": "customer",
+    "key": "K00027",
+    "field": "created",
+    "source": "01_klanten_mercurius.csv",
+    "action": "repair",
+    "owner": "engine",
+    "raw": "9999-12-31",
+    "repaired": null,
+    "message": "the legacy system's way of saying null",
+    "evidence": {}
+   },
+   {
+    "rule": "R-VI-02",
+    "circle": 6,
+    "entity": "customer",
+    "key": "K00097",
+    "field": "created",
+    "source": "01_klanten_mercurius.csv",
+    "action": "repair",
+    "owner": "engine",
+    "raw": "01/01/1900",
+    "repaired": null,
+    "message": "the legacy system's way of saying null",
+    "evidence": {}
+   },
+   {
+    "rule": "R-VI-02",
+    "circle": 6,
+    "entity": "customer",
+    "key": "K00110",
+    "field": "created",
+    "source": "01_klanten_mercurius.csv",
+    "action": "repair",
+    "owner": "engine",
+    "raw": "01/01/1900",
+    "repaired": null,
+    "message": "the legacy system's way of saying null",
+    "evidence": {}
+   },
+   {
+    "rule": "R-VI-02",
+    "circle": 6,
+    "entity": "customer",
+    "key": "K00138",
+    "field": "created",
+    "source": "01_klanten_mercurius.csv",
+    "action": "repair",
+    "owner": "engine",
+    "raw": "01/01/1900",
+    "repaired": null,
+    "message": "the legacy system's way of saying null",
+    "evidence": {}
+   },
+   {
+    "rule": "R-VI-02",
+    "circle": 6,
+    "entity": "customer",
+    "key": "K00227",
+    "field": "created",
+    "source": "01_klanten_mercurius.csv",
+    "action": "repair",
+    "owner": "engine",
+    "raw": "01/01/1900",
+    "repaired": null,
+    "message": "the legacy system's way of saying null",
+    "evidence": {}
+   },
+   {
+    "rule": "R-VI-02",
+    "circle": 6,
+    "entity": "customer",
+    "key": "K00243",
+    "field": "created",
+    "source": "01_klanten_mercurius.csv",
+    "action": "repair",
+    "owner": "engine",
+    "raw": "01/01/1900",
+    "repaired": null,
+    "message": "the legacy system's way of saying null",
+    "evidence": {}
+   }
+  ],
+  "R-VI-03": [
+   {
+    "rule": "R-VI-03",
+    "circle": 6,
+    "entity": "customer",
+    "key": "K00036",
+    "field": "email",
+    "source": "01_klanten_mercurius.csv",
+    "action": "repair",
+    "owner": "engine",
+    "raw": "x@x.x",
+    "repaired": null,
+    "message": "absence written as presence",
+    "evidence": {}
+   },
+   {
+    "rule": "R-VI-03",
+    "circle": 6,
+    "entity": "customer",
+    "key": "K00050",
+    "field": "phone",
+    "source": "01_klanten_mercurius.csv",
+    "action": "repair",
+    "owner": "engine",
+    "raw": "/",
+    "repaired": null,
+    "message": "absence written as presence",
+    "evidence": {}
+   },
+   {
+    "rule": "R-VI-03",
+    "circle": 6,
+    "entity": "customer",
+    "key": "K00053",
+    "field": "email",
+    "source": "01_klanten_mercurius.csv",
+    "action": "repair",
+    "owner": "engine",
+    "raw": "geen@geen.be",
+    "repaired": null,
+    "message": "absence written as presence",
+    "evidence": {}
+   },
+   {
+    "rule": "R-VI-03",
+    "circle": 6,
+    "entity": "customer",
+    "key": "K00058",
+    "field": "email",
+    "source": "01_klanten_mercurius.csv",
+    "action": "repair",
+    "owner": "engine",
+    "raw": "noreply@noreply.be",
+    "repaired": null,
+    "message": "absence written as presence",
+    "evidence": {}
+   },
+   {
+    "rule": "R-VI-03",
+    "circle": 6,
+    "entity": "customer",
+    "key": "K00067",
+    "field": "email",
+    "source": "01_klanten_mercurius.csv",
+    "action": "repair",
+    "owner": "engine",
+    "raw": "/",
+    "repaired": null,
+    "message": "absence written as presence",
+    "evidence": {}
+   },
+   {
+    "rule": "R-VI-03",
+    "circle": 6,
+    "entity": "customer",
+    "key": "K00086",
+    "field": "email",
+    "source": "01_klanten_mercurius.csv",
+    "action": "repair",
+    "owner": "engine",
+    "raw": "/",
+    "repaired": null,
+    "message": "absence written as presence",
+    "evidence": {}
+   }
+  ],
+  "R-VI-05": [
+   {
+    "rule": "R-VI-05",
+    "circle": 6,
+    "entity": "customer",
+    "key": "K00150",
+    "field": "country",
+    "source": "01_klanten_mercurius.csv",
+    "action": "quarantine",
+    "owner": "sales",
+    "raw": "XX",
+    "repaired": null,
+    "message": "\"B\" is a legacy code for Belgium and a valid code for nothing",
+    "evidence": {}
+   },
+   {
+    "rule": "R-VI-05",
+    "circle": 6,
+    "entity": "customer",
+    "key": "K00245",
+    "field": "country",
+    "source": "01_klanten_mercurius.csv",
+    "action": "quarantine",
+    "owner": "sales",
+    "raw": "BELG",
+    "repaired": "BE",
+    "message": "recoverable, but ask anyway",
+    "evidence": {}
+   },
+   {
+    "rule": "R-VI-05",
+    "circle": 6,
+    "entity": "customer",
+    "key": "K00279",
+    "field": "country",
+    "source": "01_klanten_mercurius.csv",
+    "action": "quarantine",
+    "owner": "sales",
+    "raw": "BELG",
+    "repaired": "BE",
+    "message": "recoverable, but ask anyway",
+    "evidence": {}
+   },
+   {
+    "rule": "R-VI-05",
+    "circle": 6,
+    "entity": "customer",
+    "key": "K00300",
+    "field": "country",
+    "source": "01_klanten_mercurius.csv",
+    "action": "quarantine",
+    "owner": "sales",
+    "raw": "B",
+    "repaired": null,
+    "message": "\"B\" is a legacy code for Belgium and a valid code for nothing",
+    "evidence": {}
+   },
+   {
+    "rule": "R-VI-05",
+    "circle": 6,
+    "entity": "customer",
+    "key": "K00455",
+    "field": "country",
+    "source": "01_klanten_mercurius.csv",
+    "action": "quarantine",
+    "owner": "sales",
+    "raw": "XX",
+    "repaired": null,
+    "message": "\"B\" is a legacy code for Belgium and a valid code for nothing",
+    "evidence": {}
+   },
+   {
+    "rule": "R-VI-05",
+    "circle": 6,
+    "entity": "customer",
+    "key": "K00464",
+    "field": "country",
+    "source": "01_klanten_mercurius.csv",
+    "action": "quarantine",
+    "owner": "sales",
+    "raw": "XX",
+    "repaired": null,
+    "message": "\"B\" is a legacy code for Belgium and a valid code for nothing",
+    "evidence": {}
+   }
+  ],
+  "R-VII-02": [
+   {
+    "rule": "R-VII-02",
+    "circle": 7,
+    "entity": "article",
+    "key": "SAN-0001",
+    "field": "ean",
+    "source": "07_artikelen_voorraad.xlsx!voorraad",
+    "action": "repair",
+    "owner": "engine",
+    "raw": "717349996412",
+    "repaired": "0717349996412",
+    "message": "leading zero restored and confirmed by the check digit",
+    "evidence": {}
+   },
+   {
+    "rule": "R-VII-02",
+    "circle": 7,
+    "entity": "article",
+    "key": "SAN-0024",
+    "field": "ean",
+    "source": "07_artikelen_voorraad.xlsx!voorraad",
+    "action": "repair",
+    "owner": "engine",
+    "raw": "167448021810",
+    "repaired": "0167448021810",
+    "message": "leading zero restored and confirmed by the check digit",
+    "evidence": {}
+   },
+   {
+    "rule": "R-VII-02",
+    "circle": 7,
+    "entity": "article",
+    "key": "SAN-0039",
+    "field": "ean",
+    "source": "07_artikelen_voorraad.xlsx!voorraad",
+    "action": "repair",
+    "owner": "engine",
+    "raw": "261691992276",
+    "repaired": "0261691992276",
+    "message": "leading zero restored and confirmed by the check digit",
+    "evidence": {}
+   },
+   {
+    "rule": "R-VII-02",
+    "circle": 7,
+    "entity": "article",
+    "key": "SAN-0051",
+    "field": "ean",
+    "source": "07_artikelen_voorraad.xlsx!voorraad",
+    "action": "repair",
+    "owner": "engine",
+    "raw": "662849311558",
+    "repaired": "0662849311558",
+    "message": "leading zero restored and confirmed by the check digit",
+    "evidence": {}
+   },
+   {
+    "rule": "R-VII-02",
+    "circle": 7,
+    "entity": "article",
+    "key": "SAN-0061",
+    "field": "ean",
+    "source": "07_artikelen_voorraad.xlsx!voorraad",
+    "action": "repair",
+    "owner": "engine",
+    "raw": "749720263509",
+    "repaired": "0749720263509",
+    "message": "leading zero restored and confirmed by the check digit",
+    "evidence": {}
+   },
+   {
+    "rule": "R-VII-02",
+    "circle": 7,
+    "entity": "article",
+    "key": "SAN-0067",
+    "field": "ean",
+    "source": "07_artikelen_voorraad.xlsx!voorraad",
+    "action": "repair",
+    "owner": "engine",
+    "raw": "334410745467",
+    "repaired": "0334410745467",
+    "message": "leading zero restored and confirmed by the check digit",
+    "evidence": {}
+   }
+  ],
+  "R-VII-01": [
+   {
+    "rule": "R-VII-01",
+    "circle": 7,
+    "entity": "article",
+    "key": "5.49E+12",
+    "field": "article_no",
+    "source": "07_artikelen_voorraad.xlsx!voorraad",
+    "action": "quarantine",
+    "owner": "operations",
+    "raw": "5.49E+12",
+    "repaired": null,
+    "message": "digits lost to float precision; not recoverable from this cell",
+    "evidence": {
+     "stock": "2",
+     "hint": "match against the master file on EAN before accepting"
+    }
+   },
+   {
+    "rule": "R-VII-01",
+    "circle": 7,
+    "entity": "article",
+    "key": "5.48E+12",
+    "field": "article_no",
+    "source": "07_artikelen_voorraad.xlsx!voorraad",
+    "action": "quarantine",
+    "owner": "operations",
+    "raw": "5.48E+12",
+    "repaired": null,
+    "message": "digits lost to float precision; not recoverable from this cell",
+    "evidence": {
+     "stock": "0",
+     "hint": "match against the master file on EAN before accepting"
+    }
+   },
+   {
+    "rule": "R-VII-01",
+    "circle": 7,
+    "entity": "article",
+    "key": "5.49E+12",
+    "field": "article_no",
+    "source": "07_artikelen_voorraad.xlsx!voorraad",
+    "action": "quarantine",
+    "owner": "operations",
+    "raw": "5.49E+12",
+    "repaired": null,
+    "message": "digits lost to float precision; not recoverable from this cell",
+    "evidence": {
+     "stock": "0",
+     "hint": "match against the master file on EAN before accepting"
+    }
+   },
+   {
+    "rule": "R-VII-01",
+    "circle": 7,
+    "entity": "article",
+    "key": "5.42E+12",
+    "field": "article_no",
+    "source": "07_artikelen_voorraad.xlsx!voorraad",
+    "action": "quarantine",
+    "owner": "operations",
+    "raw": "5.42E+12",
+    "repaired": null,
+    "message": "digits lost to float precision; not recoverable from this cell",
+    "evidence": {
+     "stock": "5",
+     "hint": "match against the master file on EAN before accepting"
+    }
+   },
+   {
+    "rule": "R-VII-01",
+    "circle": 7,
+    "entity": "article",
+    "key": "5.41E+12",
+    "field": "article_no",
+    "source": "07_artikelen_voorraad.xlsx!voorraad",
+    "action": "quarantine",
+    "owner": "operations",
+    "raw": "5.41E+12",
+    "repaired": null,
+    "message": "digits lost to float precision; not recoverable from this cell",
+    "evidence": {
+     "stock": "40",
+     "hint": "match against the master file on EAN before accepting"
+    }
+   },
+   {
+    "rule": "R-VII-01",
+    "circle": 7,
+    "entity": "article",
+    "key": "5.50E+12",
+    "field": "article_no",
+    "source": "07_artikelen_voorraad.xlsx!voorraad",
+    "action": "quarantine",
+    "owner": "operations",
+    "raw": "5.50E+12",
+    "repaired": null,
+    "message": "digits lost to float precision; not recoverable from this cell",
+    "evidence": {
+     "stock": "2",
+     "hint": "match against the master file on EAN before accepting"
+    }
+   }
+  ],
+  "R-VII-03": [
+   {
+    "rule": "R-VII-03",
+    "circle": 7,
+    "entity": "open_item",
+    "key": "VF240001",
+    "field": "doc_date",
+    "source": "11_openstaande_posten.xlsx!Posten",
+    "action": "repair",
+    "owner": "engine",
+    "raw": "12/09/2026",
+    "repaired": "2026-09-12",
+    "message": "read as dmy on 656 unambiguous rows in the same file",
+    "evidence": {}
+   },
+   {
+    "rule": "R-VII-03",
+    "circle": 7,
+    "entity": "open_item",
+    "key": "VF240002",
+    "field": "doc_date",
+    "source": "11_openstaande_posten.xlsx!Posten",
+    "action": "repair",
+    "owner": "engine",
+    "raw": "02/09/2026",
+    "repaired": "2026-09-02",
+    "message": "read as dmy on 656 unambiguous rows in the same file",
+    "evidence": {}
+   },
+   {
+    "rule": "R-VII-03",
+    "circle": 7,
+    "entity": "open_item",
+    "key": "VF240003",
+    "field": "doc_date",
+    "source": "11_openstaande_posten.xlsx!Posten",
+    "action": "repair",
+    "owner": "engine",
+    "raw": "03/09/2025",
+    "repaired": "2025-09-03",
+    "message": "read as dmy on 656 unambiguous rows in the same file",
+    "evidence": {}
+   },
+   {
+    "rule": "R-VII-03",
+    "circle": 7,
+    "entity": "open_item",
+    "key": "VF240006",
+    "field": "doc_date",
+    "source": "11_openstaande_posten.xlsx!Posten",
+    "action": "repair",
+    "owner": "engine",
+    "raw": "08/04/2026",
+    "repaired": "2026-04-08",
+    "message": "read as dmy on 656 unambiguous rows in the same file",
+    "evidence": {}
+   },
+   {
+    "rule": "R-VII-03",
+    "circle": 7,
+    "entity": "open_item",
+    "key": "VF240010",
+    "field": "doc_date",
+    "source": "11_openstaande_posten.xlsx!Posten",
+    "action": "repair",
+    "owner": "engine",
+    "raw": "45966",
+    "repaired": "2025-11-05",
+    "message": "Excel serial number converted back to a date",
+    "evidence": {}
+   },
+   {
+    "rule": "R-VII-03",
+    "circle": 7,
+    "entity": "open_item",
+    "key": "VF240011",
+    "field": "doc_date",
+    "source": "11_openstaande_posten.xlsx!Posten",
+    "action": "repair",
+    "owner": "engine",
+    "raw": "11/08/2025",
+    "repaired": "2025-08-11",
+    "message": "read as dmy on 656 unambiguous rows in the same file",
+    "evidence": {}
+   }
+  ],
+  "R-VII-04": [
+   {
+    "rule": "R-VII-04",
+    "circle": 7,
+    "entity": "open_item",
+    "key": "VF240006",
+    "field": "due_date",
+    "source": "11_openstaande_posten.xlsx!Posten",
+    "action": "quarantine",
+    "owner": "finance",
+    "raw": "08/05/2026",
+    "repaired": null,
+    "message": "this file proves both readings, so neither can be assumed",
+    "evidence": {
+     "european": "2026-05-08",
+     "american": "2026-08-05",
+     "evidence": {
+      "dmy": 588,
+      "mdy": 74
+     }
+    }
+   },
+   {
+    "rule": "R-VII-04",
+    "circle": 7,
+    "entity": "open_item",
+    "key": "VF240007",
+    "field": "due_date",
+    "source": "11_openstaande_posten.xlsx!Posten",
+    "action": "quarantine",
+    "owner": "finance",
+    "raw": "08/05/2026",
+    "repaired": null,
+    "message": "this file proves both readings, so neither can be assumed",
+    "evidence": {
+     "european": "2026-05-08",
+     "american": "2026-08-05",
+     "evidence": {
+      "dmy": 588,
+      "mdy": 74
+     }
+    }
+   },
+   {
+    "rule": "R-VII-04",
+    "circle": 7,
+    "entity": "open_item",
+    "key": "VF240011",
+    "field": "due_date",
+    "source": "11_openstaande_posten.xlsx!Posten",
+    "action": "quarantine",
+    "owner": "finance",
+    "raw": "09/10/2025",
+    "repaired": null,
+    "message": "this file proves both readings, so neither can be assumed",
+    "evidence": {
+     "european": "2025-10-09",
+     "american": "2025-09-10",
+     "evidence": {
+      "dmy": 588,
+      "mdy": 74
+     }
+    }
+   },
+   {
+    "rule": "R-VII-04",
+    "circle": 7,
+    "entity": "open_item",
+    "key": "VF240012",
+    "field": "due_date",
+    "source": "11_openstaande_posten.xlsx!Posten",
+    "action": "quarantine",
+    "owner": "finance",
+    "raw": "11/05/2025",
+    "repaired": null,
+    "message": "this file proves both readings, so neither can be assumed",
+    "evidence": {
+     "european": "2025-05-11",
+     "american": "2025-11-05",
+     "evidence": {
+      "dmy": 588,
+      "mdy": 74
+     }
+    }
+   },
+   {
+    "rule": "R-VII-04",
+    "circle": 7,
+    "entity": "open_item",
+    "key": "VF240015",
+    "field": "due_date",
+    "source": "11_openstaande_posten.xlsx!Posten",
+    "action": "quarantine",
+    "owner": "finance",
+    "raw": "11/09/2025",
+    "repaired": null,
+    "message": "this file proves both readings, so neither can be assumed",
+    "evidence": {
+     "european": "2025-09-11",
+     "american": "2025-11-09",
+     "evidence": {
+      "dmy": 588,
+      "mdy": 74
+     }
+    }
+   },
+   {
+    "rule": "R-VII-04",
+    "circle": 7,
+    "entity": "open_item",
+    "key": "VF240016",
+    "field": "due_date",
+    "source": "11_openstaande_posten.xlsx!Posten",
+    "action": "quarantine",
+    "owner": "finance",
+    "raw": "09/08/2025",
+    "repaired": null,
+    "message": "this file proves both readings, so neither can be assumed",
+    "evidence": {
+     "european": "2025-08-09",
+     "american": "2025-09-08",
+     "evidence": {
+      "dmy": 588,
+      "mdy": 74
+     }
+    }
+   }
+  ],
+  "R-VIII-01": [
+   {
+    "rule": "R-VIII-01",
+    "circle": 8,
+    "entity": "discount",
+    "key": "A0012",
+    "field": "article_no",
+    "source": "12_korting_afspraken.xlsx!afspraken",
+    "action": "reject",
+    "owner": "sales",
+    "raw": "VRW-0089",
+    "repaired": null,
+    "message": "agreement on an unknown article",
+    "evidence": {}
+   },
+   {
+    "rule": "R-VIII-01",
+    "circle": 8,
+    "entity": "discount",
+    "key": "A0020",
+    "field": "article_no",
+    "source": "12_korting_afspraken.xlsx!afspraken",
+    "action": "reject",
+    "owner": "sales",
+    "raw": "VRW-0271",
+    "repaired": null,
+    "message": "agreement on an unknown article",
+    "evidence": {}
+   },
+   {
+    "rule": "R-VIII-01",
+    "circle": 8,
+    "entity": "discount",
+    "key": "A0022",
+    "field": "article_no",
+    "source": "12_korting_afspraken.xlsx!afspraken",
+    "action": "reject",
+    "owner": "sales",
+    "raw": "SAN-0066",
+    "repaired": null,
+    "message": "agreement on an unknown article",
+    "evidence": {}
+   },
+   {
+    "rule": "R-VIII-01",
+    "circle": 8,
+    "entity": "discount",
+    "key": "A0029",
+    "field": "customer_no",
+    "source": "12_korting_afspraken.xlsx!afspraken",
+    "action": "reject",
+    "owner": "sales",
+    "raw": "K85085",
+    "repaired": null,
+    "message": "orphan agreement; a loader would drop it silently",
+    "evidence": {}
+   },
+   {
+    "rule": "R-VIII-01",
+    "circle": 8,
+    "entity": "discount",
+    "key": "A0037",
+    "field": "article_no",
+    "source": "12_korting_afspraken.xlsx!afspraken",
+    "action": "reject",
+    "owner": "sales",
+    "raw": "GER-0127",
+    "repaired": null,
+    "message": "agreement on an unknown article",
+    "evidence": {}
+   },
+   {
+    "rule": "R-VIII-01",
+    "circle": 8,
+    "entity": "discount",
+    "key": "A0048",
+    "field": "article_no",
+    "source": "12_korting_afspraken.xlsx!afspraken",
+    "action": "reject",
+    "owner": "sales",
+    "raw": "SAN-0165",
+    "repaired": null,
+    "message": "agreement on an unknown article",
+    "evidence": {}
+   }
+  ],
+  "R-VIII-02": [
+   {
+    "rule": "R-VIII-02",
+    "circle": 8,
+    "entity": "article",
+    "key": "SAN-0005",
+    "field": "supplier_no",
+    "source": "09_artikelen_leverancier.xlsx!leverancier",
+    "action": "quarantine",
+    "owner": "purchasing",
+    "raw": "L977",
+    "repaired": null,
+    "message": "the article is real and sellable; only its replenishment link is broken",
+    "evidence": {}
+   },
+   {
+    "rule": "R-VIII-02",
+    "circle": 8,
+    "entity": "article",
+    "key": "SAN-0010",
+    "field": "supplier_no",
+    "source": "09_artikelen_leverancier.xlsx!leverancier",
+    "action": "quarantine",
+    "owner": "purchasing",
+    "raw": "L900",
+    "repaired": null,
+    "message": "the article is real and sellable; only its replenishment link is broken",
+    "evidence": {}
+   },
+   {
+    "rule": "R-VIII-02",
+    "circle": 8,
+    "entity": "article",
+    "key": "SAN-0019",
+    "field": "supplier_no",
+    "source": "09_artikelen_leverancier.xlsx!leverancier",
+    "action": "quarantine",
+    "owner": "purchasing",
+    "raw": "L934",
+    "repaired": null,
+    "message": "the article is real and sellable; only its replenishment link is broken",
+    "evidence": {}
+   },
+   {
+    "rule": "R-VIII-02",
+    "circle": 8,
+    "entity": "article",
+    "key": "SAN-0047",
+    "field": "supplier_no",
+    "source": "09_artikelen_leverancier.xlsx!leverancier",
+    "action": "quarantine",
+    "owner": "purchasing",
+    "raw": "L939",
+    "repaired": null,
+    "message": "the article is real and sellable; only its replenishment link is broken",
+    "evidence": {}
+   },
+   {
+    "rule": "R-VIII-02",
+    "circle": 8,
+    "entity": "article",
+    "key": "SAN-0102",
+    "field": "supplier_no",
+    "source": "09_artikelen_leverancier.xlsx!leverancier",
+    "action": "quarantine",
+    "owner": "purchasing",
+    "raw": "L963",
+    "repaired": null,
+    "message": "the article is real and sellable; only its replenishment link is broken",
+    "evidence": {}
+   },
+   {
+    "rule": "R-VIII-02",
+    "circle": 8,
+    "entity": "article",
+    "key": "SAN-0116",
+    "field": "supplier_no",
+    "source": "09_artikelen_leverancier.xlsx!leverancier",
+    "action": "quarantine",
+    "owner": "purchasing",
+    "raw": "L979",
+    "repaired": null,
+    "message": "the article is real and sellable; only its replenishment link is broken",
+    "evidence": {}
+   }
+  ],
+  "R-VIII-04": [
+   {
+    "rule": "R-VIII-04",
+    "circle": 8,
+    "entity": "article",
+    "key": "SAN-0034",
+    "field": "supplier_no",
+    "source": "09_artikelen_leverancier.xlsx!leverancier",
+    "action": "quarantine",
+    "owner": "purchasing",
+    "raw": "L0032",
+    "repaired": null,
+    "message": "reference intact, business fact broken: reroute or block",
+    "evidence": {}
+   },
+   {
+    "rule": "R-VIII-04",
+    "circle": 8,
+    "entity": "article",
+    "key": "SAN-0053",
+    "field": "supplier_no",
+    "source": "09_artikelen_leverancier.xlsx!leverancier",
+    "action": "quarantine",
+    "owner": "purchasing",
+    "raw": "L0058",
+    "repaired": null,
+    "message": "reference intact, business fact broken: reroute or block",
+    "evidence": {}
+   },
+   {
+    "rule": "R-VIII-04",
+    "circle": 8,
+    "entity": "article",
+    "key": "SAN-0076",
+    "field": "supplier_no",
+    "source": "09_artikelen_leverancier.xlsx!leverancier",
+    "action": "quarantine",
+    "owner": "purchasing",
+    "raw": "L0032",
+    "repaired": null,
+    "message": "reference intact, business fact broken: reroute or block",
+    "evidence": {}
+   },
+   {
+    "rule": "R-VIII-04",
+    "circle": 8,
+    "entity": "article",
+    "key": "SAN-0083",
+    "field": "supplier_no",
+    "source": "09_artikelen_leverancier.xlsx!leverancier",
+    "action": "quarantine",
+    "owner": "purchasing",
+    "raw": "L0057",
+    "repaired": null,
+    "message": "reference intact, business fact broken: reroute or block",
+    "evidence": {}
+   },
+   {
+    "rule": "R-VIII-04",
+    "circle": 8,
+    "entity": "article",
+    "key": "SAN-0085",
+    "field": "supplier_no",
+    "source": "09_artikelen_leverancier.xlsx!leverancier",
+    "action": "quarantine",
+    "owner": "purchasing",
+    "raw": "L0023",
+    "repaired": null,
+    "message": "reference intact, business fact broken: reroute or block",
+    "evidence": {}
+   },
+   {
+    "rule": "R-VIII-04",
+    "circle": 8,
+    "entity": "article",
+    "key": "SAN-0092",
+    "field": "supplier_no",
+    "source": "09_artikelen_leverancier.xlsx!leverancier",
+    "action": "quarantine",
+    "owner": "purchasing",
+    "raw": "L0030",
+    "repaired": null,
+    "message": "reference intact, business fact broken: reroute or block",
+    "evidence": {}
+   }
+  ],
+  "R-VIII-03": [
+   {
+    "rule": "R-VIII-03",
+    "circle": 8,
+    "entity": "open_item",
+    "key": "VF240018",
+    "field": "customer_no",
+    "source": "11_openstaande_posten.xlsx!Posten",
+    "action": "reject",
+    "owner": "finance",
+    "raw": "K93108",
+    "repaired": null,
+    "message": "a receivable with no customer; it must be reported, not dropped",
+    "evidence": {
+     "amount": "8792.72"
+    }
+   },
+   {
+    "rule": "R-VIII-03",
+    "circle": 8,
+    "entity": "open_item",
+    "key": "VF240064",
+    "field": "customer_no",
+    "source": "11_openstaande_posten.xlsx!Posten",
+    "action": "reject",
+    "owner": "finance",
+    "raw": "K98785",
+    "repaired": null,
+    "message": "a receivable with no customer; it must be reported, not dropped",
+    "evidence": {
+     "amount": "4902.83"
+    }
+   },
+   {
+    "rule": "R-VIII-03",
+    "circle": 8,
+    "entity": "open_item",
+    "key": "VF240185",
+    "field": "customer_no",
+    "source": "11_openstaande_posten.xlsx!Posten",
+    "action": "reject",
+    "owner": "finance",
+    "raw": "K95637",
+    "repaired": null,
+    "message": "a receivable with no customer; it must be reported, not dropped",
+    "evidence": {
+     "amount": "3611.32"
+    }
+   },
+   {
+    "rule": "R-VIII-03",
+    "circle": 8,
+    "entity": "open_item",
+    "key": "VF240400",
+    "field": "customer_no",
+    "source": "11_openstaande_posten.xlsx!Posten",
+    "action": "reject",
+    "owner": "finance",
+    "raw": "K90878",
+    "repaired": null,
+    "message": "a receivable with no customer; it must be reported, not dropped",
+    "evidence": {
+     "amount": "2835.64"
+    }
+   },
+   {
+    "rule": "R-VIII-03",
+    "circle": 8,
+    "entity": "open_item",
+    "key": "VF240415",
+    "field": "customer_no",
+    "source": "11_openstaande_posten.xlsx!Posten",
+    "action": "reject",
+    "owner": "finance",
+    "raw": "K90270",
+    "repaired": null,
+    "message": "a receivable with no customer; it must be reported, not dropped",
+    "evidence": {
+     "amount": "901.66"
+    }
+   },
+   {
+    "rule": "R-VIII-03",
+    "circle": 8,
+    "entity": "open_item",
+    "key": "VF240502",
+    "field": "customer_no",
+    "source": "11_openstaande_posten.xlsx!Posten",
+    "action": "reject",
+    "owner": "finance",
+    "raw": "K90249",
+    "repaired": null,
+    "message": "a receivable with no customer; it must be reported, not dropped",
+    "evidence": {
+     "amount": "3273.83"
+    }
+   }
+  ],
+  "R-IX-03": [
+   {
+    "rule": "R-IX-03",
+    "circle": 9,
+    "entity": "all",
+    "key": "<run>",
+    "field": "reconciliation",
+    "source": "pipeline",
+    "action": "gate",
+    "owner": "finance",
+    "raw": null,
+    "repaired": null,
+    "message": "unexplained difference nets to 0.00 while gross movement is 2,495.00 across 2 customers \u2014 net zero with gross movement is betrayal, not balance",
+    "evidence": {
+     "trial_balance_total": "5380992.54",
+     "source_detail_total": "5333662.11",
+     "total_difference": "-47330.43",
+     "explained_orphan_detail": "0.00",
+     "explained_unquantifiable": "-47330.43",
+     "unexplained_net": "0.00",
+     "unexplained_gross": "2495.00",
+     "compensating_pattern": true,
+     "customers_affected": 2,
+     "orphan_customers": 0,
+     "worst": [
+      {
+       "customer": "K00008",
+       "trial": "3677.13",
+       "detail": "4924.63",
+       "difference": "1247.50"
+      },
+      {
+       "customer": "K00068",
+       "trial": "6724.81",
+       "detail": "5477.31",
+       "difference": "-1247.50"
+      }
+     ]
+    }
+   }
+  ],
+  "R-IX-04": [
+   {
+    "rule": "R-IX-04",
+    "circle": 9,
+    "entity": "all",
+    "key": "<run>",
+    "field": "reconciliation",
+    "source": "pipeline",
+    "action": "gate",
+    "owner": "finance",
+    "raw": null,
+    "repaired": null,
+    "message": "153 customers would arrive with a zero balance, holding 794,130.93 between them",
+    "evidence": {
+     "customers": 153,
+     "amount": "794130.93",
+     "worst": [
+      {
+       "customer": "K00219",
+       "trial": "21854.23",
+       "migrated": "0.00"
+      },
+      {
+       "customer": "K00615",
+       "trial": "17717.99",
+       "migrated": "0.00"
+      },
+      {
+       "customer": "K00266",
+       "trial": "15873.75",
+       "migrated": "0.00"
+      },
+      {
+       "customer": "K00751",
+       "trial": "14072.93",
+       "migrated": "0.00"
+      },
+      {
+       "customer": "K00638",
+       "trial": "13558.79",
+       "migrated": "0.00"
+      },
+      {
+       "customer": "K00529",
+       "trial": "13514.53",
+       "migrated": "0.00"
+      },
+      {
+       "customer": "K00201",
+       "trial": "13266.60",
+       "migrated": "0.00"
+      },
+      {
+       "customer": "K00706",
+       "trial": "11141.54",
+       "migrated": "0.00"
+      },
+      {
+       "customer": "K00820",
+       "trial": "9926.83",
+       "migrated": "0.00"
+      },
+      {
+       "customer": "K00759",
+       "trial": "9360.64",
+       "migrated": "0.00"
+      },
+      {
+       "customer": "K00242",
+       "trial": "9287.87",
+       "migrated": "0.00"
+      },
+      {
+       "customer": "K00520",
+       "trial": "9204.93",
+       "migrated": "0.00"
+      }
+     ]
+    }
+   }
+  ]
+ },
+ "desk": {
+  "finance": [
+   {
+    "rule": "R-II-04",
+    "circle": 2,
+    "entity": "customer",
+    "key": "K00008",
+    "field": "vat",
+    "source": "01_klanten_mercurius.csv",
+    "action": "quarantine",
+    "owner": "finance",
+    "raw": "BE0433327011",
+    "repaired": null,
+    "message": "2 different names on one VAT number",
+    "evidence": {
+     "names": [
+      "romm ns verwarming en zonen",
+      "test"
+     ]
+    }
+   },
+   {
+    "rule": "R-II-04",
+    "circle": 2,
+    "entity": "customer",
+    "key": "K00018",
+    "field": "vat",
+    "source": "01_klanten_mercurius.csv",
+    "action": "quarantine",
+    "owner": "finance",
+    "raw": "BE0229646015",
+    "repaired": null,
+    "message": "2 different names on one VAT number",
+    "evidence": {
+     "names": [
+      "d poorter en zonen",
+      "depoorter en zonen"
+     ]
+    }
+   },
+   {
+    "rule": "R-II-04",
+    "circle": 2,
+    "entity": "customer",
+    "key": "K00023",
+    "field": "vat",
+    "source": "01_klanten_mercurius.csv",
+    "action": "quarantine",
+    "owner": "finance",
+    "raw": "BE0316090435",
+    "repaired": null,
+    "message": "2 different names on one VAT number",
+    "evidence": {
+     "names": [
+      "d clercq en zonen",
+      "declercq en zonen"
+     ]
+    }
+   },
+   {
+    "rule": "R-II-04",
+    "circle": 2,
+    "entity": "customer",
+    "key": "K00024",
+    "field": "vat",
+    "source": "01_klanten_mercurius.csv",
+    "action": "quarantine",
+    "owner": "finance",
+    "raw": "BE0777369381",
+    "repaired": null,
+    "message": "3 different names on one VAT number",
+    "evidence": {
+     "names": [
+      "d veux",
+      "deveux",
+      "deveux store"
+     ]
+    }
+   },
+   {
+    "rule": "R-II-04",
+    "circle": 2,
+    "entity": "customer",
+    "key": "K00028",
+    "field": "vat",
+    "source": "01_klanten_mercurius.csv",
+    "action": "quarantine",
+    "owner": "finance",
+    "raw": "BE0716984903",
+    "repaired": null,
+    "message": "2 different names on one VAT number",
+    "evidence": {
+     "names": [
+      "hoorna rt elektro",
+      "hoornaert elektro"
+     ]
+    }
+   },
+   {
+    "rule": "R-II-04",
+    "circle": 2,
+    "entity": "customer",
+    "key": "K00030",
+    "field": "vat",
+    "source": "01_klanten_mercurius.csv",
+    "action": "quarantine",
+    "owner": "finance",
+    "raw": "BE0634217969",
+    "repaired": null,
+    "message": "2 different names on one VAT number",
+    "evidence": {
+     "names": [
+      "vand n broucke",
+      "vanden broucke"
+     ]
+    }
+   },
+   {
+    "rule": "R-IV-03",
+    "circle": 4,
+    "entity": "article",
+    "key": "SAN-0001",
+    "field": "price",
+    "source": "06_artikelen_prijzen_2024.xlsx!prijzen 2024",
+    "action": "quarantine",
+    "owner": "finance",
+    "raw": "\u20ac 758,41",
+    "repaired": null,
+    "message": "flag says VAT-inclusive, amount equals the exclusive price",
+    "evidence": {
+     "vat_rate": "6",
+     "flag": "1",
+     "master_price": "758.41",
+     "inclusive_would_be": "803.91"
+    }
+   },
+   {
+    "rule": "R-IV-03",
+    "circle": 4,
+    "entity": "article",
+    "key": "SAN-0002",
+    "field": "price",
+    "source": "06_artikelen_prijzen_2024.xlsx!prijzen 2024",
+    "action": "quarantine",
+    "owner": "finance",
+    "raw": "EUR 1190,45",
+    "repaired": null,
+    "message": "flag says VAT-inclusive, amount equals the exclusive price",
+    "evidence": {
+     "vat_rate": "21",
+     "flag": "ja",
+     "master_price": "1190.45",
+     "inclusive_would_be": "1440.44"
+    }
+   },
+   {
+    "rule": "R-IV-03",
+    "circle": 4,
+    "entity": "article",
+    "key": "SAN-0004",
+    "field": "price",
+    "source": "06_artikelen_prijzen_2024.xlsx!prijzen 2024",
+    "action": "quarantine",
+    "owner": "finance",
+    "raw": "\u20ac 216,71",
+    "repaired": null,
+    "message": "flag says VAT-inclusive, amount equals the exclusive price",
+    "evidence": {
+     "vat_rate": "21",
+     "flag": "ja",
+     "master_price": "216.71",
+     "inclusive_would_be": "262.22"
+    }
+   },
+   {
+    "rule": "R-IV-03",
+    "circle": 4,
+    "entity": "article",
+    "key": "SAN-0005",
+    "field": "price",
+    "source": "06_artikelen_prijzen_2024.xlsx!prijzen 2024",
+    "action": "quarantine",
+    "owner": "finance",
+    "raw": "294,63",
+    "repaired": null,
+    "message": "flag says VAT-inclusive, amount equals the exclusive price",
+    "evidence": {
+     "vat_rate": "21",
+     "flag": "ja",
+     "master_price": "294.63",
+     "inclusive_would_be": "356.50"
+    }
+   },
+   {
+    "rule": "R-IV-04",
+    "circle": 4,
+    "entity": "article",
+    "key": "SAN-0008",
+    "field": "price",
+    "source": "06_artikelen_prijzen_2024.xlsx!prijzen 2024",
+    "action": "quarantine",
+    "owner": "finance",
+    "raw": "595,40",
+    "repaired": null,
+    "message": "unit price below cost while a discount agreement exists",
+    "evidence": {
+     "cost": "676.59",
+     "price": "595.40"
+    }
+   },
+   {
+    "rule": "R-IV-03",
+    "circle": 4,
+    "entity": "article",
+    "key": "SAN-0013",
+    "field": "price",
+    "source": "06_artikelen_prijzen_2024.xlsx!prijzen 2024",
+    "action": "quarantine",
+    "owner": "finance",
+    "raw": "EUR 934,18",
+    "repaired": null,
+    "message": "flag says VAT-inclusive, amount equals the exclusive price",
+    "evidence": {
+     "vat_rate": "6",
+     "flag": "ja",
+     "master_price": "934.18",
+     "inclusive_would_be": "990.23"
+    }
+   },
+   {
+    "rule": "R-IV-03",
+    "circle": 4,
+    "entity": "article",
+    "key": "SAN-0014",
+    "field": "price",
+    "source": "06_artikelen_prijzen_2024.xlsx!prijzen 2024",
+    "action": "quarantine",
+    "owner": "finance",
+    "raw": "EUR 166,73",
+    "repaired": null,
+    "message": "flag says VAT-inclusive, amount equals the exclusive price",
+    "evidence": {
+     "vat_rate": "21",
+     "flag": "1",
+     "master_price": "166.73",
+     "inclusive_would_be": "201.74"
+    }
+   },
+   {
+    "rule": "R-IV-04",
+    "circle": 4,
+    "entity": "article",
+    "key": "SAN-0051",
+    "field": "price",
+    "source": "06_artikelen_prijzen_2024.xlsx!prijzen 2024",
+    "action": "quarantine",
+    "owner": "finance",
+    "raw": "\u20ac 450,01",
+    "repaired": null,
+    "message": "unit price below cost while a discount agreement exists",
+    "evidence": {
+     "cost": "511.37",
+     "price": "450.01"
+    }
+   },
+   {
+    "rule": "R-IV-04",
+    "circle": 4,
+    "entity": "article",
+    "key": "SAN-0087",
+    "field": "price",
+    "source": "06_artikelen_prijzen_2024.xlsx!prijzen 2024",
+    "action": "quarantine",
+    "owner": "finance",
+    "raw": "\u20ac 449,82",
+    "repaired": null,
+    "message": "unit price below cost while a discount agreement exists",
+    "evidence": {
+     "cost": "511.16",
+     "price": "449.82"
+    }
+   },
+   {
+    "rule": "R-IV-04",
+    "circle": 4,
+    "entity": "article",
+    "key": "SAN-0139",
+    "field": "price",
+    "source": "06_artikelen_prijzen_2024.xlsx!prijzen 2024",
+    "action": "quarantine",
+    "owner": "finance",
+    "raw": "139,02",
+    "repaired": null,
+    "message": "unit price below cost while a discount agreement exists",
+    "evidence": {
+     "cost": "157.98",
+     "price": "139.02"
+    }
+   },
+   {
+    "rule": "R-IV-04",
+    "circle": 4,
+    "entity": "article",
+    "key": "SAN-0147",
+    "field": "price",
+    "source": "06_artikelen_prijzen_2024.xlsx!prijzen 2024",
+    "action": "quarantine",
+    "owner": "finance",
+    "raw": "EUR 592,88",
+    "repaired": null,
+    "message": "unit price below cost while a discount agreement exists",
+    "evidence": {
+     "cost": "673.73",
+     "price": "592.88"
+    }
+   },
+   {
+    "rule": "R-IV-04",
+    "circle": 4,
+    "entity": "article",
+    "key": "SAN-0183",
+    "field": "price",
+    "source": "06_artikelen_prijzen_2024.xlsx!prijzen 2024",
+    "action": "quarantine",
+    "owner": "finance",
+    "raw": "EUR 30,76",
+    "repaired": null,
+    "message": "unit price below cost while a discount agreement exists",
+    "evidence": {
+     "cost": "34.96",
+     "price": "30.76"
+    }
+   },
+   {
+    "rule": "R-VII-04",
+    "circle": 7,
+    "entity": "open_item",
+    "key": "VF240006",
+    "field": "due_date",
+    "source": "11_openstaande_posten.xlsx!Posten",
+    "action": "quarantine",
+    "owner": "finance",
+    "raw": "08/05/2026",
+    "repaired": null,
+    "message": "this file proves both readings, so neither can be assumed",
+    "evidence": {
+     "european": "2026-05-08",
+     "american": "2026-08-05",
+     "evidence": {
+      "dmy": 588,
+      "mdy": 74
+     }
+    }
+   },
+   {
+    "rule": "R-VII-04",
+    "circle": 7,
+    "entity": "open_item",
+    "key": "VF240007",
+    "field": "due_date",
+    "source": "11_openstaande_posten.xlsx!Posten",
+    "action": "quarantine",
+    "owner": "finance",
+    "raw": "08/05/2026",
+    "repaired": null,
+    "message": "this file proves both readings, so neither can be assumed",
+    "evidence": {
+     "european": "2026-05-08",
+     "american": "2026-08-05",
+     "evidence": {
+      "dmy": 588,
+      "mdy": 74
+     }
+    }
+   },
+   {
+    "rule": "R-VII-04",
+    "circle": 7,
+    "entity": "open_item",
+    "key": "VF240011",
+    "field": "due_date",
+    "source": "11_openstaande_posten.xlsx!Posten",
+    "action": "quarantine",
+    "owner": "finance",
+    "raw": "09/10/2025",
+    "repaired": null,
+    "message": "this file proves both readings, so neither can be assumed",
+    "evidence": {
+     "european": "2025-10-09",
+     "american": "2025-09-10",
+     "evidence": {
+      "dmy": 588,
+      "mdy": 74
+     }
+    }
+   },
+   {
+    "rule": "R-VII-04",
+    "circle": 7,
+    "entity": "open_item",
+    "key": "VF240012",
+    "field": "due_date",
+    "source": "11_openstaande_posten.xlsx!Posten",
+    "action": "quarantine",
+    "owner": "finance",
+    "raw": "11/05/2025",
+    "repaired": null,
+    "message": "this file proves both readings, so neither can be assumed",
+    "evidence": {
+     "european": "2025-05-11",
+     "american": "2025-11-05",
+     "evidence": {
+      "dmy": 588,
+      "mdy": 74
+     }
+    }
+   },
+   {
+    "rule": "R-VII-04",
+    "circle": 7,
+    "entity": "open_item",
+    "key": "VF240015",
+    "field": "due_date",
+    "source": "11_openstaande_posten.xlsx!Posten",
+    "action": "quarantine",
+    "owner": "finance",
+    "raw": "11/09/2025",
+    "repaired": null,
+    "message": "this file proves both readings, so neither can be assumed",
+    "evidence": {
+     "european": "2025-09-11",
+     "american": "2025-11-09",
+     "evidence": {
+      "dmy": 588,
+      "mdy": 74
+     }
+    }
+   },
+   {
+    "rule": "R-VII-04",
+    "circle": 7,
+    "entity": "open_item",
+    "key": "VF240016",
+    "field": "due_date",
+    "source": "11_openstaande_posten.xlsx!Posten",
+    "action": "quarantine",
+    "owner": "finance",
+    "raw": "09/08/2025",
+    "repaired": null,
+    "message": "this file proves both readings, so neither can be assumed",
+    "evidence": {
+     "european": "2025-08-09",
+     "american": "2025-09-08",
+     "evidence": {
+      "dmy": 588,
+      "mdy": 74
+     }
+    }
+   }
+  ],
+  "operations": [
+   {
+    "rule": "R-V-01",
+    "circle": 5,
+    "entity": "article",
+    "key": "SAN-0007",
+    "field": "uom",
+    "source": "08_artikelen_eenheden.xlsx!eenheden",
+    "action": "quarantine",
+    "owner": "operations",
+    "raw": "ST (master) vs RL (warehouse)",
+    "repaired": null,
+    "message": "two sources, two units, a factor fifty in stock value",
+    "evidence": {
+     "master": "ST",
+     "warehouse": "RL"
+    }
+   },
+   {
+    "rule": "R-V-01",
+    "circle": 5,
+    "entity": "article",
+    "key": "SAN-0025",
+    "field": "uom",
+    "source": "08_artikelen_eenheden.xlsx!eenheden",
+    "action": "quarantine",
+    "owner": "operations",
+    "raw": "ST (master) vs PK (warehouse)",
+    "repaired": null,
+    "message": "two sources, two units, a factor fifty in stock value",
+    "evidence": {
+     "master": "ST",
+     "warehouse": "PK"
+    }
+   },
+   {
+    "rule": "R-V-01",
+    "circle": 5,
+    "entity": "article",
+    "key": "SAN-0036",
+    "field": "uom",
+    "source": "08_artikelen_eenheden.xlsx!eenheden",
+    "action": "quarantine",
+    "owner": "operations",
+    "raw": "ST (master) vs RL (warehouse)",
+    "repaired": null,
+    "message": "two sources, two units, a factor fifty in stock value",
+    "evidence": {
+     "master": "ST",
+     "warehouse": "RL"
+    }
+   },
+   {
+    "rule": "R-V-01",
+    "circle": 5,
+    "entity": "article",
+    "key": "SAN-0037",
+    "field": "uom",
+    "source": "08_artikelen_eenheden.xlsx!eenheden",
+    "action": "quarantine",
+    "owner": "operations",
+    "raw": "ST (master) vs RL (warehouse)",
+    "repaired": null,
+    "message": "two sources, two units, a factor fifty in stock value",
+    "evidence": {
+     "master": "ST",
+     "warehouse": "RL"
+    }
+   },
+   {
+    "rule": "R-V-01",
+    "circle": 5,
+    "entity": "article",
+    "key": "SAN-0078",
+    "field": "uom",
+    "source": "08_artikelen_eenheden.xlsx!eenheden",
+    "action": "quarantine",
+    "owner": "operations",
+    "raw": "ST (master) vs RL (warehouse)",
+    "repaired": null,
+    "message": "two sources, two units, a factor fifty in stock value",
+    "evidence": {
+     "master": "ST",
+     "warehouse": "RL"
+    }
+   },
+   {
+    "rule": "R-V-01",
+    "circle": 5,
+    "entity": "article",
+    "key": "SAN-0096",
+    "field": "uom",
+    "source": "08_artikelen_eenheden.xlsx!eenheden",
+    "action": "quarantine",
+    "owner": "operations",
+    "raw": "ST (master) vs RL (warehouse)",
+    "repaired": null,
+    "message": "two sources, two units, a factor fifty in stock value",
+    "evidence": {
+     "master": "ST",
+     "warehouse": "RL"
+    }
+   },
+   {
+    "rule": "R-VII-01",
+    "circle": 7,
+    "entity": "article",
+    "key": "5.49E+12",
+    "field": "article_no",
+    "source": "07_artikelen_voorraad.xlsx!voorraad",
+    "action": "quarantine",
+    "owner": "operations",
+    "raw": "5.49E+12",
+    "repaired": null,
+    "message": "digits lost to float precision; not recoverable from this cell",
+    "evidence": {
+     "stock": "2",
+     "hint": "match against the master file on EAN before accepting"
+    }
+   },
+   {
+    "rule": "R-VII-01",
+    "circle": 7,
+    "entity": "article",
+    "key": "5.48E+12",
+    "field": "article_no",
+    "source": "07_artikelen_voorraad.xlsx!voorraad",
+    "action": "quarantine",
+    "owner": "operations",
+    "raw": "5.48E+12",
+    "repaired": null,
+    "message": "digits lost to float precision; not recoverable from this cell",
+    "evidence": {
+     "stock": "0",
+     "hint": "match against the master file on EAN before accepting"
+    }
+   },
+   {
+    "rule": "R-VII-01",
+    "circle": 7,
+    "entity": "article",
+    "key": "5.49E+12",
+    "field": "article_no",
+    "source": "07_artikelen_voorraad.xlsx!voorraad",
+    "action": "quarantine",
+    "owner": "operations",
+    "raw": "5.49E+12",
+    "repaired": null,
+    "message": "digits lost to float precision; not recoverable from this cell",
+    "evidence": {
+     "stock": "0",
+     "hint": "match against the master file on EAN before accepting"
+    }
+   },
+   {
+    "rule": "R-VII-01",
+    "circle": 7,
+    "entity": "article",
+    "key": "5.42E+12",
+    "field": "article_no",
+    "source": "07_artikelen_voorraad.xlsx!voorraad",
+    "action": "quarantine",
+    "owner": "operations",
+    "raw": "5.42E+12",
+    "repaired": null,
+    "message": "digits lost to float precision; not recoverable from this cell",
+    "evidence": {
+     "stock": "5",
+     "hint": "match against the master file on EAN before accepting"
+    }
+   },
+   {
+    "rule": "R-VII-01",
+    "circle": 7,
+    "entity": "article",
+    "key": "5.41E+12",
+    "field": "article_no",
+    "source": "07_artikelen_voorraad.xlsx!voorraad",
+    "action": "quarantine",
+    "owner": "operations",
+    "raw": "5.41E+12",
+    "repaired": null,
+    "message": "digits lost to float precision; not recoverable from this cell",
+    "evidence": {
+     "stock": "40",
+     "hint": "match against the master file on EAN before accepting"
+    }
+   },
+   {
+    "rule": "R-VII-01",
+    "circle": 7,
+    "entity": "article",
+    "key": "5.50E+12",
+    "field": "article_no",
+    "source": "07_artikelen_voorraad.xlsx!voorraad",
+    "action": "quarantine",
+    "owner": "operations",
+    "raw": "5.50E+12",
+    "repaired": null,
+    "message": "digits lost to float precision; not recoverable from this cell",
+    "evidence": {
+     "stock": "2",
+     "hint": "match against the master file on EAN before accepting"
+    }
+   }
+  ],
+  "purchasing": [
+   {
+    "rule": "R-V-03",
+    "circle": 5,
+    "entity": "article",
+    "key": "SAN-0001",
+    "field": "supplier_no",
+    "source": "09_artikelen_leverancier.xlsx!leverancier",
+    "action": "quarantine",
+    "owner": "purchasing",
+    "raw": "L0031 (master) vs L0069 (purchasing)",
+    "repaired": null,
+    "message": "purchasing drives replenishment from this field",
+    "evidence": {
+     "master": "L0031",
+     "purchasing": "L0069"
+    }
+   },
+   {
+    "rule": "R-V-03",
+    "circle": 5,
+    "entity": "article",
+    "key": "SAN-0075",
+    "field": "supplier_no",
+    "source": "09_artikelen_leverancier.xlsx!leverancier",
+    "action": "quarantine",
+    "owner": "purchasing",
+    "raw": "L0070 (master) vs L0064 (purchasing)",
+    "repaired": null,
+    "message": "purchasing drives replenishment from this field",
+    "evidence": {
+     "master": "L0070",
+     "purchasing": "L0064"
+    }
+   },
+   {
+    "rule": "R-V-03",
+    "circle": 5,
+    "entity": "article",
+    "key": "SAN-0080",
+    "field": "supplier_no",
+    "source": "09_artikelen_leverancier.xlsx!leverancier",
+    "action": "quarantine",
+    "owner": "purchasing",
+    "raw": "L0043 (master) vs L0059 (purchasing)",
+    "repaired": null,
+    "message": "purchasing drives replenishment from this field",
+    "evidence": {
+     "master": "L0043",
+     "purchasing": "L0059"
+    }
+   },
+   {
+    "rule": "R-V-03",
+    "circle": 5,
+    "entity": "article",
+    "key": "SAN-0085",
+    "field": "supplier_no",
+    "source": "09_artikelen_leverancier.xlsx!leverancier",
+    "action": "quarantine",
+    "owner": "purchasing",
+    "raw": "L0025 (master) vs L0023 (purchasing)",
+    "repaired": null,
+    "message": "purchasing drives replenishment from this field",
+    "evidence": {
+     "master": "L0025",
+     "purchasing": "L0023"
+    }
+   },
+   {
+    "rule": "R-V-03",
+    "circle": 5,
+    "entity": "article",
+    "key": "SAN-0096",
+    "field": "supplier_no",
+    "source": "09_artikelen_leverancier.xlsx!leverancier",
+    "action": "quarantine",
+    "owner": "purchasing",
+    "raw": "L0015 (master) vs L0027 (purchasing)",
+    "repaired": null,
+    "message": "purchasing drives replenishment from this field",
+    "evidence": {
+     "master": "L0015",
+     "purchasing": "L0027"
+    }
+   },
+   {
+    "rule": "R-V-03",
+    "circle": 5,
+    "entity": "article",
+    "key": "SAN-0109",
+    "field": "supplier_no",
+    "source": "09_artikelen_leverancier.xlsx!leverancier",
+    "action": "quarantine",
+    "owner": "purchasing",
+    "raw": "L0020 (master) vs L0049 (purchasing)",
+    "repaired": null,
+    "message": "purchasing drives replenishment from this field",
+    "evidence": {
+     "master": "L0020",
+     "purchasing": "L0049"
+    }
+   },
+   {
+    "rule": "R-VIII-02",
+    "circle": 8,
+    "entity": "article",
+    "key": "SAN-0005",
+    "field": "supplier_no",
+    "source": "09_artikelen_leverancier.xlsx!leverancier",
+    "action": "quarantine",
+    "owner": "purchasing",
+    "raw": "L977",
+    "repaired": null,
+    "message": "the article is real and sellable; only its replenishment link is broken",
+    "evidence": {}
+   },
+   {
+    "rule": "R-VIII-02",
+    "circle": 8,
+    "entity": "article",
+    "key": "SAN-0010",
+    "field": "supplier_no",
+    "source": "09_artikelen_leverancier.xlsx!leverancier",
+    "action": "quarantine",
+    "owner": "purchasing",
+    "raw": "L900",
+    "repaired": null,
+    "message": "the article is real and sellable; only its replenishment link is broken",
+    "evidence": {}
+   },
+   {
+    "rule": "R-VIII-02",
+    "circle": 8,
+    "entity": "article",
+    "key": "SAN-0019",
+    "field": "supplier_no",
+    "source": "09_artikelen_leverancier.xlsx!leverancier",
+    "action": "quarantine",
+    "owner": "purchasing",
+    "raw": "L934",
+    "repaired": null,
+    "message": "the article is real and sellable; only its replenishment link is broken",
+    "evidence": {}
+   },
+   {
+    "rule": "R-VIII-04",
+    "circle": 8,
+    "entity": "article",
+    "key": "SAN-0034",
+    "field": "supplier_no",
+    "source": "09_artikelen_leverancier.xlsx!leverancier",
+    "action": "quarantine",
+    "owner": "purchasing",
+    "raw": "L0032",
+    "repaired": null,
+    "message": "reference intact, business fact broken: reroute or block",
+    "evidence": {}
+   },
+   {
+    "rule": "R-VIII-02",
+    "circle": 8,
+    "entity": "article",
+    "key": "SAN-0047",
+    "field": "supplier_no",
+    "source": "09_artikelen_leverancier.xlsx!leverancier",
+    "action": "quarantine",
+    "owner": "purchasing",
+    "raw": "L939",
+    "repaired": null,
+    "message": "the article is real and sellable; only its replenishment link is broken",
+    "evidence": {}
+   },
+   {
+    "rule": "R-VIII-04",
+    "circle": 8,
+    "entity": "article",
+    "key": "SAN-0053",
+    "field": "supplier_no",
+    "source": "09_artikelen_leverancier.xlsx!leverancier",
+    "action": "quarantine",
+    "owner": "purchasing",
+    "raw": "L0058",
+    "repaired": null,
+    "message": "reference intact, business fact broken: reroute or block",
+    "evidence": {}
+   },
+   {
+    "rule": "R-VIII-04",
+    "circle": 8,
+    "entity": "article",
+    "key": "SAN-0076",
+    "field": "supplier_no",
+    "source": "09_artikelen_leverancier.xlsx!leverancier",
+    "action": "quarantine",
+    "owner": "purchasing",
+    "raw": "L0032",
+    "repaired": null,
+    "message": "reference intact, business fact broken: reroute or block",
+    "evidence": {}
+   },
+   {
+    "rule": "R-VIII-04",
+    "circle": 8,
+    "entity": "article",
+    "key": "SAN-0083",
+    "field": "supplier_no",
+    "source": "09_artikelen_leverancier.xlsx!leverancier",
+    "action": "quarantine",
+    "owner": "purchasing",
+    "raw": "L0057",
+    "repaired": null,
+    "message": "reference intact, business fact broken: reroute or block",
+    "evidence": {}
+   },
+   {
+    "rule": "R-VIII-04",
+    "circle": 8,
+    "entity": "article",
+    "key": "SAN-0085",
+    "field": "supplier_no",
+    "source": "09_artikelen_leverancier.xlsx!leverancier",
+    "action": "quarantine",
+    "owner": "purchasing",
+    "raw": "L0023",
+    "repaired": null,
+    "message": "reference intact, business fact broken: reroute or block",
+    "evidence": {}
+   },
+   {
+    "rule": "R-VIII-04",
+    "circle": 8,
+    "entity": "article",
+    "key": "SAN-0092",
+    "field": "supplier_no",
+    "source": "09_artikelen_leverancier.xlsx!leverancier",
+    "action": "quarantine",
+    "owner": "purchasing",
+    "raw": "L0030",
+    "repaired": null,
+    "message": "reference intact, business fact broken: reroute or block",
+    "evidence": {}
+   },
+   {
+    "rule": "R-VIII-02",
+    "circle": 8,
+    "entity": "article",
+    "key": "SAN-0102",
+    "field": "supplier_no",
+    "source": "09_artikelen_leverancier.xlsx!leverancier",
+    "action": "quarantine",
+    "owner": "purchasing",
+    "raw": "L963",
+    "repaired": null,
+    "message": "the article is real and sellable; only its replenishment link is broken",
+    "evidence": {}
+   },
+   {
+    "rule": "R-VIII-02",
+    "circle": 8,
+    "entity": "article",
+    "key": "SAN-0116",
+    "field": "supplier_no",
+    "source": "09_artikelen_leverancier.xlsx!leverancier",
+    "action": "quarantine",
+    "owner": "purchasing",
+    "raw": "L979",
+    "repaired": null,
+    "message": "the article is real and sellable; only its replenishment link is broken",
+    "evidence": {}
+   }
+  ],
+  "sales": [
+   {
+    "rule": "R-II-02",
+    "circle": 2,
+    "entity": "customer",
+    "key": "K00416",
+    "field": "name",
+    "source": "01_klanten_mercurius.csv",
+    "action": "quarantine",
+    "owner": "sales",
+    "raw": "Declercq Verwarming & Zonen",
+    "repaired": null,
+    "message": "score 76 sits between 75 and 92",
+    "evidence": {
+     "score": 75.55555555555556,
+     "candidate": "Declercq & Zonen",
+     "candidate_row": 24
+    }
+   },
+   {
+    "rule": "R-II-02",
+    "circle": 2,
+    "entity": "customer",
+    "key": "cust_sofie#36",
+    "field": "name",
+    "source": "03_klanten_verkoop_sofie.xlsx!klanten",
+    "action": "quarantine",
+    "owner": "sales",
+    "raw": "declercq verwarming & zonen",
+    "repaired": null,
+    "message": "score 76 sits between 75 and 92",
+    "evidence": {
+     "score": 75.55555555555556,
+     "candidate": "Declercq & Zonen",
+     "candidate_row": 24
+    }
+   },
+   {
+    "rule": "R-II-02",
+    "circle": 2,
+    "entity": "customer",
+    "key": "K00416",
+    "field": "name",
+    "source": "01_klanten_mercurius.csv",
+    "action": "quarantine",
+    "owner": "sales",
+    "raw": "Declercq Verwarming & Zonen",
+    "repaired": null,
+    "message": "score 76 sits between 75 and 92",
+    "evidence": {
+     "score": 75.55555555555556,
+     "candidate": "Declercq & Zonen",
+     "candidate_row": 67
+    }
+   },
+   {
+    "rule": "R-II-02",
+    "circle": 2,
+    "entity": "customer",
+    "key": "cust_sofie#36",
+    "field": "name",
+    "source": "03_klanten_verkoop_sofie.xlsx!klanten",
+    "action": "quarantine",
+    "owner": "sales",
+    "raw": "declercq verwarming & zonen",
+    "repaired": null,
+    "message": "score 76 sits between 75 and 92",
+    "evidence": {
+     "score": 75.55555555555556,
+     "candidate": "Declercq & Zonen",
+     "candidate_row": 67
+    }
+   },
+   {
+    "rule": "R-II-02",
+    "circle": 2,
+    "entity": "customer",
+    "key": "cust_sofie#15",
+    "field": "name",
+    "source": "03_klanten_verkoop_sofie.xlsx!klanten",
+    "action": "quarantine",
+    "owner": "sales",
+    "raw": "Declercq & Zonen",
+    "repaired": null,
+    "message": "score 76 sits between 75 and 92",
+    "evidence": {
+     "score": 75.55555555555556,
+     "candidate": "Declercq Verwarming & Zonen",
+     "candidate_row": 417
+    }
+   },
+   {
+    "rule": "R-II-02",
+    "circle": 2,
+    "entity": "customer",
+    "key": "cust_sofie#36",
+    "field": "name",
+    "source": "03_klanten_verkoop_sofie.xlsx!klanten",
+    "action": "quarantine",
+    "owner": "sales",
+    "raw": "declercq verwarming & zonen",
+    "repaired": null,
+    "message": "score 76 sits between 75 and 92",
+    "evidence": {
+     "score": 75.55555555555556,
+     "candidate": "Declercq & Zonen",
+     "candidate_row": 15
+    }
+   },
+   {
+    "rule": "R-II-03",
+    "circle": 2,
+    "entity": "customer",
+    "key": "K00002",
+    "field": "payment_terms",
+    "source": "cust_master+cust_sofie",
+    "action": "quarantine",
+    "owner": "sales",
+    "raw": "14 vs 60",
+    "repaired": null,
+    "message": "2 values for payment_terms in one cluster",
+    "evidence": {
+     "values": [
+      "14",
+      "60"
+     ]
+    }
+   },
+   {
+    "rule": "R-II-03",
+    "circle": 2,
+    "entity": "customer",
+    "key": "K00002",
+    "field": "credit_limit",
+    "source": "cust_master+cust_sofie",
+    "action": "quarantine",
+    "owner": "sales",
+    "raw": "10000 vs 25000",
+    "repaired": null,
+    "message": "2 values for credit_limit in one cluster",
+    "evidence": {
+     "values": [
+      "10000",
+      "25000"
+     ]
+    }
+   },
+   {
+    "rule": "R-II-03",
+    "circle": 2,
+    "entity": "customer",
+    "key": "K00012",
+    "field": "payment_terms",
+    "source": "cust_master+cust_sofie",
+    "action": "quarantine",
+    "owner": "sales",
+    "raw": "30 vs 45",
+    "repaired": null,
+    "message": "2 values for payment_terms in one cluster",
+    "evidence": {
+     "values": [
+      "30",
+      "45"
+     ]
+    }
+   },
+   {
+    "rule": "R-II-03",
+    "circle": 2,
+    "entity": "customer",
+    "key": "K00012",
+    "field": "credit_limit",
+    "source": "cust_master+cust_sofie",
+    "action": "quarantine",
+    "owner": "sales",
+    "raw": "2500 vs 5000",
+    "repaired": null,
+    "message": "2 values for credit_limit in one cluster",
+    "evidence": {
+     "values": [
+      "2500",
+      "5000"
+     ]
+    }
+   },
+   {
+    "rule": "R-II-03",
+    "circle": 2,
+    "entity": "customer",
+    "key": "K00019",
+    "field": "credit_limit",
+    "source": "cust_master+cust_sofie",
+    "action": "quarantine",
+    "owner": "sales",
+    "raw": "15000 vs 5000",
+    "repaired": null,
+    "message": "2 values for credit_limit in one cluster",
+    "evidence": {
+     "values": [
+      "15000",
+      "5000"
+     ]
+    }
+   },
+   {
+    "rule": "R-II-03",
+    "circle": 2,
+    "entity": "customer",
+    "key": "K00023",
+    "field": "payment_terms",
+    "source": "cust_master+cust_sofie",
+    "action": "quarantine",
+    "owner": "sales",
+    "raw": "45 vs 60",
+    "repaired": null,
+    "message": "2 values for payment_terms in one cluster",
+    "evidence": {
+     "values": [
+      "45",
+      "60"
+     ]
+    }
+   },
+   {
+    "rule": "R-III-04",
+    "circle": 3,
+    "entity": "customer",
+    "key": "cust_jan#11",
+    "field": "address",
+    "source": "02_klanten_verkoop_jan.xlsx!Blad1",
+    "action": "quarantine",
+    "owner": "sales",
+    "raw": "achter de kerk, bellen bij de poort",
+    "repaired": null,
+    "message": "a delivery instruction, not an address",
+    "evidence": {}
+   },
+   {
+    "rule": "R-III-04",
+    "circle": 3,
+    "entity": "customer",
+    "key": "cust_jan#13",
+    "field": "address",
+    "source": "02_klanten_verkoop_jan.xlsx!Blad1",
+    "action": "quarantine",
+    "owner": "sales",
+    "raw": "achter de kerk, bellen bij de poort",
+    "repaired": null,
+    "message": "a delivery instruction, not an address",
+    "evidence": {}
+   },
+   {
+    "rule": "R-III-04",
+    "circle": 3,
+    "entity": "customer",
+    "key": "cust_jan#24",
+    "field": "address",
+    "source": "02_klanten_verkoop_jan.xlsx!Blad1",
+    "action": "quarantine",
+    "owner": "sales",
+    "raw": "nieuw adres volgt",
+    "repaired": null,
+    "message": "a delivery instruction, not an address",
+    "evidence": {}
+   },
+   {
+    "rule": "R-III-04",
+    "circle": 3,
+    "entity": "customer",
+    "key": "cust_jan#59",
+    "field": "address",
+    "source": "02_klanten_verkoop_jan.xlsx!Blad1",
+    "action": "quarantine",
+    "owner": "sales",
+    "raw": "werf Izegem - zie Jan",
+    "repaired": null,
+    "message": "a delivery instruction, not an address",
+    "evidence": {}
+   },
+   {
+    "rule": "R-III-04",
+    "circle": 3,
+    "entity": "customer",
+    "key": "cust_jan#63",
+    "field": "address",
+    "source": "02_klanten_verkoop_jan.xlsx!Blad1",
+    "action": "quarantine",
+    "owner": "sales",
+    "raw": "achter de kerk, bellen bij de poort",
+    "repaired": null,
+    "message": "a delivery instruction, not an address",
+    "evidence": {}
+   },
+   {
+    "rule": "R-III-04",
+    "circle": 3,
+    "entity": "customer",
+    "key": "cust_jan#84",
+    "field": "address",
+    "source": "02_klanten_verkoop_jan.xlsx!Blad1",
+    "action": "quarantine",
+    "owner": "sales",
+    "raw": "nieuw adres volgt",
+    "repaired": null,
+    "message": "a delivery instruction, not an address",
+    "evidence": {}
+   },
+   {
+    "rule": "R-VI-05",
+    "circle": 6,
+    "entity": "customer",
+    "key": "K00150",
+    "field": "country",
+    "source": "01_klanten_mercurius.csv",
+    "action": "quarantine",
+    "owner": "sales",
+    "raw": "XX",
+    "repaired": null,
+    "message": "\"B\" is a legacy code for Belgium and a valid code for nothing",
+    "evidence": {}
+   },
+   {
+    "rule": "R-VI-05",
+    "circle": 6,
+    "entity": "customer",
+    "key": "K00245",
+    "field": "country",
+    "source": "01_klanten_mercurius.csv",
+    "action": "quarantine",
+    "owner": "sales",
+    "raw": "BELG",
+    "repaired": "BE",
+    "message": "recoverable, but ask anyway",
+    "evidence": {}
+   },
+   {
+    "rule": "R-VI-05",
+    "circle": 6,
+    "entity": "customer",
+    "key": "K00279",
+    "field": "country",
+    "source": "01_klanten_mercurius.csv",
+    "action": "quarantine",
+    "owner": "sales",
+    "raw": "BELG",
+    "repaired": "BE",
+    "message": "recoverable, but ask anyway",
+    "evidence": {}
+   },
+   {
+    "rule": "R-VI-05",
+    "circle": 6,
+    "entity": "customer",
+    "key": "K00300",
+    "field": "country",
+    "source": "01_klanten_mercurius.csv",
+    "action": "quarantine",
+    "owner": "sales",
+    "raw": "B",
+    "repaired": null,
+    "message": "\"B\" is a legacy code for Belgium and a valid code for nothing",
+    "evidence": {}
+   },
+   {
+    "rule": "R-VI-05",
+    "circle": 6,
+    "entity": "customer",
+    "key": "K00455",
+    "field": "country",
+    "source": "01_klanten_mercurius.csv",
+    "action": "quarantine",
+    "owner": "sales",
+    "raw": "XX",
+    "repaired": null,
+    "message": "\"B\" is a legacy code for Belgium and a valid code for nothing",
+    "evidence": {}
+   },
+   {
+    "rule": "R-VI-05",
+    "circle": 6,
+    "entity": "customer",
+    "key": "K00464",
+    "field": "country",
+    "source": "01_klanten_mercurius.csv",
+    "action": "quarantine",
+    "owner": "sales",
+    "raw": "XX",
+    "repaired": null,
+    "message": "\"B\" is a legacy code for Belgium and a valid code for nothing",
+    "evidence": {}
+   }
+  ]
+ },
+ "detection": {
+  "per_rule": {
+   "R-I-01": {
+    "planted": 119,
+    "found": 116,
+    "reported": 116,
+    "recall": 0.9748
+   },
+   "R-I-02": {
+    "planted": 115,
+    "found": 109,
+    "reported": 387,
+    "recall": 0.9478
+   },
+   "R-I-03": {
+    "planted": 109,
+    "found": 109,
+    "reported": 195,
+    "recall": 1.0
+   },
+   "R-I-04": {
+    "planted": 1,
+    "found": 1,
+    "reported": 1,
+    "recall": 1.0
+   },
+   "R-I-05": {
+    "planted": 128,
+    "found": 126,
+    "reported": 126,
+    "recall": 0.9844
+   },
+   "R-II-01": {
+    "planted": 222,
+    "found": 164,
+    "reported": 582,
+    "recall": 0.7387
+   },
+   "R-II-02": {
+    "planted": 26,
+    "found": 9,
+    "reported": 245,
+    "recall": 0.3462
+   },
+   "R-II-03": {
+    "planted": 36,
+    "found": 32,
+    "reported": 147,
+    "recall": 0.8889
+   },
+   "R-II-04": {
+    "planted": 22,
+    "found": 18,
+    "reported": 154,
+    "recall": 0.8182
+   },
+   "R-III-01": {
+    "planted": 314,
+    "found": 296,
+    "reported": 296,
+    "recall": 0.9427
+   },
+   "R-III-02": {
+    "planted": 160,
+    "found": 147,
+    "reported": 147,
+    "recall": 0.9187
+   },
+   "R-III-03": {
+    "planted": 65,
+    "found": 65,
+    "reported": 65,
+    "recall": 1.0
+   },
+   "R-III-04": {
+    "planted": 18,
+    "found": 18,
+    "reported": 18,
+    "recall": 1.0
+   },
+   "R-III-05": {
+    "planted": 17,
+    "found": 17,
+    "reported": 17,
+    "recall": 1.0
+   },
+   "R-IV-01": {
+    "planted": 2106,
+    "found": 2055,
+    "reported": 1629,
+    "recall": 0.9758
+   },
+   "R-IV-02": {
+    "planted": 905,
+    "found": 861,
+    "reported": 915,
+    "recall": 0.9514
+   },
+   "R-IV-03": {
+    "planted": 169,
+    "found": 143,
+    "reported": 408,
+    "recall": 0.8462
+   },
+   "R-IV-04": {
+    "planted": 42,
+    "found": 40,
+    "reported": 40,
+    "recall": 0.9524
+   },
+   "R-IV-05": {
+    "planted": 16,
+    "found": 16,
+    "reported": 16,
+    "recall": 1.0
+   },
+   "R-V-01": {
+    "planted": 78,
+    "found": 75,
+    "reported": 75,
+    "recall": 0.9615
+   },
+   "R-V-02": {
+    "planted": 350,
+    "found": 323,
+    "reported": 323,
+    "recall": 0.9229
+   },
+   "R-V-03": {
+    "planted": 53,
+    "found": 50,
+    "reported": 50,
+    "recall": 0.9434
+   },
+   "R-VI-01": {
+    "planted": 9,
+    "found": 9,
+    "reported": 9,
+    "recall": 1.0
+   },
+   "R-VI-02": {
+    "planted": 41,
+    "found": 41,
+    "reported": 41,
+    "recall": 1.0
+   },
+   "R-VI-03": {
+    "planted": 51,
+    "found": 51,
+    "reported": 51,
+    "recall": 1.0
+   },
+   "R-VI-04": {
+    "planted": 7,
+    "found": 7,
+    "reported": 7,
+    "recall": 1.0
+   },
+   "R-VI-05": {
+    "planted": 21,
+    "found": 21,
+    "reported": 21,
+    "recall": 1.0
+   },
+   "R-VII-01": {
+    "planted": 41,
+    "found": 41,
+    "reported": 16,
+    "recall": 1.0
+   },
+   "R-VII-02": {
+    "planted": 114,
+    "found": 102,
+    "reported": 102,
+    "recall": 0.8947
+   },
+   "R-VII-03": {
+    "planted": 66,
+    "found": 66,
+    "reported": 469,
+    "recall": 1.0
+   },
+   "R-VII-04": {
+    "planted": 56,
+    "found": 52,
+    "reported": 405,
+    "recall": 0.9286
+   },
+   "R-VII-05": {
+    "planted": 23,
+    "found": 23,
+    "reported": 23,
+    "recall": 1.0
+   },
+   "R-VIII-01": {
+    "planted": 20,
+    "found": 20,
+    "reported": 39,
+    "recall": 1.0
+   },
+   "R-VIII-02": {
+    "planted": 33,
+    "found": 32,
+    "reported": 32,
+    "recall": 0.9697
+   },
+   "R-VIII-03": {
+    "planted": 12,
+    "found": 12,
+    "reported": 12,
+    "recall": 1.0
+   },
+   "R-VIII-04": {
+    "planted": 78,
+    "found": 71,
+    "reported": 120,
+    "recall": 0.9103
+   }
+  },
+  "planted": 5643,
+  "found": 5338,
+  "overall": 0.946,
+  "planted_total": 5645
+ }
+}

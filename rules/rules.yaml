@@ -1,0 +1,513 @@
+# DANTE rule registry — rules as data, not as scattered code.
+#
+# Every rule carries: who owns the decision, what the engine does, and why.
+# CI asserts that each rule is referenced by the engine and covered by at
+# least one passing and one failing fixture (tests/test_registry.py).
+#
+# action:
+#   repair     — the engine can fix this deterministically and logs the change
+#   quarantine — the engine cannot decide; a human must. Goes to Purgatorio.
+#   reject     — the value is unusable; the row cannot be migrated. Inferno.
+#   gate       — a run-level check that blocks the whole migration.
+#
+# owner: who answers the question when a row lands in Purgatorio.
+
+circles:
+  - number: 1
+    name: Limbo
+    sin: Data that is almost right
+    description: >
+      Nothing here is wrong on purpose. Encodings drifted, spaces crept in,
+      a BOM rode along. These rows are not sinners, they are the unbaptised:
+      they never got a chance to be correct. All of it is repairable.
+
+  - number: 2
+    name: Lust
+    sin: The same customer, five times over
+    description: >
+      Four sources, no shared key. Every sales rep kept their own list, so
+      "Vanacker BVBA", "Vanacker b.v.b.a." and "VANACKER" are one company
+      with three credit limits. Matching is cheap; deciding which record
+      survives is not.
+
+  - number: 3
+    name: Gluttony
+    sin: One cell, swallowing everything
+    description: >
+      A single column holding a street, a box number, a postcode, a VAT
+      number and two email addresses. The legacy system had no field for it,
+      so the users made one.
+
+  - number: 4
+    name: Greed
+    sin: Money that will not say what it means
+    description: >
+      Comma or dot, euro or franc-era text, VAT in or VAT out, discount baked
+      into the unit price. Every one of these is a cent that lands in the wrong
+      ledger.
+
+  - number: 5
+    name: Wrath
+    sin: Sources at war with each other
+    description: >
+      The same article is sold per piece in one file, per box in another and
+      per metre in a third. No file is wrong on its own. Together they cannot
+      all be true.
+
+  - number: 6
+    name: Heresy
+    sin: Values that pass every format check and are still false
+    description: >
+      BE0000000000 is a structurally valid VAT number. 1900-01-01 is a valid
+      date. noreply@noreply.be is a valid address. These rows pass validation
+      and poison the ERP, which is exactly what makes them heretics: they look
+      like believers.
+
+  - number: 7
+    name: Violence
+    sin: What Excel did to the data on its way here
+    description: >
+      Article codes turned into 1.23E+11. Leading zeros eaten off an EAN.
+      Dates silently converted to serial numbers, or worse, to a US reading
+      that is also a valid European one. The user never touched these cells.
+
+  - number: 8
+    name: Fraud
+    sin: References to things that do not exist
+    description: >
+      Discount agreements for customers that were deleted in 2019. Articles
+      assigned to a supplier that went bankrupt. Open items for a customer
+      number that is not in any master file. The keys look fine. They point
+      at nothing.
+
+  - number: 9
+    name: Treachery
+    sin: The data that is clean, loads fine and is still wrong
+    description: >
+      The deepest circle is reserved for betrayal. A migration that balances
+      to zero because two errors cancel each other out will pass a net-total
+      reconciliation, load without a single warning, and be discovered by the
+      accountant in March. Only component-level reconciliation catches it.
+
+rules:
+  # ───────────────────────────── I · Limbo ─────────────────────────────
+  - id: R-I-01
+    circle: 1
+    title: Mojibake from a latin-1 export read as UTF-8
+    entity: [customer, supplier]
+    action: repair
+    owner: engine
+    rationale: >
+      The accounting export is latin-1. Read as UTF-8 it yields "VanackerÂ ",
+      "KortrÃ¯jk". The mapping is lossless and reversible, so the engine fixes
+      it and logs the original bytes.
+
+  - id: R-I-02
+    circle: 1
+    title: Non-breaking spaces and zero-width characters
+    entity: [customer, supplier, article]
+    action: repair
+    owner: engine
+    rationale: >
+      U+00A0 and U+200B survive every trim() a user tries. They break joins
+      silently because the strings look identical on screen.
+
+  - id: R-I-03
+    circle: 1
+    title: Leading, trailing and doubled whitespace
+    entity: [customer, supplier, article]
+    action: repair
+    owner: engine
+    rationale: >
+      Cosmetic in the source and join-breaking in the target. A trailing space
+      is invisible in every spreadsheet and decisive in every lookup, so two
+      records that read identically on screen refuse to match on load.
+
+  - id: R-I-04
+    circle: 1
+    title: Byte order mark on the first column header
+    entity: [customer, article]
+    action: repair
+    owner: engine
+    rationale: >
+      A BOM makes the first column unaddressable by name, which usually
+      surfaces as a missing mandatory field rather than as an encoding issue.
+
+  - id: R-I-05
+    circle: 1
+    title: Entity codes in mixed case and with inner spaces
+    entity: [customer, supplier, article]
+    action: repair
+    owner: engine
+    rationale: >
+      "san-0098", "SAN 0098" and "SAN-0098" are one article. Codes are
+      case-folded and space-stripped before any matching happens.
+
+  # ───────────────────────────── II · Lust ─────────────────────────────
+  - id: R-II-01
+    circle: 2
+    title: Near-duplicate customers above the auto-merge threshold
+    entity: [customer]
+    action: repair
+    owner: engine
+    rationale: >
+      Blocking on postcode plus normalised name, scored with token_set_ratio.
+      At or above 92 the pair is the same legal entity in every sample we
+      reviewed, so the engine merges and records the losing record.
+
+  - id: R-II-02
+    circle: 2
+    title: Near-duplicate customers in the grey band
+    entity: [customer]
+    action: quarantine
+    owner: sales
+    rationale: >
+      Between 80 and 92 the score cannot separate "Bouwbedrijf Deveux" from
+      "Bouwbedrijf Deveux Zonen", which are a parent and its subsidiary with
+      separate credit limits. A wrong merge destroys a credit history, so
+      sales decides.
+
+  - id: R-II-03
+    circle: 2
+    title: Survivorship conflict on merge
+    entity: [customer]
+    action: quarantine
+    owner: sales
+    rationale: >
+      When two matched records disagree on payment terms or credit limit,
+      completeness cannot pick a winner. Merging on "most complete record"
+      would silently raise a credit limit.
+
+  - id: R-II-04
+    circle: 2
+    title: Identical VAT number on records with different names
+    entity: [customer, supplier]
+    action: quarantine
+    owner: finance
+    rationale: >
+      A shared VAT number is strong evidence of one entity, but it is also how
+      a trading name and its legal entity appear. Finance owns the call.
+
+  # ─────────────────────────── III · Gluttony ──────────────────────────
+  - id: R-III-01
+    circle: 3
+    title: Postcode and city embedded in the street field
+    entity: [customer, supplier]
+    action: repair
+    owner: engine
+    rationale: >
+      Belgian postcodes are four digits in a known range and appear in a fixed
+      position relative to the city name, which makes the split deterministic.
+
+  - id: R-III-02
+    circle: 3
+    title: Box number inside the house number
+    entity: [customer, supplier]
+    action: repair
+    owner: engine
+    rationale: >
+      "12 bus 3", "12/3" and "12 b3" are one house number and one box. The
+      target ERP has separate fields and rejects the combined value.
+
+  - id: R-III-03
+    circle: 3
+    title: Multiple email addresses in one cell
+    entity: [customer, supplier]
+    action: repair
+    owner: engine
+    rationale: >
+      Split on the usual separators, first address becomes primary, the rest
+      become additional contacts. Order is preserved because the first address
+      is the one the users have been mailing.
+
+  - id: R-III-04
+    circle: 3
+    title: Unparseable address soup
+    entity: [customer, supplier]
+    action: quarantine
+    owner: sales
+    rationale: >
+      "achter de kerk, bellen bij de poort" is a real delivery instruction and
+      not an address. Guessing a street here invents data.
+
+  - id: R-III-05
+    circle: 3
+    title: VAT number hidden in the company name
+    entity: [customer, supplier]
+    action: repair
+    owner: engine
+    rationale: >
+      Users with no VAT field typed it into the name. Extracting it recovers a
+      mandatory field, and the pattern is unambiguous.
+
+  # ──────────────────────────── IV · Greed ─────────────────────────────
+  - id: R-IV-01
+    circle: 4
+    title: Decimal comma, dot or both as thousand separator
+    entity: [article, open_item]
+    action: repair
+    owner: engine
+    rationale: >
+      "1.247,50", "1,247.50" and "1247.5" are the same amount. The engine uses
+      the separator order within the string, never locale guessing.
+
+  - id: R-IV-02
+    circle: 4
+    title: Amounts stored as text with currency symbols
+    entity: [article, open_item]
+    action: repair
+    owner: engine
+    rationale: >
+      "€ 1.247,50", "EUR 1247,50" and "1247,50 euro" are one amount written by
+      three people. The currency text carries no information here, because the
+      whole ledger is in euro, so stripping it loses nothing and makes the
+      column numeric.
+
+  - id: R-IV-03
+    circle: 4
+    title: Ambiguous VAT treatment on a price
+    entity: [article]
+    action: quarantine
+    owner: finance
+    rationale: >
+      The price file has an "incl" column that is populated for 61 percent of
+      rows and contradicted by the article VAT rate for some of them. A wrong
+      reading moves 21 percent of a sales price. Finance decides per row.
+
+  - id: R-IV-04
+    circle: 4
+    title: Discount baked into the unit price
+    entity: [article]
+    action: quarantine
+    owner: finance
+    rationale: >
+      Where the unit price is below cost and a discount agreement exists for
+      the same article, the discount was almost certainly applied twice. The
+      engine flags the pair instead of unwinding it.
+
+  - id: R-IV-05
+    circle: 4
+    title: Negative or zero unit price on a sellable article
+    entity: [article]
+    action: reject
+    owner: finance
+    rationale: >
+      A sellable article with a price of zero or less cannot be migrated: the
+      target ERP will create order lines from it on day one.
+
+  # ──────────────────────────── V · Wrath ──────────────────────────────
+  - id: R-V-01
+    circle: 5
+    title: Conflicting unit of measure across sources
+    entity: [article]
+    action: quarantine
+    owner: operations
+    rationale: >
+      Piece, box and metre for one article differ by a factor of 50 in stock
+      value. Source precedence cannot settle it because the warehouse file is
+      the most accurate and the least authoritative.
+
+  - id: R-V-02
+    circle: 5
+    title: Conflicting article description across sources
+    entity: [article]
+    action: repair
+    owner: engine
+    rationale: >
+      Descriptions are not load-critical. The engine takes the master file and
+      keeps the alternatives as a note, so nothing is lost and nobody is asked.
+
+  - id: R-V-03
+    circle: 5
+    title: Conflicting primary supplier for one article
+    entity: [article]
+    action: quarantine
+    owner: purchasing
+    rationale: >
+      Purchasing drives replenishment from this field. A wrong supplier places
+      real orders.
+
+  # ─────────────────────────── VI · Heresy ─────────────────────────────
+  - id: R-VI-01
+    circle: 6
+    title: Structurally valid but placeholder VAT number
+    entity: [customer, supplier]
+    action: reject
+    owner: finance
+    rationale: >
+      BE0000000000 and BE9999999999 satisfy the modulo check and identify
+      nobody. Migrating them produces invoices that cannot be reported.
+
+  - id: R-VI-02
+    circle: 6
+    title: Sentinel dates standing in for "unknown"
+    entity: [customer, open_item]
+    action: repair
+    owner: engine
+    rationale: >
+      1900-01-01, 1899-12-30 and 9999-12-31 are the legacy system's way of
+      saying null. They become null, which is what they always meant.
+
+  - id: R-VI-03
+    circle: 6
+    title: Placeholder contact details
+    entity: [customer, supplier]
+    action: repair
+    owner: engine
+    rationale: >
+      noreply@, geen@geen.be, phone 000000000 and "/" are absence written as
+      presence. Nulling them is honest; keeping them sends mail to nowhere.
+
+  - id: R-VI-04
+    circle: 6
+    title: Test and scratch records left in the master file
+    entity: [customer, supplier, article]
+    action: reject
+    owner: sales
+    rationale: >
+      "TEST", "ZZZ OUD - NIET GEBRUIKEN", "KLANT NIEUW" and "aaa" are working
+      notes. They have order history, which is why nobody ever dared delete
+      them.
+
+  - id: R-VI-05
+    circle: 6
+    title: Country code outside ISO 3166-1 alpha-2
+    entity: [customer, supplier]
+    action: quarantine
+    owner: sales
+    rationale: >
+      "XX", "B" and "BELG" are each recoverable, but "B" is also a legacy code
+      for Belgium and a valid code for nothing. Low volume, so ask.
+
+  # ────────────────────────── VII · Violence ───────────────────────────
+  - id: R-VII-01
+    circle: 7
+    title: Article code converted to scientific notation
+    entity: [article]
+    action: quarantine
+    owner: operations
+    rationale: >
+      1.23E+11 lost its trailing digits when Excel stored it as a float. The
+      value cannot be recovered from the cell, only from a second source, so
+      the engine pairs it with the master file and asks for confirmation.
+
+  - id: R-VII-02
+    circle: 7
+    title: Leading zeros stripped from EAN and postcode
+    entity: [article, customer]
+    action: repair
+    owner: engine
+    rationale: >
+      An EAN is fixed-length and carries a check digit, so left-padding is
+      verifiable rather than assumed. Postcodes are four digits in Belgium.
+
+  - id: R-VII-03
+    circle: 7
+    title: Date stored as an Excel serial number
+    entity: [customer, open_item]
+    action: repair
+    owner: engine
+    rationale: 45291 is 2023-12-27. Deterministic, given the 1900 epoch and the leap-year bug.
+
+  - id: R-VII-04
+    circle: 7
+    title: Date ambiguous between US and European reading
+    entity: [open_item]
+    action: quarantine
+    owner: finance
+    rationale: >
+      "03/04/2024" is 3 April and 4 March. Both are plausible due dates and
+      the difference decides whether an invoice is overdue. Guessing here is
+      how an aging report starts lying.
+
+  - id: R-VII-05
+    circle: 7
+    title: Numeric field containing a formula error
+    entity: [article, open_item]
+    action: reject
+    owner: engine
+    rationale: '#REF!, #N/B and #DIV/0! are not values. The cell never held one.'
+
+  # ─────────────────────────── VIII · Fraud ────────────────────────────
+  - id: R-VIII-01
+    circle: 8
+    title: Discount agreement for a customer that does not exist
+    entity: [discount]
+    action: reject
+    owner: sales
+    rationale: >
+      An orphan agreement cannot be migrated and would otherwise be silently
+      dropped by the loader, which is worse than rejecting it loudly.
+
+  - id: R-VIII-02
+    circle: 8
+    title: Article pointing at a supplier that is not in the master
+    entity: [article]
+    action: quarantine
+    owner: purchasing
+    rationale: >
+      The article is real and sellable. Only its replenishment link is broken,
+      so rejecting the article would be an overreaction.
+
+  - id: R-VIII-03
+    circle: 8
+    title: Open item for an unknown customer number
+    entity: [open_item]
+    action: reject
+    owner: finance
+    rationale: >
+      An open receivable without a customer cannot be migrated, and it must be
+      reported rather than dropped because it is money owed.
+
+  - id: R-VIII-04
+    circle: 8
+    title: Active article sourced from a blocked supplier
+    entity: [article]
+    action: quarantine
+    owner: purchasing
+    rationale: >
+      The reference is intact and the data is consistent. The business fact is
+      the problem, and only purchasing can decide whether to reroute or block.
+
+  # ────────────────────────── IX · Treachery ───────────────────────────
+  - id: R-IX-01
+    circle: 9
+    title: Row count reconciliation per entity
+    entity: [all]
+    action: gate
+    owner: finance
+    rationale: Every source row must end in exactly one of Paradiso, Purgatorio or Inferno.
+
+  - id: R-IX-02
+    circle: 9
+    title: Open receivables reconcile to the cent
+    entity: [open_item]
+    action: gate
+    owner: finance
+    rationale: >
+      The sum of migrated plus held plus rejected open items must equal the
+      source total exactly. Cents are not a rounding concern here, they are
+      the test that nothing was invented or lost.
+
+  - id: R-IX-03
+    circle: 9
+    title: Compensating errors detected by gross movement
+    entity: [open_item]
+    action: gate
+    owner: finance
+    rationale: >
+      This is the ninth circle. A net total of zero difference can hide a pair
+      of equal and opposite errors, so the gate also compares the sum of
+      absolute per-customer differences. Net zero with gross movement is
+      betrayal, not balance, and it fails the run.
+
+  - id: R-IX-04
+    circle: 9
+    title: No customer may lose its entire open balance
+    entity: [open_item]
+    action: gate
+    owner: finance
+    rationale: >
+      A customer whose source balance is non-zero and whose migrated balance is
+      zero is the single most expensive migration defect: it is invisible in
+      totals and discovered when the customer stops paying.

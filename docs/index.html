@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Excel Hell — nine circles of dirty master data</title>
+<meta name="description" content="A legacy master-data cleansing pipeline for an ERP
+ migration. Twelve filthy source files, forty rules, three destinations and a
+ reconciliation that refuses to sign off.">
+<link rel="stylesheet" href="assets/site.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><text y='13' font-size='13'>🔥</text></svg>">
+</head>
+<body>
+
+<header class="hero"><div class="wrap">
+  <p class="eyebrow">Legacy data migration &amp; cleansing</p>
+  <h1>Excel Hell<small>DANTE &middot; data assessment, normalisation, triage &amp; enrichment</small></h1>
+  <p class="lede">A wholesaler is replacing an ERP from 1996. Its master data lives in
+    <b>twelve spreadsheets</b> that disagree with each other, and 80&nbsp;percent of the
+    project will be spent on them. So this is a pipeline that descends through
+    <b>nine circles</b> of dirty data, repairs what it can prove, asks a human about what
+    it cannot, and refuses to sign off when the numbers only look right.</p>
+
+  <div class="verdict">
+    <div class="stamp" id="stamp">NO-GO</div>
+    <p id="verdict-text">Loading the run…</p>
+  </div>
+
+  <div class="dests">
+    <div class="up"><small>Paradiso</small><b id="d-par">—</b><span>rows load-ready</span></div>
+    <div class="hold"><small>Purgatorio</small><b id="d-pur">—</b><span id="d-pur-sub">rows held</span></div>
+    <div class="down"><small>Inferno</small><b id="d-inf">—</b><span>rows rejected</span></div>
+  </div>
+</div></header>
+
+<section id="premise"><div class="wrap">
+  <p class="kicker">The premise</p>
+  <h2>Nobody writes bad data on purpose</h2>
+  <p class="muted">Every defect in this repository is there because of something reasonable
+    somebody did. A sales rep kept his own customer list because the ERP was slow. An
+    export was latin-1 because it always had been. A postcode lost its leading zero the
+    first time the file was opened in Excel, and a VAT number went into the company name
+    because there was no field for it. Twenty years of that is what a migration actually
+    receives.</p>
+  <p class="muted">The twelve files below are generated from a clean model and then
+    deliberately degraded, so every planted defect is known. The engine never sees that
+    record. It is what makes the detection rate on this page a measurement rather
+    than a claim.</p>
+  <div class="files" id="files"></div>
+</div></section>
+
+<section id="descent"><div class="wrap">
+  <p class="kicker">The descent</p>
+  <h2>Nine circles, in dependency order</h2>
+  <p class="muted">The circles are not decoration. You cannot match duplicates before the
+    names are normalised, cannot reconcile before the money is parsed, and cannot check a
+    foreign key before you know which records survived. So the engine runs I to IX, and
+    each circle may rely on everything above it and nothing below it. Open a rule to see
+    the real records it caught in this run.</p>
+  <div id="circles"></div>
+</div></section>
+
+<section id="ninth"><div class="wrap">
+  <p class="kicker">The ninth circle</p>
+  <h2>The data that is clean, loads fine and is still wrong</h2>
+  <p class="muted">The deepest circle is reserved for betrayal, and in a migration betrayal
+    looks like a reconciliation that balances. Two documents, two customers, one amount:
+    one overstated by exactly as much as the other is understated. The grand total matches
+    the legacy trial balance to the cent. Every row validates. The loader reports no
+    errors, and the accountant finds it in March, when a customer disputes a statement and
+    the old system is already switched off.</p>
+
+  <div class="betrayal">
+    <h3 style="margin-top:0">Every cent of the difference, attributed</h3>
+    <p class="muted" style="font-size:.9rem">A single net difference is useless, because a
+      legitimate cause and a defect subtract from each other inside it. So each
+      per-customer difference is attributed to a cause first, and the gate is held against
+      what is left over.</p>
+    <table class="waterfall" id="waterfall"></table>
+    <div class="pair" id="pair"></div>
+  </div>
+
+  <h3>The four gates</h3>
+  <p class="muted" style="font-size:.92rem">A gate does not describe the data, it decides
+    whether the load may happen. Two of them fail, and failing here is the engine
+    working.</p>
+  <div id="gates"></div>
+</div></section>
+
+<section id="desk"><div class="wrap">
+  <p class="kicker">Purgatorio</p>
+  <h2>Now you are the business</h2>
+  <p class="muted">An engine that quarantines a row has not solved anything yet: it has
+    written somebody a question. These are the real questions from this run, on the desk
+    of the person who owns the answer. Pick an owner and work through a few. Notice how
+    often the answer is one ruling that clears hundreds of rows at once.</p>
+
+  <div class="desk">
+    <div class="owners" id="owners" role="tablist"></div>
+    <div class="case" id="case"></div>
+    <div class="progress">
+      <span id="progress-text">—</span>
+      <button id="reset" type="button">reset my decisions</button>
+    </div>
+  </div>
+</div></section>
+
+<section id="honest"><div class="wrap">
+  <p class="kicker">What it does not catch</p>
+  <h2>The detection rate, including the misses</h2>
+  <p class="muted">Because the planted defects are known, recall is measurable per rule,
+    and the test suite holds each rule to a floor. Some floors are deliberately well under
+    100 percent, with the reason written down next to them. A matcher that claims to catch
+    every duplicate is lying, and a test suite that asserts it is helping.</p>
+  <table id="recall"></table>
+  <p class="muted" style="font-size:.9rem">The largest known gap is fuzzy name matching: a
+    company shortened to its first and last word scores around 68, well below the
+    auto-merge threshold of 92. Raising the threshold would merge a parent company with
+    its subsidiary, which costs more than a missed duplicate. That trade-off is a business
+    decision, so it is written in the registry rather than buried in the matcher.</p>
+</div></section>
+
+<section id="run"><div class="wrap">
+  <p class="kicker">Run it yourself</p>
+  <h2>Three commands, no services</h2>
+  <pre><b>uv venv &amp;&amp; uv pip install -e ".[dev]"</b>
+
+<b>dante forge</b>     <span># rebuild the twelve filthy source files</span>
+<b>dante run</b>       <span># descend, triage every row, evaluate the gates</span>
+<b>dante report</b>    <span># render the audit report</span>
+
+<b>pytest -q</b>       <span># 59 tests: parsers, recall floors, reconciliation</span></pre>
+  <p class="muted">Everything is deterministic from one seed, so the numbers on this page
+    are reproducible on your machine. The run exits non-zero when a gate fails, which is
+    what makes it usable in a pipeline: a migration dry run that cannot fail is not a
+    control.</p>
+  <p><a href="audit-report.html">Read the audit report for the business &rarr;</a></p>
+</div></section>
+
+<footer><div class="wrap">
+  <p>Vanhulle Techniek nv is fictional, its twelve source files are generated, and the
+    numbers on this page come out of <code>docs/data/run-summary.json</code>, written by
+    the run itself. Nothing here is typed by hand, which is also how the CI check knows
+    the README is still true.</p>
+</div></footer>
+
+<script src="assets/site.js"></script>
+</body>
+</html>
