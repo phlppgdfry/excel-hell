@@ -123,3 +123,30 @@ def test_rejected_rows_say_which_rule_rejected_them(run):
         assert "deciding_rule" in rows.columns, entity
         assert rows["deciding_rule"].notna().all(), f"{entity}.csv has a row with no rule"
         assert rows["key"].notna().all(), f"{entity}.csv has a row with no key"
+
+
+def test_findings_are_attributed_to_their_rule_s_circle(run):
+    """A finding belongs to the circle of its rule, not of the module that found it.
+
+    Circle IV parses money and is where a receivable holding #REF! surfaces, but
+    #REF! is R-VII-05 and belongs to circle VII. The run summary and the progress
+    output used to disagree by exactly those eleven findings.
+    """
+    import collections
+    from pathlib import Path
+
+    import yaml
+
+    root = Path(__file__).resolve().parents[1]
+    registry = {r["id"]: r["circle"]
+                for r in yaml.safe_load((root / "rules/rules.yaml").read_text())["rules"]}
+    findings = pd.read_csv(run["out"] / "report" / "findings.csv")
+
+    wrong = [(r["rule"], r["circle"]) for _, r in findings.iterrows()
+             if registry[r["rule"]] != r["circle"]]
+    assert not wrong, f"findings filed under the wrong circle: {wrong[:4]}"
+
+    counted = collections.Counter(findings["circle"])
+    reported = {int(k): v for k, v in run["summary"]["findings_by_circle"].items()}
+    assert reported == dict(counted)
+    assert sum(reported.values()) == run["summary"]["findings_total"]

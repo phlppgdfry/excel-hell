@@ -43,9 +43,8 @@ def descend(raw_dir: Path = Path("data/raw"), out_dir: Path = Path("out"),
     assemble(ctx)
 
     for circle_no, module in enumerate(C.DESCENT[1:8], start=2):
-        before = len(ctx.findings)
         module.run(ctx)
-        say(_line(circle_no, circle_docs, ctx, len(ctx.findings) - before))
+        say(_line(circle_no, circle_docs, ctx))
 
     verdict = triage(ctx)
     recon = C.c9_treachery.run(ctx, verdict)
@@ -58,6 +57,13 @@ def descend(raw_dir: Path = Path("data/raw"), out_dir: Path = Path("out"),
 
 def _line(circle: int, docs: dict, ctx: Context, n: int | None = None,
           suffix: str = "findings") -> str:
+    """Count by the rule's own circle, never by which module emitted it.
+
+    Circle IV parses money, and that is where a receivable holding #REF! is
+    found — but #REF! is R-VII-05, so it belongs to circle VII wherever it
+    surfaced. Counting emissions per module instead of findings per rule made
+    this line disagree with every other output by eleven findings.
+    """
     name = docs[circle]["name"]
     count = n if n is not None else sum(1 for f in ctx.findings if f.circle == circle)
     roman = ["I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX"][circle - 1]

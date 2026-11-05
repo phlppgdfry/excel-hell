@@ -92,3 +92,33 @@ def test_every_circle_is_described_in_the_readme(run):
     text = readme()
     for circle in run["summary"]["circles"]:
         assert circle["name"] in text, f"circle {circle['name']} is missing from README"
+
+
+def test_readme_per_circle_table_matches_the_run(run):
+    """The nine findings counts in the README table are not anchored numbers.
+
+    They sat in a markdown table where nothing checked them, and two of them
+    were wrong for a while because the progress output they were copied from
+    counted findings per module rather than per rule. Nine numbers nobody
+    verifies is how a portfolio readme starts lying quietly.
+    """
+    roman = ["I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX"]
+    text = readme()
+    wrong = {}
+    for n in range(1, 10):
+        expected = run["summary"]["findings_by_circle"][str(n)]
+        m = re.search(rf"^\| {roman[n - 1]} \| [^|]+\| [^|]+\| ([\d  ]+) \|$",
+                      text, re.M)
+        if not m:
+            wrong[roman[n - 1]] = "row missing from the README table"
+            continue
+        got = int(re.sub(r"\D", "", m.group(1)))
+        if got != expected:
+            wrong[roman[n - 1]] = f"README says {got}, the run says {expected}"
+    assert not wrong, f"the per-circle table is out of date: {wrong}"
+
+
+def test_readme_names_every_circle_in_order(run):
+    text = readme()
+    positions = [text.index(c["name"]) for c in run["summary"]["circles"]]
+    assert positions == sorted(positions), "the circles are out of order in the README"
