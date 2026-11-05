@@ -14,18 +14,17 @@ import pytest
 # Rules whose recall is knowingly below the general floor, and why. Raising one
 # of these means the engine got better; lowering one needs a reason in writing.
 KNOWN_LIMITS = {
-    "R-II-01": (0.70, "a name shortened to its first and last word scores around 68 "
-                      "on token_sort_ratio, below the auto-merge threshold"),
-    "R-II-02": (0.30, "the grey band only sees subsidiaries whose name still scores 75; "
-                      "a differently worded subsidiary reads as a new company"),
+    "R-II-01": (0.78, "a name shortened to its first and last word scores around 68 on "
+                      "token_sort_ratio, below the auto-merge threshold of 92"),
+    "R-II-02": (0.30, "the grey band only sees a subsidiary whose name still scores 75; "
+                      "a differently worded one reads as a new company, which is the "
+                      "correct reading more often than not"),
     "R-II-03": (0.85, "a survivorship conflict is only visible once the two records "
-                      "actually clustered"),
-    "R-II-04": (0.78, "a shared VAT number is invisible when one of the two records "
-                      "has no VAT number left to share"),
-    "R-IV-03": (0.80, "a row that is also priced below cost reports that instead; the "
-                      "VAT contradiction is no longer the blocking defect"),
-    "R-VII-02": (0.85, "a stock row whose article code became a float is quarantined "
-                       "before its EAN is ever looked at"),
+                      "actually clustered, so a missed merge hides it"),
+    "R-II-04": (0.80, "a shared VAT number is invisible when one of the two records has "
+                      "no VAT number left to share"),
+    "R-IV-04": (0.85, "an article also priced at zero reports that instead: a row with "
+                      "two defects is triaged on the blocking one"),
 }
 GENERAL_FLOOR = 0.90
 OVERALL_FLOOR = 0.92

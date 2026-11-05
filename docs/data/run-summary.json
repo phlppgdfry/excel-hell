@@ -4,9 +4,9 @@
  "verdict": "NO-GO",
  "source_rows": 4472,
  "totals": {
-  "paradiso": 2634,
-  "purgatorio": 1725,
-  "inferno": 113
+  "paradiso": 2613,
+  "purgatorio": 1753,
+  "inferno": 106
  },
  "counts": {
   "customer": {
@@ -16,35 +16,35 @@
    "source_rows": 1874
   },
   "supplier": {
-   "paradiso": 63,
-   "purgatorio": 5,
-   "inferno": 2,
+   "paradiso": 59,
+   "purgatorio": 3,
+   "inferno": 8,
    "source_rows": 70
   },
   "article": {
-   "paradiso": 562,
-   "purgatorio": 592,
-   "inferno": 26,
+   "paradiso": 532,
+   "purgatorio": 625,
+   "inferno": 23,
    "source_rows": 1180
   },
   "open_item": {
-   "paradiso": 711,
-   "purgatorio": 394,
-   "inferno": 23,
+   "paradiso": 713,
+   "purgatorio": 391,
+   "inferno": 24,
    "source_rows": 1128
   },
   "discount": {
-   "paradiso": 181,
+   "paradiso": 192,
    "purgatorio": 0,
-   "inferno": 39,
+   "inferno": 28,
    "source_rows": 220
   }
  },
- "findings_total": 9737,
+ "findings_total": 9768,
  "findings_by_rule": {
   "R-I-01": 153,
-  "R-I-02": 392,
-  "R-I-03": 195,
+  "R-I-02": 402,
+  "R-I-03": 186,
   "R-I-04": 1,
   "R-I-05": 126,
   "R-II-01": 1199,
@@ -53,53 +53,53 @@
   "R-II-04": 154,
   "R-III-01": 296,
   "R-III-02": 147,
-  "R-III-03": 65,
+  "R-III-03": 68,
   "R-III-04": 18,
-  "R-III-05": 17,
-  "R-IV-01": 3026,
-  "R-IV-02": 915,
-  "R-IV-03": 408,
-  "R-IV-04": 40,
-  "R-IV-05": 16,
+  "R-III-05": 21,
+  "R-IV-01": 3015,
+  "R-IV-02": 926,
+  "R-IV-03": 424,
+  "R-IV-04": 43,
+  "R-IV-05": 14,
   "R-IX-03": 1,
   "R-IX-04": 1,
-  "R-V-01": 75,
-  "R-V-02": 323,
-  "R-V-03": 50,
-  "R-VI-01": 9,
-  "R-VI-02": 41,
-  "R-VI-03": 51,
-  "R-VI-04": 7,
-  "R-VI-05": 21,
-  "R-VII-01": 41,
-  "R-VII-02": 102,
-  "R-VII-03": 469,
-  "R-VII-04": 405,
+  "R-V-01": 72,
+  "R-V-02": 328,
+  "R-V-03": 63,
+  "R-VI-01": 12,
+  "R-VI-02": 46,
+  "R-VI-03": 54,
+  "R-VI-04": 10,
+  "R-VI-05": 19,
+  "R-VII-01": 36,
+  "R-VII-02": 103,
+  "R-VII-03": 464,
+  "R-VII-04": 402,
   "R-VII-05": 23,
-  "R-VIII-01": 40,
-  "R-VIII-02": 32,
-  "R-VIII-03": 12,
-  "R-VIII-04": 120
+  "R-VIII-01": 29,
+  "R-VIII-02": 29,
+  "R-VIII-03": 13,
+  "R-VIII-04": 124
  },
  "findings_by_circle": {
-  "1": 867,
+  "1": 868,
   "2": 2099,
-  "3": 543,
-  "4": 4405,
-  "5": 448,
-  "6": 129,
-  "7": 1040,
-  "8": 204,
+  "3": 550,
+  "4": 4422,
+  "5": 463,
+  "6": 141,
+  "7": 1028,
+  "8": 195,
   "9": 2
  },
  "backlog_by_owner": {
-  "finance": 1007,
-  "operations": 116,
-  "purchasing": 202,
-  "sales": 785
+  "finance": 1023,
+  "operations": 108,
+  "purchasing": 216,
+  "sales": 783
  },
- "backlog_total": 2110,
- "unmatched_attribute_rows": 106,
+ "backlog_total": 2130,
+ "unmatched_attribute_rows": 110,
  "gates": [
   {
    "rule": "R-IX-01",
@@ -147,12 +147,12 @@
    "title": "Open receivables reconcile to the cent",
    "owner": "finance",
    "passed": true,
-   "message": "source detail 5,333,662.11 vs triaged 5,333,662.11, difference 0.00",
+   "message": "source detail 5,323,331.97 vs triaged 5,323,331.97, difference 0.00",
    "evidence": {
-    "source_detail": "5333662.11",
-    "paradiso": "3417194.51",
-    "purgatorio": "1868746.00",
-    "inferno": "47721.60",
+    "source_detail": "5323331.97",
+    "paradiso": "3409823.47",
+    "purgatorio": "1857743.63",
+    "inferno": "55764.87",
     "unparseable_rows": 11
    }
   },
@@ -164,10 +164,10 @@
    "message": "unexplained difference nets to 0.00 while gross movement is 2,495.00 across 2 customers \u2014 net zero with gross movement is betrayal, not balance",
    "evidence": {
     "trial_balance_total": "5380992.54",
-    "source_detail_total": "5333662.11",
-    "total_difference": "-47330.43",
+    "source_detail_total": "5323331.97",
+    "total_difference": "-57660.57",
     "explained_orphan_detail": "0.00",
-    "explained_unquantifiable": "-47330.43",
+    "explained_unquantifiable": "-57660.57",
     "unexplained_net": "0.00",
     "unexplained_gross": "2495.00",
     "compensating_pattern": true,
@@ -181,9 +181,9 @@
       "difference": "1247.50"
      },
      {
-      "customer": "K00068",
-      "trial": "6724.81",
-      "detail": "5477.31",
+      "customer": "K00067",
+      "trial": "9305.20",
+      "detail": "8057.70",
       "difference": "-1247.50"
      }
     ]
@@ -194,14 +194,19 @@
    "title": "No customer may lose its entire open balance",
    "owner": "finance",
    "passed": false,
-   "message": "153 customers would arrive with a zero balance, holding 794,130.93 between them",
+   "message": "154 customers would arrive with a zero balance, holding 829,797.69 between them",
    "evidence": {
-    "customers": 153,
-    "amount": "794130.93",
+    "customers": 154,
+    "amount": "829797.69",
     "worst": [
      {
+      "customer": "K00197",
+      "trial": "20683.56",
+      "migrated": "0.00"
+     },
+     {
       "customer": "K00219",
-      "trial": "21854.23",
+      "trial": "18189.31",
       "migrated": "0.00"
      },
      {
@@ -240,6 +245,11 @@
       "migrated": "0.00"
      },
      {
+      "customer": "K00485",
+      "trial": "10863.56",
+      "migrated": "0.00"
+     },
+     {
       "customer": "K00820",
       "trial": "9926.83",
       "migrated": "0.00"
@@ -248,16 +258,6 @@
       "customer": "K00759",
       "trial": "9360.64",
       "migrated": "0.00"
-     },
-     {
-      "customer": "K00242",
-      "trial": "9287.87",
-      "migrated": "0.00"
-     },
-     {
-      "customer": "K00520",
-      "trial": "9204.93",
-      "migrated": "0.00"
      }
     ]
    }
@@ -265,10 +265,10 @@
  ],
  "ledger": {
   "trial_balance_total": "5380992.54",
-  "source_detail_total": "5333662.11",
-  "migrated": "3417194.51",
-  "held": "1868746.00",
-  "rejected": "47721.60",
+  "source_detail_total": "5323331.97",
+  "migrated": "3409823.47",
+  "held": "1857743.63",
+  "rejected": "55764.87",
   "unparseable_rows": 11
  },
  "stats": {
@@ -342,7 +342,7 @@
    {
     "feed": "trial_balance",
     "file": "11_openstaande_posten.xlsx!Saldilijst",
-    "rows": 612,
+    "rows": 613,
     "columns": 2
    },
    {
@@ -352,7 +352,7 @@
     "columns": 5
    }
   ],
-  "limbo_repaired_cells": 743,
+  "limbo_repaired_cells": 744,
   "candidates": {
    "customer": 1874,
    "supplier": 70,
@@ -362,18 +362,18 @@
   },
   "customer_clusters": 391,
   "customer_comparisons": 7785,
-  "uom_conflicts": 75,
+  "uom_conflicts": 72,
   "date_format_doc_date": {
    "verdict": "dmy",
    "evidence": {
-    "dmy": 656
+    "dmy": 661
    }
   },
   "date_format_due_date": {
    "verdict": "mixed",
    "evidence": {
-    "dmy": 588,
-    "mdy": 74
+    "dmy": 581,
+    "mdy": 79
    }
   }
  },
@@ -383,7 +383,7 @@
    "name": "Limbo",
    "sin": "Data that is almost right",
    "description": "Nothing here is wrong on purpose. Encodings drifted, spaces crept in, a BOM rode along. These rows are not sinners, they are the unbaptised: they never got a chance to be correct. All of it is repairable.\n",
-   "findings": 867,
+   "findings": 868,
    "rules": [
     {
      "id": "R-I-01",
@@ -410,7 +410,7 @@
      "action": "repair",
      "owner": "engine",
      "rationale": "U+00A0 and U+200B survive every trim() a user tries. They break joins silently because the strings look identical on screen.",
-     "findings": 392
+     "findings": 402
     },
     {
      "id": "R-I-03",
@@ -424,7 +424,7 @@
      "action": "repair",
      "owner": "engine",
      "rationale": "Cosmetic in the source and join-breaking in the target. A trailing space is invisible in every spreadsheet and decisive in every lookup, so two records that read identically on screen refuse to match on load.",
-     "findings": 195
+     "findings": 186
     },
     {
      "id": "R-I-04",
@@ -518,7 +518,7 @@
    "name": "Gluttony",
    "sin": "One cell, swallowing everything",
    "description": "A single column holding a street, a box number, a postcode, a VAT number and two email addresses. The legacy system had no field for it, so the users made one.\n",
-   "findings": 543,
+   "findings": 550,
    "rules": [
     {
      "id": "R-III-01",
@@ -557,7 +557,7 @@
      "action": "repair",
      "owner": "engine",
      "rationale": "Split on the usual separators, first address becomes primary, the rest become additional contacts. Order is preserved because the first address is the one the users have been mailing.",
-     "findings": 65
+     "findings": 68
     },
     {
      "id": "R-III-04",
@@ -583,7 +583,7 @@
      "action": "repair",
      "owner": "engine",
      "rationale": "Users with no VAT field typed it into the name. Extracting it recovers a mandatory field, and the pattern is unambiguous.",
-     "findings": 17
+     "findings": 21
     }
    ]
   },
@@ -592,7 +592,7 @@
    "name": "Greed",
    "sin": "Money that will not say what it means",
    "description": "Comma or dot, euro or franc-era text, VAT in or VAT out, discount baked into the unit price. Every one of these is a cent that lands in the wrong ledger.\n",
-   "findings": 4405,
+   "findings": 4422,
    "rules": [
     {
      "id": "R-IV-01",
@@ -605,7 +605,7 @@
      "action": "repair",
      "owner": "engine",
      "rationale": "\"1.247,50\", \"1,247.50\" and \"1247.5\" are the same amount. The engine uses the separator order within the string, never locale guessing.",
-     "findings": 3026
+     "findings": 3015
     },
     {
      "id": "R-IV-02",
@@ -618,7 +618,7 @@
      "action": "repair",
      "owner": "engine",
      "rationale": "\"\u20ac 1.247,50\", \"EUR 1247,50\" and \"1247,50 euro\" are one amount written by three people. The currency text carries no information here, because the whole ledger is in euro, so stripping it loses nothing and makes the column numeric.",
-     "findings": 915
+     "findings": 926
     },
     {
      "id": "R-IV-03",
@@ -630,7 +630,7 @@
      "action": "quarantine",
      "owner": "finance",
      "rationale": "The price file has an \"incl\" column that is populated for 61 percent of rows and contradicted by the article VAT rate for some of them. A wrong reading moves 21 percent of a sales price. Finance decides per row.",
-     "findings": 408
+     "findings": 424
     },
     {
      "id": "R-IV-04",
@@ -642,7 +642,7 @@
      "action": "quarantine",
      "owner": "finance",
      "rationale": "Where the unit price is below cost and a discount agreement exists for the same article, the discount was almost certainly applied twice. The engine flags the pair instead of unwinding it.",
-     "findings": 40
+     "findings": 43
     },
     {
      "id": "R-IV-05",
@@ -654,7 +654,7 @@
      "action": "reject",
      "owner": "finance",
      "rationale": "A sellable article with a price of zero or less cannot be migrated: the target ERP will create order lines from it on day one.",
-     "findings": 16
+     "findings": 14
     }
    ]
   },
@@ -663,7 +663,7 @@
    "name": "Wrath",
    "sin": "Sources at war with each other",
    "description": "The same article is sold per piece in one file, per box in another and per metre in a third. No file is wrong on its own. Together they cannot all be true.\n",
-   "findings": 448,
+   "findings": 463,
    "rules": [
     {
      "id": "R-V-01",
@@ -675,7 +675,7 @@
      "action": "quarantine",
      "owner": "operations",
      "rationale": "Piece, box and metre for one article differ by a factor of 50 in stock value. Source precedence cannot settle it because the warehouse file is the most accurate and the least authoritative.",
-     "findings": 75
+     "findings": 72
     },
     {
      "id": "R-V-02",
@@ -687,7 +687,7 @@
      "action": "repair",
      "owner": "engine",
      "rationale": "Descriptions are not load-critical. The engine takes the master file and keeps the alternatives as a note, so nothing is lost and nobody is asked.",
-     "findings": 323
+     "findings": 328
     },
     {
      "id": "R-V-03",
@@ -699,7 +699,7 @@
      "action": "quarantine",
      "owner": "purchasing",
      "rationale": "Purchasing drives replenishment from this field. A wrong supplier places real orders.",
-     "findings": 50
+     "findings": 63
     }
    ]
   },
@@ -708,7 +708,7 @@
    "name": "Heresy",
    "sin": "Values that pass every format check and are still false",
    "description": "BE0000000000 is a structurally valid VAT number. 1900-01-01 is a valid date. noreply@noreply.be is a valid address. These rows pass validation and poison the ERP, which is exactly what makes them heretics: they look like believers.\n",
-   "findings": 129,
+   "findings": 141,
    "rules": [
     {
      "id": "R-VI-01",
@@ -721,7 +721,7 @@
      "action": "reject",
      "owner": "finance",
      "rationale": "BE0000000000 and BE9999999999 satisfy the modulo check and identify nobody. Migrating them produces invoices that cannot be reported.",
-     "findings": 9
+     "findings": 12
     },
     {
      "id": "R-VI-02",
@@ -734,7 +734,7 @@
      "action": "repair",
      "owner": "engine",
      "rationale": "1900-01-01, 1899-12-30 and 9999-12-31 are the legacy system's way of saying null. They become null, which is what they always meant.",
-     "findings": 41
+     "findings": 46
     },
     {
      "id": "R-VI-03",
@@ -747,7 +747,7 @@
      "action": "repair",
      "owner": "engine",
      "rationale": "noreply@, geen@geen.be, phone 000000000 and \"/\" are absence written as presence. Nulling them is honest; keeping them sends mail to nowhere.",
-     "findings": 51
+     "findings": 54
     },
     {
      "id": "R-VI-04",
@@ -761,7 +761,7 @@
      "action": "reject",
      "owner": "sales",
      "rationale": "\"TEST\", \"ZZZ OUD - NIET GEBRUIKEN\", \"KLANT NIEUW\" and \"aaa\" are working notes. They have order history, which is why nobody ever dared delete them.",
-     "findings": 7
+     "findings": 10
     },
     {
      "id": "R-VI-05",
@@ -774,7 +774,7 @@
      "action": "quarantine",
      "owner": "sales",
      "rationale": "\"XX\", \"B\" and \"BELG\" are each recoverable, but \"B\" is also a legacy code for Belgium and a valid code for nothing. Low volume, so ask.",
-     "findings": 21
+     "findings": 19
     }
    ]
   },
@@ -783,7 +783,7 @@
    "name": "Violence",
    "sin": "What Excel did to the data on its way here",
    "description": "Article codes turned into 1.23E+11. Leading zeros eaten off an EAN. Dates silently converted to serial numbers, or worse, to a US reading that is also a valid European one. The user never touched these cells.\n",
-   "findings": 1040,
+   "findings": 1028,
    "rules": [
     {
      "id": "R-VII-01",
@@ -795,7 +795,7 @@
      "action": "quarantine",
      "owner": "operations",
      "rationale": "1.23E+11 lost its trailing digits when Excel stored it as a float. The value cannot be recovered from the cell, only from a second source, so the engine pairs it with the master file and asks for confirmation.",
-     "findings": 41
+     "findings": 36
     },
     {
      "id": "R-VII-02",
@@ -808,7 +808,7 @@
      "action": "repair",
      "owner": "engine",
      "rationale": "An EAN is fixed-length and carries a check digit, so left-padding is verifiable rather than assumed. Postcodes are four digits in Belgium.",
-     "findings": 102
+     "findings": 103
     },
     {
      "id": "R-VII-03",
@@ -821,7 +821,7 @@
      "action": "repair",
      "owner": "engine",
      "rationale": "45291 is 2023-12-27. Deterministic, given the 1900 epoch and the leap-year bug.",
-     "findings": 469
+     "findings": 464
     },
     {
      "id": "R-VII-04",
@@ -833,7 +833,7 @@
      "action": "quarantine",
      "owner": "finance",
      "rationale": "\"03/04/2024\" is 3 April and 4 March. Both are plausible due dates and the difference decides whether an invoice is overdue. Guessing here is how an aging report starts lying.",
-     "findings": 405
+     "findings": 402
     },
     {
      "id": "R-VII-05",
@@ -855,7 +855,7 @@
    "name": "Fraud",
    "sin": "References to things that do not exist",
    "description": "Discount agreements for customers that were deleted in 2019. Articles assigned to a supplier that went bankrupt. Open items for a customer number that is not in any master file. The keys look fine. They point at nothing.\n",
-   "findings": 204,
+   "findings": 195,
    "rules": [
     {
      "id": "R-VIII-01",
@@ -867,7 +867,7 @@
      "action": "reject",
      "owner": "sales",
      "rationale": "An orphan agreement cannot be migrated and would otherwise be silently dropped by the loader, which is worse than rejecting it loudly.",
-     "findings": 40
+     "findings": 29
     },
     {
      "id": "R-VIII-02",
@@ -879,7 +879,7 @@
      "action": "quarantine",
      "owner": "purchasing",
      "rationale": "The article is real and sellable. Only its replenishment link is broken, so rejecting the article would be an overreaction.",
-     "findings": 32
+     "findings": 29
     },
     {
      "id": "R-VIII-03",
@@ -891,7 +891,7 @@
      "action": "reject",
      "owner": "finance",
      "rationale": "An open receivable without a customer cannot be migrated, and it must be reported rather than dropped because it is money owed.",
-     "findings": 12
+     "findings": 13
     },
     {
      "id": "R-VIII-04",
@@ -903,7 +903,7 @@
      "action": "quarantine",
      "owner": "purchasing",
      "rationale": "The reference is intact and the data is consistent. The business fact is the problem, and only purchasing can decide whether to reroute or block.",
-     "findings": 120
+     "findings": 124
     }
    ]
   },
@@ -2344,13 +2344,13 @@
     "rule": "R-IV-02",
     "circle": 4,
     "entity": "article",
-    "key": "SAN-0002",
+    "key": "SAN-0003",
     "field": "price",
     "source": "06_artikelen_prijzen_2024.xlsx!prijzen 2024",
     "action": "repair",
     "owner": "engine",
-    "raw": "EUR 1190,45",
-    "repaired": "1190.45",
+    "raw": "\u20ac 989,42",
+    "repaired": "989.42",
     "message": "currency text stripped",
     "evidence": {}
    },
@@ -2358,13 +2358,13 @@
     "rule": "R-IV-02",
     "circle": 4,
     "entity": "article",
-    "key": "SAN-0004",
+    "key": "SAN-0006",
     "field": "price",
     "source": "06_artikelen_prijzen_2024.xlsx!prijzen 2024",
     "action": "repair",
     "owner": "engine",
-    "raw": "\u20ac 216,71",
-    "repaired": "216.71",
+    "raw": "\u20ac 517,94",
+    "repaired": "517.94",
     "message": "currency text stripped",
     "evidence": {}
    },
@@ -2372,27 +2372,13 @@
     "rule": "R-IV-02",
     "circle": 4,
     "entity": "article",
-    "key": "SAN-0011",
+    "key": "SAN-0010",
     "field": "price",
     "source": "06_artikelen_prijzen_2024.xlsx!prijzen 2024",
     "action": "repair",
     "owner": "engine",
-    "raw": "EUR 696,72",
-    "repaired": "696.72",
-    "message": "currency text stripped",
-    "evidence": {}
-   },
-   {
-    "rule": "R-IV-02",
-    "circle": 4,
-    "entity": "article",
-    "key": "SAN-0012",
-    "field": "price",
-    "source": "06_artikelen_prijzen_2024.xlsx!prijzen 2024",
-    "action": "repair",
-    "owner": "engine",
-    "raw": "\u20ac 86,98",
-    "repaired": "86.98",
+    "raw": "EUR 975,48",
+    "repaired": "975.48",
     "message": "currency text stripped",
     "evidence": {}
    },
@@ -2407,6 +2393,20 @@
     "owner": "engine",
     "raw": "EUR 934,18",
     "repaired": "934.18",
+    "message": "currency text stripped",
+    "evidence": {}
+   },
+   {
+    "rule": "R-IV-02",
+    "circle": 4,
+    "entity": "article",
+    "key": "SAN-0014",
+    "field": "price",
+    "source": "06_artikelen_prijzen_2024.xlsx!prijzen 2024",
+    "action": "repair",
+    "owner": "engine",
+    "raw": "\u20ac 166,73",
+    "repaired": "166.73",
     "message": "currency text stripped",
     "evidence": {}
    }
@@ -2435,38 +2435,19 @@
     "rule": "R-IV-03",
     "circle": 4,
     "entity": "article",
-    "key": "SAN-0002",
+    "key": "SAN-0003",
     "field": "price",
     "source": "06_artikelen_prijzen_2024.xlsx!prijzen 2024",
     "action": "quarantine",
     "owner": "finance",
-    "raw": "EUR 1190,45",
+    "raw": "\u20ac 989,42",
     "repaired": null,
     "message": "flag says VAT-inclusive, amount equals the exclusive price",
     "evidence": {
      "vat_rate": "21",
-     "flag": "ja",
-     "master_price": "1190.45",
-     "inclusive_would_be": "1440.44"
-    }
-   },
-   {
-    "rule": "R-IV-03",
-    "circle": 4,
-    "entity": "article",
-    "key": "SAN-0004",
-    "field": "price",
-    "source": "06_artikelen_prijzen_2024.xlsx!prijzen 2024",
-    "action": "quarantine",
-    "owner": "finance",
-    "raw": "\u20ac 216,71",
-    "repaired": null,
-    "message": "flag says VAT-inclusive, amount equals the exclusive price",
-    "evidence": {
-     "vat_rate": "21",
-     "flag": "ja",
-     "master_price": "216.71",
-     "inclusive_would_be": "262.22"
+     "flag": "x",
+     "master_price": "989.42",
+     "inclusive_would_be": "1197.20"
     }
    },
    {
@@ -2492,38 +2473,57 @@
     "rule": "R-IV-03",
     "circle": 4,
     "entity": "article",
-    "key": "SAN-0013",
+    "key": "SAN-0006",
     "field": "price",
     "source": "06_artikelen_prijzen_2024.xlsx!prijzen 2024",
     "action": "quarantine",
     "owner": "finance",
-    "raw": "EUR 934,18",
+    "raw": "\u20ac 517,94",
     "repaired": null,
     "message": "flag says VAT-inclusive, amount equals the exclusive price",
     "evidence": {
-     "vat_rate": "6",
-     "flag": "ja",
-     "master_price": "934.18",
-     "inclusive_would_be": "990.23"
+     "vat_rate": "21",
+     "flag": "1",
+     "master_price": "517.94",
+     "inclusive_would_be": "626.71"
     }
    },
    {
     "rule": "R-IV-03",
     "circle": 4,
     "entity": "article",
-    "key": "SAN-0014",
+    "key": "SAN-0007",
     "field": "price",
     "source": "06_artikelen_prijzen_2024.xlsx!prijzen 2024",
     "action": "quarantine",
     "owner": "finance",
-    "raw": "EUR 166,73",
+    "raw": "984,50",
     "repaired": null,
     "message": "flag says VAT-inclusive, amount equals the exclusive price",
     "evidence": {
      "vat_rate": "21",
-     "flag": "1",
-     "master_price": "166.73",
-     "inclusive_would_be": "201.74"
+     "flag": "ja",
+     "master_price": "984.50",
+     "inclusive_would_be": "1191.24"
+    }
+   },
+   {
+    "rule": "R-IV-03",
+    "circle": 4,
+    "entity": "article",
+    "key": "SAN-0011",
+    "field": "price",
+    "source": "06_artikelen_prijzen_2024.xlsx!prijzen 2024",
+    "action": "quarantine",
+    "owner": "finance",
+    "raw": "696,72",
+    "repaired": null,
+    "message": "flag says VAT-inclusive, amount equals the exclusive price",
+    "evidence": {
+     "vat_rate": "21",
+     "flag": "ja",
+     "master_price": "696.72",
+     "inclusive_would_be": "843.03"
     }
    }
   ],
@@ -2537,7 +2537,7 @@
     "source": "06_artikelen_prijzen_2024.xlsx!prijzen 2024",
     "action": "quarantine",
     "owner": "finance",
-    "raw": "595,40",
+    "raw": "595.40",
     "repaired": null,
     "message": "unit price below cost while a discount agreement exists",
     "evidence": {
@@ -2549,12 +2549,29 @@
     "rule": "R-IV-04",
     "circle": 4,
     "entity": "article",
+    "key": "SAN-0028",
+    "field": "price",
+    "source": "06_artikelen_prijzen_2024.xlsx!prijzen 2024",
+    "action": "quarantine",
+    "owner": "finance",
+    "raw": "71.89",
+    "repaired": null,
+    "message": "unit price below cost while a discount agreement exists",
+    "evidence": {
+     "cost": "81.69",
+     "price": "71.89"
+    }
+   },
+   {
+    "rule": "R-IV-04",
+    "circle": 4,
+    "entity": "article",
     "key": "SAN-0051",
     "field": "price",
     "source": "06_artikelen_prijzen_2024.xlsx!prijzen 2024",
     "action": "quarantine",
     "owner": "finance",
-    "raw": "\u20ac 450,01",
+    "raw": "450.01",
     "repaired": null,
     "message": "unit price below cost while a discount agreement exists",
     "evidence": {
@@ -2566,68 +2583,51 @@
     "rule": "R-IV-04",
     "circle": 4,
     "entity": "article",
-    "key": "SAN-0087",
+    "key": "SAN-0055",
     "field": "price",
     "source": "06_artikelen_prijzen_2024.xlsx!prijzen 2024",
     "action": "quarantine",
     "owner": "finance",
-    "raw": "\u20ac 449,82",
+    "raw": "EUR 603,37",
     "repaired": null,
     "message": "unit price below cost while a discount agreement exists",
     "evidence": {
-     "cost": "511.16",
-     "price": "449.82"
+     "cost": "685.65",
+     "price": "603.37"
     }
    },
    {
     "rule": "R-IV-04",
     "circle": 4,
     "entity": "article",
-    "key": "SAN-0139",
+    "key": "SAN-0088",
     "field": "price",
     "source": "06_artikelen_prijzen_2024.xlsx!prijzen 2024",
     "action": "quarantine",
     "owner": "finance",
-    "raw": "139,02",
+    "raw": "472,16",
     "repaired": null,
     "message": "unit price below cost while a discount agreement exists",
     "evidence": {
-     "cost": "157.98",
-     "price": "139.02"
+     "cost": "536.54",
+     "price": "472.16"
     }
    },
    {
     "rule": "R-IV-04",
     "circle": 4,
     "entity": "article",
-    "key": "SAN-0147",
+    "key": "SAN-0127",
     "field": "price",
     "source": "06_artikelen_prijzen_2024.xlsx!prijzen 2024",
     "action": "quarantine",
     "owner": "finance",
-    "raw": "EUR 592,88",
+    "raw": "EUR 174,60",
     "repaired": null,
     "message": "unit price below cost while a discount agreement exists",
     "evidence": {
-     "cost": "673.73",
-     "price": "592.88"
-    }
-   },
-   {
-    "rule": "R-IV-04",
-    "circle": 4,
-    "entity": "article",
-    "key": "SAN-0183",
-    "field": "price",
-    "source": "06_artikelen_prijzen_2024.xlsx!prijzen 2024",
-    "action": "quarantine",
-    "owner": "finance",
-    "raw": "EUR 30,76",
-    "repaired": null,
-    "message": "unit price below cost while a discount agreement exists",
-    "evidence": {
-     "cost": "34.96",
-     "price": "30.76"
+     "cost": "198.41",
+     "price": "174.60"
     }
    }
   ],
@@ -2636,7 +2636,7 @@
     "rule": "R-IV-05",
     "circle": 4,
     "entity": "article",
-    "key": "SAN-0217",
+    "key": "SAN-0258",
     "field": "price",
     "source": "06_artikelen_prijzen_2024.xlsx!prijzen 2024",
     "action": "reject",
@@ -2650,7 +2650,7 @@
     "rule": "R-IV-05",
     "circle": 4,
     "entity": "article",
-    "key": "SAN-0226",
+    "key": "SAN-0267",
     "field": "price",
     "source": "06_artikelen_prijzen_2024.xlsx!prijzen 2024",
     "action": "reject",
@@ -2664,7 +2664,7 @@
     "rule": "R-IV-05",
     "circle": 4,
     "entity": "article",
-    "key": "SAN-0289",
+    "key": "VRW-0044",
     "field": "price",
     "source": "06_artikelen_prijzen_2024.xlsx!prijzen 2024",
     "action": "reject",
@@ -2678,7 +2678,21 @@
     "rule": "R-IV-05",
     "circle": 4,
     "entity": "article",
-    "key": "VRW-0064",
+    "key": "VRW-0119",
+    "field": "price",
+    "source": "06_artikelen_prijzen_2024.xlsx!prijzen 2024",
+    "action": "reject",
+    "owner": "finance",
+    "raw": "0,00",
+    "repaired": null,
+    "message": "a sellable article priced at zero or less",
+    "evidence": {}
+   },
+   {
+    "rule": "R-IV-05",
+    "circle": 4,
+    "entity": "article",
+    "key": "VRW-0124",
     "field": "price",
     "source": "06_artikelen_prijzen_2024.xlsx!prijzen 2024",
     "action": "reject",
@@ -2692,26 +2706,12 @@
     "rule": "R-IV-05",
     "circle": 4,
     "entity": "article",
-    "key": "VRW-0065",
+    "key": "VRW-0125",
     "field": "price",
     "source": "06_artikelen_prijzen_2024.xlsx!prijzen 2024",
     "action": "reject",
     "owner": "finance",
-    "raw": "-696,64",
-    "repaired": null,
-    "message": "a sellable article priced at zero or less",
-    "evidence": {}
-   },
-   {
-    "rule": "R-IV-05",
-    "circle": 4,
-    "entity": "article",
-    "key": "VRW-0173",
-    "field": "price",
-    "source": "06_artikelen_prijzen_2024.xlsx!prijzen 2024",
-    "action": "reject",
-    "owner": "finance",
-    "raw": "0",
+    "raw": "-422,24",
     "repaired": null,
     "message": "a sellable article priced at zero or less",
     "evidence": {}
@@ -2722,7 +2722,7 @@
     "rule": "R-VII-05",
     "circle": 7,
     "entity": "open_item",
-    "key": "VF240209",
+    "key": "VF240317",
     "field": "amount",
     "source": "11_openstaande_posten.xlsx!Posten",
     "action": "reject",
@@ -2736,7 +2736,7 @@
     "rule": "R-VII-05",
     "circle": 7,
     "entity": "open_item",
-    "key": "VF240228",
+    "key": "VF240336",
     "field": "amount",
     "source": "11_openstaande_posten.xlsx!Posten",
     "action": "reject",
@@ -2750,7 +2750,7 @@
     "rule": "R-VII-05",
     "circle": 7,
     "entity": "open_item",
-    "key": "VF240343",
+    "key": "VF240451",
     "field": "amount",
     "source": "11_openstaande_posten.xlsx!Posten",
     "action": "reject",
@@ -2764,7 +2764,7 @@
     "rule": "R-VII-05",
     "circle": 7,
     "entity": "open_item",
-    "key": "VF240445",
+    "key": "VF240553",
     "field": "amount",
     "source": "11_openstaande_posten.xlsx!Posten",
     "action": "reject",
@@ -2778,7 +2778,7 @@
     "rule": "R-VII-05",
     "circle": 7,
     "entity": "open_item",
-    "key": "VF240533",
+    "key": "VF240641",
     "field": "amount",
     "source": "11_openstaande_posten.xlsx!Posten",
     "action": "reject",
@@ -2792,7 +2792,7 @@
     "rule": "R-VII-05",
     "circle": 7,
     "entity": "open_item",
-    "key": "VF240672",
+    "key": "VF240780",
     "field": "amount",
     "source": "11_openstaande_posten.xlsx!Posten",
     "action": "reject",
@@ -2808,40 +2808,12 @@
     "rule": "R-V-02",
     "circle": 5,
     "entity": "article",
-    "key": "SAN-0001",
-    "field": "description",
-    "source": "08_artikelen_eenheden.xlsx!eenheden",
-    "action": "repair",
-    "owner": "engine",
-    "raw": "DOUCHESLANG 1/2\" 1750 MM",
-    "repaired": "Doucheslang 1/2\" 1750 mm verzinkt",
-    "message": "master wins, alternative kept as a note",
-    "evidence": {}
-   },
-   {
-    "rule": "R-V-02",
-    "circle": 5,
-    "entity": "article",
-    "key": "SAN-0002",
-    "field": "description",
-    "source": "08_artikelen_eenheden.xlsx!eenheden",
-    "action": "repair",
-    "owner": "engine",
-    "raw": "CLOSETZITTING SOFTCLOSE (OUD)",
-    "repaired": "Closetzitting softclose wit zwart",
-    "message": "master wins, alternative kept as a note",
-    "evidence": {}
-   },
-   {
-    "rule": "R-V-02",
-    "circle": 5,
-    "entity": "article",
     "key": "SAN-0003",
     "field": "description",
     "source": "08_artikelen_eenheden.xlsx!eenheden",
     "action": "repair",
     "owner": "engine",
-    "raw": "INBOUWRESERVOIR 500 MM F (OUD)",
+    "raw": "INBOUWRESERVOIR 500 MM F 2",
     "repaired": "Inbouwreservoir 500 mm frontbediening",
     "message": "master wins, alternative kept as a note",
     "evidence": {}
@@ -2850,13 +2822,13 @@
     "rule": "R-V-02",
     "circle": 5,
     "entity": "article",
-    "key": "SAN-0005",
+    "key": "SAN-0004",
     "field": "description",
     "source": "08_artikelen_eenheden.xlsx!eenheden",
     "action": "repair",
     "owner": "engine",
-    "raw": "CLOSETZITTING SOFTCLOSE",
-    "repaired": "Closetzitting softclose wit verzinkt",
+    "raw": "SPOELBAK INOX 1 BAK 500X 2",
+    "repaired": "Spoelbak inox 1 bak 500x400 zwart",
     "message": "master wins, alternative kept as a note",
     "evidence": {}
    },
@@ -2869,7 +2841,7 @@
     "source": "08_artikelen_eenheden.xlsx!eenheden",
     "action": "repair",
     "owner": "engine",
-    "raw": "SIFON WASTAFEL 5/4 CHROO",
+    "raw": "SIFON WASTAFEL 5/4 CHROO 2",
     "repaired": "Sifon wastafel 5/4 chroom verzinkt",
     "message": "master wins, alternative kept as a note",
     "evidence": {}
@@ -2878,13 +2850,41 @@
     "rule": "R-V-02",
     "circle": 5,
     "entity": "article",
-    "key": "SAN-0014",
+    "key": "SAN-0017",
     "field": "description",
     "source": "08_artikelen_eenheden.xlsx!eenheden",
     "action": "repair",
     "owner": "engine",
-    "raw": "RADIATORKRAAN 1/2\" RECHT",
-    "repaired": "Radiatorkraan 1/2\" recht verchroomd wit",
+    "raw": "INBOUWRESERVOIR 500 MM F (OUD)",
+    "repaired": "Inbouwreservoir 500 mm frontbediening chroom",
+    "message": "master wins, alternative kept as a note",
+    "evidence": {}
+   },
+   {
+    "rule": "R-V-02",
+    "circle": 5,
+    "entity": "article",
+    "key": "SAN-0022",
+    "field": "description",
+    "source": "08_artikelen_eenheden.xlsx!eenheden",
+    "action": "repair",
+    "owner": "engine",
+    "raw": "INBOUWRESERVOIR 500 MM F (OUD)",
+    "repaired": "Inbouwreservoir 500 mm frontbediening wit",
+    "message": "master wins, alternative kept as a note",
+    "evidence": {}
+   },
+   {
+    "rule": "R-V-02",
+    "circle": 5,
+    "entity": "article",
+    "key": "SAN-0031",
+    "field": "description",
+    "source": "08_artikelen_eenheden.xlsx!eenheden",
+    "action": "repair",
+    "owner": "engine",
+    "raw": "KOPPELING MESSING 3/4\" B 2",
+    "repaired": "Koppeling messing 3/4\" binnendraad chroom",
     "message": "master wins, alternative kept as a note",
     "evidence": {}
    }
@@ -2894,102 +2894,102 @@
     "rule": "R-V-01",
     "circle": 5,
     "entity": "article",
-    "key": "SAN-0007",
-    "field": "uom",
-    "source": "08_artikelen_eenheden.xlsx!eenheden",
-    "action": "quarantine",
-    "owner": "operations",
-    "raw": "ST (master) vs RL (warehouse)",
-    "repaired": null,
-    "message": "two sources, two units, a factor fifty in stock value",
-    "evidence": {
-     "master": "ST",
-     "warehouse": "RL"
-    }
-   },
-   {
-    "rule": "R-V-01",
-    "circle": 5,
-    "entity": "article",
     "key": "SAN-0025",
     "field": "uom",
     "source": "08_artikelen_eenheden.xlsx!eenheden",
     "action": "quarantine",
     "owner": "operations",
-    "raw": "ST (master) vs PK (warehouse)",
+    "raw": "ST (master) vs M (warehouse)",
     "repaired": null,
     "message": "two sources, two units, a factor fifty in stock value",
     "evidence": {
      "master": "ST",
-     "warehouse": "PK"
+     "warehouse": "M"
     }
    },
    {
     "rule": "R-V-01",
     "circle": 5,
     "entity": "article",
-    "key": "SAN-0036",
+    "key": "SAN-0031",
     "field": "uom",
     "source": "08_artikelen_eenheden.xlsx!eenheden",
     "action": "quarantine",
     "owner": "operations",
-    "raw": "ST (master) vs RL (warehouse)",
+    "raw": "PK (master) vs ST (warehouse)",
     "repaired": null,
     "message": "two sources, two units, a factor fifty in stock value",
     "evidence": {
-     "master": "ST",
-     "warehouse": "RL"
+     "master": "PK",
+     "warehouse": "ST"
     }
    },
    {
     "rule": "R-V-01",
     "circle": 5,
     "entity": "article",
-    "key": "SAN-0037",
+    "key": "SAN-0057",
     "field": "uom",
     "source": "08_artikelen_eenheden.xlsx!eenheden",
     "action": "quarantine",
     "owner": "operations",
-    "raw": "ST (master) vs RL (warehouse)",
+    "raw": "PK (master) vs ST (warehouse)",
     "repaired": null,
     "message": "two sources, two units, a factor fifty in stock value",
     "evidence": {
-     "master": "ST",
-     "warehouse": "RL"
+     "master": "PK",
+     "warehouse": "ST"
     }
    },
    {
     "rule": "R-V-01",
     "circle": 5,
     "entity": "article",
-    "key": "SAN-0078",
+    "key": "SAN-0058",
     "field": "uom",
     "source": "08_artikelen_eenheden.xlsx!eenheden",
     "action": "quarantine",
     "owner": "operations",
-    "raw": "ST (master) vs RL (warehouse)",
+    "raw": "PK (master) vs M (warehouse)",
     "repaired": null,
     "message": "two sources, two units, a factor fifty in stock value",
     "evidence": {
-     "master": "ST",
-     "warehouse": "RL"
+     "master": "PK",
+     "warehouse": "M"
     }
    },
    {
     "rule": "R-V-01",
     "circle": 5,
     "entity": "article",
-    "key": "SAN-0096",
+    "key": "SAN-0089",
     "field": "uom",
     "source": "08_artikelen_eenheden.xlsx!eenheden",
     "action": "quarantine",
     "owner": "operations",
-    "raw": "ST (master) vs RL (warehouse)",
+    "raw": "ST (master) vs DS (warehouse)",
     "repaired": null,
     "message": "two sources, two units, a factor fifty in stock value",
     "evidence": {
      "master": "ST",
-     "warehouse": "RL"
+     "warehouse": "DS"
+    }
+   },
+   {
+    "rule": "R-V-01",
+    "circle": 5,
+    "entity": "article",
+    "key": "SAN-0107",
+    "field": "uom",
+    "source": "08_artikelen_eenheden.xlsx!eenheden",
+    "action": "quarantine",
+    "owner": "operations",
+    "raw": "ST (master) vs M (warehouse)",
+    "repaired": null,
+    "message": "two sources, two units, a factor fifty in stock value",
+    "evidence": {
+     "master": "ST",
+     "warehouse": "M"
     }
    }
   ],
@@ -2998,16 +2998,16 @@
     "rule": "R-V-03",
     "circle": 5,
     "entity": "article",
-    "key": "SAN-0001",
+    "key": "SAN-0010",
     "field": "supplier_no",
     "source": "09_artikelen_leverancier.xlsx!leverancier",
     "action": "quarantine",
     "owner": "purchasing",
-    "raw": "L0031 (master) vs L0069 (purchasing)",
+    "raw": "L0010 (master) vs L0069 (purchasing)",
     "repaired": null,
     "message": "purchasing drives replenishment from this field",
     "evidence": {
-     "master": "L0031",
+     "master": "L0010",
      "purchasing": "L0069"
     }
    },
@@ -3015,33 +3015,50 @@
     "rule": "R-V-03",
     "circle": 5,
     "entity": "article",
-    "key": "SAN-0075",
+    "key": "SAN-0022",
     "field": "supplier_no",
     "source": "09_artikelen_leverancier.xlsx!leverancier",
     "action": "quarantine",
     "owner": "purchasing",
-    "raw": "L0070 (master) vs L0064 (purchasing)",
+    "raw": "L0051 (master) vs L0001 (purchasing)",
     "repaired": null,
     "message": "purchasing drives replenishment from this field",
     "evidence": {
-     "master": "L0070",
-     "purchasing": "L0064"
+     "master": "L0051",
+     "purchasing": "L0001"
     }
    },
    {
     "rule": "R-V-03",
     "circle": 5,
     "entity": "article",
-    "key": "SAN-0080",
+    "key": "SAN-0032",
     "field": "supplier_no",
     "source": "09_artikelen_leverancier.xlsx!leverancier",
     "action": "quarantine",
     "owner": "purchasing",
-    "raw": "L0043 (master) vs L0059 (purchasing)",
+    "raw": "L0028 (master) vs L0002 (purchasing)",
     "repaired": null,
     "message": "purchasing drives replenishment from this field",
     "evidence": {
-     "master": "L0043",
+     "master": "L0028",
+     "purchasing": "L0002"
+    }
+   },
+   {
+    "rule": "R-V-03",
+    "circle": 5,
+    "entity": "article",
+    "key": "SAN-0034",
+    "field": "supplier_no",
+    "source": "09_artikelen_leverancier.xlsx!leverancier",
+    "action": "quarantine",
+    "owner": "purchasing",
+    "raw": "L0032 (master) vs L0059 (purchasing)",
+    "repaired": null,
+    "message": "purchasing drives replenishment from this field",
+    "evidence": {
+     "master": "L0032",
      "purchasing": "L0059"
     }
    },
@@ -3049,51 +3066,34 @@
     "rule": "R-V-03",
     "circle": 5,
     "entity": "article",
-    "key": "SAN-0085",
+    "key": "SAN-0036",
     "field": "supplier_no",
     "source": "09_artikelen_leverancier.xlsx!leverancier",
     "action": "quarantine",
     "owner": "purchasing",
-    "raw": "L0025 (master) vs L0023 (purchasing)",
+    "raw": "L0065 (master) vs L0064 (purchasing)",
     "repaired": null,
     "message": "purchasing drives replenishment from this field",
     "evidence": {
-     "master": "L0025",
-     "purchasing": "L0023"
+     "master": "L0065",
+     "purchasing": "L0064"
     }
    },
    {
     "rule": "R-V-03",
     "circle": 5,
     "entity": "article",
-    "key": "SAN-0096",
+    "key": "SAN-0038",
     "field": "supplier_no",
     "source": "09_artikelen_leverancier.xlsx!leverancier",
     "action": "quarantine",
     "owner": "purchasing",
-    "raw": "L0015 (master) vs L0027 (purchasing)",
+    "raw": "L0061 (master) vs L0065 (purchasing)",
     "repaired": null,
     "message": "purchasing drives replenishment from this field",
     "evidence": {
-     "master": "L0015",
-     "purchasing": "L0027"
-    }
-   },
-   {
-    "rule": "R-V-03",
-    "circle": 5,
-    "entity": "article",
-    "key": "SAN-0109",
-    "field": "supplier_no",
-    "source": "09_artikelen_leverancier.xlsx!leverancier",
-    "action": "quarantine",
-    "owner": "purchasing",
-    "raw": "L0020 (master) vs L0049 (purchasing)",
-    "repaired": null,
-    "message": "purchasing drives replenishment from this field",
-    "evidence": {
-     "master": "L0020",
-     "purchasing": "L0049"
+     "master": "L0061",
+     "purchasing": "L0065"
     }
    }
   ],
@@ -3172,7 +3172,7 @@
     "rule": "R-VI-04",
     "circle": 6,
     "entity": "supplier",
-    "key": "L0009",
+    "key": "L0006",
     "field": "name",
     "source": "10_leveranciers.xlsx!leveranciers",
     "action": "reject",
@@ -3546,13 +3546,13 @@
     "rule": "R-VII-02",
     "circle": 7,
     "entity": "article",
-    "key": "SAN-0024",
+    "key": "SAN-0021",
     "field": "ean",
     "source": "07_artikelen_voorraad.xlsx!voorraad",
     "action": "repair",
     "owner": "engine",
-    "raw": "167448021810",
-    "repaired": "0167448021810",
+    "raw": "672534575141",
+    "repaired": "0672534575141",
     "message": "leading zero restored and confirmed by the check digit",
     "evidence": {}
    },
@@ -3574,34 +3574,6 @@
     "rule": "R-VII-02",
     "circle": 7,
     "entity": "article",
-    "key": "SAN-0051",
-    "field": "ean",
-    "source": "07_artikelen_voorraad.xlsx!voorraad",
-    "action": "repair",
-    "owner": "engine",
-    "raw": "662849311558",
-    "repaired": "0662849311558",
-    "message": "leading zero restored and confirmed by the check digit",
-    "evidence": {}
-   },
-   {
-    "rule": "R-VII-02",
-    "circle": 7,
-    "entity": "article",
-    "key": "SAN-0061",
-    "field": "ean",
-    "source": "07_artikelen_voorraad.xlsx!voorraad",
-    "action": "repair",
-    "owner": "engine",
-    "raw": "749720263509",
-    "repaired": "0749720263509",
-    "message": "leading zero restored and confirmed by the check digit",
-    "evidence": {}
-   },
-   {
-    "rule": "R-VII-02",
-    "circle": 7,
-    "entity": "article",
     "key": "SAN-0067",
     "field": "ean",
     "source": "07_artikelen_voorraad.xlsx!voorraad",
@@ -3611,6 +3583,34 @@
     "repaired": "0334410745467",
     "message": "leading zero restored and confirmed by the check digit",
     "evidence": {}
+   },
+   {
+    "rule": "R-VII-02",
+    "circle": 7,
+    "entity": "article",
+    "key": "SAN-0068",
+    "field": "ean",
+    "source": "07_artikelen_voorraad.xlsx!voorraad",
+    "action": "repair",
+    "owner": "engine",
+    "raw": "117163722929",
+    "repaired": "0117163722929",
+    "message": "leading zero restored and confirmed by the check digit",
+    "evidence": {}
+   },
+   {
+    "rule": "R-VII-02",
+    "circle": 7,
+    "entity": "article",
+    "key": "SAN-0085",
+    "field": "ean",
+    "source": "07_artikelen_voorraad.xlsx!voorraad",
+    "action": "repair",
+    "owner": "engine",
+    "raw": "161695208840",
+    "repaired": "0161695208840",
+    "message": "leading zero restored and confirmed by the check digit",
+    "evidence": {}
    }
   ],
   "R-VII-01": [
@@ -3618,12 +3618,29 @@
     "rule": "R-VII-01",
     "circle": 7,
     "entity": "article",
-    "key": "5.49E+12",
+    "key": "5.50E+12",
     "field": "article_no",
     "source": "07_artikelen_voorraad.xlsx!voorraad",
     "action": "quarantine",
     "owner": "operations",
-    "raw": "5.49E+12",
+    "raw": "5.50E+12",
+    "repaired": null,
+    "message": "digits lost to float precision; not recoverable from this cell",
+    "evidence": {
+     "stock": "0",
+     "hint": "match against the master file on EAN before accepting"
+    }
+   },
+   {
+    "rule": "R-VII-01",
+    "circle": 7,
+    "entity": "article",
+    "key": "5.50E+12",
+    "field": "article_no",
+    "source": "07_artikelen_voorraad.xlsx!voorraad",
+    "action": "quarantine",
+    "owner": "operations",
+    "raw": "5.50E+12",
     "repaired": null,
     "message": "digits lost to float precision; not recoverable from this cell",
     "evidence": {
@@ -3644,7 +3661,24 @@
     "repaired": null,
     "message": "digits lost to float precision; not recoverable from this cell",
     "evidence": {
-     "stock": "0",
+     "stock": "12",
+     "hint": "match against the master file on EAN before accepting"
+    }
+   },
+   {
+    "rule": "R-VII-01",
+    "circle": 7,
+    "entity": "article",
+    "key": "5.43E+12",
+    "field": "article_no",
+    "source": "07_artikelen_voorraad.xlsx!voorraad",
+    "action": "quarantine",
+    "owner": "operations",
+    "raw": "5.43E+12",
+    "repaired": null,
+    "message": "digits lost to float precision; not recoverable from this cell",
+    "evidence": {
+     "stock": "480",
      "hint": "match against the master file on EAN before accepting"
     }
    },
@@ -3669,50 +3703,16 @@
     "rule": "R-VII-01",
     "circle": 7,
     "entity": "article",
-    "key": "5.42E+12",
+    "key": "5.48E+12",
     "field": "article_no",
     "source": "07_artikelen_voorraad.xlsx!voorraad",
     "action": "quarantine",
     "owner": "operations",
-    "raw": "5.42E+12",
+    "raw": "5.48E+12",
     "repaired": null,
     "message": "digits lost to float precision; not recoverable from this cell",
     "evidence": {
-     "stock": "5",
-     "hint": "match against the master file on EAN before accepting"
-    }
-   },
-   {
-    "rule": "R-VII-01",
-    "circle": 7,
-    "entity": "article",
-    "key": "5.41E+12",
-    "field": "article_no",
-    "source": "07_artikelen_voorraad.xlsx!voorraad",
-    "action": "quarantine",
-    "owner": "operations",
-    "raw": "5.41E+12",
-    "repaired": null,
-    "message": "digits lost to float precision; not recoverable from this cell",
-    "evidence": {
-     "stock": "40",
-     "hint": "match against the master file on EAN before accepting"
-    }
-   },
-   {
-    "rule": "R-VII-01",
-    "circle": 7,
-    "entity": "article",
-    "key": "5.50E+12",
-    "field": "article_no",
-    "source": "07_artikelen_voorraad.xlsx!voorraad",
-    "action": "quarantine",
-    "owner": "operations",
-    "raw": "5.50E+12",
-    "repaired": null,
-    "message": "digits lost to float precision; not recoverable from this cell",
-    "evidence": {
-     "stock": "2",
+     "stock": "0",
      "hint": "match against the master file on EAN before accepting"
     }
    }
@@ -3729,7 +3729,7 @@
     "owner": "engine",
     "raw": "12/09/2026",
     "repaired": "2026-09-12",
-    "message": "read as dmy on 656 unambiguous rows in the same file",
+    "message": "read as dmy on 661 unambiguous rows in the same file",
     "evidence": {}
    },
    {
@@ -3743,7 +3743,7 @@
     "owner": "engine",
     "raw": "02/09/2026",
     "repaired": "2026-09-02",
-    "message": "read as dmy on 656 unambiguous rows in the same file",
+    "message": "read as dmy on 661 unambiguous rows in the same file",
     "evidence": {}
    },
    {
@@ -3757,7 +3757,7 @@
     "owner": "engine",
     "raw": "03/09/2025",
     "repaired": "2025-09-03",
-    "message": "read as dmy on 656 unambiguous rows in the same file",
+    "message": "read as dmy on 661 unambiguous rows in the same file",
     "evidence": {}
    },
    {
@@ -3771,7 +3771,7 @@
     "owner": "engine",
     "raw": "08/04/2026",
     "repaired": "2026-04-08",
-    "message": "read as dmy on 656 unambiguous rows in the same file",
+    "message": "read as dmy on 661 unambiguous rows in the same file",
     "evidence": {}
    },
    {
@@ -3783,9 +3783,9 @@
     "source": "11_openstaande_posten.xlsx!Posten",
     "action": "repair",
     "owner": "engine",
-    "raw": "45966",
+    "raw": "05/11/2025",
     "repaired": "2025-11-05",
-    "message": "Excel serial number converted back to a date",
+    "message": "read as dmy on 661 unambiguous rows in the same file",
     "evidence": {}
    },
    {
@@ -3799,7 +3799,7 @@
     "owner": "engine",
     "raw": "11/08/2025",
     "repaired": "2025-08-11",
-    "message": "read as dmy on 656 unambiguous rows in the same file",
+    "message": "read as dmy on 661 unambiguous rows in the same file",
     "evidence": {}
    }
   ],
@@ -3820,8 +3820,8 @@
      "european": "2026-05-08",
      "american": "2026-08-05",
      "evidence": {
-      "dmy": 588,
-      "mdy": 74
+      "dmy": 581,
+      "mdy": 79
      }
     }
    },
@@ -3834,15 +3834,15 @@
     "source": "11_openstaande_posten.xlsx!Posten",
     "action": "quarantine",
     "owner": "finance",
-    "raw": "08/05/2026",
+    "raw": "05/08/2026",
     "repaired": null,
     "message": "this file proves both readings, so neither can be assumed",
     "evidence": {
-     "european": "2026-05-08",
-     "american": "2026-08-05",
+     "european": "2026-08-05",
+     "american": "2026-05-08",
      "evidence": {
-      "dmy": 588,
-      "mdy": 74
+      "dmy": 581,
+      "mdy": 79
      }
     }
    },
@@ -3855,15 +3855,15 @@
     "source": "11_openstaande_posten.xlsx!Posten",
     "action": "quarantine",
     "owner": "finance",
-    "raw": "09/10/2025",
+    "raw": "10/09/2025",
     "repaired": null,
     "message": "this file proves both readings, so neither can be assumed",
     "evidence": {
-     "european": "2025-10-09",
-     "american": "2025-09-10",
+     "european": "2025-09-10",
+     "american": "2025-10-09",
      "evidence": {
-      "dmy": 588,
-      "mdy": 74
+      "dmy": 581,
+      "mdy": 79
      }
     }
    },
@@ -3883,8 +3883,8 @@
      "european": "2025-05-11",
      "american": "2025-11-05",
      "evidence": {
-      "dmy": 588,
-      "mdy": 74
+      "dmy": 581,
+      "mdy": 79
      }
     }
    },
@@ -3904,8 +3904,8 @@
      "european": "2025-09-11",
      "american": "2025-11-09",
      "evidence": {
-      "dmy": 588,
-      "mdy": 74
+      "dmy": 581,
+      "mdy": 79
      }
     }
    },
@@ -3925,8 +3925,8 @@
      "european": "2025-08-09",
      "american": "2025-09-08",
      "evidence": {
-      "dmy": 588,
-      "mdy": 74
+      "dmy": 581,
+      "mdy": 79
      }
     }
    }
@@ -3978,12 +3978,12 @@
     "rule": "R-VIII-01",
     "circle": 8,
     "entity": "discount",
-    "key": "A0029",
+    "key": "A0023",
     "field": "customer_no",
     "source": "12_korting_afspraken.xlsx!afspraken",
     "action": "reject",
     "owner": "sales",
-    "raw": "K85085",
+    "raw": "K88940",
     "repaired": null,
     "message": "orphan agreement; a loader would drop it silently",
     "evidence": {}
@@ -4022,12 +4022,12 @@
     "rule": "R-VIII-02",
     "circle": 8,
     "entity": "article",
-    "key": "SAN-0005",
+    "key": "SAN-0004",
     "field": "supplier_no",
     "source": "09_artikelen_leverancier.xlsx!leverancier",
     "action": "quarantine",
     "owner": "purchasing",
-    "raw": "L977",
+    "raw": "L918",
     "repaired": null,
     "message": "the article is real and sellable; only its replenishment link is broken",
     "evidence": {}
@@ -4036,7 +4036,35 @@
     "rule": "R-VIII-02",
     "circle": 8,
     "entity": "article",
-    "key": "SAN-0010",
+    "key": "SAN-0046",
+    "field": "supplier_no",
+    "source": "09_artikelen_leverancier.xlsx!leverancier",
+    "action": "quarantine",
+    "owner": "purchasing",
+    "raw": "L931",
+    "repaired": null,
+    "message": "the article is real and sellable; only its replenishment link is broken",
+    "evidence": {}
+   },
+   {
+    "rule": "R-VIII-02",
+    "circle": 8,
+    "entity": "article",
+    "key": "SAN-0073",
+    "field": "supplier_no",
+    "source": "09_artikelen_leverancier.xlsx!leverancier",
+    "action": "quarantine",
+    "owner": "purchasing",
+    "raw": "L917",
+    "repaired": null,
+    "message": "the article is real and sellable; only its replenishment link is broken",
+    "evidence": {}
+   },
+   {
+    "rule": "R-VIII-02",
+    "circle": 8,
+    "entity": "article",
+    "key": "SAN-0158",
     "field": "supplier_no",
     "source": "09_artikelen_leverancier.xlsx!leverancier",
     "action": "quarantine",
@@ -4050,12 +4078,12 @@
     "rule": "R-VIII-02",
     "circle": 8,
     "entity": "article",
-    "key": "SAN-0019",
+    "key": "SAN-0198",
     "field": "supplier_no",
     "source": "09_artikelen_leverancier.xlsx!leverancier",
     "action": "quarantine",
     "owner": "purchasing",
-    "raw": "L934",
+    "raw": "L953",
     "repaired": null,
     "message": "the article is real and sellable; only its replenishment link is broken",
     "evidence": {}
@@ -4064,40 +4092,12 @@
     "rule": "R-VIII-02",
     "circle": 8,
     "entity": "article",
-    "key": "SAN-0047",
+    "key": "SAN-0214",
     "field": "supplier_no",
     "source": "09_artikelen_leverancier.xlsx!leverancier",
     "action": "quarantine",
     "owner": "purchasing",
-    "raw": "L939",
-    "repaired": null,
-    "message": "the article is real and sellable; only its replenishment link is broken",
-    "evidence": {}
-   },
-   {
-    "rule": "R-VIII-02",
-    "circle": 8,
-    "entity": "article",
-    "key": "SAN-0102",
-    "field": "supplier_no",
-    "source": "09_artikelen_leverancier.xlsx!leverancier",
-    "action": "quarantine",
-    "owner": "purchasing",
-    "raw": "L963",
-    "repaired": null,
-    "message": "the article is real and sellable; only its replenishment link is broken",
-    "evidence": {}
-   },
-   {
-    "rule": "R-VIII-02",
-    "circle": 8,
-    "entity": "article",
-    "key": "SAN-0116",
-    "field": "supplier_no",
-    "source": "09_artikelen_leverancier.xlsx!leverancier",
-    "action": "quarantine",
-    "owner": "purchasing",
-    "raw": "L979",
+    "raw": "L946",
     "repaired": null,
     "message": "the article is real and sellable; only its replenishment link is broken",
     "evidence": {}
@@ -4108,12 +4108,12 @@
     "rule": "R-VIII-04",
     "circle": 8,
     "entity": "article",
-    "key": "SAN-0034",
+    "key": "SAN-0053",
     "field": "supplier_no",
     "source": "09_artikelen_leverancier.xlsx!leverancier",
     "action": "quarantine",
     "owner": "purchasing",
-    "raw": "L0032",
+    "raw": "L0058",
     "repaired": null,
     "message": "reference intact, business fact broken: reroute or block",
     "evidence": {}
@@ -4122,12 +4122,12 @@
     "rule": "R-VIII-04",
     "circle": 8,
     "entity": "article",
-    "key": "SAN-0053",
+    "key": "SAN-0071",
     "field": "supplier_no",
     "source": "09_artikelen_leverancier.xlsx!leverancier",
     "action": "quarantine",
     "owner": "purchasing",
-    "raw": "L0058",
+    "raw": "L0032",
     "repaired": null,
     "message": "reference intact, business fact broken: reroute or block",
     "evidence": {}
@@ -4164,12 +4164,12 @@
     "rule": "R-VIII-04",
     "circle": 8,
     "entity": "article",
-    "key": "SAN-0085",
+    "key": "SAN-0092",
     "field": "supplier_no",
     "source": "09_artikelen_leverancier.xlsx!leverancier",
     "action": "quarantine",
     "owner": "purchasing",
-    "raw": "L0023",
+    "raw": "L0030",
     "repaired": null,
     "message": "reference intact, business fact broken: reroute or block",
     "evidence": {}
@@ -4178,12 +4178,12 @@
     "rule": "R-VIII-04",
     "circle": 8,
     "entity": "article",
-    "key": "SAN-0092",
+    "key": "SAN-0096",
     "field": "supplier_no",
     "source": "09_artikelen_leverancier.xlsx!leverancier",
     "action": "quarantine",
     "owner": "purchasing",
-    "raw": "L0030",
+    "raw": "L0057",
     "repaired": null,
     "message": "reference intact, business fact broken: reroute or block",
     "evidence": {}
@@ -4194,7 +4194,23 @@
     "rule": "R-VIII-03",
     "circle": 8,
     "entity": "open_item",
-    "key": "VF240018",
+    "key": "VF240080",
+    "field": "customer_no",
+    "source": "11_openstaande_posten.xlsx!Posten",
+    "action": "reject",
+    "owner": "finance",
+    "raw": "K96170",
+    "repaired": null,
+    "message": "a receivable with no customer; it must be reported, not dropped",
+    "evidence": {
+     "amount": "210.92"
+    }
+   },
+   {
+    "rule": "R-VIII-03",
+    "circle": 8,
+    "entity": "open_item",
+    "key": "VF240126",
     "field": "customer_no",
     "source": "11_openstaande_posten.xlsx!Posten",
     "action": "reject",
@@ -4203,14 +4219,14 @@
     "repaired": null,
     "message": "a receivable with no customer; it must be reported, not dropped",
     "evidence": {
-     "amount": "8792.72"
+     "amount": "7860.64"
     }
    },
    {
     "rule": "R-VIII-03",
     "circle": 8,
     "entity": "open_item",
-    "key": "VF240064",
+    "key": "VF240172",
     "field": "customer_no",
     "source": "11_openstaande_posten.xlsx!Posten",
     "action": "reject",
@@ -4219,14 +4235,14 @@
     "repaired": null,
     "message": "a receivable with no customer; it must be reported, not dropped",
     "evidence": {
-     "amount": "4902.83"
+     "amount": "6275.81"
     }
    },
    {
     "rule": "R-VIII-03",
     "circle": 8,
     "entity": "open_item",
-    "key": "VF240185",
+    "key": "VF240293",
     "field": "customer_no",
     "source": "11_openstaande_posten.xlsx!Posten",
     "action": "reject",
@@ -4235,14 +4251,14 @@
     "repaired": null,
     "message": "a receivable with no customer; it must be reported, not dropped",
     "evidence": {
-     "amount": "3611.32"
+     "amount": "3664.92"
     }
    },
    {
     "rule": "R-VIII-03",
     "circle": 8,
     "entity": "open_item",
-    "key": "VF240400",
+    "key": "VF240508",
     "field": "customer_no",
     "source": "11_openstaande_posten.xlsx!Posten",
     "action": "reject",
@@ -4251,14 +4267,14 @@
     "repaired": null,
     "message": "a receivable with no customer; it must be reported, not dropped",
     "evidence": {
-     "amount": "2835.64"
+     "amount": "1630.9"
     }
    },
    {
     "rule": "R-VIII-03",
     "circle": 8,
     "entity": "open_item",
-    "key": "VF240415",
+    "key": "VF240523",
     "field": "customer_no",
     "source": "11_openstaande_posten.xlsx!Posten",
     "action": "reject",
@@ -4267,23 +4283,7 @@
     "repaired": null,
     "message": "a receivable with no customer; it must be reported, not dropped",
     "evidence": {
-     "amount": "901.66"
-    }
-   },
-   {
-    "rule": "R-VIII-03",
-    "circle": 8,
-    "entity": "open_item",
-    "key": "VF240502",
-    "field": "customer_no",
-    "source": "11_openstaande_posten.xlsx!Posten",
-    "action": "reject",
-    "owner": "finance",
-    "raw": "K90249",
-    "repaired": null,
-    "message": "a receivable with no customer; it must be reported, not dropped",
-    "evidence": {
-     "amount": "3273.83"
+     "amount": "4445.9"
     }
    }
   ],
@@ -4302,10 +4302,10 @@
     "message": "unexplained difference nets to 0.00 while gross movement is 2,495.00 across 2 customers \u2014 net zero with gross movement is betrayal, not balance",
     "evidence": {
      "trial_balance_total": "5380992.54",
-     "source_detail_total": "5333662.11",
-     "total_difference": "-47330.43",
+     "source_detail_total": "5323331.97",
+     "total_difference": "-57660.57",
      "explained_orphan_detail": "0.00",
-     "explained_unquantifiable": "-47330.43",
+     "explained_unquantifiable": "-57660.57",
      "unexplained_net": "0.00",
      "unexplained_gross": "2495.00",
      "compensating_pattern": true,
@@ -4319,9 +4319,9 @@
        "difference": "1247.50"
       },
       {
-       "customer": "K00068",
-       "trial": "6724.81",
-       "detail": "5477.31",
+       "customer": "K00067",
+       "trial": "9305.20",
+       "detail": "8057.70",
        "difference": "-1247.50"
       }
      ]
@@ -4340,14 +4340,19 @@
     "owner": "finance",
     "raw": null,
     "repaired": null,
-    "message": "153 customers would arrive with a zero balance, holding 794,130.93 between them",
+    "message": "154 customers would arrive with a zero balance, holding 829,797.69 between them",
     "evidence": {
-     "customers": 153,
-     "amount": "794130.93",
+     "customers": 154,
+     "amount": "829797.69",
      "worst": [
       {
+       "customer": "K00197",
+       "trial": "20683.56",
+       "migrated": "0.00"
+      },
+      {
        "customer": "K00219",
-       "trial": "21854.23",
+       "trial": "18189.31",
        "migrated": "0.00"
       },
       {
@@ -4386,6 +4391,11 @@
        "migrated": "0.00"
       },
       {
+       "customer": "K00485",
+       "trial": "10863.56",
+       "migrated": "0.00"
+      },
+      {
        "customer": "K00820",
        "trial": "9926.83",
        "migrated": "0.00"
@@ -4393,16 +4403,6 @@
       {
        "customer": "K00759",
        "trial": "9360.64",
-       "migrated": "0.00"
-      },
-      {
-       "customer": "K00242",
-       "trial": "9287.87",
-       "migrated": "0.00"
-      },
-      {
-       "customer": "K00520",
-       "trial": "9204.93",
        "migrated": "0.00"
       }
      ]
@@ -4550,38 +4550,19 @@
     "rule": "R-IV-03",
     "circle": 4,
     "entity": "article",
-    "key": "SAN-0002",
+    "key": "SAN-0003",
     "field": "price",
     "source": "06_artikelen_prijzen_2024.xlsx!prijzen 2024",
     "action": "quarantine",
     "owner": "finance",
-    "raw": "EUR 1190,45",
+    "raw": "\u20ac 989,42",
     "repaired": null,
     "message": "flag says VAT-inclusive, amount equals the exclusive price",
     "evidence": {
      "vat_rate": "21",
-     "flag": "ja",
-     "master_price": "1190.45",
-     "inclusive_would_be": "1440.44"
-    }
-   },
-   {
-    "rule": "R-IV-03",
-    "circle": 4,
-    "entity": "article",
-    "key": "SAN-0004",
-    "field": "price",
-    "source": "06_artikelen_prijzen_2024.xlsx!prijzen 2024",
-    "action": "quarantine",
-    "owner": "finance",
-    "raw": "\u20ac 216,71",
-    "repaired": null,
-    "message": "flag says VAT-inclusive, amount equals the exclusive price",
-    "evidence": {
-     "vat_rate": "21",
-     "flag": "ja",
-     "master_price": "216.71",
-     "inclusive_would_be": "262.22"
+     "flag": "x",
+     "master_price": "989.42",
+     "inclusive_would_be": "1197.20"
     }
    },
    {
@@ -4604,6 +4585,44 @@
     }
    },
    {
+    "rule": "R-IV-03",
+    "circle": 4,
+    "entity": "article",
+    "key": "SAN-0006",
+    "field": "price",
+    "source": "06_artikelen_prijzen_2024.xlsx!prijzen 2024",
+    "action": "quarantine",
+    "owner": "finance",
+    "raw": "\u20ac 517,94",
+    "repaired": null,
+    "message": "flag says VAT-inclusive, amount equals the exclusive price",
+    "evidence": {
+     "vat_rate": "21",
+     "flag": "1",
+     "master_price": "517.94",
+     "inclusive_would_be": "626.71"
+    }
+   },
+   {
+    "rule": "R-IV-03",
+    "circle": 4,
+    "entity": "article",
+    "key": "SAN-0007",
+    "field": "price",
+    "source": "06_artikelen_prijzen_2024.xlsx!prijzen 2024",
+    "action": "quarantine",
+    "owner": "finance",
+    "raw": "984,50",
+    "repaired": null,
+    "message": "flag says VAT-inclusive, amount equals the exclusive price",
+    "evidence": {
+     "vat_rate": "21",
+     "flag": "ja",
+     "master_price": "984.50",
+     "inclusive_would_be": "1191.24"
+    }
+   },
+   {
     "rule": "R-IV-04",
     "circle": 4,
     "entity": "article",
@@ -4612,7 +4631,7 @@
     "source": "06_artikelen_prijzen_2024.xlsx!prijzen 2024",
     "action": "quarantine",
     "owner": "finance",
-    "raw": "595,40",
+    "raw": "595.40",
     "repaired": null,
     "message": "unit price below cost while a discount agreement exists",
     "evidence": {
@@ -4624,38 +4643,36 @@
     "rule": "R-IV-03",
     "circle": 4,
     "entity": "article",
-    "key": "SAN-0013",
+    "key": "SAN-0011",
     "field": "price",
     "source": "06_artikelen_prijzen_2024.xlsx!prijzen 2024",
     "action": "quarantine",
     "owner": "finance",
-    "raw": "EUR 934,18",
-    "repaired": null,
-    "message": "flag says VAT-inclusive, amount equals the exclusive price",
-    "evidence": {
-     "vat_rate": "6",
-     "flag": "ja",
-     "master_price": "934.18",
-     "inclusive_would_be": "990.23"
-    }
-   },
-   {
-    "rule": "R-IV-03",
-    "circle": 4,
-    "entity": "article",
-    "key": "SAN-0014",
-    "field": "price",
-    "source": "06_artikelen_prijzen_2024.xlsx!prijzen 2024",
-    "action": "quarantine",
-    "owner": "finance",
-    "raw": "EUR 166,73",
+    "raw": "696,72",
     "repaired": null,
     "message": "flag says VAT-inclusive, amount equals the exclusive price",
     "evidence": {
      "vat_rate": "21",
-     "flag": "1",
-     "master_price": "166.73",
-     "inclusive_would_be": "201.74"
+     "flag": "ja",
+     "master_price": "696.72",
+     "inclusive_would_be": "843.03"
+    }
+   },
+   {
+    "rule": "R-IV-04",
+    "circle": 4,
+    "entity": "article",
+    "key": "SAN-0028",
+    "field": "price",
+    "source": "06_artikelen_prijzen_2024.xlsx!prijzen 2024",
+    "action": "quarantine",
+    "owner": "finance",
+    "raw": "71.89",
+    "repaired": null,
+    "message": "unit price below cost while a discount agreement exists",
+    "evidence": {
+     "cost": "81.69",
+     "price": "71.89"
     }
    },
    {
@@ -4667,7 +4684,7 @@
     "source": "06_artikelen_prijzen_2024.xlsx!prijzen 2024",
     "action": "quarantine",
     "owner": "finance",
-    "raw": "\u20ac 450,01",
+    "raw": "450.01",
     "repaired": null,
     "message": "unit price below cost while a discount agreement exists",
     "evidence": {
@@ -4679,68 +4696,51 @@
     "rule": "R-IV-04",
     "circle": 4,
     "entity": "article",
-    "key": "SAN-0087",
+    "key": "SAN-0055",
     "field": "price",
     "source": "06_artikelen_prijzen_2024.xlsx!prijzen 2024",
     "action": "quarantine",
     "owner": "finance",
-    "raw": "\u20ac 449,82",
+    "raw": "EUR 603,37",
     "repaired": null,
     "message": "unit price below cost while a discount agreement exists",
     "evidence": {
-     "cost": "511.16",
-     "price": "449.82"
+     "cost": "685.65",
+     "price": "603.37"
     }
    },
    {
     "rule": "R-IV-04",
     "circle": 4,
     "entity": "article",
-    "key": "SAN-0139",
+    "key": "SAN-0088",
     "field": "price",
     "source": "06_artikelen_prijzen_2024.xlsx!prijzen 2024",
     "action": "quarantine",
     "owner": "finance",
-    "raw": "139,02",
+    "raw": "472,16",
     "repaired": null,
     "message": "unit price below cost while a discount agreement exists",
     "evidence": {
-     "cost": "157.98",
-     "price": "139.02"
+     "cost": "536.54",
+     "price": "472.16"
     }
    },
    {
     "rule": "R-IV-04",
     "circle": 4,
     "entity": "article",
-    "key": "SAN-0147",
+    "key": "SAN-0127",
     "field": "price",
     "source": "06_artikelen_prijzen_2024.xlsx!prijzen 2024",
     "action": "quarantine",
     "owner": "finance",
-    "raw": "EUR 592,88",
+    "raw": "EUR 174,60",
     "repaired": null,
     "message": "unit price below cost while a discount agreement exists",
     "evidence": {
-     "cost": "673.73",
-     "price": "592.88"
-    }
-   },
-   {
-    "rule": "R-IV-04",
-    "circle": 4,
-    "entity": "article",
-    "key": "SAN-0183",
-    "field": "price",
-    "source": "06_artikelen_prijzen_2024.xlsx!prijzen 2024",
-    "action": "quarantine",
-    "owner": "finance",
-    "raw": "EUR 30,76",
-    "repaired": null,
-    "message": "unit price below cost while a discount agreement exists",
-    "evidence": {
-     "cost": "34.96",
-     "price": "30.76"
+     "cost": "198.41",
+     "price": "174.60"
     }
    },
    {
@@ -4759,8 +4759,8 @@
      "european": "2026-05-08",
      "american": "2026-08-05",
      "evidence": {
-      "dmy": 588,
-      "mdy": 74
+      "dmy": 581,
+      "mdy": 79
      }
     }
    },
@@ -4773,15 +4773,15 @@
     "source": "11_openstaande_posten.xlsx!Posten",
     "action": "quarantine",
     "owner": "finance",
-    "raw": "08/05/2026",
+    "raw": "05/08/2026",
     "repaired": null,
     "message": "this file proves both readings, so neither can be assumed",
     "evidence": {
-     "european": "2026-05-08",
-     "american": "2026-08-05",
+     "european": "2026-08-05",
+     "american": "2026-05-08",
      "evidence": {
-      "dmy": 588,
-      "mdy": 74
+      "dmy": 581,
+      "mdy": 79
      }
     }
    },
@@ -4794,15 +4794,15 @@
     "source": "11_openstaande_posten.xlsx!Posten",
     "action": "quarantine",
     "owner": "finance",
-    "raw": "09/10/2025",
+    "raw": "10/09/2025",
     "repaired": null,
     "message": "this file proves both readings, so neither can be assumed",
     "evidence": {
-     "european": "2025-10-09",
-     "american": "2025-09-10",
+     "european": "2025-09-10",
+     "american": "2025-10-09",
      "evidence": {
-      "dmy": 588,
-      "mdy": 74
+      "dmy": 581,
+      "mdy": 79
      }
     }
    },
@@ -4822,8 +4822,8 @@
      "european": "2025-05-11",
      "american": "2025-11-05",
      "evidence": {
-      "dmy": 588,
-      "mdy": 74
+      "dmy": 581,
+      "mdy": 79
      }
     }
    },
@@ -4843,8 +4843,8 @@
      "european": "2025-09-11",
      "american": "2025-11-09",
      "evidence": {
-      "dmy": 588,
-      "mdy": 74
+      "dmy": 581,
+      "mdy": 79
      }
     }
    },
@@ -4864,8 +4864,8 @@
      "european": "2025-08-09",
      "american": "2025-09-08",
      "evidence": {
-      "dmy": 588,
-      "mdy": 74
+      "dmy": 581,
+      "mdy": 79
      }
     }
    }
@@ -4875,114 +4875,131 @@
     "rule": "R-V-01",
     "circle": 5,
     "entity": "article",
-    "key": "SAN-0007",
-    "field": "uom",
-    "source": "08_artikelen_eenheden.xlsx!eenheden",
-    "action": "quarantine",
-    "owner": "operations",
-    "raw": "ST (master) vs RL (warehouse)",
-    "repaired": null,
-    "message": "two sources, two units, a factor fifty in stock value",
-    "evidence": {
-     "master": "ST",
-     "warehouse": "RL"
-    }
-   },
-   {
-    "rule": "R-V-01",
-    "circle": 5,
-    "entity": "article",
     "key": "SAN-0025",
     "field": "uom",
     "source": "08_artikelen_eenheden.xlsx!eenheden",
     "action": "quarantine",
     "owner": "operations",
-    "raw": "ST (master) vs PK (warehouse)",
+    "raw": "ST (master) vs M (warehouse)",
     "repaired": null,
     "message": "two sources, two units, a factor fifty in stock value",
     "evidence": {
      "master": "ST",
-     "warehouse": "PK"
+     "warehouse": "M"
     }
    },
    {
     "rule": "R-V-01",
     "circle": 5,
     "entity": "article",
-    "key": "SAN-0036",
+    "key": "SAN-0031",
     "field": "uom",
     "source": "08_artikelen_eenheden.xlsx!eenheden",
     "action": "quarantine",
     "owner": "operations",
-    "raw": "ST (master) vs RL (warehouse)",
+    "raw": "PK (master) vs ST (warehouse)",
     "repaired": null,
     "message": "two sources, two units, a factor fifty in stock value",
     "evidence": {
-     "master": "ST",
-     "warehouse": "RL"
+     "master": "PK",
+     "warehouse": "ST"
     }
    },
    {
     "rule": "R-V-01",
     "circle": 5,
     "entity": "article",
-    "key": "SAN-0037",
+    "key": "SAN-0057",
     "field": "uom",
     "source": "08_artikelen_eenheden.xlsx!eenheden",
     "action": "quarantine",
     "owner": "operations",
-    "raw": "ST (master) vs RL (warehouse)",
+    "raw": "PK (master) vs ST (warehouse)",
     "repaired": null,
     "message": "two sources, two units, a factor fifty in stock value",
     "evidence": {
-     "master": "ST",
-     "warehouse": "RL"
+     "master": "PK",
+     "warehouse": "ST"
     }
    },
    {
     "rule": "R-V-01",
     "circle": 5,
     "entity": "article",
-    "key": "SAN-0078",
+    "key": "SAN-0058",
     "field": "uom",
     "source": "08_artikelen_eenheden.xlsx!eenheden",
     "action": "quarantine",
     "owner": "operations",
-    "raw": "ST (master) vs RL (warehouse)",
+    "raw": "PK (master) vs M (warehouse)",
     "repaired": null,
     "message": "two sources, two units, a factor fifty in stock value",
     "evidence": {
-     "master": "ST",
-     "warehouse": "RL"
+     "master": "PK",
+     "warehouse": "M"
     }
    },
    {
     "rule": "R-V-01",
     "circle": 5,
     "entity": "article",
-    "key": "SAN-0096",
+    "key": "SAN-0089",
     "field": "uom",
     "source": "08_artikelen_eenheden.xlsx!eenheden",
     "action": "quarantine",
     "owner": "operations",
-    "raw": "ST (master) vs RL (warehouse)",
+    "raw": "ST (master) vs DS (warehouse)",
     "repaired": null,
     "message": "two sources, two units, a factor fifty in stock value",
     "evidence": {
      "master": "ST",
-     "warehouse": "RL"
+     "warehouse": "DS"
+    }
+   },
+   {
+    "rule": "R-V-01",
+    "circle": 5,
+    "entity": "article",
+    "key": "SAN-0107",
+    "field": "uom",
+    "source": "08_artikelen_eenheden.xlsx!eenheden",
+    "action": "quarantine",
+    "owner": "operations",
+    "raw": "ST (master) vs M (warehouse)",
+    "repaired": null,
+    "message": "two sources, two units, a factor fifty in stock value",
+    "evidence": {
+     "master": "ST",
+     "warehouse": "M"
     }
    },
    {
     "rule": "R-VII-01",
     "circle": 7,
     "entity": "article",
-    "key": "5.49E+12",
+    "key": "5.50E+12",
     "field": "article_no",
     "source": "07_artikelen_voorraad.xlsx!voorraad",
     "action": "quarantine",
     "owner": "operations",
-    "raw": "5.49E+12",
+    "raw": "5.50E+12",
+    "repaired": null,
+    "message": "digits lost to float precision; not recoverable from this cell",
+    "evidence": {
+     "stock": "0",
+     "hint": "match against the master file on EAN before accepting"
+    }
+   },
+   {
+    "rule": "R-VII-01",
+    "circle": 7,
+    "entity": "article",
+    "key": "5.50E+12",
+    "field": "article_no",
+    "source": "07_artikelen_voorraad.xlsx!voorraad",
+    "action": "quarantine",
+    "owner": "operations",
+    "raw": "5.50E+12",
     "repaired": null,
     "message": "digits lost to float precision; not recoverable from this cell",
     "evidence": {
@@ -5003,7 +5020,24 @@
     "repaired": null,
     "message": "digits lost to float precision; not recoverable from this cell",
     "evidence": {
-     "stock": "0",
+     "stock": "12",
+     "hint": "match against the master file on EAN before accepting"
+    }
+   },
+   {
+    "rule": "R-VII-01",
+    "circle": 7,
+    "entity": "article",
+    "key": "5.43E+12",
+    "field": "article_no",
+    "source": "07_artikelen_voorraad.xlsx!voorraad",
+    "action": "quarantine",
+    "owner": "operations",
+    "raw": "5.43E+12",
+    "repaired": null,
+    "message": "digits lost to float precision; not recoverable from this cell",
+    "evidence": {
+     "stock": "480",
      "hint": "match against the master file on EAN before accepting"
     }
    },
@@ -5028,50 +5062,16 @@
     "rule": "R-VII-01",
     "circle": 7,
     "entity": "article",
-    "key": "5.42E+12",
+    "key": "5.48E+12",
     "field": "article_no",
     "source": "07_artikelen_voorraad.xlsx!voorraad",
     "action": "quarantine",
     "owner": "operations",
-    "raw": "5.42E+12",
+    "raw": "5.48E+12",
     "repaired": null,
     "message": "digits lost to float precision; not recoverable from this cell",
     "evidence": {
-     "stock": "5",
-     "hint": "match against the master file on EAN before accepting"
-    }
-   },
-   {
-    "rule": "R-VII-01",
-    "circle": 7,
-    "entity": "article",
-    "key": "5.41E+12",
-    "field": "article_no",
-    "source": "07_artikelen_voorraad.xlsx!voorraad",
-    "action": "quarantine",
-    "owner": "operations",
-    "raw": "5.41E+12",
-    "repaired": null,
-    "message": "digits lost to float precision; not recoverable from this cell",
-    "evidence": {
-     "stock": "40",
-     "hint": "match against the master file on EAN before accepting"
-    }
-   },
-   {
-    "rule": "R-VII-01",
-    "circle": 7,
-    "entity": "article",
-    "key": "5.50E+12",
-    "field": "article_no",
-    "source": "07_artikelen_voorraad.xlsx!voorraad",
-    "action": "quarantine",
-    "owner": "operations",
-    "raw": "5.50E+12",
-    "repaired": null,
-    "message": "digits lost to float precision; not recoverable from this cell",
-    "evidence": {
-     "stock": "2",
+     "stock": "0",
      "hint": "match against the master file on EAN before accepting"
     }
    }
@@ -5081,16 +5081,16 @@
     "rule": "R-V-03",
     "circle": 5,
     "entity": "article",
-    "key": "SAN-0001",
+    "key": "SAN-0010",
     "field": "supplier_no",
     "source": "09_artikelen_leverancier.xlsx!leverancier",
     "action": "quarantine",
     "owner": "purchasing",
-    "raw": "L0031 (master) vs L0069 (purchasing)",
+    "raw": "L0010 (master) vs L0069 (purchasing)",
     "repaired": null,
     "message": "purchasing drives replenishment from this field",
     "evidence": {
-     "master": "L0031",
+     "master": "L0010",
      "purchasing": "L0069"
     }
    },
@@ -5098,33 +5098,50 @@
     "rule": "R-V-03",
     "circle": 5,
     "entity": "article",
-    "key": "SAN-0075",
+    "key": "SAN-0022",
     "field": "supplier_no",
     "source": "09_artikelen_leverancier.xlsx!leverancier",
     "action": "quarantine",
     "owner": "purchasing",
-    "raw": "L0070 (master) vs L0064 (purchasing)",
+    "raw": "L0051 (master) vs L0001 (purchasing)",
     "repaired": null,
     "message": "purchasing drives replenishment from this field",
     "evidence": {
-     "master": "L0070",
-     "purchasing": "L0064"
+     "master": "L0051",
+     "purchasing": "L0001"
     }
    },
    {
     "rule": "R-V-03",
     "circle": 5,
     "entity": "article",
-    "key": "SAN-0080",
+    "key": "SAN-0032",
     "field": "supplier_no",
     "source": "09_artikelen_leverancier.xlsx!leverancier",
     "action": "quarantine",
     "owner": "purchasing",
-    "raw": "L0043 (master) vs L0059 (purchasing)",
+    "raw": "L0028 (master) vs L0002 (purchasing)",
     "repaired": null,
     "message": "purchasing drives replenishment from this field",
     "evidence": {
-     "master": "L0043",
+     "master": "L0028",
+     "purchasing": "L0002"
+    }
+   },
+   {
+    "rule": "R-V-03",
+    "circle": 5,
+    "entity": "article",
+    "key": "SAN-0034",
+    "field": "supplier_no",
+    "source": "09_artikelen_leverancier.xlsx!leverancier",
+    "action": "quarantine",
+    "owner": "purchasing",
+    "raw": "L0032 (master) vs L0059 (purchasing)",
+    "repaired": null,
+    "message": "purchasing drives replenishment from this field",
+    "evidence": {
+     "master": "L0032",
      "purchasing": "L0059"
     }
    },
@@ -5132,63 +5149,46 @@
     "rule": "R-V-03",
     "circle": 5,
     "entity": "article",
-    "key": "SAN-0085",
+    "key": "SAN-0036",
     "field": "supplier_no",
     "source": "09_artikelen_leverancier.xlsx!leverancier",
     "action": "quarantine",
     "owner": "purchasing",
-    "raw": "L0025 (master) vs L0023 (purchasing)",
+    "raw": "L0065 (master) vs L0064 (purchasing)",
     "repaired": null,
     "message": "purchasing drives replenishment from this field",
     "evidence": {
-     "master": "L0025",
-     "purchasing": "L0023"
+     "master": "L0065",
+     "purchasing": "L0064"
     }
    },
    {
     "rule": "R-V-03",
     "circle": 5,
     "entity": "article",
-    "key": "SAN-0096",
+    "key": "SAN-0038",
     "field": "supplier_no",
     "source": "09_artikelen_leverancier.xlsx!leverancier",
     "action": "quarantine",
     "owner": "purchasing",
-    "raw": "L0015 (master) vs L0027 (purchasing)",
+    "raw": "L0061 (master) vs L0065 (purchasing)",
     "repaired": null,
     "message": "purchasing drives replenishment from this field",
     "evidence": {
-     "master": "L0015",
-     "purchasing": "L0027"
-    }
-   },
-   {
-    "rule": "R-V-03",
-    "circle": 5,
-    "entity": "article",
-    "key": "SAN-0109",
-    "field": "supplier_no",
-    "source": "09_artikelen_leverancier.xlsx!leverancier",
-    "action": "quarantine",
-    "owner": "purchasing",
-    "raw": "L0020 (master) vs L0049 (purchasing)",
-    "repaired": null,
-    "message": "purchasing drives replenishment from this field",
-    "evidence": {
-     "master": "L0020",
-     "purchasing": "L0049"
+     "master": "L0061",
+     "purchasing": "L0065"
     }
    },
    {
     "rule": "R-VIII-02",
     "circle": 8,
     "entity": "article",
-    "key": "SAN-0005",
+    "key": "SAN-0004",
     "field": "supplier_no",
     "source": "09_artikelen_leverancier.xlsx!leverancier",
     "action": "quarantine",
     "owner": "purchasing",
-    "raw": "L977",
+    "raw": "L918",
     "repaired": null,
     "message": "the article is real and sellable; only its replenishment link is broken",
     "evidence": {}
@@ -5197,54 +5197,12 @@
     "rule": "R-VIII-02",
     "circle": 8,
     "entity": "article",
-    "key": "SAN-0010",
+    "key": "SAN-0046",
     "field": "supplier_no",
     "source": "09_artikelen_leverancier.xlsx!leverancier",
     "action": "quarantine",
     "owner": "purchasing",
-    "raw": "L900",
-    "repaired": null,
-    "message": "the article is real and sellable; only its replenishment link is broken",
-    "evidence": {}
-   },
-   {
-    "rule": "R-VIII-02",
-    "circle": 8,
-    "entity": "article",
-    "key": "SAN-0019",
-    "field": "supplier_no",
-    "source": "09_artikelen_leverancier.xlsx!leverancier",
-    "action": "quarantine",
-    "owner": "purchasing",
-    "raw": "L934",
-    "repaired": null,
-    "message": "the article is real and sellable; only its replenishment link is broken",
-    "evidence": {}
-   },
-   {
-    "rule": "R-VIII-04",
-    "circle": 8,
-    "entity": "article",
-    "key": "SAN-0034",
-    "field": "supplier_no",
-    "source": "09_artikelen_leverancier.xlsx!leverancier",
-    "action": "quarantine",
-    "owner": "purchasing",
-    "raw": "L0032",
-    "repaired": null,
-    "message": "reference intact, business fact broken: reroute or block",
-    "evidence": {}
-   },
-   {
-    "rule": "R-VIII-02",
-    "circle": 8,
-    "entity": "article",
-    "key": "SAN-0047",
-    "field": "supplier_no",
-    "source": "09_artikelen_leverancier.xlsx!leverancier",
-    "action": "quarantine",
-    "owner": "purchasing",
-    "raw": "L939",
+    "raw": "L931",
     "repaired": null,
     "message": "the article is real and sellable; only its replenishment link is broken",
     "evidence": {}
@@ -5261,6 +5219,34 @@
     "raw": "L0058",
     "repaired": null,
     "message": "reference intact, business fact broken: reroute or block",
+    "evidence": {}
+   },
+   {
+    "rule": "R-VIII-04",
+    "circle": 8,
+    "entity": "article",
+    "key": "SAN-0071",
+    "field": "supplier_no",
+    "source": "09_artikelen_leverancier.xlsx!leverancier",
+    "action": "quarantine",
+    "owner": "purchasing",
+    "raw": "L0032",
+    "repaired": null,
+    "message": "reference intact, business fact broken: reroute or block",
+    "evidence": {}
+   },
+   {
+    "rule": "R-VIII-02",
+    "circle": 8,
+    "entity": "article",
+    "key": "SAN-0073",
+    "field": "supplier_no",
+    "source": "09_artikelen_leverancier.xlsx!leverancier",
+    "action": "quarantine",
+    "owner": "purchasing",
+    "raw": "L917",
+    "repaired": null,
+    "message": "the article is real and sellable; only its replenishment link is broken",
     "evidence": {}
    },
    {
@@ -5295,20 +5281,6 @@
     "rule": "R-VIII-04",
     "circle": 8,
     "entity": "article",
-    "key": "SAN-0085",
-    "field": "supplier_no",
-    "source": "09_artikelen_leverancier.xlsx!leverancier",
-    "action": "quarantine",
-    "owner": "purchasing",
-    "raw": "L0023",
-    "repaired": null,
-    "message": "reference intact, business fact broken: reroute or block",
-    "evidence": {}
-   },
-   {
-    "rule": "R-VIII-04",
-    "circle": 8,
-    "entity": "article",
     "key": "SAN-0092",
     "field": "supplier_no",
     "source": "09_artikelen_leverancier.xlsx!leverancier",
@@ -5320,15 +5292,29 @@
     "evidence": {}
    },
    {
-    "rule": "R-VIII-02",
+    "rule": "R-VIII-04",
     "circle": 8,
     "entity": "article",
-    "key": "SAN-0102",
+    "key": "SAN-0096",
     "field": "supplier_no",
     "source": "09_artikelen_leverancier.xlsx!leverancier",
     "action": "quarantine",
     "owner": "purchasing",
-    "raw": "L963",
+    "raw": "L0057",
+    "repaired": null,
+    "message": "reference intact, business fact broken: reroute or block",
+    "evidence": {}
+   },
+   {
+    "rule": "R-VIII-02",
+    "circle": 8,
+    "entity": "article",
+    "key": "SAN-0158",
+    "field": "supplier_no",
+    "source": "09_artikelen_leverancier.xlsx!leverancier",
+    "action": "quarantine",
+    "owner": "purchasing",
+    "raw": "L900",
     "repaired": null,
     "message": "the article is real and sellable; only its replenishment link is broken",
     "evidence": {}
@@ -5337,12 +5323,26 @@
     "rule": "R-VIII-02",
     "circle": 8,
     "entity": "article",
-    "key": "SAN-0116",
+    "key": "SAN-0198",
     "field": "supplier_no",
     "source": "09_artikelen_leverancier.xlsx!leverancier",
     "action": "quarantine",
     "owner": "purchasing",
-    "raw": "L979",
+    "raw": "L953",
+    "repaired": null,
+    "message": "the article is real and sellable; only its replenishment link is broken",
+    "evidence": {}
+   },
+   {
+    "rule": "R-VIII-02",
+    "circle": 8,
+    "entity": "article",
+    "key": "SAN-0214",
+    "field": "supplier_no",
+    "source": "09_artikelen_leverancier.xlsx!leverancier",
+    "action": "quarantine",
+    "owner": "purchasing",
+    "raw": "L946",
     "repaired": null,
     "message": "the article is real and sellable; only its replenishment link is broken",
     "evidence": {}
@@ -5744,22 +5744,22 @@
  "detection": {
   "per_rule": {
    "R-I-01": {
-    "planted": 119,
+    "planted": 120,
     "found": 116,
     "reported": 116,
-    "recall": 0.9748
+    "recall": 0.9667
    },
    "R-I-02": {
-    "planted": 115,
+    "planted": 114,
     "found": 109,
-    "reported": 387,
-    "recall": 0.9478
+    "reported": 394,
+    "recall": 0.9561
    },
    "R-I-03": {
-    "planted": 109,
-    "found": 109,
-    "reported": 195,
-    "recall": 1.0
+    "planted": 112,
+    "found": 111,
+    "reported": 186,
+    "recall": 0.9911
    },
    "R-I-04": {
     "planted": 1,
@@ -5774,10 +5774,10 @@
     "recall": 0.9844
    },
    "R-II-01": {
-    "planted": 222,
-    "found": 164,
+    "planted": 570,
+    "found": 472,
     "reported": 582,
-    "recall": 0.7387
+    "recall": 0.8281
    },
    "R-II-02": {
     "planted": 26,
@@ -5792,10 +5792,10 @@
     "recall": 0.8889
    },
    "R-II-04": {
-    "planted": 22,
+    "planted": 21,
     "found": 18,
     "reported": 154,
-    "recall": 0.8182
+    "recall": 0.8571
    },
    "R-III-01": {
     "planted": 314,
@@ -5810,9 +5810,9 @@
     "recall": 0.9187
    },
    "R-III-03": {
-    "planted": 65,
-    "found": 65,
-    "reported": 65,
+    "planted": 68,
+    "found": 68,
+    "reported": 68,
     "recall": 1.0
    },
    "R-III-04": {
@@ -5822,112 +5822,112 @@
     "recall": 1.0
    },
    "R-III-05": {
-    "planted": 17,
-    "found": 17,
-    "reported": 17,
-    "recall": 1.0
-   },
-   "R-IV-01": {
-    "planted": 2106,
-    "found": 2055,
-    "reported": 1629,
-    "recall": 0.9758
-   },
-   "R-IV-02": {
-    "planted": 905,
-    "found": 861,
-    "reported": 915,
-    "recall": 0.9514
-   },
-   "R-IV-03": {
-    "planted": 169,
-    "found": 143,
-    "reported": 408,
-    "recall": 0.8462
-   },
-   "R-IV-04": {
-    "planted": 42,
-    "found": 40,
-    "reported": 40,
-    "recall": 0.9524
-   },
-   "R-IV-05": {
-    "planted": 16,
-    "found": 16,
-    "reported": 16,
-    "recall": 1.0
-   },
-   "R-V-01": {
-    "planted": 78,
-    "found": 75,
-    "reported": 75,
-    "recall": 0.9615
-   },
-   "R-V-02": {
-    "planted": 350,
-    "found": 323,
-    "reported": 323,
-    "recall": 0.9229
-   },
-   "R-V-03": {
-    "planted": 53,
-    "found": 50,
-    "reported": 50,
-    "recall": 0.9434
-   },
-   "R-VI-01": {
-    "planted": 9,
-    "found": 9,
-    "reported": 9,
-    "recall": 1.0
-   },
-   "R-VI-02": {
-    "planted": 41,
-    "found": 41,
-    "reported": 41,
-    "recall": 1.0
-   },
-   "R-VI-03": {
-    "planted": 51,
-    "found": 51,
-    "reported": 51,
-    "recall": 1.0
-   },
-   "R-VI-04": {
-    "planted": 7,
-    "found": 7,
-    "reported": 7,
-    "recall": 1.0
-   },
-   "R-VI-05": {
     "planted": 21,
     "found": 21,
     "reported": 21,
     "recall": 1.0
    },
+   "R-IV-01": {
+    "planted": 2082,
+    "found": 2037,
+    "reported": 1635,
+    "recall": 0.9784
+   },
+   "R-IV-02": {
+    "planted": 935,
+    "found": 916,
+    "reported": 926,
+    "recall": 0.9797
+   },
+   "R-IV-03": {
+    "planted": 453,
+    "found": 424,
+    "reported": 424,
+    "recall": 0.936
+   },
+   "R-IV-04": {
+    "planted": 48,
+    "found": 43,
+    "reported": 43,
+    "recall": 0.8958
+   },
+   "R-IV-05": {
+    "planted": 14,
+    "found": 14,
+    "reported": 14,
+    "recall": 1.0
+   },
+   "R-V-01": {
+    "planted": 76,
+    "found": 72,
+    "reported": 72,
+    "recall": 0.9474
+   },
+   "R-V-02": {
+    "planted": 364,
+    "found": 328,
+    "reported": 328,
+    "recall": 0.9011
+   },
+   "R-V-03": {
+    "planted": 65,
+    "found": 63,
+    "reported": 63,
+    "recall": 0.9692
+   },
+   "R-VI-01": {
+    "planted": 12,
+    "found": 12,
+    "reported": 12,
+    "recall": 1.0
+   },
+   "R-VI-02": {
+    "planted": 46,
+    "found": 46,
+    "reported": 46,
+    "recall": 1.0
+   },
+   "R-VI-03": {
+    "planted": 54,
+    "found": 54,
+    "reported": 54,
+    "recall": 1.0
+   },
+   "R-VI-04": {
+    "planted": 10,
+    "found": 10,
+    "reported": 10,
+    "recall": 1.0
+   },
+   "R-VI-05": {
+    "planted": 19,
+    "found": 19,
+    "reported": 19,
+    "recall": 1.0
+   },
    "R-VII-01": {
-    "planted": 41,
-    "found": 41,
-    "reported": 16,
+    "planted": 36,
+    "found": 36,
+    "reported": 15,
     "recall": 1.0
    },
    "R-VII-02": {
-    "planted": 114,
-    "found": 102,
-    "reported": 102,
-    "recall": 0.8947
+    "planted": 112,
+    "found": 103,
+    "reported": 103,
+    "recall": 0.9196
    },
    "R-VII-03": {
-    "planted": 66,
-    "found": 66,
-    "reported": 469,
+    "planted": 65,
+    "found": 65,
+    "reported": 464,
     "recall": 1.0
    },
    "R-VII-04": {
-    "planted": 56,
-    "found": 52,
-    "reported": 405,
-    "recall": 0.9286
+    "planted": 51,
+    "found": 46,
+    "reported": 402,
+    "recall": 0.902
    },
    "R-VII-05": {
     "planted": 23,
@@ -5936,33 +5936,33 @@
     "recall": 1.0
    },
    "R-VIII-01": {
-    "planted": 20,
-    "found": 20,
-    "reported": 39,
+    "planted": 9,
+    "found": 9,
+    "reported": 28,
     "recall": 1.0
    },
    "R-VIII-02": {
-    "planted": 33,
-    "found": 32,
-    "reported": 32,
-    "recall": 0.9697
+    "planted": 30,
+    "found": 29,
+    "reported": 29,
+    "recall": 0.9667
    },
    "R-VIII-03": {
-    "planted": 12,
-    "found": 12,
-    "reported": 12,
+    "planted": 13,
+    "found": 13,
+    "reported": 13,
     "recall": 1.0
    },
    "R-VIII-04": {
-    "planted": 78,
-    "found": 71,
-    "reported": 120,
-    "recall": 0.9103
+    "planted": 85,
+    "found": 83,
+    "reported": 124,
+    "recall": 0.9765
    }
   },
-  "planted": 5643,
-  "found": 5338,
-  "overall": 0.946,
-  "planted_total": 5645
+  "planted": 6311,
+  "found": 5989,
+  "overall": 0.949,
+  "planted_total": 6313
  }
 }

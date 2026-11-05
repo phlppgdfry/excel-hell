@@ -5,44 +5,71 @@
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg'
  viewBox='0 0 16 16'><text y='13' font-size='13'>&#128213;</text></svg>">
 <style>
- :root{--ink:#16130f;--mut:#6b625a;--line:#ded5c9;--bg:#fbf8f3;--bad:#9d2b1f;
-       --warn:#8a5a12;--good:#1f5d3a;--accent:#7a1f12}
+ /* An audit report is a document, not an application, so this stays paper.
+    The accents are Excel's, because it is the same workbook underneath. */
+ :root{
+   --ink:#1b1b1b;--mut:#5a5a58;--line:#d8d8d4;--bg:#fbfbfa;--cell:#fff;
+   --excel:#217346;--excel-dark:#185c37;
+   --bad:#c5221f;--bad-bg:#fde7e6;--warn:#9c6500;--good:#1d6f42;--good-bg:#e2efda;
+ }
+ @media (prefers-color-scheme:dark){
+   :root{
+     --ink:#eeeeec;--mut:#a9a9a4;--line:#3d3d3d;--bg:#171717;--cell:#1f1f1f;
+     --excel:#33c481;--excel-dark:#6bcf96;
+     --bad:#ff8782;--bad-bg:#3a1b1a;--warn:#ffc83d;--good:#6bcf96;--good-bg:#17301f;
+   }
+ }
  *{box-sizing:border-box}
- body{margin:0;background:var(--bg);color:var(--ink);
-      font:15px/1.6 "Iowan Old Style",Palatino,Georgia,serif;padding:48px 20px}
- main{max-width:50rem;margin:0 auto}
- h1{font-size:1.9rem;margin:0 0 .2em;letter-spacing:-.01em}
- h2{font-size:1.15rem;margin:2.6em 0 .6em;padding-bottom:.3em;
-    border-bottom:1px solid var(--line)}
- h3{font-size:.95rem;margin:1.6em 0 .4em}
- .sub{color:var(--mut);margin:0 0 2em}
- .verdict{display:flex;align-items:baseline;gap:.6rem;border:2px solid var(--bad);
-          background:#fff;padding:1rem 1.2rem;margin:0 0 1.6em}
- .verdict b{font-size:1.5rem;color:var(--bad);letter-spacing:.04em}
+ body{margin:0;background:var(--bg);color:var(--ink);padding:44px 20px;
+      font:15px/1.6 "Segoe UI",system-ui,-apple-system,Helvetica,Arial,sans-serif;
+      -webkit-font-smoothing:antialiased}
+ main{max-width:52rem;margin:0 auto}
+ h1{font-size:1.85rem;margin:0 0 .2em;letter-spacing:-.018em;font-weight:700}
+ h2{font-size:1.1rem;margin:2.5em 0 .6em;padding-bottom:.3em;font-weight:600;
+    border-bottom:2px solid var(--excel)}
+ h3{font-size:.95rem;margin:1.6em 0 .4em;font-weight:600}
+ .sub{color:var(--mut);margin:0 0 2em;font-size:.95rem}
+ .rail{height:4px;background:var(--excel);margin:0 0 1.6em}
+ .verdict{display:flex;align-items:center;gap:1rem;border:1px solid var(--line);
+          border-left:5px solid var(--bad);background:var(--cell);
+          padding:.95rem 1.2rem;margin:0 0 1.6em}
+ .verdict b{font-size:1.4rem;color:var(--bad);letter-spacing:.03em;
+            font-family:ui-monospace,Menlo,monospace}
  .verdict span{color:var(--mut);font-size:.9rem}
- table{width:100%;border-collapse:collapse;font-size:.86rem;margin:.6em 0 1.4em}
- th,td{text-align:left;padding:.42rem .5rem;border-bottom:1px solid var(--line);
+ table{width:100%;border-collapse:collapse;font-size:.86rem;margin:.6em 0 1.4em;
+       background:var(--cell)}
+ th,td{text-align:left;padding:.42rem .55rem;border:1px solid var(--line);
        vertical-align:top}
- th{font-size:.72rem;letter-spacing:.07em;text-transform:uppercase;color:var(--mut);
-    font-weight:600}
+ th{font-size:.7rem;letter-spacing:.07em;text-transform:uppercase;color:var(--mut);
+    font-weight:600;background:var(--bg)}
  td.n,th.n{text-align:right;font-variant-numeric:tabular-nums;
-           font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
+           font-family:ui-monospace,Menlo,monospace}
  .pass{color:var(--good);font-weight:600}.fail{color:var(--bad);font-weight:600}
- .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);
+ .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;
        border:1px solid var(--line);margin:0 0 1.6em}
- .grid div{background:#fff;padding:.9rem 1rem}
- .grid b{display:block;font-size:1.5rem;font-variant-numeric:tabular-nums}
- .grid small{color:var(--mut);font-size:.74rem;letter-spacing:.06em;
-             text-transform:uppercase}
- code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.8rem;
-      background:#fff;border:1px solid var(--line);padding:.05em .3em}
- blockquote{margin:0 0 1.2em;padding:.1em 0 .1em 1rem;border-left:3px solid var(--accent);
-            color:var(--mut)}
- footer{margin-top:3.5em;padding-top:1em;border-top:1px solid var(--line);
+ .grid div{background:var(--cell);padding:.85rem 1rem;border-right:1px solid var(--line)}
+ .grid div:last-child{border-right:0}
+ .grid b{display:block;font-size:1.45rem;font-variant-numeric:tabular-nums;
+         font-family:ui-monospace,Menlo,monospace;font-weight:700}
+ .grid small{color:var(--mut);font-size:.68rem;letter-spacing:.1em;
+             text-transform:uppercase;font-family:ui-monospace,Menlo,monospace}
+ .grid .up b{color:var(--good)}.grid .hold b{color:var(--warn)}.grid .down b{color:var(--bad)}
+ code{font-family:ui-monospace,Menlo,monospace;font-size:.8rem;background:var(--bg);
+      border:1px solid var(--line);padding:.05em .3em}
+ blockquote{margin:0 0 1.2em;padding:.7rem 1rem;border-left:4px solid var(--excel);
+            background:var(--cell);color:var(--mut);font-size:.9rem}
+ footer{margin-top:3.2em;padding-top:1em;border-top:1px solid var(--line);
         color:var(--mut);font-size:.8rem}
- @media print{body{padding:0;background:#fff}.verdict{break-inside:avoid}}
+ a{color:var(--excel)}
+ @media print{
+   :root{--bg:#fff;--cell:#fff;--ink:#000}
+   body{padding:0}
+   .verdict,table,.grid{break-inside:avoid}
+   h2{break-after:avoid}
+ }
 </style></head><body><main>
 
+<div class="rail"></div>
 <h1>Data migration audit</h1>
 <p class="sub">Vanhulle Techniek nv &middot; migration from Mercurius 4.2 &middot;
    dry run on 4 472 source rows from twelve files</p>
@@ -52,12 +79,12 @@
  This load must not be executed.</span></div>
 
 <div class="grid">
- <div><small>Load-ready</small><b>2 634</b>
-      rows, 59% of source</div>
- <div><small>Held for a decision</small><b>1 725</b>
-      rows, 2 110 open questions</div>
- <div><small>Rejected</small><b>113</b>
-      rows, 3% of source</div>
+ <div><small>Load-ready</small><b>2 613</b>
+      rows, 58% of source</div>
+ <div><small>Held for a decision</small><b>1 753</b>
+      rows, 2 130 open questions</div>
+ <div><small>Rejected</small><b>106</b>
+      rows, 2% of source</div>
 </div>
 
 <h2>What is blocking the load</h2>
@@ -71,7 +98,7 @@
 <h3>R-IX-02 &middot; Open receivables reconcile to the cent
     <span class="pass">
     passed</span></h3>
-<p>source detail 5,333,662.11 vs triaged 5,333,662.11, difference 0.00</p>
+<p>source detail 5,323,331.97 vs triaged 5,323,331.97, difference 0.00</p>
 
 
 <h3>R-IX-03 &middot; Compensating errors detected by gross movement
@@ -80,9 +107,9 @@
 <p>unexplained difference nets to 0.00 while gross movement is 2,495.00 across 2 customers — net zero with gross movement is betrayal, not balance</p>
 
 <blockquote>The totals agree. The difference against the legacy trial balance is
- -47 330.43, and every cent of it is explained: orphan
+ -57 660.57, and every cent of it is explained: orphan
  detail 0.00 and rows whose amount could not be
- read -47 330.43. What is left over nets to
+ read -57 660.57. What is left over nets to
  0.00 across 2
  customers, and moves 2 495.00 gross.
  A reconciliation on the net total would have signed this off.</blockquote>
@@ -90,8 +117,8 @@
  <th class="n">Migration detail</th><th class="n">Difference</th></tr></thead><tbody>
 <tr><td><code>K00008</code></td>
  <td class="n">3 677.13</td><td class="n">4 924.63</td>
- <td class="n fail">1 247.50</td></tr><tr><td><code>K00068</code></td>
- <td class="n">6 724.81</td><td class="n">5 477.31</td>
+ <td class="n fail">1 247.50</td></tr><tr><td><code>K00067</code></td>
+ <td class="n">9 305.20</td><td class="n">8 057.70</td>
  <td class="n fail">-1 247.50</td></tr>
 </tbody></table>
 
@@ -99,12 +126,14 @@
 <h3>R-IX-04 &middot; No customer may lose its entire open balance
     <span class="fail">
     FAILED</span></h3>
-<p>153 customers would arrive with a zero balance, holding 794,130.93 between them</p>
+<p>154 customers would arrive with a zero balance, holding 829,797.69 between them</p>
 
 <table><thead><tr><th>Customer</th><th class="n">Legacy balance</th>
  <th class="n">Would migrate</th></tr></thead><tbody>
-<tr><td><code>K00219</code></td>
- <td class="n">21 854.23</td>
+<tr><td><code>K00197</code></td>
+ <td class="n">20 683.56</td>
+     <td class="n fail">0.00</td></tr><tr><td><code>K00219</code></td>
+ <td class="n">18 189.31</td>
      <td class="n fail">0.00</td></tr><tr><td><code>K00615</code></td>
  <td class="n">17 717.99</td>
      <td class="n fail">0.00</td></tr><tr><td><code>K00266</code></td>
@@ -119,14 +148,12 @@
  <td class="n">13 266.60</td>
      <td class="n fail">0.00</td></tr><tr><td><code>K00706</code></td>
  <td class="n">11 141.54</td>
+     <td class="n fail">0.00</td></tr><tr><td><code>K00485</code></td>
+ <td class="n">10 863.56</td>
      <td class="n fail">0.00</td></tr><tr><td><code>K00820</code></td>
  <td class="n">9 926.83</td>
      <td class="n fail">0.00</td></tr><tr><td><code>K00759</code></td>
  <td class="n">9 360.64</td>
-     <td class="n fail">0.00</td></tr><tr><td><code>K00242</code></td>
- <td class="n">9 287.87</td>
-     <td class="n fail">0.00</td></tr><tr><td><code>K00520</code></td>
- <td class="n">9 204.93</td>
      <td class="n fail">0.00</td></tr>
 </tbody></table>
 
@@ -137,10 +164,10 @@
  <tr><td>Legacy trial balance</td>
      <td class="n">5 380 992.54</td></tr>
  <tr><td>Migration source detail</td>
-     <td class="n">5 333 662.11</td></tr>
- <tr><td>Would be migrated</td><td class="n">3 417 194.51</td></tr>
- <tr><td>Held for a decision</td><td class="n">1 868 746.00</td></tr>
- <tr><td>Rejected</td><td class="n">47 721.60</td></tr>
+     <td class="n">5 323 331.97</td></tr>
+ <tr><td>Would be migrated</td><td class="n">3 409 823.47</td></tr>
+ <tr><td>Held for a decision</td><td class="n">1 857 743.63</td></tr>
+ <tr><td>Rejected</td><td class="n">55 764.87</td></tr>
  <tr><td>Rows with an unreadable amount</td>
      <td class="n">11</td></tr>
 </tbody></table>
@@ -149,43 +176,43 @@
 <table><thead><tr><th>Owner</th><th class="n">Questions</th><th>Dominant cause</th>
  </tr></thead><tbody>
 
-<tr><td>finance</td><td class="n">1 007</td><td>Ambiguous VAT treatment on a price</td></tr>
+<tr><td>finance</td><td class="n">1 023</td><td>Ambiguous VAT treatment on a price</td></tr>
 
-<tr><td>sales</td><td class="n">785</td><td>Near-duplicate customers in the grey band</td></tr>
+<tr><td>sales</td><td class="n">783</td><td>Near-duplicate customers in the grey band</td></tr>
 
-<tr><td>purchasing</td><td class="n">202</td><td>Active article sourced from a blocked supplier</td></tr>
+<tr><td>purchasing</td><td class="n">216</td><td>Active article sourced from a blocked supplier</td></tr>
 
-<tr><td>operations</td><td class="n">116</td><td>Conflicting unit of measure across sources</td></tr>
+<tr><td>operations</td><td class="n">108</td><td>Conflicting unit of measure across sources</td></tr>
 
 </tbody></table>
 <p>Each owner has a sheet in <code>out/purgatorio/</code> with the record, the raw
    value, the rule and the evidence. Many questions share one answer: a single
    ruling on the date format of the receivables file clears
-   405 of them.</p>
+   402 of them.</p>
 
 <h2>Findings per circle</h2>
 <table><thead><tr><th>Circle</th><th>Sin</th><th class="n">Findings</th>
  <th class="n">Rules</th></tr></thead><tbody>
 <tr><td>I &middot; Limbo</td>
- <td>Data that is almost right</td><td class="n">867</td>
+ <td>Data that is almost right</td><td class="n">868</td>
  <td class="n">5</td></tr><tr><td>II &middot; Lust</td>
  <td>The same customer, five times over</td><td class="n">2 099</td>
  <td class="n">4</td></tr><tr><td>III &middot; Gluttony</td>
- <td>One cell, swallowing everything</td><td class="n">543</td>
+ <td>One cell, swallowing everything</td><td class="n">550</td>
  <td class="n">5</td></tr><tr><td>IV &middot; Greed</td>
- <td>Money that will not say what it means</td><td class="n">4 405</td>
+ <td>Money that will not say what it means</td><td class="n">4 422</td>
  <td class="n">5</td></tr><tr><td>V &middot; Wrath</td>
- <td>Sources at war with each other</td><td class="n">448</td>
+ <td>Sources at war with each other</td><td class="n">463</td>
  <td class="n">3</td></tr><tr><td>VI &middot; Heresy</td>
- <td>Values that pass every format check and are still false</td><td class="n">129</td>
+ <td>Values that pass every format check and are still false</td><td class="n">141</td>
  <td class="n">5</td></tr><tr><td>VII &middot; Violence</td>
- <td>What Excel did to the data on its way here</td><td class="n">1 040</td>
+ <td>What Excel did to the data on its way here</td><td class="n">1 028</td>
  <td class="n">5</td></tr><tr><td>VIII &middot; Fraud</td>
- <td>References to things that do not exist</td><td class="n">204</td>
+ <td>References to things that do not exist</td><td class="n">195</td>
  <td class="n">4</td></tr><tr><td>IX &middot; Treachery</td>
  <td>The data that is clean, loads fine and is still wrong</td><td class="n">2</td>
  <td class="n">4</td></tr>
-<tr><td colspan="2"><b>Total</b></td><td class="n"><b>9 737</b></td>
+<tr><td colspan="2"><b>Total</b></td><td class="n"><b>9 768</b></td>
  <td class="n"><b>40</b></td></tr>
 </tbody></table>
 
@@ -197,10 +224,10 @@
  <td>engine</td><td class="n">153</td></tr>
 
 <tr><td><code>R-I-02</code></td><td>Non-breaking spaces and zero-width characters</td><td>repair</td>
- <td>engine</td><td class="n">392</td></tr>
+ <td>engine</td><td class="n">402</td></tr>
 
 <tr><td><code>R-I-03</code></td><td>Leading, trailing and doubled whitespace</td><td>repair</td>
- <td>engine</td><td class="n">195</td></tr>
+ <td>engine</td><td class="n">186</td></tr>
 
 <tr><td><code>R-I-04</code></td><td>Byte order mark on the first column header</td><td>repair</td>
  <td>engine</td><td class="n">1</td></tr>
@@ -227,79 +254,79 @@
  <td>engine</td><td class="n">147</td></tr>
 
 <tr><td><code>R-III-03</code></td><td>Multiple email addresses in one cell</td><td>repair</td>
- <td>engine</td><td class="n">65</td></tr>
+ <td>engine</td><td class="n">68</td></tr>
 
 <tr><td><code>R-III-04</code></td><td>Unparseable address soup</td><td>quarantine</td>
  <td>sales</td><td class="n">18</td></tr>
 
 <tr><td><code>R-III-05</code></td><td>VAT number hidden in the company name</td><td>repair</td>
- <td>engine</td><td class="n">17</td></tr>
+ <td>engine</td><td class="n">21</td></tr>
 
 <tr><td><code>R-IV-01</code></td><td>Decimal comma, dot or both as thousand separator</td><td>repair</td>
- <td>engine</td><td class="n">3 026</td></tr>
+ <td>engine</td><td class="n">3 015</td></tr>
 
 <tr><td><code>R-IV-02</code></td><td>Amounts stored as text with currency symbols</td><td>repair</td>
- <td>engine</td><td class="n">915</td></tr>
+ <td>engine</td><td class="n">926</td></tr>
 
 <tr><td><code>R-IV-03</code></td><td>Ambiguous VAT treatment on a price</td><td>quarantine</td>
- <td>finance</td><td class="n">408</td></tr>
+ <td>finance</td><td class="n">424</td></tr>
 
 <tr><td><code>R-IV-04</code></td><td>Discount baked into the unit price</td><td>quarantine</td>
- <td>finance</td><td class="n">40</td></tr>
+ <td>finance</td><td class="n">43</td></tr>
 
 <tr><td><code>R-IV-05</code></td><td>Negative or zero unit price on a sellable article</td><td>reject</td>
- <td>finance</td><td class="n">16</td></tr>
+ <td>finance</td><td class="n">14</td></tr>
 
 <tr><td><code>R-V-01</code></td><td>Conflicting unit of measure across sources</td><td>quarantine</td>
- <td>operations</td><td class="n">75</td></tr>
+ <td>operations</td><td class="n">72</td></tr>
 
 <tr><td><code>R-V-02</code></td><td>Conflicting article description across sources</td><td>repair</td>
- <td>engine</td><td class="n">323</td></tr>
+ <td>engine</td><td class="n">328</td></tr>
 
 <tr><td><code>R-V-03</code></td><td>Conflicting primary supplier for one article</td><td>quarantine</td>
- <td>purchasing</td><td class="n">50</td></tr>
+ <td>purchasing</td><td class="n">63</td></tr>
 
 <tr><td><code>R-VI-01</code></td><td>Structurally valid but placeholder VAT number</td><td>reject</td>
- <td>finance</td><td class="n">9</td></tr>
+ <td>finance</td><td class="n">12</td></tr>
 
 <tr><td><code>R-VI-02</code></td><td>Sentinel dates standing in for &#34;unknown&#34;</td><td>repair</td>
- <td>engine</td><td class="n">41</td></tr>
+ <td>engine</td><td class="n">46</td></tr>
 
 <tr><td><code>R-VI-03</code></td><td>Placeholder contact details</td><td>repair</td>
- <td>engine</td><td class="n">51</td></tr>
+ <td>engine</td><td class="n">54</td></tr>
 
 <tr><td><code>R-VI-04</code></td><td>Test and scratch records left in the master file</td><td>reject</td>
- <td>sales</td><td class="n">7</td></tr>
+ <td>sales</td><td class="n">10</td></tr>
 
 <tr><td><code>R-VI-05</code></td><td>Country code outside ISO 3166-1 alpha-2</td><td>quarantine</td>
- <td>sales</td><td class="n">21</td></tr>
+ <td>sales</td><td class="n">19</td></tr>
 
 <tr><td><code>R-VII-01</code></td><td>Article code converted to scientific notation</td><td>quarantine</td>
- <td>operations</td><td class="n">41</td></tr>
+ <td>operations</td><td class="n">36</td></tr>
 
 <tr><td><code>R-VII-02</code></td><td>Leading zeros stripped from EAN and postcode</td><td>repair</td>
- <td>engine</td><td class="n">102</td></tr>
+ <td>engine</td><td class="n">103</td></tr>
 
 <tr><td><code>R-VII-03</code></td><td>Date stored as an Excel serial number</td><td>repair</td>
- <td>engine</td><td class="n">469</td></tr>
+ <td>engine</td><td class="n">464</td></tr>
 
 <tr><td><code>R-VII-04</code></td><td>Date ambiguous between US and European reading</td><td>quarantine</td>
- <td>finance</td><td class="n">405</td></tr>
+ <td>finance</td><td class="n">402</td></tr>
 
 <tr><td><code>R-VII-05</code></td><td>Numeric field containing a formula error</td><td>reject</td>
  <td>engine</td><td class="n">23</td></tr>
 
 <tr><td><code>R-VIII-01</code></td><td>Discount agreement for a customer that does not exist</td><td>reject</td>
- <td>sales</td><td class="n">40</td></tr>
+ <td>sales</td><td class="n">29</td></tr>
 
 <tr><td><code>R-VIII-02</code></td><td>Article pointing at a supplier that is not in the master</td><td>quarantine</td>
- <td>purchasing</td><td class="n">32</td></tr>
+ <td>purchasing</td><td class="n">29</td></tr>
 
 <tr><td><code>R-VIII-03</code></td><td>Open item for an unknown customer number</td><td>reject</td>
- <td>finance</td><td class="n">12</td></tr>
+ <td>finance</td><td class="n">13</td></tr>
 
 <tr><td><code>R-VIII-04</code></td><td>Active article sourced from a blocked supplier</td><td>quarantine</td>
- <td>purchasing</td><td class="n">120</td></tr>
+ <td>purchasing</td><td class="n">124</td></tr>
 
 <tr><td><code>R-IX-03</code></td><td>Compensating errors detected by gross movement</td><td>gate</td>
  <td>finance</td><td class="n">1</td></tr>
@@ -308,6 +335,8 @@
  <td>finance</td><td class="n">1</td></tr>
 
 </tbody></table>
+
+<p><a href="index.html">&larr; Back to the descent</a></p>
 
 <footer>Generated from the run by <code>dante report</code>. Every number on this
  page comes out of <code>out/report/run-summary.json</code>; none of it is typed by

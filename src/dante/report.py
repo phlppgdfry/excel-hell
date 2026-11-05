@@ -28,44 +28,71 @@ TEMPLATE = """<!doctype html>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg'
  viewBox='0 0 16 16'><text y='13' font-size='13'>&#128213;</text></svg>">
 <style>
- :root{--ink:#16130f;--mut:#6b625a;--line:#ded5c9;--bg:#fbf8f3;--bad:#9d2b1f;
-       --warn:#8a5a12;--good:#1f5d3a;--accent:#7a1f12}
+ /* An audit report is a document, not an application, so this stays paper.
+    The accents are Excel's, because it is the same workbook underneath. */
+ :root{
+   --ink:#1b1b1b;--mut:#5a5a58;--line:#d8d8d4;--bg:#fbfbfa;--cell:#fff;
+   --excel:#217346;--excel-dark:#185c37;
+   --bad:#c5221f;--bad-bg:#fde7e6;--warn:#9c6500;--good:#1d6f42;--good-bg:#e2efda;
+ }
+ @media (prefers-color-scheme:dark){
+   :root{
+     --ink:#eeeeec;--mut:#a9a9a4;--line:#3d3d3d;--bg:#171717;--cell:#1f1f1f;
+     --excel:#33c481;--excel-dark:#6bcf96;
+     --bad:#ff8782;--bad-bg:#3a1b1a;--warn:#ffc83d;--good:#6bcf96;--good-bg:#17301f;
+   }
+ }
  *{box-sizing:border-box}
- body{margin:0;background:var(--bg);color:var(--ink);
-      font:15px/1.6 "Iowan Old Style",Palatino,Georgia,serif;padding:48px 20px}
- main{max-width:50rem;margin:0 auto}
- h1{font-size:1.9rem;margin:0 0 .2em;letter-spacing:-.01em}
- h2{font-size:1.15rem;margin:2.6em 0 .6em;padding-bottom:.3em;
-    border-bottom:1px solid var(--line)}
- h3{font-size:.95rem;margin:1.6em 0 .4em}
- .sub{color:var(--mut);margin:0 0 2em}
- .verdict{display:flex;align-items:baseline;gap:.6rem;border:2px solid var(--bad);
-          background:#fff;padding:1rem 1.2rem;margin:0 0 1.6em}
- .verdict b{font-size:1.5rem;color:var(--bad);letter-spacing:.04em}
+ body{margin:0;background:var(--bg);color:var(--ink);padding:44px 20px;
+      font:15px/1.6 "Segoe UI",system-ui,-apple-system,Helvetica,Arial,sans-serif;
+      -webkit-font-smoothing:antialiased}
+ main{max-width:52rem;margin:0 auto}
+ h1{font-size:1.85rem;margin:0 0 .2em;letter-spacing:-.018em;font-weight:700}
+ h2{font-size:1.1rem;margin:2.5em 0 .6em;padding-bottom:.3em;font-weight:600;
+    border-bottom:2px solid var(--excel)}
+ h3{font-size:.95rem;margin:1.6em 0 .4em;font-weight:600}
+ .sub{color:var(--mut);margin:0 0 2em;font-size:.95rem}
+ .rail{height:4px;background:var(--excel);margin:0 0 1.6em}
+ .verdict{display:flex;align-items:center;gap:1rem;border:1px solid var(--line);
+          border-left:5px solid var(--bad);background:var(--cell);
+          padding:.95rem 1.2rem;margin:0 0 1.6em}
+ .verdict b{font-size:1.4rem;color:var(--bad);letter-spacing:.03em;
+            font-family:ui-monospace,Menlo,monospace}
  .verdict span{color:var(--mut);font-size:.9rem}
- table{width:100%;border-collapse:collapse;font-size:.86rem;margin:.6em 0 1.4em}
- th,td{text-align:left;padding:.42rem .5rem;border-bottom:1px solid var(--line);
+ table{width:100%;border-collapse:collapse;font-size:.86rem;margin:.6em 0 1.4em;
+       background:var(--cell)}
+ th,td{text-align:left;padding:.42rem .55rem;border:1px solid var(--line);
        vertical-align:top}
- th{font-size:.72rem;letter-spacing:.07em;text-transform:uppercase;color:var(--mut);
-    font-weight:600}
+ th{font-size:.7rem;letter-spacing:.07em;text-transform:uppercase;color:var(--mut);
+    font-weight:600;background:var(--bg)}
  td.n,th.n{text-align:right;font-variant-numeric:tabular-nums;
-           font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
+           font-family:ui-monospace,Menlo,monospace}
  .pass{color:var(--good);font-weight:600}.fail{color:var(--bad);font-weight:600}
- .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);
+ .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;
        border:1px solid var(--line);margin:0 0 1.6em}
- .grid div{background:#fff;padding:.9rem 1rem}
- .grid b{display:block;font-size:1.5rem;font-variant-numeric:tabular-nums}
- .grid small{color:var(--mut);font-size:.74rem;letter-spacing:.06em;
-             text-transform:uppercase}
- code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.8rem;
-      background:#fff;border:1px solid var(--line);padding:.05em .3em}
- blockquote{margin:0 0 1.2em;padding:.1em 0 .1em 1rem;border-left:3px solid var(--accent);
-            color:var(--mut)}
- footer{margin-top:3.5em;padding-top:1em;border-top:1px solid var(--line);
+ .grid div{background:var(--cell);padding:.85rem 1rem;border-right:1px solid var(--line)}
+ .grid div:last-child{border-right:0}
+ .grid b{display:block;font-size:1.45rem;font-variant-numeric:tabular-nums;
+         font-family:ui-monospace,Menlo,monospace;font-weight:700}
+ .grid small{color:var(--mut);font-size:.68rem;letter-spacing:.1em;
+             text-transform:uppercase;font-family:ui-monospace,Menlo,monospace}
+ .grid .up b{color:var(--good)}.grid .hold b{color:var(--warn)}.grid .down b{color:var(--bad)}
+ code{font-family:ui-monospace,Menlo,monospace;font-size:.8rem;background:var(--bg);
+      border:1px solid var(--line);padding:.05em .3em}
+ blockquote{margin:0 0 1.2em;padding:.7rem 1rem;border-left:4px solid var(--excel);
+            background:var(--cell);color:var(--mut);font-size:.9rem}
+ footer{margin-top:3.2em;padding-top:1em;border-top:1px solid var(--line);
         color:var(--mut);font-size:.8rem}
- @media print{body{padding:0;background:#fff}.verdict{break-inside:avoid}}
+ a{color:var(--excel)}
+ @media print{
+   :root{--bg:#fff;--cell:#fff;--ink:#000}
+   body{padding:0}
+   .verdict,table,.grid{break-inside:avoid}
+   h2{break-after:avoid}
+ }
 </style></head><body><main>
 
+<div class="rail"></div>
 <h1>Data migration audit</h1>
 <p class="sub">{{ s.client }} &middot; migration from {{ s.legacy_system }} &middot;
    dry run on {{ s.source_rows|num }} source rows from twelve files</p>
@@ -156,6 +183,8 @@ TEMPLATE = """<!doctype html>
  <td>{{ r.owner }}</td><td class="n">{{ r.findings|num }}</td></tr>
 {% endif %}{% endfor %}{% endfor %}
 </tbody></table>
+
+<p><a href="index.html">&larr; Back to the descent</a></p>
 
 <footer>Generated from the run by <code>dante report</code>. Every number on this
  page comes out of <code>out/report/run-summary.json</code>; none of it is typed by

@@ -192,9 +192,13 @@ class Forge:
         for c in sample:
             ek = f"cust_jan#{ws.max_row + 1}"
             cname = self.scramble_name(c.name) if self.chance(0.55) else c.name
-            if cname != c.name:
-                self.plant("R-II-01", name, c.cust_no, "klant", cname, c.name,
-                           "same entity, written differently", engine_key=ek)
+            # Every row in this file is a customer that already exists in the
+            # master, so every row is a duplicate — not only the ones a rep
+            # happened to spell differently.
+            self.plant("R-II-01", name, c.cust_no, "klant", cname, c.name,
+                       "same entity, written differently" if cname != c.name
+                       else "same entity, same spelling, no shared key",
+                       engine_key=ek)
             # R-III-01 / R-III-02 · everything in one address cell
             box = f" bus {c.box}" if c.box else ""
             addr = f"{c.street} {c.house_no}{box}, {c.postcode} {c.city}"
@@ -226,9 +230,10 @@ class Forge:
         for c in sample:
             ek = f"cust_sofie#{ws.max_row + 1}"
             cname = self.scramble_name(c.name) if self.chance(0.6) else c.name
-            if cname != c.name:
-                self.plant("R-II-01", name, c.cust_no, "Bedrijf", cname, c.name,
-                           engine_key=ek)
+            self.plant("R-II-01", name, c.cust_no, "Bedrijf", cname, c.name,
+                       "same entity, written differently" if cname != c.name
+                       else "same entity, same spelling, no shared key",
+                       engine_key=ek)
             email = c.email
             if self.chance(0.22):  # R-III-03 · several addresses in one cell
                 box = self.rng.choice(["bestel", "info", "jan", "sofie"])
@@ -322,14 +327,11 @@ class Forge:
         for a in self.w.articles:
             price: Any = self.money_text(a.sales_price)
             self._plant_money(name, a.article_no, "prijs", price, a.sales_price)
+            exclusive_price = price
+
             incl = ""
             if self.chance(0.61):
                 incl = self.rng.choice(["ja", "JA", "x", "1", "nee", "N"])
-                if incl.lower() in ("ja", "x", "1") and self.chance(0.35):
-                    # R-IV-03 · the "incl" flag contradicts the article VAT rate
-                    price = self.money_text(a.sales_price)
-                    self.plant("R-IV-03", name, a.article_no, "incl btw?", incl, a.vat_rate,
-                               "flag says VAT-inclusive, amount matches the exclusive price")
             if a.article_no in discounted and self.chance(0.22):
                 # R-IV-04 · discount already baked into the unit price
                 price = self.money_text(round(a.cost_price * 0.88, 2))
@@ -338,6 +340,15 @@ class Forge:
             if self.chance(0.01) and a.sellable:  # R-IV-05
                 price = self.rng.choice(["0", "0,00", f"-{a.sales_price:.2f}".replace('.', ',')])
                 self.plant("R-IV-05", name, a.article_no, "prijs", price, a.sales_price)
+
+            # R-IV-03 · recorded last, and only where the contradiction survives.
+            # The flag claims the price includes VAT while the amount is still the
+            # master's exclusive price. That is true of every such row, not of a
+            # sample of them, and under-recording it would make the engine look
+            # like it over-detects when it is simply right.
+            if incl.lower() in ("ja", "x", "1") and price == exclusive_price:
+                self.plant("R-IV-03", name, a.article_no, "incl btw?", incl, a.vat_rate,
+                           "flag says VAT-inclusive, amount matches the exclusive price")
             ws.append([a.article_no, price, incl, a.vat_rate, ""])
         wb.save(self.out / name)
 

@@ -12,20 +12,23 @@ prove, routes what it cannot to the person who owns the answer, and then refuses
 to sign off, because the totals only *look* right.
 
 → **[Walk the descent](https://phlppgdfry.github.io/excel-hell/)** ·
-[audit report](https://phlppgdfry.github.io/excel-hell/audit-report.html)
+[audit report](https://phlppgdfry.github.io/excel-hell/audit-report.html) ·
+[the rule registry](rules/README.md)
+
+[![The descent](docs/assets/preview.png)](https://phlppgdfry.github.io/excel-hell/)
 
 ```
-  PARADISO   2634 rows load-ready
-  PURGATORIO 1725 rows held, 2110 decisions for 4 owners
-  INFERNO     113 rows rejected
+  PARADISO   2613 rows load-ready
+  PURGATORIO 1753 rows held, 2130 decisions for 4 owners
+  INFERNO     106 rows rejected
 
   [pass] R-IX-01  4472 source rows, 4472 placed
-  [pass] R-IX-02  source detail 5,333,662.11 vs triaged 5,333,662.11, difference 0.00
+  [pass] R-IX-02  source detail 5,323,331.97 vs triaged 5,323,331.97, difference 0.00
   [FAIL] R-IX-03  unexplained difference nets to 0.00 while gross movement is
                   2,495.00 across 2 customers — net zero with gross movement is
                   betrayal, not balance
-  [FAIL] R-IX-04  153 customers would arrive with a zero balance, holding
-                  794,130.93 between them
+  [FAIL] R-IX-04  154 customers would arrive with a zero balance, holding
+                  829,797.69 between them
 
   verdict: NO-GO
 ```
@@ -33,12 +36,12 @@ to sign off, because the totals only *look* right.
 ## Why this exists
 
 Most data-quality demos validate data that is already tidy. Real master data is
-not tidy, and the reason it is not tidy is never carelessness. A sales rep kept
-his own customer list because the ERP was slow. An export is latin-1 because it
-always has been. A postcode lost its leading zero the first time the file was
-opened in Excel. A VAT number went into the company name because there was no
-field for it. Twenty years of individually reasonable decisions is what a
-migration actually receives, and it is where most of the project budget goes.
+not tidy, and the reason is never carelessness. A sales rep kept his own
+customer list because the ERP was slow. An export is latin-1 because it always
+has been. A postcode lost its leading zero the first time the file was opened in
+Excel. A VAT number went into the company name because there was no field for
+it. Twenty years of individually reasonable decisions is what a migration
+actually receives, and it is where most of the project budget goes.
 
 So this repository starts from the filth rather than from the schema.
 
@@ -47,11 +50,12 @@ So this repository starts from the filth rather than from the schema.
 ```bash
 uv venv && uv pip install -e ".[dev]"
 
-dante forge     # rebuild the twelve filthy source files from a clean model
-dante run       # descend, triage every row, evaluate the gates (exits 1 on NO-GO)
-dante report    # render the audit report and refresh the site data
+dante forge           # rebuild the twelve filthy source files from a clean model
+dante run             # descend, triage every row, evaluate the gates (exits 1 on NO-GO)
+dante report          # render the audit report and refresh the site data
+dante rule R-IX-03    # explain one rule and show what it caught
 
-pytest -q       # 59 tests: parsers, recall floors, triage, reconciliation
+pytest -q             # 58 tests: parsers, recall floors, triage, reconciliation
 ```
 
 Everything is deterministic from one seed, so every number here is reproducible.
@@ -90,17 +94,17 @@ nothing below it.
 
 | | Circle | The sin | Findings |
 |---|---|---|---|
-| I | Limbo | data that is almost right — encodings, invisible characters, a BOM | 867 |
+| I | Limbo | data that is almost right — encodings, invisible characters, a BOM | 868 |
 | II | Lust | the same customer, five times over, under four spellings | 2 099 |
-| III | Gluttony | one cell swallowing a street, a box number, a VAT number and two emails | 543 |
-| IV | Greed | money that will not say whether it includes VAT | 4 405 |
-| V | Wrath | three sources, three units of measure, one article | 448 |
-| VI | Heresy | values that pass every format check and are still false | 129 |
-| VII | Violence | what Excel did to the data on its way here | 1 040 |
-| VIII | Fraud | keys of the right shape pointing at nothing | 204 |
+| III | Gluttony | one cell swallowing a street, a box number, a VAT number and two emails | 550 |
+| IV | Greed | money that will not say whether it includes VAT | 4 422 |
+| V | Wrath | three sources, three units of measure, one article | 463 |
+| VI | Heresy | values that pass every format check and are still false | 141 |
+| VII | Violence | what Excel did to the data on its way here | 1 028 |
+| VIII | Fraud | keys of the right shape pointing at nothing | 195 |
 | IX | Treachery | data that is clean, loads fine and is still wrong | 2 |
 
-**9 737**<!--@findings_total--> findings in total, from
+**9 768**<!--@findings_total--> findings in total, from
 **40**<!--@rules_total--> rules.
 
 ## Four things a rule may do
@@ -121,14 +125,15 @@ The line between the first two is the whole craft. "03/04/2024" is 3 April and
 4 March; both are plausible due dates, and guessing is how an aging report
 starts lying. So the engine infers the format **per file from the rows that
 prove it** — a day past the 12th can only be read one way. The receivables file
-contains 588 rows proving `dd/mm` and 74 proving `mm/dd`, so its verdict is
-*mixed*, and its 405 genuinely ambiguous rows go to finance. The document date
-in the same file has 656 proving rows and no contradiction, so nobody is asked
+contains 581 rows proving `dd/mm` and 79 proving `mm/dd`, so its verdict is
+*mixed*, and its 402 genuinely ambiguous rows go to finance. The document date
+in the same file has 661 proving rows and no contradiction, so nobody is asked
 about it.
 
 Rules live in [`rules/rules.yaml`](rules/rules.yaml) as data: an id, a circle,
 an action, an owner and a written rationale. CI asserts that every rule fires at
-least once, because a rule nobody triggers is documentation, not a control.
+least once, because a rule nobody triggers is documentation, not a control. The
+[registry README](rules/README.md) documents the schema and what CI enforces.
 
 ## The ninth circle
 
@@ -138,6 +143,8 @@ the cent, every row validates, the loader reports no errors, and the accountant
 finds it in March when a customer disputes a statement — by which time the old
 system is switched off.
 
+[![The ninth circle](docs/assets/preview-ninth.png)](https://phlppgdfry.github.io/excel-hell/#ninth)
+
 A net-total reconciliation signs that off. So the gate does not ask whether the
 totals match. It attributes every per-customer difference to a cause first, and
 then holds the leftover to account:
@@ -145,9 +152,9 @@ then holds the leftover to account:
 | | |
 |---|---|
 | Legacy trial balance | 5 380 992.54 |
-| Migration source detail | 5 333 662.11 |
-| Difference | −47 330.43 |
-| explained: rows whose amount cannot be read | −47 330.43 |
+| Migration source detail | 5 323 331.97 |
+| Difference | −57 660.57 |
+| explained: rows whose amount cannot be read | −57 660.57 |
 | **unexplained, net** | **0.00** |
 | **unexplained, gross movement** | **2 495.00**<!--@gross--> |
 
@@ -159,10 +166,10 @@ Failing here is the engine working.
 Because the planted defects are known, recall is measurable per rule, and the
 test suite holds each rule to a floor.
 
-**5 338**<!--@detection_found--> of **5 643**<!--@detection_planted--> planted
-defects found: **94.6**<!--@recall_overall-->% overall.
+**5 989**<!--@detection_found--> of **6 311**<!--@detection_planted--> planted
+defects found: **94.9**<!--@recall_overall-->% overall.
 
-Six rules sit below the general 90% floor on purpose, each with its reason
+Five rules sit below the general 90% floor on purpose, each with its reason
 written next to it in `tests/test_detection.py`. The largest gap is fuzzy name
 matching: a company shortened to its first and last word scores around 68 on
 `token_sort_ratio`, well under the auto-merge threshold of 92. Raising the
@@ -181,8 +188,8 @@ grey band where a human belongs.
 
 ```
 out/
-├── paradiso/      load-ready data per entity, actually cleaned
-├── purgatorio/    one decision sheet per owner, with the evidence
+├── paradiso/      load-ready data per entity: ISO dates, numeric amounts, nulled placeholders
+├── purgatorio/    one decision sheet per owner, with the evidence as JSON
 ├── inferno/       rejected rows and the rule that rejected them
 └── report/
     ├── audit-report.html   the document the business reads
@@ -191,9 +198,10 @@ out/
 ```
 
 `out/purgatorio/finance.csv` is the deliverable that matters most in practice:
-**2 110**<!--@backlog_total--> open questions, split across four owners, each
-with the record, the raw value, the rule and the evidence. Many share one
-answer — a single ruling on the date format clears 405 of them at once.
+**2 130**<!--@backlog_total--> open questions across four owners, each with the
+record, the raw value, the rule and the evidence. Many share one answer — a
+single ruling on the date format clears 402 of them, and one on the price list's
+"incl VAT" column clears another 424.
 
 ## Layout
 
@@ -208,7 +216,7 @@ src/dante/
 ├── triage.py       three destinations, plus a decision backlog per owner
 ├── measure.py      scoring against the planted defects (not part of the pipeline)
 ├── report.py       the audit report and the site data
-└── cli.py          forge · run · report
+└── cli.py          forge · run · report · rule
 ```
 
 ## Known limits
@@ -223,6 +231,9 @@ src/dante/
   not internationalised, and it says so rather than guessing.
 - Circle IX reconciles receivables only. Stock valuation and open purchase
   orders would each need their own gate.
+- `data/raw/*.xlsx` bytes change on every forge because openpyxl stamps a
+  creation time into the zip container, while the data inside is identical. CI
+  therefore diff-checks the CSVs, the ground truth and the site outputs only.
 
 ## Fictional
 
