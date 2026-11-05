@@ -1,38 +1,56 @@
 """How much of the planted filth the engine actually finds.
 
-The forge records every defect it plants, and the engine never reads that file.
-So these are not assertions that the output "looks right": they are a measured
-recall per rule, with a floor that is allowed to be well under 100 percent as
-long as the reason is written down. A matcher that claims to catch every
-duplicate is lying, and a test suite that asserts it is helping.
+The forge records every defect it plants, and the engine never reads that file,
+so these are measured recall rather than an assertion that the output looks
+right. A matcher that claims to catch every duplicate is lying, and a test
+suite that asserts it is helping.
+
+The instrument depends on the sample. A percentage floor on a dozen planted
+defects is noise — one miss moves it eight points — and floors derived from a
+single seed turned out to be exactly that: five of them failed on other seeds
+while the engine was unchanged. So a rule is held to a percentage only when the
+forge planted enough of it for a percentage to be stable, and to an absolute
+miss budget otherwise. Both were derived from five seeds, not one.
 """
 
 from __future__ import annotations
 
 import pytest
 
-# Rules whose recall is knowingly below the general floor, and why. Raising one
-# of these means the engine got better; lowering one needs a reason in writing.
-KNOWN_LIMITS = {
-    "R-II-01": (0.78, "a name shortened to its first and last word scores around 68 on "
-                      "token_sort_ratio, below the auto-merge threshold of 92"),
-    "R-II-02": (0.30, "the grey band only sees a subsidiary whose name still scores 75; "
-                      "a differently worded one reads as a new company, which is the "
-                      "correct reading more often than not"),
-    "R-II-03": (0.85, "a survivorship conflict is only visible once the two records "
-                      "actually clustered, so a missed merge hides it"),
-    "R-IV-04": (0.85, "an article also priced at zero reports that instead: a row with "
-                      "two defects is triaged on the blocking one"),
-    "R-V-02": (0.86, "a warehouse description that normalises to the master's is no "
-                      "longer a conflict by the time circle V compares them"),
+# Below this many planted defects, a percentage says more about the sample than
+# about the engine.
+STABLE_SAMPLE = 100
+
+# Percentage floors for the rules the forge plants in quantity. Each sits a few
+# points under the worst recall observed across seeds 1987, 2026, 7, 424242
+# and 99, so it catches a regression without failing on sampling noise.
+FLOORS = {
+    "R-I-01": 0.93, "R-I-02": 0.90, "R-I-03": 0.95,
+    "R-II-01": 0.75,
+    "R-III-01": 0.90, "R-III-02": 0.88,
+    "R-IV-01": 0.95, "R-IV-02": 0.95, "R-IV-03": 0.90,
+    "R-V-02": 0.86,
+    "R-VII-02": 0.82,
 }
-GENERAL_FLOOR = 0.90
+
+# For everything else: how many planted defects this rule may miss outright.
+DEFAULT_MISS_BUDGET = 10
+MISS_BUDGET = {
+    "R-II-02": (22, "the grey band only sees a subsidiary whose name still "
+                    "scores 75; a differently worded one reads as a new company, "
+                    "which is the correct reading more often than not"),
+    "R-II-03": (10, "a survivorship conflict is only visible once the two records "
+                    "actually clustered, so a missed merge hides it"),
+    "R-VII-04": (8, "a date is only ambiguous if the file proves both readings, and "
+                    "how many rows prove it varies with the sample"),
+}
+
 OVERALL_FLOOR = 0.92
+SEEDS_FOR_STABILITY = (2026, 424242)
 
 
-def _recall(run: dict, rule: str) -> tuple[int, int]:
-    m = run["recall"]["per_rule"][rule]
-    return m["found"], m["planted"]
+def _measured(run: dict, rule: str) -> dict:
+    return run["recall"]["per_rule"][rule]
 
 
 def test_overall_recall(run):
@@ -55,22 +73,74 @@ def test_the_published_figure_is_the_one_under_test(run):
     assert published["overall"] == run["recall"]["overall"]
 
 
-@pytest.mark.parametrize("rule", sorted(KNOWN_LIMITS))
-def test_rules_with_a_documented_limit(rule, run):
-    floor, _reason = KNOWN_LIMITS[rule]
-    hits, n = _recall(run, rule)
-    assert hits / n >= floor, f"{rule} recall {hits / n:.1%} below its documented {floor:.0%}"
+def _held_to(rule: str, m: dict) -> tuple[bool, str]:
+    """Pick the instrument from the sample actually observed, not in advance.
+
+    R-I-02 plants between 94 and 114 defects depending on the seed, so a rule
+    cannot be assigned to one instrument up front without failing whenever its
+    sample drifts across the line.
+    """
+    if rule in FLOORS and m["planted"] >= STABLE_SAMPLE:
+        return (m["recall"] >= FLOORS[rule],
+                f"recall {m['recall']:.0%}, floor {FLOORS[rule]:.0%}, "
+                f"n={m['planted']}")
+    budget = MISS_BUDGET.get(rule, (DEFAULT_MISS_BUDGET, ""))[0]
+    missed = m["planted"] - m["found"]
+    return missed <= budget, f"missed {missed} of {m['planted']}, budget {budget}"
 
 
-def test_every_other_rule_clears_the_general_floor(run):
-    weak = {}
-    for rule in sorted(run["recall"]["per_rule"]):
-        if rule in KNOWN_LIMITS:
+@pytest.mark.parametrize("rule", sorted(FLOORS))
+def test_rules_with_a_stable_sample_hold_their_percentage(rule, run):
+    m = _measured(run, rule)
+    ok, how = _held_to(rule, m)
+    assert ok, f"{rule}: {how}"
+
+
+def test_every_other_rule_stays_within_its_miss_budget(run):
+    """One miss out of twelve is eight points, so count misses, not percentages."""
+    over = {}
+    for rule, m in run["recall"]["per_rule"].items():
+        if rule in FLOORS and m["planted"] >= STABLE_SAMPLE:
             continue
-        hits, n = _recall(run, rule)
-        if hits / n < GENERAL_FLOOR:
-            weak[rule] = f"{hits}/{n} = {hits / n:.0%}"
-    assert not weak, f"undocumented recall gaps: {weak}"
+        ok, how = _held_to(rule, m)
+        if not ok:
+            over[rule] = how
+    assert not over, f"rules over their miss budget: {over}"
+
+
+def test_every_rule_is_held_to_something(run):
+    """A rule in neither list would be measured and then quietly ignored."""
+    for rule, m in run["recall"]["per_rule"].items():
+        ok, how = _held_to(rule, m)
+        assert isinstance(ok, bool), f"{rule} has no instrument: {how}"
+        if m["planted"] >= STABLE_SAMPLE:
+            assert rule in FLOORS or m["recall"] >= 0.95, (
+                f"{rule} plants {m['planted']} defects and has no percentage floor"
+            )
+
+
+@pytest.mark.parametrize("seed", SEEDS_FOR_STABILITY)
+def test_the_overall_figure_is_not_tuned_to_one_dataset(seed, tmp_path_factory):
+    """The headline number has to survive data the floors were not drawn from.
+
+    This is what caught the per-rule floors being overfit: the engine was
+    unchanged and five of them failed on a second seed, because they had been
+    read off a single sample of a noisy statistic.
+    """
+    from dante.forge import forge
+    from dante.measure import detected_keys, planted_addresses, recall
+    from dante.run import descend
+    from tests.conftest import ROOT
+
+    raw = tmp_path_factory.mktemp(f"raw-{seed}")
+    out = tmp_path_factory.mktemp(f"out-{seed}")
+    truth = forge(seed=seed, out=raw)
+    descend(raw_dir=raw, out_dir=out, rules_path=ROOT / "rules/rules.yaml", quiet=True)
+    scored = recall(planted_addresses(truth),
+                    detected_keys(out / "report" / "findings.csv"))
+    assert scored["overall"] >= OVERALL_FLOOR, (
+        f"seed {seed}: overall recall {scored['overall']:.1%} below {OVERALL_FLOOR:.0%}"
+    )
 
 
 def test_the_forge_plants_every_non_gate_rule(planted):

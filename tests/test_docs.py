@@ -63,8 +63,8 @@ def test_readme_numbers_match_the_run(run):
         expected["detection_found"] = s["detection"]["found"]
         expected["detection_planted"] = s["detection"]["planted"]
         expected["recall_overall"] = round(s["detection"]["overall"] * 100, 1)
-        expected["below_floor"] = sum(1 for m in s["detection"]["per_rule"].values()
-                                      if m["recall"] < 0.90)
+        from tests.test_detection import STABLE_SAMPLE
+        expected["stable_sample"] = STABLE_SAMPLE
 
     said = claimed()
     wrong = {}

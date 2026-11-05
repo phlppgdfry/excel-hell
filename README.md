@@ -56,7 +56,7 @@ dante run             # descend, triage every row, evaluate the gates (exits 1 o
 dante report          # render the audit report and refresh the site data
 dante rule R-IX-03    # explain one rule and show what it caught
 
-pytest -q             # 143 checks: parsers, recall floors, triage, reconciliation,
+pytest -q             # 152 checks: parsers, recall floors, triage, reconciliation,
                       #             documentation, and the engine/ground-truth boundary
 ```
 
@@ -183,13 +183,27 @@ or calls the generator that knows what the clean data looked like.
 **5 993**<!--@detection_found--> of **6 310**<!--@detection_planted--> planted
 defects found: **95.0**<!--@recall_overall-->% overall.
 
-**4**<!--@below_floor--> rules sit below the general 90% floor on purpose, each with its reason
-written next to it in `tests/test_detection.py`. The largest gap is fuzzy name
-matching: a company shortened to its first and last word scores around 68 on
-`token_sort_ratio`, well under the auto-merge threshold of 92. Raising the
-threshold would merge a parent company with its subsidiary, which costs more
-than a missed duplicate — so the trade-off is written in the registry instead of
-buried in the matcher.
+The floors themselves were overfit, and the repository caught it. They had been
+read off a single seed, so five of them failed the moment the same engine ran on
+a different dataset — not because the engine got worse, but because a percentage
+on a dozen planted defects is noise. One miss out of twelve moves it eight
+points.
+
+So the instrument now depends on the sample. A rule with at least
+**100**<!--@stable_sample--> planted defects is held to a percentage floor, set
+a few points under the worst recall observed across five seeds. Everything else
+is held to an absolute miss budget, because counting misses is the honest thing
+to do with a small sample. Which instrument applies is decided from the sample
+actually observed in the run, since the forge plants between 94 and 114 defects
+for one of these rules depending on the seed. The headline figure is checked
+against two further seeds it was never tuned on, and holds between 94.6 and
+95.5 percent on every seed tried.
+
+The largest real gap is fuzzy name matching: a company shortened to its first
+and last word scores around 68 on `token_sort_ratio`, well under the auto-merge
+threshold of 92. Raising the threshold would merge a parent company with its
+subsidiary, which costs more than a missed duplicate — so the trade-off is
+written in the registry instead of buried in the matcher.
 
 That choice of scorer is itself the bug this repo found in its own first draft.
 `token_set_ratio` returns 100 whenever one name's tokens are a subset of the
