@@ -13,6 +13,8 @@ from pathlib import Path
 import pandas as pd
 from openpyxl import load_workbook
 
+from .errors import MissingSources
+
 
 def read_csv_smart(path: Path, encoding: str, sep: str = ";") -> pd.DataFrame:
     df = pd.read_csv(path, sep=sep, dtype=str, encoding=encoding,
@@ -50,8 +52,26 @@ def read_excel_smart(path: Path, sheet: str, anchor: str) -> pd.DataFrame:
     return df
 
 
+EXPECTED_FILES = [
+    "01_klanten_mercurius.csv", "02_klanten_verkoop_jan.xlsx",
+    "03_klanten_verkoop_sofie.xlsx", "04_klanten_boekhouding.csv",
+    "05_artikelen_mercurius.csv", "06_artikelen_prijzen_2024.xlsx",
+    "07_artikelen_voorraad.xlsx", "08_artikelen_eenheden.xlsx",
+    "09_artikelen_leverancier.xlsx", "10_leveranciers.xlsx",
+    "11_openstaande_posten.xlsx", "12_korting_afspraken.xlsx",
+]
+
+
 def load_sources(raw: Path) -> dict[str, pd.DataFrame]:
-    """Every source file, under the name the pipeline knows it by."""
+    """Every source file, under the name the pipeline knows it by.
+
+    Checked up front and reported together: finding out about one missing file
+    per run, twelve times, is a worse morning than being told all twelve now.
+    """
+    missing = [f for f in EXPECTED_FILES if not (raw / f).exists()]
+    if missing:
+        raise MissingSources(raw, missing)
+
     s: dict[str, pd.DataFrame] = {}
     s["cust_master"] = read_csv_smart(raw / "01_klanten_mercurius.csv", "utf-8-sig")
     s["cust_jan"] = read_excel_smart(raw / "02_klanten_verkoop_jan.xlsx", "Blad1", "klant")

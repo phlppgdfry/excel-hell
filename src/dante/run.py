@@ -51,8 +51,7 @@ def descend(raw_dir: Path = Path("data/raw"), out_dir: Path = Path("out"),
     say(_line(9, circle_docs, ctx, sum(1 for g in recon["gates"] if not g["passed"]),
               suffix="gates failed"))
 
-    summary = _write_outputs(ctx, verdict, recon, out_dir)
-    return summary
+    return _write_outputs(ctx, verdict, recon, out_dir)
 
 
 def _line(circle: int, docs: dict, ctx: Context, n: int | None = None,

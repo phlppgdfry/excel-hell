@@ -37,7 +37,10 @@ line-length = 100
 target-version = "py312"
 
 [tool.ruff.lint]
-select = ["E", "F", "I", "UP", "B", "SIM"]
+# ARG, RET, C4, PIE and PERF are on because a one-off strict pass found five
+# real things the default set missed, including a helper taking a VAT number it
+# never used and two tests requesting a fixture they did not need.
+select = ["E", "F", "I", "UP", "B", "SIM", "ARG", "RET", "C4", "PIE", "PERF"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

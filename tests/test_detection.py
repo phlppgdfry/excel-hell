@@ -21,10 +21,10 @@ KNOWN_LIMITS = {
                       "correct reading more often than not"),
     "R-II-03": (0.85, "a survivorship conflict is only visible once the two records "
                       "actually clustered, so a missed merge hides it"),
-    "R-II-04": (0.80, "a shared VAT number is invisible when one of the two records has "
-                      "no VAT number left to share"),
     "R-IV-04": (0.85, "an article also priced at zero reports that instead: a row with "
                       "two defects is triaged on the blocking one"),
+    "R-V-02": (0.86, "a warehouse description that normalises to the master's is no "
+                      "longer a conflict by the time circle V compares them"),
 }
 GENERAL_FLOOR = 0.90
 OVERALL_FLOOR = 0.92
@@ -66,7 +66,7 @@ def test_every_other_rule_clears_the_general_floor(planted, run):
     assert not weak, f"undocumented recall gaps: {weak}"
 
 
-def test_the_forge_plants_every_non_gate_rule(planted, run):
+def test_the_forge_plants_every_non_gate_rule(planted):
     from pathlib import Path
 
     import yaml

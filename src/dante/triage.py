@@ -81,7 +81,7 @@ def triage(ctx: Context) -> dict[str, Any]:
             b: sum(counts[e][b] for e in counts) for b in (PARADISO, PURGATORIO, INFERNO)
         },
         "source_rows": sum(counts[e]["source_rows"] for e in counts),
-        "backlog_by_owner": {k: v for k, v in sorted(backlog.items())},
+        "backlog_by_owner": dict(sorted(backlog.items())),
         "backlog_total": sum(len(v) for v in backlog.values()),
         "unmatched_attribute_rows": len(orphan_findings),
     }

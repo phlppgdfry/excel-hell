@@ -16,7 +16,9 @@ import yaml
 
 ROOT = Path(__file__).resolve().parents[1]
 
-ANCHOR = re.compile(r"\*\*([^*]+?)\*\*<!--@(\w+)-->")
+# A number may be anchored without being bold: emphasis is a writing decision,
+# and forcing it would have made five of six ledger rows shout at once.
+ANCHOR = re.compile(r"(?:\*\*)?([^*|<]+?)(?:\*\*)?<!--@(\w+)-->")
 
 
 def readme() -> str:
@@ -46,10 +48,23 @@ def test_readme_numbers_match_the_run(run):
         "backlog_total": s["backlog_total"],
         "gross": float(gate["evidence"]["unexplained_gross"]),
     }
+    due = s["stats"]["date_format_due_date"]["evidence"]
+    expected["date_dmy"] = due["dmy"]
+    expected["date_mdy"] = due["mdy"]
+    expected["date_doc"] = s["stats"]["date_format_doc_date"]["evidence"]["dmy"]
+    expected["ambiguous"] = s["findings_by_rule"]["R-VII-04"]
+    expected["ambiguous2"] = s["findings_by_rule"]["R-VII-04"]
+    expected["vat_clears"] = s["findings_by_rule"]["R-IV-03"]
+    expected["ledger_trial"] = float(s["ledger"]["trial_balance_total"])
+    expected["ledger_detail"] = float(s["ledger"]["source_detail_total"])
+    expected["ledger_diff"] = abs(float(gate["evidence"]["total_difference"]))
+
     if "detection" in s:
         expected["detection_found"] = s["detection"]["found"]
         expected["detection_planted"] = s["detection"]["planted"]
         expected["recall_overall"] = round(s["detection"]["overall"] * 100, 1)
+        expected["below_floor"] = sum(1 for m in s["detection"]["per_rule"].values()
+                                      if m["recall"] < 0.90)
 
     said = claimed()
     wrong = {}
@@ -122,3 +137,49 @@ def test_readme_names_every_circle_in_order(run):
     text = readme()
     positions = [text.index(c["name"]) for c in run["summary"]["circles"]]
     assert positions == sorted(positions), "the circles are out of order in the README"
+
+
+def test_the_site_markup_carries_no_run_numbers(run):
+    """Everything on the page comes from the run, so nothing may be typed into it.
+
+    The social-preview alt text and the row count in the pipeline diagram were
+    both hardcoded, which meant they would have kept claiming last week's totals
+    long after the code moved. Numbers belong in run-summary.json; the markup
+    may only hold the placeholder that JavaScript fills.
+    """
+    html = (ROOT / "docs" / "index.html").read_text()
+    s = run["summary"]
+    literals = {
+        "source_rows": s["source_rows"],
+        **s["totals"],
+        "findings_total": s["findings_total"],
+        "backlog_total": s["backlog_total"],
+    }
+    found = {}
+    for name, value in literals.items():
+        for spelling in (str(value), f"{value:,}", f"{value:,}".replace(",", " "),
+                         f"{value:,}".replace(",", "&#8201;")):
+            if re.search(rf"(?<![\d.]){re.escape(spelling)}(?![\d])", html):
+                found[name] = spelling
+                break
+    assert not found, f"run numbers hardcoded in docs/index.html: {found}"
+
+
+def test_readme_quotes_the_gate_messages_it_claims_to(run):
+    """The headline block is pasted CLI output and nothing checked its gate lines.
+
+    Three of those numbers were stale at once — the receivables total, the
+    customer count and the amount — because they sat inside a fenced code block
+    that no anchor covered.
+    """
+    text = readme()
+    for gate in run["summary"]["gates"]:
+        mark = "pass" if gate["passed"] else "FAIL"
+        assert f"[{mark}] {gate['rule']}" in text, f"{gate['rule']} missing from the block"
+
+    detail = f"{float(run['summary']['ledger']['source_detail_total']):,.2f}"
+    assert f"source detail {detail} vs triaged {detail}" in text
+
+    wiped = next(g for g in run["summary"]["gates"] if g["rule"] == "R-IX-04")
+    assert f"{wiped['evidence']['customers']} customers would arrive" in text
+    assert f"{float(wiped['evidence']['amount']):,.2f}" in text

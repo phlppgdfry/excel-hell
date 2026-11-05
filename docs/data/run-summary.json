@@ -4,9 +4,9 @@
  "verdict": "NO-GO",
  "source_rows": 4472,
  "totals": {
-  "paradiso": 2613,
-  "purgatorio": 1753,
-  "inferno": 106
+  "paradiso": 2611,
+  "purgatorio": 1756,
+  "inferno": 105
  },
  "counts": {
   "customer": {
@@ -16,8 +16,8 @@
    "source_rows": 1874
   },
   "supplier": {
-   "paradiso": 59,
-   "purgatorio": 3,
+   "paradiso": 58,
+   "purgatorio": 4,
    "inferno": 8,
    "source_rows": 70
   },
@@ -28,36 +28,36 @@
    "source_rows": 1180
   },
   "open_item": {
-   "paradiso": 713,
-   "purgatorio": 391,
-   "inferno": 24,
+   "paradiso": 710,
+   "purgatorio": 393,
+   "inferno": 25,
    "source_rows": 1128
   },
   "discount": {
-   "paradiso": 192,
+   "paradiso": 194,
    "purgatorio": 0,
-   "inferno": 28,
+   "inferno": 26,
    "source_rows": 220
   }
  },
- "findings_total": 9768,
+ "findings_total": 9755,
  "findings_by_rule": {
-  "R-I-01": 153,
-  "R-I-02": 402,
-  "R-I-03": 186,
+  "R-I-01": 151,
+  "R-I-02": 391,
+  "R-I-03": 184,
   "R-I-04": 1,
-  "R-I-05": 126,
+  "R-I-05": 128,
   "R-II-01": 1199,
   "R-II-02": 526,
   "R-II-03": 220,
   "R-II-04": 154,
-  "R-III-01": 296,
+  "R-III-01": 300,
   "R-III-02": 147,
   "R-III-03": 68,
   "R-III-04": 18,
-  "R-III-05": 21,
-  "R-IV-01": 3015,
-  "R-IV-02": 926,
+  "R-III-05": 19,
+  "R-IV-01": 3003,
+  "R-IV-02": 927,
   "R-IV-03": 424,
   "R-IV-04": 43,
   "R-IV-05": 14,
@@ -66,39 +66,39 @@
   "R-V-01": 72,
   "R-V-02": 328,
   "R-V-03": 63,
-  "R-VI-01": 12,
-  "R-VI-02": 46,
+  "R-VI-01": 14,
+  "R-VI-02": 44,
   "R-VI-03": 54,
-  "R-VI-04": 10,
-  "R-VI-05": 19,
+  "R-VI-04": 9,
+  "R-VI-05": 20,
   "R-VII-01": 36,
   "R-VII-02": 103,
-  "R-VII-03": 464,
-  "R-VII-04": 402,
-  "R-VII-05": 23,
-  "R-VIII-01": 29,
+  "R-VII-03": 472,
+  "R-VII-04": 404,
+  "R-VII-05": 25,
+  "R-VIII-01": 27,
   "R-VIII-02": 29,
-  "R-VIII-03": 13,
+  "R-VIII-03": 12,
   "R-VIII-04": 124
  },
  "findings_by_circle": {
-  "1": 868,
+  "1": 855,
   "2": 2099,
-  "3": 550,
-  "4": 4422,
+  "3": 552,
+  "4": 4411,
   "5": 463,
   "6": 141,
-  "7": 1028,
-  "8": 195,
+  "7": 1040,
+  "8": 192,
   "9": 2
  },
  "backlog_by_owner": {
-  "finance": 1023,
+  "finance": 1025,
   "operations": 108,
   "purchasing": 216,
-  "sales": 783
+  "sales": 784
  },
- "backlog_total": 2130,
+ "backlog_total": 2133,
  "unmatched_attribute_rows": 110,
  "gates": [
   {
@@ -147,13 +147,13 @@
    "title": "Open receivables reconcile to the cent",
    "owner": "finance",
    "passed": true,
-   "message": "source detail 5,323,331.97 vs triaged 5,323,331.97, difference 0.00",
+   "message": "source detail 5,314,301.43 vs triaged 5,314,301.43, difference 0.00",
    "evidence": {
-    "source_detail": "5323331.97",
-    "paradiso": "3409823.47",
-    "purgatorio": "1857743.63",
-    "inferno": "55764.87",
-    "unparseable_rows": 11
+    "source_detail": "5314301.43",
+    "paradiso": "3398260.00",
+    "purgatorio": "1854999.06",
+    "inferno": "61042.37",
+    "unparseable_rows": 13
    }
   },
   {
@@ -164,10 +164,10 @@
    "message": "unexplained difference nets to 0.00 while gross movement is 2,495.00 across 2 customers \u2014 net zero with gross movement is betrayal, not balance",
    "evidence": {
     "trial_balance_total": "5380992.54",
-    "source_detail_total": "5323331.97",
-    "total_difference": "-57660.57",
+    "source_detail_total": "5314301.43",
+    "total_difference": "-66691.11",
     "explained_orphan_detail": "0.00",
-    "explained_unquantifiable": "-57660.57",
+    "explained_unquantifiable": "-66691.11",
     "unexplained_net": "0.00",
     "unexplained_gross": "2495.00",
     "compensating_pattern": true,
@@ -181,9 +181,9 @@
       "difference": "1247.50"
      },
      {
-      "customer": "K00067",
-      "trial": "9305.20",
-      "detail": "8057.70",
+      "customer": "K00068",
+      "trial": "6724.81",
+      "detail": "5477.31",
       "difference": "-1247.50"
      }
     ]
@@ -194,19 +194,24 @@
    "title": "No customer may lose its entire open balance",
    "owner": "finance",
    "passed": false,
-   "message": "154 customers would arrive with a zero balance, holding 829,797.69 between them",
+   "message": "157 customers would arrive with a zero balance, holding 884,033.31 between them",
    "evidence": {
-    "customers": 154,
-    "amount": "829797.69",
+    "customers": 157,
+    "amount": "884033.31",
     "worst": [
+     {
+      "customer": "K00219",
+      "trial": "21854.23",
+      "migrated": "0.00"
+     },
      {
       "customer": "K00197",
       "trial": "20683.56",
       "migrated": "0.00"
      },
      {
-      "customer": "K00219",
-      "trial": "18189.31",
+      "customer": "K00356",
+      "trial": "17757.92",
       "migrated": "0.00"
      },
      {
@@ -217,6 +222,11 @@
      {
       "customer": "K00266",
       "trial": "15873.75",
+      "migrated": "0.00"
+     },
+     {
+      "customer": "K00614",
+      "trial": "15091.63",
       "migrated": "0.00"
      },
      {
@@ -245,18 +255,8 @@
       "migrated": "0.00"
      },
      {
-      "customer": "K00485",
-      "trial": "10863.56",
-      "migrated": "0.00"
-     },
-     {
       "customer": "K00820",
       "trial": "9926.83",
-      "migrated": "0.00"
-     },
-     {
-      "customer": "K00759",
-      "trial": "9360.64",
       "migrated": "0.00"
      }
     ]
@@ -265,11 +265,11 @@
  ],
  "ledger": {
   "trial_balance_total": "5380992.54",
-  "source_detail_total": "5323331.97",
-  "migrated": "3409823.47",
-  "held": "1857743.63",
-  "rejected": "55764.87",
-  "unparseable_rows": 11
+  "source_detail_total": "5314301.43",
+  "migrated": "3398260.00",
+  "held": "1854999.06",
+  "rejected": "61042.37",
+  "unparseable_rows": 13
  },
  "stats": {
   "sources": [
@@ -342,7 +342,7 @@
    {
     "feed": "trial_balance",
     "file": "11_openstaande_posten.xlsx!Saldilijst",
-    "rows": 613,
+    "rows": 614,
     "columns": 2
    },
    {
@@ -352,7 +352,7 @@
     "columns": 5
    }
   ],
-  "limbo_repaired_cells": 744,
+  "limbo_repaired_cells": 731,
   "candidates": {
    "customer": 1874,
    "supplier": 70,
@@ -366,14 +366,14 @@
   "date_format_doc_date": {
    "verdict": "dmy",
    "evidence": {
-    "dmy": 661
+    "dmy": 655
    }
   },
   "date_format_due_date": {
    "verdict": "mixed",
    "evidence": {
-    "dmy": 581,
-    "mdy": 79
+    "dmy": 586,
+    "mdy": 75
    }
   }
  },
@@ -383,7 +383,7 @@
    "name": "Limbo",
    "sin": "Data that is almost right",
    "description": "Nothing here is wrong on purpose. Encodings drifted, spaces crept in, a BOM rode along. These rows are not sinners, they are the unbaptised: they never got a chance to be correct. All of it is repairable.\n",
-   "findings": 868,
+   "findings": 855,
    "rules": [
     {
      "id": "R-I-01",
@@ -391,12 +391,15 @@
      "title": "Mojibake from a latin-1 export read as UTF-8",
      "entity": [
       "customer",
-      "supplier"
+      "supplier",
+      "article",
+      "open_item",
+      "discount"
      ],
      "action": "repair",
      "owner": "engine",
      "rationale": "The accounting export is latin-1. Read as UTF-8 it yields \"Vanacker\u00c2 \", \"Kortr\u00c3\u00afjk\". The mapping is lossless and reversible, so the engine fixes it and logs the original bytes.",
-     "findings": 153
+     "findings": 151
     },
     {
      "id": "R-I-02",
@@ -405,12 +408,14 @@
      "entity": [
       "customer",
       "supplier",
-      "article"
+      "article",
+      "open_item",
+      "discount"
      ],
      "action": "repair",
      "owner": "engine",
      "rationale": "U+00A0 and U+200B survive every trim() a user tries. They break joins silently because the strings look identical on screen.",
-     "findings": 402
+     "findings": 391
     },
     {
      "id": "R-I-03",
@@ -419,12 +424,14 @@
      "entity": [
       "customer",
       "supplier",
-      "article"
+      "article",
+      "open_item",
+      "discount"
      ],
      "action": "repair",
      "owner": "engine",
      "rationale": "Cosmetic in the source and join-breaking in the target. A trailing space is invisible in every spreadsheet and decisive in every lookup, so two records that read identically on screen refuse to match on load.",
-     "findings": 186
+     "findings": 184
     },
     {
      "id": "R-I-04",
@@ -446,12 +453,14 @@
      "entity": [
       "customer",
       "supplier",
-      "article"
+      "article",
+      "open_item",
+      "discount"
      ],
      "action": "repair",
      "owner": "engine",
      "rationale": "\"san-0098\", \"SAN 0098\" and \"SAN-0098\" are one article. Codes are case-folded and space-stripped before any matching happens.",
-     "findings": 126
+     "findings": 128
     }
    ]
   },
@@ -503,8 +512,7 @@
      "circle": 2,
      "title": "Identical VAT number on records with different names",
      "entity": [
-      "customer",
-      "supplier"
+      "customer"
      ],
      "action": "quarantine",
      "owner": "finance",
@@ -518,7 +526,7 @@
    "name": "Gluttony",
    "sin": "One cell, swallowing everything",
    "description": "A single column holding a street, a box number, a postcode, a VAT number and two email addresses. The legacy system had no field for it, so the users made one.\n",
-   "findings": 550,
+   "findings": 552,
    "rules": [
     {
      "id": "R-III-01",
@@ -531,7 +539,7 @@
      "action": "repair",
      "owner": "engine",
      "rationale": "Belgian postcodes are four digits in a known range and appear in a fixed position relative to the city name, which makes the split deterministic.",
-     "findings": 296
+     "findings": 300
     },
     {
      "id": "R-III-02",
@@ -583,7 +591,7 @@
      "action": "repair",
      "owner": "engine",
      "rationale": "Users with no VAT field typed it into the name. Extracting it recovers a mandatory field, and the pattern is unambiguous.",
-     "findings": 21
+     "findings": 19
     }
    ]
   },
@@ -592,7 +600,7 @@
    "name": "Greed",
    "sin": "Money that will not say what it means",
    "description": "Comma or dot, euro or franc-era text, VAT in or VAT out, discount baked into the unit price. Every one of these is a cent that lands in the wrong ledger.\n",
-   "findings": 4422,
+   "findings": 4411,
    "rules": [
     {
      "id": "R-IV-01",
@@ -605,7 +613,7 @@
      "action": "repair",
      "owner": "engine",
      "rationale": "\"1.247,50\", \"1,247.50\" and \"1247.5\" are the same amount. The engine uses the separator order within the string, never locale guessing.",
-     "findings": 3015
+     "findings": 3003
     },
     {
      "id": "R-IV-02",
@@ -618,7 +626,7 @@
      "action": "repair",
      "owner": "engine",
      "rationale": "\"\u20ac 1.247,50\", \"EUR 1247,50\" and \"1247,50 euro\" are one amount written by three people. The currency text carries no information here, because the whole ledger is in euro, so stripping it loses nothing and makes the column numeric.",
-     "findings": 926
+     "findings": 927
     },
     {
      "id": "R-IV-03",
@@ -721,7 +729,7 @@
      "action": "reject",
      "owner": "finance",
      "rationale": "BE0000000000 and BE9999999999 satisfy the modulo check and identify nobody. Migrating them produces invoices that cannot be reported.",
-     "findings": 12
+     "findings": 14
     },
     {
      "id": "R-VI-02",
@@ -734,7 +742,7 @@
      "action": "repair",
      "owner": "engine",
      "rationale": "1900-01-01, 1899-12-30 and 9999-12-31 are the legacy system's way of saying null. They become null, which is what they always meant.",
-     "findings": 46
+     "findings": 44
     },
     {
      "id": "R-VI-03",
@@ -761,7 +769,7 @@
      "action": "reject",
      "owner": "sales",
      "rationale": "\"TEST\", \"ZZZ OUD - NIET GEBRUIKEN\", \"KLANT NIEUW\" and \"aaa\" are working notes. They have order history, which is why nobody ever dared delete them.",
-     "findings": 10
+     "findings": 9
     },
     {
      "id": "R-VI-05",
@@ -774,7 +782,7 @@
      "action": "quarantine",
      "owner": "sales",
      "rationale": "\"XX\", \"B\" and \"BELG\" are each recoverable, but \"B\" is also a legacy code for Belgium and a valid code for nothing. Low volume, so ask.",
-     "findings": 19
+     "findings": 20
     }
    ]
   },
@@ -783,7 +791,7 @@
    "name": "Violence",
    "sin": "What Excel did to the data on its way here",
    "description": "Article codes turned into 1.23E+11. Leading zeros eaten off an EAN. Dates silently converted to serial numbers, or worse, to a US reading that is also a valid European one. The user never touched these cells.\n",
-   "findings": 1028,
+   "findings": 1040,
    "rules": [
     {
      "id": "R-VII-01",
@@ -800,14 +808,13 @@
     {
      "id": "R-VII-02",
      "circle": 7,
-     "title": "Leading zeros stripped from EAN and postcode",
+     "title": "Leading zero stripped from an EAN",
      "entity": [
-      "article",
-      "customer"
+      "article"
      ],
      "action": "repair",
      "owner": "engine",
-     "rationale": "An EAN is fixed-length and carries a check digit, so left-padding is verifiable rather than assumed. Postcodes are four digits in Belgium.",
+     "rationale": "An EAN is fixed length and carries a check digit, so left-padding it back is verifiable rather than assumed, which is what separates this from a guess. The same damage cannot reach a Belgian postcode, because those run from 1000 to 9999 and have no leading zero to lose \u2014 so this rule covers articles only, rather than claiming a reach it does not have.",
      "findings": 103
     },
     {
@@ -821,7 +828,7 @@
      "action": "repair",
      "owner": "engine",
      "rationale": "45291 is 2023-12-27. Deterministic, given the 1900 epoch and the leap-year bug.",
-     "findings": 464
+     "findings": 472
     },
     {
      "id": "R-VII-04",
@@ -833,7 +840,7 @@
      "action": "quarantine",
      "owner": "finance",
      "rationale": "\"03/04/2024\" is 3 April and 4 March. Both are plausible due dates and the difference decides whether an invoice is overdue. Guessing here is how an aging report starts lying.",
-     "findings": 402
+     "findings": 404
     },
     {
      "id": "R-VII-05",
@@ -846,7 +853,7 @@
      "action": "reject",
      "owner": "engine",
      "rationale": "#REF!, #N/B and #DIV/0! are not values. The cell never held one.",
-     "findings": 23
+     "findings": 25
     }
    ]
   },
@@ -855,7 +862,7 @@
    "name": "Fraud",
    "sin": "References to things that do not exist",
    "description": "Discount agreements for customers that were deleted in 2019. Articles assigned to a supplier that went bankrupt. Open items for a customer number that is not in any master file. The keys look fine. They point at nothing.\n",
-   "findings": 195,
+   "findings": 192,
    "rules": [
     {
      "id": "R-VIII-01",
@@ -867,7 +874,7 @@
      "action": "reject",
      "owner": "sales",
      "rationale": "An orphan agreement cannot be migrated and would otherwise be silently dropped by the loader, which is worse than rejecting it loudly.",
-     "findings": 29
+     "findings": 27
     },
     {
      "id": "R-VIII-02",
@@ -891,7 +898,7 @@
      "action": "reject",
      "owner": "finance",
      "rationale": "An open receivable without a customer cannot be migrated, and it must be reported rather than dropped because it is money owed.",
-     "findings": 13
+     "findings": 12
     },
     {
      "id": "R-VIII-04",
@@ -931,7 +938,7 @@
      "circle": 9,
      "title": "Open receivables reconcile to the cent",
      "entity": [
-      "open_item"
+      "all"
      ],
      "action": "gate",
      "owner": "finance",
@@ -943,7 +950,7 @@
      "circle": 9,
      "title": "Compensating errors detected by gross movement",
      "entity": [
-      "open_item"
+      "all"
      ],
      "action": "gate",
      "owner": "finance",
@@ -955,7 +962,7 @@
      "circle": 9,
      "title": "No customer may lose its entire open balance",
      "entity": [
-      "open_item"
+      "all"
      ],
      "action": "gate",
      "owner": "finance",
@@ -2722,7 +2729,7 @@
     "rule": "R-VII-05",
     "circle": 7,
     "entity": "open_item",
-    "key": "VF240317",
+    "key": "VF240047",
     "field": "amount",
     "source": "11_openstaande_posten.xlsx!Posten",
     "action": "reject",
@@ -2736,7 +2743,7 @@
     "rule": "R-VII-05",
     "circle": 7,
     "entity": "open_item",
-    "key": "VF240336",
+    "key": "VF240070",
     "field": "amount",
     "source": "11_openstaande_posten.xlsx!Posten",
     "action": "reject",
@@ -2750,7 +2757,7 @@
     "rule": "R-VII-05",
     "circle": 7,
     "entity": "open_item",
-    "key": "VF240451",
+    "key": "VF240330",
     "field": "amount",
     "source": "11_openstaande_posten.xlsx!Posten",
     "action": "reject",
@@ -2764,7 +2771,7 @@
     "rule": "R-VII-05",
     "circle": 7,
     "entity": "open_item",
-    "key": "VF240553",
+    "key": "VF240349",
     "field": "amount",
     "source": "11_openstaande_posten.xlsx!Posten",
     "action": "reject",
@@ -2778,7 +2785,7 @@
     "rule": "R-VII-05",
     "circle": 7,
     "entity": "open_item",
-    "key": "VF240641",
+    "key": "VF240464",
     "field": "amount",
     "source": "11_openstaande_posten.xlsx!Posten",
     "action": "reject",
@@ -2792,7 +2799,7 @@
     "rule": "R-VII-05",
     "circle": 7,
     "entity": "open_item",
-    "key": "VF240780",
+    "key": "VF240566",
     "field": "amount",
     "source": "11_openstaande_posten.xlsx!Posten",
     "action": "reject",
@@ -3172,7 +3179,7 @@
     "rule": "R-VI-04",
     "circle": 6,
     "entity": "supplier",
-    "key": "L0006",
+    "key": "L0011",
     "field": "name",
     "source": "10_leveranciers.xlsx!leveranciers",
     "action": "reject",
@@ -3729,7 +3736,7 @@
     "owner": "engine",
     "raw": "12/09/2026",
     "repaired": "2026-09-12",
-    "message": "read as dmy on 661 unambiguous rows in the same file",
+    "message": "read as dmy on 655 unambiguous rows in the same file",
     "evidence": {}
    },
    {
@@ -3741,9 +3748,9 @@
     "source": "11_openstaande_posten.xlsx!Posten",
     "action": "repair",
     "owner": "engine",
-    "raw": "02/09/2026",
+    "raw": "46267",
     "repaired": "2026-09-02",
-    "message": "read as dmy on 661 unambiguous rows in the same file",
+    "message": "Excel serial number converted back to a date",
     "evidence": {}
    },
    {
@@ -3757,7 +3764,7 @@
     "owner": "engine",
     "raw": "03/09/2025",
     "repaired": "2025-09-03",
-    "message": "read as dmy on 661 unambiguous rows in the same file",
+    "message": "read as dmy on 655 unambiguous rows in the same file",
     "evidence": {}
    },
    {
@@ -3771,7 +3778,7 @@
     "owner": "engine",
     "raw": "08/04/2026",
     "repaired": "2026-04-08",
-    "message": "read as dmy on 661 unambiguous rows in the same file",
+    "message": "read as dmy on 655 unambiguous rows in the same file",
     "evidence": {}
    },
    {
@@ -3785,7 +3792,7 @@
     "owner": "engine",
     "raw": "05/11/2025",
     "repaired": "2025-11-05",
-    "message": "read as dmy on 661 unambiguous rows in the same file",
+    "message": "read as dmy on 655 unambiguous rows in the same file",
     "evidence": {}
    },
    {
@@ -3799,7 +3806,7 @@
     "owner": "engine",
     "raw": "11/08/2025",
     "repaired": "2025-08-11",
-    "message": "read as dmy on 661 unambiguous rows in the same file",
+    "message": "read as dmy on 655 unambiguous rows in the same file",
     "evidence": {}
    }
   ],
@@ -3820,8 +3827,8 @@
      "european": "2026-05-08",
      "american": "2026-08-05",
      "evidence": {
-      "dmy": 581,
-      "mdy": 79
+      "dmy": 586,
+      "mdy": 75
      }
     }
    },
@@ -3841,8 +3848,8 @@
      "european": "2026-08-05",
      "american": "2026-05-08",
      "evidence": {
-      "dmy": 581,
-      "mdy": 79
+      "dmy": 586,
+      "mdy": 75
      }
     }
    },
@@ -3862,8 +3869,8 @@
      "european": "2025-09-10",
      "american": "2025-10-09",
      "evidence": {
-      "dmy": 581,
-      "mdy": 79
+      "dmy": 586,
+      "mdy": 75
      }
     }
    },
@@ -3883,8 +3890,8 @@
      "european": "2025-05-11",
      "american": "2025-11-05",
      "evidence": {
-      "dmy": 581,
-      "mdy": 79
+      "dmy": 586,
+      "mdy": 75
      }
     }
    },
@@ -3904,8 +3911,8 @@
      "european": "2025-09-11",
      "american": "2025-11-09",
      "evidence": {
-      "dmy": 581,
-      "mdy": 79
+      "dmy": 586,
+      "mdy": 75
      }
     }
    },
@@ -3918,20 +3925,48 @@
     "source": "11_openstaande_posten.xlsx!Posten",
     "action": "quarantine",
     "owner": "finance",
-    "raw": "09/08/2025",
+    "raw": "08/09/2025",
     "repaired": null,
     "message": "this file proves both readings, so neither can be assumed",
     "evidence": {
-     "european": "2025-08-09",
-     "american": "2025-09-08",
+     "european": "2025-09-08",
+     "american": "2025-08-09",
      "evidence": {
-      "dmy": 581,
-      "mdy": 79
+      "dmy": 586,
+      "mdy": 75
      }
     }
    }
   ],
   "R-VIII-01": [
+   {
+    "rule": "R-VIII-01",
+    "circle": 8,
+    "entity": "discount",
+    "key": "A0011",
+    "field": "customer_no",
+    "source": "12_korting_afspraken.xlsx!afspraken",
+    "action": "reject",
+    "owner": "sales",
+    "raw": "K89984",
+    "repaired": null,
+    "message": "orphan agreement; a loader would drop it silently",
+    "evidence": {}
+   },
+   {
+    "rule": "R-VIII-01",
+    "circle": 8,
+    "entity": "discount",
+    "key": "A0012",
+    "field": "customer_no",
+    "source": "12_korting_afspraken.xlsx!afspraken",
+    "action": "reject",
+    "owner": "sales",
+    "raw": "K85125",
+    "repaired": null,
+    "message": "orphan agreement; a loader would drop it silently",
+    "evidence": {}
+   },
    {
     "rule": "R-VIII-01",
     "circle": 8,
@@ -3978,42 +4013,14 @@
     "rule": "R-VIII-01",
     "circle": 8,
     "entity": "discount",
-    "key": "A0023",
+    "key": "A0030",
     "field": "customer_no",
     "source": "12_korting_afspraken.xlsx!afspraken",
     "action": "reject",
     "owner": "sales",
-    "raw": "K88940",
+    "raw": "K86710",
     "repaired": null,
     "message": "orphan agreement; a loader would drop it silently",
-    "evidence": {}
-   },
-   {
-    "rule": "R-VIII-01",
-    "circle": 8,
-    "entity": "discount",
-    "key": "A0037",
-    "field": "article_no",
-    "source": "12_korting_afspraken.xlsx!afspraken",
-    "action": "reject",
-    "owner": "sales",
-    "raw": "GER-0127",
-    "repaired": null,
-    "message": "agreement on an unknown article",
-    "evidence": {}
-   },
-   {
-    "rule": "R-VIII-01",
-    "circle": 8,
-    "entity": "discount",
-    "key": "A0048",
-    "field": "article_no",
-    "source": "12_korting_afspraken.xlsx!afspraken",
-    "action": "reject",
-    "owner": "sales",
-    "raw": "SAN-0165",
-    "repaired": null,
-    "message": "agreement on an unknown article",
     "evidence": {}
    }
   ],
@@ -4194,23 +4201,7 @@
     "rule": "R-VIII-03",
     "circle": 8,
     "entity": "open_item",
-    "key": "VF240080",
-    "field": "customer_no",
-    "source": "11_openstaande_posten.xlsx!Posten",
-    "action": "reject",
-    "owner": "finance",
-    "raw": "K96170",
-    "repaired": null,
-    "message": "a receivable with no customer; it must be reported, not dropped",
-    "evidence": {
-     "amount": "210.92"
-    }
-   },
-   {
-    "rule": "R-VIII-03",
-    "circle": 8,
-    "entity": "open_item",
-    "key": "VF240126",
+    "key": "VF240139",
     "field": "customer_no",
     "source": "11_openstaande_posten.xlsx!Posten",
     "action": "reject",
@@ -4219,14 +4210,14 @@
     "repaired": null,
     "message": "a receivable with no customer; it must be reported, not dropped",
     "evidence": {
-     "amount": "7860.64"
+     "amount": "8488.44"
     }
    },
    {
     "rule": "R-VIII-03",
     "circle": 8,
     "entity": "open_item",
-    "key": "VF240172",
+    "key": "VF240185",
     "field": "customer_no",
     "source": "11_openstaande_posten.xlsx!Posten",
     "action": "reject",
@@ -4235,14 +4226,14 @@
     "repaired": null,
     "message": "a receivable with no customer; it must be reported, not dropped",
     "evidence": {
-     "amount": "6275.81"
+     "amount": "3611.32"
     }
    },
    {
     "rule": "R-VIII-03",
     "circle": 8,
     "entity": "open_item",
-    "key": "VF240293",
+    "key": "VF240306",
     "field": "customer_no",
     "source": "11_openstaande_posten.xlsx!Posten",
     "action": "reject",
@@ -4251,14 +4242,14 @@
     "repaired": null,
     "message": "a receivable with no customer; it must be reported, not dropped",
     "evidence": {
-     "amount": "3664.92"
+     "amount": "1160.56"
     }
    },
    {
     "rule": "R-VIII-03",
     "circle": 8,
     "entity": "open_item",
-    "key": "VF240508",
+    "key": "VF240521",
     "field": "customer_no",
     "source": "11_openstaande_posten.xlsx!Posten",
     "action": "reject",
@@ -4267,14 +4258,14 @@
     "repaired": null,
     "message": "a receivable with no customer; it must be reported, not dropped",
     "evidence": {
-     "amount": "1630.9"
+     "amount": "6289.65"
     }
    },
    {
     "rule": "R-VIII-03",
     "circle": 8,
     "entity": "open_item",
-    "key": "VF240523",
+    "key": "VF240536",
     "field": "customer_no",
     "source": "11_openstaande_posten.xlsx!Posten",
     "action": "reject",
@@ -4283,7 +4274,23 @@
     "repaired": null,
     "message": "a receivable with no customer; it must be reported, not dropped",
     "evidence": {
-     "amount": "4445.9"
+     "amount": "2702.42"
+    }
+   },
+   {
+    "rule": "R-VIII-03",
+    "circle": 8,
+    "entity": "open_item",
+    "key": "VF240623",
+    "field": "customer_no",
+    "source": "11_openstaande_posten.xlsx!Posten",
+    "action": "reject",
+    "owner": "finance",
+    "raw": "K90249",
+    "repaired": null,
+    "message": "a receivable with no customer; it must be reported, not dropped",
+    "evidence": {
+     "amount": "8910.17"
     }
    }
   ],
@@ -4302,10 +4309,10 @@
     "message": "unexplained difference nets to 0.00 while gross movement is 2,495.00 across 2 customers \u2014 net zero with gross movement is betrayal, not balance",
     "evidence": {
      "trial_balance_total": "5380992.54",
-     "source_detail_total": "5323331.97",
-     "total_difference": "-57660.57",
+     "source_detail_total": "5314301.43",
+     "total_difference": "-66691.11",
      "explained_orphan_detail": "0.00",
-     "explained_unquantifiable": "-57660.57",
+     "explained_unquantifiable": "-66691.11",
      "unexplained_net": "0.00",
      "unexplained_gross": "2495.00",
      "compensating_pattern": true,
@@ -4319,9 +4326,9 @@
        "difference": "1247.50"
       },
       {
-       "customer": "K00067",
-       "trial": "9305.20",
-       "detail": "8057.70",
+       "customer": "K00068",
+       "trial": "6724.81",
+       "detail": "5477.31",
        "difference": "-1247.50"
       }
      ]
@@ -4340,19 +4347,24 @@
     "owner": "finance",
     "raw": null,
     "repaired": null,
-    "message": "154 customers would arrive with a zero balance, holding 829,797.69 between them",
+    "message": "157 customers would arrive with a zero balance, holding 884,033.31 between them",
     "evidence": {
-     "customers": 154,
-     "amount": "829797.69",
+     "customers": 157,
+     "amount": "884033.31",
      "worst": [
+      {
+       "customer": "K00219",
+       "trial": "21854.23",
+       "migrated": "0.00"
+      },
       {
        "customer": "K00197",
        "trial": "20683.56",
        "migrated": "0.00"
       },
       {
-       "customer": "K00219",
-       "trial": "18189.31",
+       "customer": "K00356",
+       "trial": "17757.92",
        "migrated": "0.00"
       },
       {
@@ -4363,6 +4375,11 @@
       {
        "customer": "K00266",
        "trial": "15873.75",
+       "migrated": "0.00"
+      },
+      {
+       "customer": "K00614",
+       "trial": "15091.63",
        "migrated": "0.00"
       },
       {
@@ -4391,18 +4408,8 @@
        "migrated": "0.00"
       },
       {
-       "customer": "K00485",
-       "trial": "10863.56",
-       "migrated": "0.00"
-      },
-      {
        "customer": "K00820",
        "trial": "9926.83",
-       "migrated": "0.00"
-      },
-      {
-       "customer": "K00759",
-       "trial": "9360.64",
        "migrated": "0.00"
       }
      ]
@@ -4759,8 +4766,8 @@
      "european": "2026-05-08",
      "american": "2026-08-05",
      "evidence": {
-      "dmy": 581,
-      "mdy": 79
+      "dmy": 586,
+      "mdy": 75
      }
     }
    },
@@ -4780,8 +4787,8 @@
      "european": "2026-08-05",
      "american": "2026-05-08",
      "evidence": {
-      "dmy": 581,
-      "mdy": 79
+      "dmy": 586,
+      "mdy": 75
      }
     }
    },
@@ -4801,8 +4808,8 @@
      "european": "2025-09-10",
      "american": "2025-10-09",
      "evidence": {
-      "dmy": 581,
-      "mdy": 79
+      "dmy": 586,
+      "mdy": 75
      }
     }
    },
@@ -4822,8 +4829,8 @@
      "european": "2025-05-11",
      "american": "2025-11-05",
      "evidence": {
-      "dmy": 581,
-      "mdy": 79
+      "dmy": 586,
+      "mdy": 75
      }
     }
    },
@@ -4843,8 +4850,8 @@
      "european": "2025-09-11",
      "american": "2025-11-09",
      "evidence": {
-      "dmy": 581,
-      "mdy": 79
+      "dmy": 586,
+      "mdy": 75
      }
     }
    },
@@ -4857,15 +4864,15 @@
     "source": "11_openstaande_posten.xlsx!Posten",
     "action": "quarantine",
     "owner": "finance",
-    "raw": "09/08/2025",
+    "raw": "08/09/2025",
     "repaired": null,
     "message": "this file proves both readings, so neither can be assumed",
     "evidence": {
-     "european": "2025-08-09",
-     "american": "2025-09-08",
+     "european": "2025-09-08",
+     "american": "2025-08-09",
      "evidence": {
-      "dmy": 581,
-      "mdy": 79
+      "dmy": 586,
+      "mdy": 75
      }
     }
    }
@@ -5744,22 +5751,22 @@
  "detection": {
   "per_rule": {
    "R-I-01": {
-    "planted": 120,
-    "found": 116,
-    "reported": 116,
-    "recall": 0.9667
+    "planted": 118,
+    "found": 114,
+    "reported": 114,
+    "recall": 0.9661
    },
    "R-I-02": {
-    "planted": 114,
-    "found": 109,
-    "reported": 394,
-    "recall": 0.9561
+    "planted": 115,
+    "found": 110,
+    "reported": 383,
+    "recall": 0.9565
    },
    "R-I-03": {
-    "planted": 112,
-    "found": 111,
-    "reported": 186,
-    "recall": 0.9911
+    "planted": 109,
+    "found": 109,
+    "reported": 184,
+    "recall": 1.0
    },
    "R-I-04": {
     "planted": 1,
@@ -5769,9 +5776,9 @@
    },
    "R-I-05": {
     "planted": 128,
-    "found": 126,
-    "reported": 126,
-    "recall": 0.9844
+    "found": 128,
+    "reported": 128,
+    "recall": 1.0
    },
    "R-II-01": {
     "planted": 570,
@@ -5792,16 +5799,16 @@
     "recall": 0.8889
    },
    "R-II-04": {
-    "planted": 21,
+    "planted": 18,
     "found": 18,
     "reported": 154,
-    "recall": 0.8571
+    "recall": 1.0
    },
    "R-III-01": {
-    "planted": 314,
-    "found": 296,
-    "reported": 296,
-    "recall": 0.9427
+    "planted": 318,
+    "found": 300,
+    "reported": 300,
+    "recall": 0.9434
    },
    "R-III-02": {
     "planted": 160,
@@ -5822,22 +5829,22 @@
     "recall": 1.0
    },
    "R-III-05": {
-    "planted": 21,
-    "found": 21,
-    "reported": 21,
+    "planted": 19,
+    "found": 19,
+    "reported": 19,
     "recall": 1.0
    },
    "R-IV-01": {
-    "planted": 2082,
-    "found": 2037,
-    "reported": 1635,
-    "recall": 0.9784
+    "planted": 2069,
+    "found": 2024,
+    "reported": 1623,
+    "recall": 0.9783
    },
    "R-IV-02": {
-    "planted": 935,
-    "found": 916,
-    "reported": 926,
-    "recall": 0.9797
+    "planted": 938,
+    "found": 918,
+    "reported": 927,
+    "recall": 0.9787
    },
    "R-IV-03": {
     "planted": 453,
@@ -5876,33 +5883,33 @@
     "recall": 0.9692
    },
    "R-VI-01": {
-    "planted": 12,
-    "found": 12,
-    "reported": 12,
-    "recall": 1.0
+    "planted": 15,
+    "found": 14,
+    "reported": 14,
+    "recall": 0.9333
    },
    "R-VI-02": {
-    "planted": 46,
-    "found": 46,
-    "reported": 46,
+    "planted": 44,
+    "found": 44,
+    "reported": 44,
     "recall": 1.0
    },
    "R-VI-03": {
-    "planted": 54,
+    "planted": 55,
     "found": 54,
     "reported": 54,
-    "recall": 1.0
+    "recall": 0.9818
    },
    "R-VI-04": {
-    "planted": 10,
-    "found": 10,
-    "reported": 10,
+    "planted": 9,
+    "found": 9,
+    "reported": 9,
     "recall": 1.0
    },
    "R-VI-05": {
-    "planted": 19,
-    "found": 19,
-    "reported": 19,
+    "planted": 20,
+    "found": 20,
+    "reported": 20,
     "recall": 1.0
    },
    "R-VII-01": {
@@ -5918,27 +5925,27 @@
     "recall": 0.9196
    },
    "R-VII-03": {
-    "planted": 65,
-    "found": 65,
-    "reported": 464,
+    "planted": 68,
+    "found": 68,
+    "reported": 472,
     "recall": 1.0
    },
    "R-VII-04": {
-    "planted": 51,
-    "found": 46,
-    "reported": 402,
-    "recall": 0.902
+    "planted": 61,
+    "found": 58,
+    "reported": 404,
+    "recall": 0.9508
    },
    "R-VII-05": {
-    "planted": 23,
-    "found": 23,
-    "reported": 23,
+    "planted": 25,
+    "found": 25,
+    "reported": 25,
     "recall": 1.0
    },
    "R-VIII-01": {
-    "planted": 9,
-    "found": 9,
-    "reported": 28,
+    "planted": 7,
+    "found": 7,
+    "reported": 26,
     "recall": 1.0
    },
    "R-VIII-02": {
@@ -5948,9 +5955,9 @@
     "recall": 0.9667
    },
    "R-VIII-03": {
-    "planted": 13,
-    "found": 13,
-    "reported": 13,
+    "planted": 12,
+    "found": 12,
+    "reported": 12,
     "recall": 1.0
    },
    "R-VIII-04": {
@@ -5960,9 +5967,9 @@
     "recall": 0.9765
    }
   },
-  "planted": 6311,
-  "found": 5989,
-  "overall": 0.949,
-  "planted_total": 6313
+  "planted": 6310,
+  "found": 5993,
+  "overall": 0.9498,
+  "planted_total": 6312
  }
 }

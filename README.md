@@ -18,17 +18,17 @@ to sign off, because the totals only *look* right.
 [![The descent](docs/assets/preview.png)](https://phlppgdfry.github.io/excel-hell/)
 
 ```
-  PARADISO   2613 rows load-ready
-  PURGATORIO 1753 rows held, 2130 decisions for 4 owners
-  INFERNO     106 rows rejected
+  PARADISO   2611 rows load-ready
+  PURGATORIO 1756 rows held, 2133 decisions for 4 owners
+  INFERNO     105 rows rejected
 
   [pass] R-IX-01  4472 source rows, 4472 placed
-  [pass] R-IX-02  source detail 5,323,331.97 vs triaged 5,323,331.97, difference 0.00
+  [pass] R-IX-02  source detail 5,314,301.43 vs triaged 5,314,301.43, difference 0.00
   [FAIL] R-IX-03  unexplained difference nets to 0.00 while gross movement is
                   2,495.00 across 2 customers — net zero with gross movement is
                   betrayal, not balance
-  [FAIL] R-IX-04  154 customers would arrive with a zero balance, holding
-                  829,797.69 between them
+  [FAIL] R-IX-04  157 customers would arrive with a zero balance, holding
+                  884,033.31 between them
 
   verdict: NO-GO
 ```
@@ -55,10 +55,17 @@ dante run             # descend, triage every row, evaluate the gates (exits 1 o
 dante report          # render the audit report and refresh the site data
 dante rule R-IX-03    # explain one rule and show what it caught
 
-pytest -q             # 62 tests: parsers, recall floors, triage, reconciliation
+pytest -q             # 72 tests: parsers, recall floors, triage, reconciliation
 ```
 
 Everything is deterministic from one seed, so every number here is reproducible.
+
+`dante run` exits **0** when every gate passes, **1** when a gate fails, and
+**2** when you did something it can tell you how to fix — a missing source file,
+the wrong working directory, a report asked for before a run. The middle one is
+a result, not a mistake, which is why they are different codes: a dry run that
+cannot fail is not a control, and a control that fails the same way as a typo is
+not usable in a pipeline.
 
 ## The twelve files
 
@@ -82,7 +89,7 @@ a measurement rather than a claim. The engine never reads that record —
 | `11_openstaande_posten.xlsx` | receivables detail plus the legacy trial balance |
 | `12_korting_afspraken.xlsx` | discount agreements, some for customers deleted in 2019 |
 
-Total: **4 472**<!--@source_rows--> rows that have to end up somewhere.
+Total: **4 472**<!--@source_rows--> rows that have to end up somewhere.
 
 ## The nine circles
 
@@ -94,17 +101,17 @@ nothing below it.
 
 | | Circle | The sin | Findings |
 |---|---|---|---|
-| I | Limbo | data that is almost right — encodings, invisible characters, a BOM | 868 |
-| II | Lust | the same customer, five times over, under four spellings | 2 099 |
-| III | Gluttony | one cell swallowing a street, a box number, a VAT number and two emails | 550 |
-| IV | Greed | money that will not say whether it includes VAT | 4 422 |
+| I | Limbo | data that is almost right — encodings, invisible characters, a BOM | 855 |
+| II | Lust | the same customer, five times over, under four spellings | 2 099 |
+| III | Gluttony | one cell swallowing a street, a box number, a VAT number and two emails | 552 |
+| IV | Greed | money that will not say whether it includes VAT | 4 411 |
 | V | Wrath | three sources, three units of measure, one article | 463 |
 | VI | Heresy | values that pass every format check and are still false | 141 |
-| VII | Violence | what Excel did to the data on its way here | 1 028 |
-| VIII | Fraud | keys of the right shape pointing at nothing | 195 |
+| VII | Violence | what Excel did to the data on its way here | 1 040 |
+| VIII | Fraud | keys of the right shape pointing at nothing | 192 |
 | IX | Treachery | data that is clean, loads fine and is still wrong | 2 |
 
-**9 768**<!--@findings_total--> findings in total, from
+**9 755**<!--@findings_total--> findings in total, from
 **40**<!--@rules_total--> rules.
 
 ## Four things a rule may do
@@ -125,10 +132,11 @@ The line between the first two is the whole craft. "03/04/2024" is 3 April and
 4 March; both are plausible due dates, and guessing is how an aging report
 starts lying. So the engine infers the format **per file from the rows that
 prove it** — a day past the 12th can only be read one way. The receivables file
-contains 581 rows proving `dd/mm` and 79 proving `mm/dd`, so its verdict is
-*mixed*, and its 402 genuinely ambiguous rows go to finance. The document date
-in the same file has 661 proving rows and no contradiction, so nobody is asked
-about it.
+contains **586**<!--@date_dmy--> rows proving `dd/mm` and
+**75**<!--@date_mdy--> proving `mm/dd`, so its verdict is *mixed*, and its
+**404**<!--@ambiguous--> genuinely ambiguous rows go to finance. The document
+date in the same file has **655**<!--@date_doc--> proving rows and no
+contradiction, so nobody is asked about it.
 
 Rules live in [`rules/rules.yaml`](rules/rules.yaml) as data: an id, a circle,
 an action, an owner and a written rationale. CI asserts that every rule fires at
@@ -151,10 +159,10 @@ then holds the leftover to account:
 
 | | |
 |---|---|
-| Legacy trial balance | 5 380 992.54 |
-| Migration source detail | 5 323 331.97 |
-| Difference | −57 660.57 |
-| explained: rows whose amount cannot be read | −57 660.57 |
+| Legacy trial balance | 5 380 992.54<!--@ledger_trial--> |
+| Migration source detail | 5 314 301.43<!--@ledger_detail--> |
+| Difference | −66 691.11<!--@ledger_diff--> |
+| explained: rows whose amount cannot be read | −66 691.11 |
 | **unexplained, net** | **0.00** |
 | **unexplained, gross movement** | **2 495.00**<!--@gross--> |
 
@@ -166,10 +174,10 @@ Failing here is the engine working.
 Because the planted defects are known, recall is measurable per rule, and the
 test suite holds each rule to a floor.
 
-**5 989**<!--@detection_found--> of **6 311**<!--@detection_planted--> planted
-defects found: **94.9**<!--@recall_overall-->% overall.
+**5 993**<!--@detection_found--> of **6 310**<!--@detection_planted--> planted
+defects found: **95.0**<!--@recall_overall-->% overall.
 
-Five rules sit below the general 90% floor on purpose, each with its reason
+**4**<!--@below_floor--> rules sit below the general 90% floor on purpose, each with its reason
 written next to it in `tests/test_detection.py`. The largest gap is fuzzy name
 matching: a company shortened to its first and last word scores around 68 on
 `token_sort_ratio`, well under the auto-merge threshold of 92. Raising the
@@ -198,10 +206,11 @@ out/
 ```
 
 `out/purgatorio/finance.csv` is the deliverable that matters most in practice:
-**2 130**<!--@backlog_total--> open questions across four owners, each with the
+**2 133**<!--@backlog_total--> open questions across four owners, each with the
 record, the raw value, the rule and the evidence. Many share one answer — a
-single ruling on the date format clears 402 of them, and one on the price list's
-"incl VAT" column clears another 424.
+single ruling on the date format clears **404**<!--@ambiguous2--> of them, and
+one on the price list's "incl VAT" column clears another
+**424**<!--@vat_clears-->.
 
 ## Layout
 

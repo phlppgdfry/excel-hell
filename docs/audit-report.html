@@ -79,11 +79,11 @@
  This load must not be executed.</span></div>
 
 <div class="grid">
- <div><small>Load-ready</small><b>2 613</b>
+ <div><small>Load-ready</small><b>2 611</b>
       rows, 58% of source</div>
- <div><small>Held for a decision</small><b>1 753</b>
-      rows, 2 130 open questions</div>
- <div><small>Rejected</small><b>106</b>
+ <div><small>Held for a decision</small><b>1 756</b>
+      rows, 2 133 open questions</div>
+ <div><small>Rejected</small><b>105</b>
       rows, 2% of source</div>
 </div>
 
@@ -98,7 +98,7 @@
 <h3>R-IX-02 &middot; Open receivables reconcile to the cent
     <span class="pass">
     passed</span></h3>
-<p>source detail 5,323,331.97 vs triaged 5,323,331.97, difference 0.00</p>
+<p>source detail 5,314,301.43 vs triaged 5,314,301.43, difference 0.00</p>
 
 
 <h3>R-IX-03 &middot; Compensating errors detected by gross movement
@@ -107,9 +107,9 @@
 <p>unexplained difference nets to 0.00 while gross movement is 2,495.00 across 2 customers — net zero with gross movement is betrayal, not balance</p>
 
 <blockquote>The totals agree. The difference against the legacy trial balance is
- -57 660.57, and every cent of it is explained: orphan
+ -66 691.11, and every cent of it is explained: orphan
  detail 0.00 and rows whose amount could not be
- read -57 660.57. What is left over nets to
+ read -66 691.11. What is left over nets to
  0.00 across 2
  customers, and moves 2 495.00 gross.
  A reconciliation on the net total would have signed this off.</blockquote>
@@ -117,8 +117,8 @@
  <th class="n">Migration detail</th><th class="n">Difference</th></tr></thead><tbody>
 <tr><td><code>K00008</code></td>
  <td class="n">3 677.13</td><td class="n">4 924.63</td>
- <td class="n fail">1 247.50</td></tr><tr><td><code>K00067</code></td>
- <td class="n">9 305.20</td><td class="n">8 057.70</td>
+ <td class="n fail">1 247.50</td></tr><tr><td><code>K00068</code></td>
+ <td class="n">6 724.81</td><td class="n">5 477.31</td>
  <td class="n fail">-1 247.50</td></tr>
 </tbody></table>
 
@@ -126,18 +126,22 @@
 <h3>R-IX-04 &middot; No customer may lose its entire open balance
     <span class="fail">
     FAILED</span></h3>
-<p>154 customers would arrive with a zero balance, holding 829,797.69 between them</p>
+<p>157 customers would arrive with a zero balance, holding 884,033.31 between them</p>
 
 <table><thead><tr><th>Customer</th><th class="n">Legacy balance</th>
  <th class="n">Would migrate</th></tr></thead><tbody>
-<tr><td><code>K00197</code></td>
+<tr><td><code>K00219</code></td>
+ <td class="n">21 854.23</td>
+     <td class="n fail">0.00</td></tr><tr><td><code>K00197</code></td>
  <td class="n">20 683.56</td>
-     <td class="n fail">0.00</td></tr><tr><td><code>K00219</code></td>
- <td class="n">18 189.31</td>
+     <td class="n fail">0.00</td></tr><tr><td><code>K00356</code></td>
+ <td class="n">17 757.92</td>
      <td class="n fail">0.00</td></tr><tr><td><code>K00615</code></td>
  <td class="n">17 717.99</td>
      <td class="n fail">0.00</td></tr><tr><td><code>K00266</code></td>
  <td class="n">15 873.75</td>
+     <td class="n fail">0.00</td></tr><tr><td><code>K00614</code></td>
+ <td class="n">15 091.63</td>
      <td class="n fail">0.00</td></tr><tr><td><code>K00751</code></td>
  <td class="n">14 072.93</td>
      <td class="n fail">0.00</td></tr><tr><td><code>K00638</code></td>
@@ -148,12 +152,8 @@
  <td class="n">13 266.60</td>
      <td class="n fail">0.00</td></tr><tr><td><code>K00706</code></td>
  <td class="n">11 141.54</td>
-     <td class="n fail">0.00</td></tr><tr><td><code>K00485</code></td>
- <td class="n">10 863.56</td>
      <td class="n fail">0.00</td></tr><tr><td><code>K00820</code></td>
  <td class="n">9 926.83</td>
-     <td class="n fail">0.00</td></tr><tr><td><code>K00759</code></td>
- <td class="n">9 360.64</td>
      <td class="n fail">0.00</td></tr>
 </tbody></table>
 
@@ -164,21 +164,21 @@
  <tr><td>Legacy trial balance</td>
      <td class="n">5 380 992.54</td></tr>
  <tr><td>Migration source detail</td>
-     <td class="n">5 323 331.97</td></tr>
- <tr><td>Would be migrated</td><td class="n">3 409 823.47</td></tr>
- <tr><td>Held for a decision</td><td class="n">1 857 743.63</td></tr>
- <tr><td>Rejected</td><td class="n">55 764.87</td></tr>
+     <td class="n">5 314 301.43</td></tr>
+ <tr><td>Would be migrated</td><td class="n">3 398 260.00</td></tr>
+ <tr><td>Held for a decision</td><td class="n">1 854 999.06</td></tr>
+ <tr><td>Rejected</td><td class="n">61 042.37</td></tr>
  <tr><td>Rows with an unreadable amount</td>
-     <td class="n">11</td></tr>
+     <td class="n">13</td></tr>
 </tbody></table>
 
 <h2>Open questions, by whose desk they are on</h2>
 <table><thead><tr><th>Owner</th><th class="n">Questions</th><th>Dominant cause</th>
  </tr></thead><tbody>
 
-<tr><td>finance</td><td class="n">1 023</td><td>Ambiguous VAT treatment on a price</td></tr>
+<tr><td>finance</td><td class="n">1 025</td><td>Ambiguous VAT treatment on a price</td></tr>
 
-<tr><td>sales</td><td class="n">783</td><td>Near-duplicate customers in the grey band</td></tr>
+<tr><td>sales</td><td class="n">784</td><td>Near-duplicate customers in the grey band</td></tr>
 
 <tr><td>purchasing</td><td class="n">216</td><td>Active article sourced from a blocked supplier</td></tr>
 
@@ -188,31 +188,31 @@
 <p>Each owner has a sheet in <code>out/purgatorio/</code> with the record, the raw
    value, the rule and the evidence. Many questions share one answer: a single
    ruling on the date format of the receivables file clears
-   402 of them.</p>
+   404 of them.</p>
 
 <h2>Findings per circle</h2>
 <table><thead><tr><th>Circle</th><th>Sin</th><th class="n">Findings</th>
  <th class="n">Rules</th></tr></thead><tbody>
 <tr><td>I &middot; Limbo</td>
- <td>Data that is almost right</td><td class="n">868</td>
+ <td>Data that is almost right</td><td class="n">855</td>
  <td class="n">5</td></tr><tr><td>II &middot; Lust</td>
  <td>The same customer, five times over</td><td class="n">2 099</td>
  <td class="n">4</td></tr><tr><td>III &middot; Gluttony</td>
- <td>One cell, swallowing everything</td><td class="n">550</td>
+ <td>One cell, swallowing everything</td><td class="n">552</td>
  <td class="n">5</td></tr><tr><td>IV &middot; Greed</td>
- <td>Money that will not say what it means</td><td class="n">4 422</td>
+ <td>Money that will not say what it means</td><td class="n">4 411</td>
  <td class="n">5</td></tr><tr><td>V &middot; Wrath</td>
  <td>Sources at war with each other</td><td class="n">463</td>
  <td class="n">3</td></tr><tr><td>VI &middot; Heresy</td>
  <td>Values that pass every format check and are still false</td><td class="n">141</td>
  <td class="n">5</td></tr><tr><td>VII &middot; Violence</td>
- <td>What Excel did to the data on its way here</td><td class="n">1 028</td>
+ <td>What Excel did to the data on its way here</td><td class="n">1 040</td>
  <td class="n">5</td></tr><tr><td>VIII &middot; Fraud</td>
- <td>References to things that do not exist</td><td class="n">195</td>
+ <td>References to things that do not exist</td><td class="n">192</td>
  <td class="n">4</td></tr><tr><td>IX &middot; Treachery</td>
  <td>The data that is clean, loads fine and is still wrong</td><td class="n">2</td>
  <td class="n">4</td></tr>
-<tr><td colspan="2"><b>Total</b></td><td class="n"><b>9 768</b></td>
+<tr><td colspan="2"><b>Total</b></td><td class="n"><b>9 755</b></td>
  <td class="n"><b>40</b></td></tr>
 </tbody></table>
 
@@ -221,19 +221,19 @@
  <th class="n">Count</th></tr></thead><tbody>
 
 <tr><td><code>R-I-01</code></td><td>Mojibake from a latin-1 export read as UTF-8</td><td>repair</td>
- <td>engine</td><td class="n">153</td></tr>
+ <td>engine</td><td class="n">151</td></tr>
 
 <tr><td><code>R-I-02</code></td><td>Non-breaking spaces and zero-width characters</td><td>repair</td>
- <td>engine</td><td class="n">402</td></tr>
+ <td>engine</td><td class="n">391</td></tr>
 
 <tr><td><code>R-I-03</code></td><td>Leading, trailing and doubled whitespace</td><td>repair</td>
- <td>engine</td><td class="n">186</td></tr>
+ <td>engine</td><td class="n">184</td></tr>
 
 <tr><td><code>R-I-04</code></td><td>Byte order mark on the first column header</td><td>repair</td>
  <td>engine</td><td class="n">1</td></tr>
 
 <tr><td><code>R-I-05</code></td><td>Entity codes in mixed case and with inner spaces</td><td>repair</td>
- <td>engine</td><td class="n">126</td></tr>
+ <td>engine</td><td class="n">128</td></tr>
 
 <tr><td><code>R-II-01</code></td><td>Near-duplicate customers above the auto-merge threshold</td><td>repair</td>
  <td>engine</td><td class="n">1 199</td></tr>
@@ -248,7 +248,7 @@
  <td>finance</td><td class="n">154</td></tr>
 
 <tr><td><code>R-III-01</code></td><td>Postcode and city embedded in the street field</td><td>repair</td>
- <td>engine</td><td class="n">296</td></tr>
+ <td>engine</td><td class="n">300</td></tr>
 
 <tr><td><code>R-III-02</code></td><td>Box number inside the house number</td><td>repair</td>
  <td>engine</td><td class="n">147</td></tr>
@@ -260,13 +260,13 @@
  <td>sales</td><td class="n">18</td></tr>
 
 <tr><td><code>R-III-05</code></td><td>VAT number hidden in the company name</td><td>repair</td>
- <td>engine</td><td class="n">21</td></tr>
+ <td>engine</td><td class="n">19</td></tr>
 
 <tr><td><code>R-IV-01</code></td><td>Decimal comma, dot or both as thousand separator</td><td>repair</td>
- <td>engine</td><td class="n">3 015</td></tr>
+ <td>engine</td><td class="n">3 003</td></tr>
 
 <tr><td><code>R-IV-02</code></td><td>Amounts stored as text with currency symbols</td><td>repair</td>
- <td>engine</td><td class="n">926</td></tr>
+ <td>engine</td><td class="n">927</td></tr>
 
 <tr><td><code>R-IV-03</code></td><td>Ambiguous VAT treatment on a price</td><td>quarantine</td>
  <td>finance</td><td class="n">424</td></tr>
@@ -287,43 +287,43 @@
  <td>purchasing</td><td class="n">63</td></tr>
 
 <tr><td><code>R-VI-01</code></td><td>Structurally valid but placeholder VAT number</td><td>reject</td>
- <td>finance</td><td class="n">12</td></tr>
+ <td>finance</td><td class="n">14</td></tr>
 
 <tr><td><code>R-VI-02</code></td><td>Sentinel dates standing in for &#34;unknown&#34;</td><td>repair</td>
- <td>engine</td><td class="n">46</td></tr>
+ <td>engine</td><td class="n">44</td></tr>
 
 <tr><td><code>R-VI-03</code></td><td>Placeholder contact details</td><td>repair</td>
  <td>engine</td><td class="n">54</td></tr>
 
 <tr><td><code>R-VI-04</code></td><td>Test and scratch records left in the master file</td><td>reject</td>
- <td>sales</td><td class="n">10</td></tr>
+ <td>sales</td><td class="n">9</td></tr>
 
 <tr><td><code>R-VI-05</code></td><td>Country code outside ISO 3166-1 alpha-2</td><td>quarantine</td>
- <td>sales</td><td class="n">19</td></tr>
+ <td>sales</td><td class="n">20</td></tr>
 
 <tr><td><code>R-VII-01</code></td><td>Article code converted to scientific notation</td><td>quarantine</td>
  <td>operations</td><td class="n">36</td></tr>
 
-<tr><td><code>R-VII-02</code></td><td>Leading zeros stripped from EAN and postcode</td><td>repair</td>
+<tr><td><code>R-VII-02</code></td><td>Leading zero stripped from an EAN</td><td>repair</td>
  <td>engine</td><td class="n">103</td></tr>
 
 <tr><td><code>R-VII-03</code></td><td>Date stored as an Excel serial number</td><td>repair</td>
- <td>engine</td><td class="n">464</td></tr>
+ <td>engine</td><td class="n">472</td></tr>
 
 <tr><td><code>R-VII-04</code></td><td>Date ambiguous between US and European reading</td><td>quarantine</td>
- <td>finance</td><td class="n">402</td></tr>
+ <td>finance</td><td class="n">404</td></tr>
 
 <tr><td><code>R-VII-05</code></td><td>Numeric field containing a formula error</td><td>reject</td>
- <td>engine</td><td class="n">23</td></tr>
+ <td>engine</td><td class="n">25</td></tr>
 
 <tr><td><code>R-VIII-01</code></td><td>Discount agreement for a customer that does not exist</td><td>reject</td>
- <td>sales</td><td class="n">29</td></tr>
+ <td>sales</td><td class="n">27</td></tr>
 
 <tr><td><code>R-VIII-02</code></td><td>Article pointing at a supplier that is not in the master</td><td>quarantine</td>
  <td>purchasing</td><td class="n">29</td></tr>
 
 <tr><td><code>R-VIII-03</code></td><td>Open item for an unknown customer number</td><td>reject</td>
- <td>finance</td><td class="n">13</td></tr>
+ <td>finance</td><td class="n">12</td></tr>
 
 <tr><td><code>R-VIII-04</code></td><td>Active article sourced from a blocked supplier</td><td>quarantine</td>
  <td>purchasing</td><td class="n">124</td></tr>

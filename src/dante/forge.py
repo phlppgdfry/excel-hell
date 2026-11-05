@@ -462,12 +462,15 @@ class Forge:
             if self.chance(0.05):  # R-I-02
                 sname = sname.replace(" ", " ", 1)
                 self.plant("R-I-02", name, s.supp_no, "naam", repr(sname), s.name)
-            if self.chance(0.05):  # R-II-04
-                self.plant("R-II-04", name, s.supp_no, "btw", vat, s.name,
-                           "supplier sharing a VAT number with a customer record")
-            if self.chance(0.04):  # R-I-05
-                self.plant("R-I-05", name, s.supp_no, "levnr", s.supp_no.lower(), s.supp_no)
-            ws.append([s.supp_no, sname, street, s.house_no, s.postcode, s.city, land,
+            # R-II-04 used to be recorded here as a supplier sharing a VAT number
+            # with a customer, but nothing in the data made that true and circle II
+            # only deduplicates customers. A defect nobody could find is not a
+            # measurement, it is a thumb on the scale.
+            supp_no = s.supp_no
+            if self.chance(0.04):  # R-I-05 · the code as somebody typed it
+                supp_no = s.supp_no.lower().replace("l", "l ")
+                self.plant("R-I-05", name, s.supp_no, "levnr", supp_no, s.supp_no)
+            ws.append([supp_no, sname, street, s.house_no, s.postcode, s.city, land,
                        vat, email, "J" if s.blocked else "N"])
         wb.save(self.out / name)
 

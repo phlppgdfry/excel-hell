@@ -94,7 +94,7 @@ rules:
   - id: R-I-01
     circle: 1
     title: Mojibake from a latin-1 export read as UTF-8
-    entity: [customer, supplier]
+    entity: [customer, supplier, article, open_item, discount]
     action: repair
     owner: engine
     rationale: >
@@ -105,7 +105,7 @@ rules:
   - id: R-I-02
     circle: 1
     title: Non-breaking spaces and zero-width characters
-    entity: [customer, supplier, article]
+    entity: [customer, supplier, article, open_item, discount]
     action: repair
     owner: engine
     rationale: >
@@ -115,7 +115,7 @@ rules:
   - id: R-I-03
     circle: 1
     title: Leading, trailing and doubled whitespace
-    entity: [customer, supplier, article]
+    entity: [customer, supplier, article, open_item, discount]
     action: repair
     owner: engine
     rationale: >
@@ -136,7 +136,7 @@ rules:
   - id: R-I-05
     circle: 1
     title: Entity codes in mixed case and with inner spaces
-    entity: [customer, supplier, article]
+    entity: [customer, supplier, article, open_item, discount]
     action: repair
     owner: engine
     rationale: >
@@ -181,7 +181,7 @@ rules:
   - id: R-II-04
     circle: 2
     title: Identical VAT number on records with different names
-    entity: [customer, supplier]
+    entity: [customer]
     action: quarantine
     owner: finance
     rationale: >
@@ -393,13 +393,16 @@ rules:
 
   - id: R-VII-02
     circle: 7
-    title: Leading zeros stripped from EAN and postcode
-    entity: [article, customer]
+    title: Leading zero stripped from an EAN
+    entity: [article]
     action: repair
     owner: engine
     rationale: >
-      An EAN is fixed-length and carries a check digit, so left-padding is
-      verifiable rather than assumed. Postcodes are four digits in Belgium.
+      An EAN is fixed length and carries a check digit, so left-padding it back
+      is verifiable rather than assumed, which is what separates this from a
+      guess. The same damage cannot reach a Belgian postcode, because those run
+      from 1000 to 9999 and have no leading zero to lose — so this rule covers
+      articles only, rather than claiming a reach it does not have.
 
   - id: R-VII-03
     circle: 7
@@ -481,7 +484,7 @@ rules:
   - id: R-IX-02
     circle: 9
     title: Open receivables reconcile to the cent
-    entity: [open_item]
+    entity: [all]
     action: gate
     owner: finance
     rationale: >
@@ -492,7 +495,7 @@ rules:
   - id: R-IX-03
     circle: 9
     title: Compensating errors detected by gross movement
-    entity: [open_item]
+    entity: [all]
     action: gate
     owner: finance
     rationale: >
@@ -504,7 +507,7 @@ rules:
   - id: R-IX-04
     circle: 9
     title: No customer may lose its entire open balance
-    entity: [open_item]
+    entity: [all]
     action: gate
     owner: finance
     rationale: >

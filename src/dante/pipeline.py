@@ -16,6 +16,7 @@ from typing import Any
 import pandas as pd
 import yaml
 
+from .errors import MissingRegistry
 from .finding import Finding
 
 ENTITIES = ["customer", "supplier", "article", "open_item", "discount"]
@@ -52,6 +53,8 @@ class Context:
 
 
 def load_registry(path: Path = Path("rules/rules.yaml")) -> tuple[dict, dict]:
+    if not path.exists():
+        raise MissingRegistry(path)
     doc = yaml.safe_load(path.read_text())
     rules = {r["id"]: r for r in doc["rules"]}
     circles = {c["number"]: c for c in doc["circles"]}

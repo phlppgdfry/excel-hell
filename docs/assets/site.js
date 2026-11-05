@@ -151,6 +151,7 @@ function renderDiagram(d) {
     t.textContent = ROMAN[i];
     bands.append(t);
   });
+  document.getElementById("dg-rows").textContent = fmt(d.source_rows);
   ["par", "pur", "inf"].forEach((id, i) => {
     const key = ["paradiso", "purgatorio", "inferno"][i];
     document.getElementById("dg-" + id).textContent = fmt(d.totals[key]);

@@ -10,6 +10,8 @@ admitting it cannot be parsed.
 
 from __future__ import annotations
 
+import re
+
 from ..normalise import email_status, extract_vat, split_address, vat_status
 from ..pipeline import Context
 
@@ -75,13 +77,21 @@ def run(ctx: Context) -> None:
 
 
 def _has_postcode(s: str) -> bool:
-    import re
     return bool(re.search(r"\b\d{4}\b", s))
 
 
 def _strip_vat(name: str, vat: str) -> str:
-    import re
-    out = re.sub(r"\(?\s*BE\s?0?\d{9,10}\s*\)?", "", name, flags=re.IGNORECASE)
+    """Remove the number we recovered, not any number that looks like one.
+
+    The source writes it as BE0655523030, BE 0655.523.030 or 0655523030, so the
+    digits are matched with optional separators between them. Stripping any
+    VAT-shaped substring instead would quietly delete a different number that
+    happened to be in the name, which is the sort of repair nobody notices.
+    """
+    digits = re.sub(r"\D", "", vat)
+    loose = r"[\s.\-]*".join(digits)
+    pattern = rf"\(?\s*(?:BE)?[\s.\-]*0?{loose}\s*\)?"
+    out = re.sub(pattern, "", name, flags=re.IGNORECASE)
     return re.sub(r"\s+", " ", out).strip(" ()-")
 
 

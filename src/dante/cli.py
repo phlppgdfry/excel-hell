@@ -4,9 +4,11 @@ from __future__ import annotations
 
 import json
 from pathlib import Path
+from typing import NoReturn
 
 import typer
 
+from .errors import DanteError, NoRunYet
 from .forge import forge as run_forge
 from .run import descend
 
@@ -41,7 +43,10 @@ def run(raw: Path = Path("data/raw"), out: Path = Path("out"),
         rules: Path = Path("rules/rules.yaml")) -> None:
     """Descend through the nine circles and triage every source row."""
     typer.echo("\n  DANTE — descent through nine circles\n")
-    summary = descend(raw_dir=raw, out_dir=out, rules_path=rules)
+    try:
+        summary = descend(raw_dir=raw, out_dir=out, rules_path=rules)
+    except DanteError as err:
+        _complain(err)
     t = summary["totals"]
     typer.echo(
         f"\n  PARADISO {t['paradiso']:>6} rows load-ready"
@@ -65,7 +70,10 @@ def rule(rule_id: str, out: Path = Path("out"),
 
     from .pipeline import load_registry
 
-    registry, circles = load_registry(rules)
+    try:
+        registry, circles = load_registry(rules)
+    except DanteError as err:
+        _complain(err)
     key = rule_id.upper()
     if key not in registry:
         close = [r for r in registry if key.replace("-", "") in r.replace("-", "")]
@@ -100,6 +108,13 @@ def rule(rule_id: str, out: Path = Path("out"),
     typer.echo("")
 
 
+def _complain(err: DanteError) -> NoReturn:
+    """One line on what went wrong, one on how to fix it, and a useful exit code."""
+    typer.secho(f"\n  {err.problem}", err=True, fg=typer.colors.RED)
+    typer.echo(f"  {err.fix}\n", err=True)
+    raise typer.Exit(2)
+
+
 def _wrap(text: str, width: int) -> list[str]:
     lines, line = [], ""
     for word in text.split():
@@ -118,7 +133,10 @@ def report(out: Path = Path("out"), site: Path = Path("docs")) -> None:
     """Render the audit report and refresh the site data."""
     from .report import render
 
-    summary = json.loads((out / "report" / "run-summary.json").read_text())
+    source = out / "report" / "run-summary.json"
+    if not source.exists():
+        _complain(NoRunYet(source))
+    summary = json.loads(source.read_text())
     paths = render(summary, out, site)
     for p in paths:
         typer.echo(f"  wrote {p}")

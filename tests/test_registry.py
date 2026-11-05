@@ -53,7 +53,39 @@ def test_every_gate_is_evaluated(run):
     assert gates == {r["id"] for r in RULES if r["action"] == "gate"}
 
 
-def test_quarantined_findings_are_owned_by_a_human(run):
+def test_quarantined_findings_are_owned_by_a_human():
     for rule_id, owner in [(r["id"], r["owner"]) for r in RULES
                            if r["action"] == "quarantine"]:
         assert owner != "engine", f"{rule_id} asks a human and names the engine"
+
+
+def test_rules_only_fire_on_entities_they_declare(run):
+    """The entity list is a claim about reach, so the run has to back it up.
+
+    R-I-02 declared customers, suppliers and articles while circle I normalises
+    every source table, receivables included — so it was firing on an entity it
+    had not claimed. The opposite case is allowed: a rule may cover an entity
+    this particular dataset happens not to damage.
+    """
+    import collections
+
+    import pandas as pd
+    findings = pd.read_csv(run["out"] / "report" / "findings.csv")
+    fired = collections.defaultdict(set)
+    for rule_id, entity in zip(findings["rule"], findings["entity"], strict=False):
+        fired[rule_id].add(entity)
+
+    declared = {r["id"]: set(r["entity"]) for r in RULES}
+    undeclared = {
+        rule_id: sorted(entities - declared[rule_id])
+        for rule_id, entities in fired.items()
+        if entities - declared[rule_id]
+    }
+    assert not undeclared, f"rules firing on an entity they do not declare: {undeclared}"
+
+
+def test_every_declared_entity_is_a_real_one(run):
+    known = set(run["summary"]["counts"]) | {"all"}
+    for r in RULES:
+        unknown = set(r["entity"]) - known
+        assert not unknown, f"{r['id']} declares {unknown}, which is not an entity"
