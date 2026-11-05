@@ -89,3 +89,44 @@ def test_every_declared_entity_is_a_real_one(run):
     for r in RULES:
         unknown = set(r["entity"]) - known
         assert not unknown, f"{r['id']} declares {unknown}, which is not an entity"
+
+
+def test_the_registry_does_not_contradict_the_code():
+    """A rationale that names the wrong scorer is worse than none at all.
+
+    R-II-01 said token_set_ratio while circle II uses token_sort_ratio — the one
+    distinction the README makes a point of — and R-II-02 quoted a grey band of
+    80 after the constant moved to 75. Both read as authoritative and both were
+    wrong, which is the expensive kind of documentation.
+    """
+    from dante.circles import c2_lust
+
+    text = (ROOT / "rules/rules.yaml").read_text()
+    rules = {r["id"]: " ".join(r["rationale"].split()) for r in RULES}
+
+    assert "token_sort_ratio" in rules["R-II-01"]
+    assert "scored with token_set_ratio" not in rules["R-II-01"], \
+        "the registry names the scorer this engine deliberately does not use"
+
+    assert str(c2_lust.AUTO_MERGE) in rules["R-II-01"], \
+        f"R-II-01 should quote the auto-merge threshold ({c2_lust.AUTO_MERGE})"
+    assert str(c2_lust.GREY_BAND) in rules["R-II-02"], \
+        f"R-II-02 should quote the grey band floor ({c2_lust.GREY_BAND})"
+    assert str(c2_lust.AUTO_MERGE) in rules["R-II-02"]
+    assert text.count("token_set_ratio") <= 1, \
+        "the rejected scorer should appear only where it is being rejected"
+
+
+def test_the_registry_does_its_own_arithmetic_correctly():
+    """R-VII-03 claimed 45291 was 2023-12-27. It is 2023-12-31."""
+    import re
+
+    from dante.normalise import parse_date
+
+    for rule in RULES:
+        text = " ".join(rule["rationale"].split())
+        for serial, claimed in re.findall(r"\b(\d{5}) is (\d{4}-\d{2}-\d{2})\b", text):
+            value, status = parse_date(serial)
+            assert status == "serial", f"{rule['id']}: {serial} is not read as a serial"
+            assert value.isoformat() == claimed, \
+                f"{rule['id']} says {serial} is {claimed}; it is {value.isoformat()}"

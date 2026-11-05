@@ -480,7 +480,7 @@
      ],
      "action": "repair",
      "owner": "engine",
-     "rationale": "Blocking on postcode plus normalised name, scored with token_set_ratio. At or above 92 the pair is the same legal entity in every sample we reviewed, so the engine merges and records the losing record.",
+     "rationale": "Blocking on postcode plus normalised name, scored with token_sort_ratio. At or above 92 the pair is one legal entity written two ways, so the engine merges and records the record it discarded. The scorer matters more than the threshold here: token_set_ratio returns 100 whenever one name's tokens are a subset of the other's, which silently merges a parent company into its subsidiary.",
      "findings": 1199
     },
     {
@@ -492,7 +492,7 @@
      ],
      "action": "quarantine",
      "owner": "sales",
-     "rationale": "Between 80 and 92 the score cannot separate \"Bouwbedrijf Deveux\" from \"Bouwbedrijf Deveux Zonen\", which are a parent and its subsidiary with separate credit limits. A wrong merge destroys a credit history, so sales decides.",
+     "rationale": "Between 75 and 92 the score cannot separate \"Bouwbedrijf Deveux\" from \"Bouwbedrijf Deveux Zonen\", which score 79 and are a parent and its subsidiary with separate credit limits. A wrong merge destroys a credit history, so sales decides.",
      "findings": 526
     },
     {
@@ -827,7 +827,7 @@
      ],
      "action": "repair",
      "owner": "engine",
-     "rationale": "45291 is 2023-12-27. Deterministic, given the 1900 epoch and the leap-year bug.",
+     "rationale": "45291 is 2023-12-31, counting from the 1899-12-30 epoch Excel uses because of its deliberate leap-year bug. Deterministic, and therefore a repair rather than a question.",
      "findings": 472
     },
     {

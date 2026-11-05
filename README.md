@@ -55,7 +55,7 @@ dante run             # descend, triage every row, evaluate the gates (exits 1 o
 dante report          # render the audit report and refresh the site data
 dante rule R-IX-03    # explain one rule and show what it caught
 
-pytest -q             # 125 checks: parsers, recall floors, triage, reconciliation,
+pytest -q             # 127 checks: parsers, recall floors, triage, reconciliation,
                       #             documentation, and the engine/ground-truth boundary
 ```
 
