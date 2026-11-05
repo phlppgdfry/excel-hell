@@ -17,6 +17,8 @@ from .triage import INFERNO, PARADISO, row_key, triage
 from .world import CLIENT, LEGACY_SYSTEM
 
 INTERNAL = ("_source", "_row", "_feed", "_match_name", "_cluster", "_header_row")
+# columns the pipeline needs and the target system has no field for
+STAGING = ("address_raw",)
 
 
 def descend(raw_dir: Path = Path("data/raw"), out_dir: Path = Path("out"),
@@ -74,9 +76,8 @@ def _write_outputs(ctx: Context, verdict: dict[str, Any], recon: dict[str, Any],
     # ── load-ready data, actually cleaned ────────────────────────────────
     for entity, df in ctx.candidates.items():
         keys = {r["key"] for r in verdict["buckets"][entity][PARADISO]}
-        clean = df[[row_key(df, i) in keys for i in df.index]].drop(
-            columns=[c for c in INTERNAL if c in df.columns])
-        clean.to_csv(out / "paradiso" / f"{entity}.csv", index=False)
+        rows = df[[row_key(df, i) in keys for i in df.index]]
+        _load_ready(rows).to_csv(out / "paradiso" / f"{entity}.csv", index=False)
 
         rejected = pd.DataFrame(verdict["buckets"][entity][INFERNO])
         if not rejected.empty:
@@ -84,7 +85,12 @@ def _write_outputs(ctx: Context, verdict: dict[str, Any], recon: dict[str, Any],
 
     # ── one decision sheet per owner, which is how the work gets done ────
     for owner, rows in verdict["backlog_by_owner"].items():
-        pd.DataFrame(rows).to_csv(out / "purgatorio" / f"{owner}.csv", index=False)
+        sheet = pd.DataFrame(rows)
+        if "evidence" in sheet.columns:
+            # JSON, not a Python dict repr: somebody has to read this in Excel
+            sheet["evidence"] = sheet["evidence"].map(
+                lambda e: json.dumps(e, ensure_ascii=False) if e else "")
+        sheet.to_csv(out / "purgatorio" / f"{owner}.csv", index=False)
 
     summary = {
         "client": CLIENT,
@@ -117,6 +123,23 @@ def _write_outputs(ctx: Context, verdict: dict[str, Any], recon: dict[str, Any],
     (out / "report" / "run-summary.json").write_text(json.dumps(summary, indent=1))
     pd.DataFrame(findings).to_csv(out / "report" / "findings.csv", index=False)
     return summary
+
+
+def _load_ready(df: pd.DataFrame) -> pd.DataFrame:
+    """Paradiso is data somebody loads, not a list of row numbers.
+
+    The circles keep the raw value next to the parsed one so every repair stays
+    auditable, but a load file has no business carrying "€ 517,94" in a price
+    column. Here the parsed value takes over the canonical column and the
+    staging columns are dropped.
+    """
+    out = df.drop(columns=[c for c in INTERNAL if c in df.columns])
+    for col in [c for c in out.columns if c.endswith("_parsed")]:
+        base = col[: -len("_parsed")]
+        if base in out.columns:
+            out[base] = out[col]
+        out = out.drop(columns=[col])
+    return out.drop(columns=[c for c in STAGING if c in out.columns])
 
 
 def _desk(verdict: dict[str, Any], per_owner: int = 24) -> dict[str, list]:

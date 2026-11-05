@@ -12,7 +12,6 @@ import json
 
 from dante.forge import forge
 from dante.run import descend
-
 from tests.conftest import ROOT
 
 

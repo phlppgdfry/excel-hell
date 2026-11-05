@@ -46,14 +46,19 @@ def run(ctx: Context) -> None:
                 ctx.finding("R-VI-04", entity, key, "name", source, raw=name,
                             message="a working note with order history behind it")
 
+            # A placeholder is nulled, not merely noted. Reporting a repair and
+            # then shipping the original is how "/" ends up in a live ERP as an
+            # email address.
             _, estatus = email_status(row.get("email"))
             if estatus == "placeholder":
                 ctx.finding("R-VI-03", entity, key, "email", source, raw=row.get("email"),
-                            repaired=None, message="absence written as presence")
+                            repaired=None, message="nulled: absence written as presence")
+                df.at[idx, "email"] = None
             _, pstatus = phone_status(row.get("phone"))
             if pstatus == "placeholder":
                 ctx.finding("R-VI-03", entity, key, "phone", source, raw=row.get("phone"),
-                            repaired=None, message="absence written as presence")
+                            repaired=None, message="nulled: absence written as presence")
+                df.at[idx, "phone"] = None
 
             country = row.get("country")
             if country not in (None, "", "nan", "None"):
@@ -72,7 +77,9 @@ def run(ctx: Context) -> None:
                 _, dstatus = parse_date(created)
                 if dstatus == "sentinel":
                     ctx.finding("R-VI-02", entity, key, "created", source, raw=created,
-                                repaired=None, message="the legacy system's way of saying null")
+                                repaired=None,
+                                message="nulled: the legacy system's way of saying null")
+                    df.at[idx, "created"] = None
 
     # scratch records in the article master too
     for _, row in ctx.candidates["article"].iterrows():
@@ -82,13 +89,15 @@ def run(ctx: Context) -> None:
                         row["_source"], raw=desc, message="scratch record in the master")
 
     # sentinel due dates on receivables
-    for _, row in ctx.candidates["open_item"].iterrows():
+    items = ctx.candidates["open_item"]
+    for idx, row in items.iterrows():
         for fieldname in ("doc_date", "due_date"):
             _, status = parse_date(row.get(fieldname))
             if status == "sentinel":
                 ctx.finding("R-VI-02", "open_item", str(row["key"]), fieldname,
                             row["_source"], raw=row.get(fieldname), repaired=None,
-                            message="a receivable with no real due date")
+                            message="nulled: a receivable with no real due date")
+                items.at[idx, fieldname] = None
 
 
 def _key(df, idx: int) -> str:

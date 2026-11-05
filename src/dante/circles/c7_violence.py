@@ -83,20 +83,27 @@ def run(ctx: Context) -> None:
                             message="the cell never held a value")
 
     # ── dates ────────────────────────────────────────────────────────────
+    # Each field gets a parsed column beside the raw one, in ISO. The raw value
+    # stays so the finding remains auditable; the parsed value is what Paradiso
+    # exports, because a load file carrying 45966 in a date column is not clean,
+    # it is merely unreported.
     items = ctx.candidates["open_item"]
     for fieldname in ("doc_date", "due_date"):
         fmt, evidence = infer_date_format(items[fieldname].astype(str).tolist())
         ctx.stats[f"date_format_{fieldname}"] = {"verdict": fmt, "evidence": dict(evidence)}
+        parsed: list[str | None] = []
         for _, row in items.iterrows():
             raw = row[fieldname]
             value, status = parse_date(raw)
             key = str(row["key"])
+            iso = value.isoformat() if value else None
             if status == "serial":
                 ctx.finding("R-VII-03", "open_item", key, fieldname, row["_source"],
-                            raw=raw, repaired=value.isoformat() if value else None,
+                            raw=raw, repaired=iso,
                             message="Excel serial number converted back to a date")
             elif status == "ambiguous":
                 if fmt == "mixed":
+                    iso = None  # held, so nothing is written to the target
                     ctx.finding("R-VII-04", "open_item", key, fieldname, row["_source"],
                                 raw=raw, repaired=None,
                                 message="this file proves both readings, so neither "
@@ -104,19 +111,25 @@ def run(ctx: Context) -> None:
                                 european=_read(raw, "dmy"), american=_read(raw, "mdy"),
                                 evidence=dict(evidence))
                 else:
+                    iso = _read(raw, fmt if fmt != "unknown" else "dmy")
                     ctx.finding("R-VII-03", "open_item", key, fieldname, row["_source"],
-                                raw=raw, repaired=_read(raw, fmt if fmt != "unknown" else "dmy"),
+                                raw=raw, repaired=iso,
                                 message=f"read as {fmt} on {sum(evidence.values())} "
                                         "unambiguous rows in the same file")
             elif status == "unparseable" and str(raw).strip():
                 ctx.finding("R-VII-05", "open_item", key, fieldname, row["_source"], raw=raw,
                             message="not a date in any reading")
+            parsed.append(iso)
+        items[f"{fieldname}_parsed"] = parsed
+    ctx.candidates["open_item"] = items
 
     # dates in the customer master
     customers = ctx.candidates["customer"]
+    created_parsed: list[str | None] = []
     for idx, row in customers.iterrows():
         raw = row.get("created")
         if raw in (None, "", "nan", "None"):
+            created_parsed.append(None)
             continue
         value, status = parse_date(raw)
         if status == "serial":
@@ -124,6 +137,9 @@ def run(ctx: Context) -> None:
                         row["_source"], raw=raw,
                         repaired=value.isoformat() if value else None,
                         message="Excel serial number converted back to a date")
+        created_parsed.append(value.isoformat() if value else None)
+    customers["created_parsed"] = created_parsed
+    ctx.candidates["customer"] = customers
 
 
 def _read(raw: object, fmt: str) -> str | None:

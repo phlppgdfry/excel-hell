@@ -83,6 +83,8 @@ def assemble(ctx: Context) -> None:
         frames.setdefault(entity, []).append(out)
 
     for entity, parts in frames.items():
-        ctx.candidates[entity] = pd.concat(parts, ignore_index=True)
+        # object dtype on purpose: a circle that finds a placeholder has to be
+        # able to write a null back into a column that arrived as text.
+        ctx.candidates[entity] = pd.concat(parts, ignore_index=True).astype(object)
 
     ctx.stats["candidates"] = {k: len(v) for k, v in ctx.candidates.items()}
