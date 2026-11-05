@@ -577,7 +577,10 @@ class Forge:
             self.file_11_open_items, self.file_12_discounts,
         ):
             fn()
-        truth = Path("data/truth")
+        # Next to the source files it describes, not next to the current working
+        # directory. Forging into a temporary directory should not leave a
+        # ground-truth file wherever the process happened to be started.
+        truth = self.out.parent / "truth"
         truth.mkdir(parents=True, exist_ok=True)
         by_rule: dict[str, int] = {}
         for d in self.defects:

@@ -2,9 +2,11 @@
 
 from __future__ import annotations
 
+from pathlib import Path
+
 import yaml
 
-from tests.conftest import ROOT
+ROOT = Path(__file__).resolve().parents[1]
 
 REGISTRY = yaml.safe_load((ROOT / "rules/rules.yaml").read_text())
 RULES = REGISTRY["rules"]

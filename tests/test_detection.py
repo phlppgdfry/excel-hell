@@ -68,9 +68,10 @@ def test_every_other_rule_clears_the_general_floor(planted, run):
 
 
 def test_the_forge_plants_every_non_gate_rule(planted, run):
-    import yaml
+    from pathlib import Path
 
-    from tests.conftest import ROOT
-    rules = yaml.safe_load((ROOT / "rules/rules.yaml").read_text())["rules"]
+    import yaml
+    root = Path(__file__).resolve().parents[1]
+    rules = yaml.safe_load((root / "rules/rules.yaml").read_text())["rules"]
     expected = {r["id"] for r in rules if r["action"] != "gate"}
     assert expected - set(planted) == set()

@@ -10,10 +10,11 @@ from __future__ import annotations
 import re
 import subprocess
 import sys
+from pathlib import Path
 
 import yaml
 
-from tests.conftest import ROOT
+ROOT = Path(__file__).resolve().parents[1]
 
 ANCHOR = re.compile(r"\*\*([^*]+?)\*\*<!--@(\w+)-->")
 

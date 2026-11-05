@@ -17,7 +17,9 @@ jobs:
           enable-cache: true
 
       - name: Install
-        run: uv venv && uv pip install -e ".[dev]"
+        # Pinned so CI runs on the interpreter this was developed and measured
+        # against, rather than whatever the runner image defaults to.
+        run: uv venv --python 3.13 && uv pip install -e ".[dev]"
 
       - name: Lint
         run: uv run ruff check .

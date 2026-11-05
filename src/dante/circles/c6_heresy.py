@@ -13,8 +13,6 @@ stands in for a real identifier cannot be migrated at all.
 
 from __future__ import annotations
 
-import re
-
 from ..normalise import (
     SCRATCH_NAMES,
     country_status,
@@ -104,5 +102,3 @@ def _key(df, idx: int) -> str:
     k = str(df.at[idx, "key"] or "").strip()
     return k if k and k != "None" else f"{df.at[idx, '_feed']}#{df.at[idx, '_row']}"
 
-
-_ = re

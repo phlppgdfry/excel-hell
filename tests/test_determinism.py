@@ -9,10 +9,12 @@ vary between processes, because Python randomises string hashing per process.
 from __future__ import annotations
 
 import json
+from pathlib import Path
 
 from dante.forge import forge
 from dante.run import descend
-from tests.conftest import ROOT
+
+ROOT = Path(__file__).resolve().parents[1]
 
 
 def _run(tmp_path_factory, tag: str) -> dict:
