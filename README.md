@@ -55,7 +55,8 @@ dante run             # descend, triage every row, evaluate the gates (exits 1 o
 dante report          # render the audit report and refresh the site data
 dante rule R-IX-03    # explain one rule and show what it caught
 
-pytest -q             # 72 tests: parsers, recall floors, triage, reconciliation
+pytest -q             # 125 checks: parsers, recall floors, triage, reconciliation,
+                      #             documentation, and the engine/ground-truth boundary
 ```
 
 Everything is deterministic from one seed, so every number here is reproducible.
@@ -172,7 +173,11 @@ Failing here is the engine working.
 ## What it measures about itself
 
 Because the planted defects are known, recall is measurable per rule, and the
-test suite holds each rule to a floor.
+test suite holds each rule to a floor. The separation that makes this mean
+anything — the engine never reads the file the forge wrote — is not left as a
+promise: `tests/test_boundary.py` walks the AST of every module the descent can
+reach and fails if one of them names the ground-truth file, imports the scorer,
+or calls the generator that knows what the clean data looked like.
 
 **5 993**<!--@detection_found--> of **6 310**<!--@detection_planted--> planted
 defects found: **95.0**<!--@recall_overall-->% overall.
