@@ -9,6 +9,8 @@ from pathlib import Path
 import pytest
 
 from dante.forge import forge
+from dante.measure import planted_addresses, recall
+from dante.report import attach_measurement, render
 from dante.run import descend
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -18,28 +20,34 @@ ROOT = Path(__file__).resolve().parents[1]
 def run(tmp_path_factory) -> dict:
     raw = tmp_path_factory.mktemp("raw")
     out = tmp_path_factory.mktemp("out")
+    site = tmp_path_factory.mktemp("site")
     truth = forge(seed=1987, out=raw)
     summary = descend(raw_dir=raw, out_dir=out, rules_path=ROOT / "rules/rules.yaml",
                       quiet=True)
-    findings = json.loads((out / "report" / "run-summary.json").read_text())
+    # The report step runs here too, so the audit report and the scoring are
+    # exercised by the suite rather than only by whoever looks at the HTML, and
+    # so the published figure exists to be held against the floors.
+    render(attach_measurement(summary, out, raw.parent / "truth"
+                              / "planted-defects.json"), out, site)
+    summary = json.loads((out / "report" / "run-summary.json").read_text())
+    findings = summary
     import pandas as pd
     detail = pd.read_csv(out / "report" / "findings.csv")
     detected: dict[str, set[str]] = collections.defaultdict(set)
     for _, r in detail.iterrows():
         detected[r["rule"]].add(str(r["key"]))
     return {"truth": truth, "summary": summary, "findings": findings,
-            "detected": dict(detected), "out": out, "raw": raw}
+            "detected": dict(detected), "out": out, "raw": raw, "site": site,
+            "recall": recall(planted_addresses(truth), dict(detected))}
 
 
 @pytest.fixture(scope="session")
 def planted(run) -> dict[str, list[set[str]]]:
     """Planted defects, each with the addresses the engine could report it under.
 
-    A row in a keyless source file can only be addressed as feed#row, and a
-    merge is reported against the record that survives it. Both count as the
-    same defect being found.
+    Deliberately `measure.planted_addresses` rather than a copy of it. The test
+    suite used to reimplement the scoring it guards, so the floors were
+    enforced against one implementation while the README and the site published
+    the other. They agreed, but only by coincidence.
     """
-    out: dict[str, list[set[str]]] = collections.defaultdict(list)
-    for d in run["truth"]["defects"]:
-        out[d["rule"]].append({d["key"], d.get("engine_key", d["key"])})
-    return dict(out)
+    return planted_addresses(run["truth"])

@@ -23,7 +23,7 @@ Repository = "https://github.com/phlppgdfry/excel-hell"
 dante = "dante.cli:app"
 
 [project.optional-dependencies]
-dev = ["pytest>=8.3", "ruff>=0.8"]
+dev = ["pytest>=8.3", "ruff>=0.8", "coverage>=7.6"]
 
 [build-system]
 requires = ["hatchling"]
@@ -44,4 +44,17 @@ select = ["E", "F", "I", "UP", "B", "SIM", "ARG", "RET", "C4", "PIE", "PERF"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
-pythonpath = ["src"]
+pythonpath = ["src", "."]
+
+[tool.coverage.run]
+# The package, not the suite: measuring the tests inflates the number with
+# code that is executed by definition.
+source = ["src/dante"]
+omit = ["*/__init__.py"]
+
+[tool.coverage.report]
+# The floor sits a little under where the suite actually is, so it catches a
+# module going untested without failing on a line of error handling.
+fail_under = 90
+show_missing = true
+skip_empty = true

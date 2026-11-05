@@ -25,7 +25,12 @@ jobs:
         run: uv run ruff check .
 
       - name: Tests
-        run: uv run pytest -q
+        # Through coverage so a module can not quietly stop being tested. The
+        # scorer and the report renderer were both at zero percent once, while
+        # the suite looked green.
+        run: |
+          uv run coverage run -m pytest -q
+          uv run coverage report
 
       - name: Dry run
         # A failing gate is the expected outcome on this dataset: the planted

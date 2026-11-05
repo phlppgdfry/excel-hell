@@ -30,37 +30,44 @@ GENERAL_FLOOR = 0.90
 OVERALL_FLOOR = 0.92
 
 
-def _recall(planted: dict, detected: dict, rule: str) -> tuple[int, int]:
-    keys = detected.get(rule, set())
-    hits = sum(1 for addresses in planted[rule] if addresses & keys)
-    return hits, len(planted[rule])
+def _recall(run: dict, rule: str) -> tuple[int, int]:
+    m = run["recall"]["per_rule"][rule]
+    return m["found"], m["planted"]
 
 
-def test_overall_recall(planted, run):
-    hits = total = 0
-    for rule in planted:
-        if rule.startswith("R-IX-"):
-            continue
-        h, n = _recall(planted, run["detected"], rule)
-        hits += h
-        total += n
-    assert total > 4000, "the forge planted suspiciously little"
-    assert hits / total >= OVERALL_FLOOR, f"overall recall {hits / total:.1%}"
+def test_overall_recall(run):
+    scored = run["recall"]
+    assert scored["planted"] > 4000, "the forge planted suspiciously little"
+    assert scored["overall"] >= OVERALL_FLOOR, f"overall recall {scored['overall']:.1%}"
+
+
+def test_the_published_figure_is_the_one_under_test(run):
+    """The README number and the floors have to come from the same scorer.
+
+    They used to be computed twice: once by measure.py for the report, and once
+    by a copy of it in this file for the tests. Agreement was a coincidence
+    waiting to end.
+    """
+    published = run["summary"].get("detection")
+    assert published, "the run summary carries no measurement"
+    assert published["found"] == run["recall"]["found"]
+    assert published["planted"] == run["recall"]["planted"]
+    assert published["overall"] == run["recall"]["overall"]
 
 
 @pytest.mark.parametrize("rule", sorted(KNOWN_LIMITS))
-def test_rules_with_a_documented_limit(rule, planted, run):
+def test_rules_with_a_documented_limit(rule, run):
     floor, _reason = KNOWN_LIMITS[rule]
-    hits, n = _recall(planted, run["detected"], rule)
+    hits, n = _recall(run, rule)
     assert hits / n >= floor, f"{rule} recall {hits / n:.1%} below its documented {floor:.0%}"
 
 
-def test_every_other_rule_clears_the_general_floor(planted, run):
+def test_every_other_rule_clears_the_general_floor(run):
     weak = {}
-    for rule in sorted(planted):
-        if rule.startswith("R-IX-") or rule in KNOWN_LIMITS:
+    for rule in sorted(run["recall"]["per_rule"]):
+        if rule in KNOWN_LIMITS:
             continue
-        hits, n = _recall(planted, run["detected"], rule)
+        hits, n = _recall(run, rule)
         if hits / n < GENERAL_FLOOR:
             weak[rule] = f"{hits}/{n} = {hits / n:.0%}"
     assert not weak, f"undocumented recall gaps: {weak}"
