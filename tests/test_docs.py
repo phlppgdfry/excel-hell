@@ -93,7 +93,7 @@ def test_readme_verdict_matches(run):
 
 def test_readme_test_count_is_honest():
     """A promise of N tests is itself a claim worth checking."""
-    m = re.search(r"pytest -q\s+# (\d+) tests", readme())
+    m = re.search(r"pytest -q\s+# (\d+) (?:tests|checks)", readme())
     assert m, "README should state how many tests there are"
     out = subprocess.run([sys.executable, "-m", "pytest", "--collect-only", "-q",
                           str(ROOT / "tests")], capture_output=True, text=True, cwd=ROOT)
