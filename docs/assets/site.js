@@ -97,6 +97,17 @@ function render(d) {
   renderDesk(d);
   renderSheetTabs();
   watchSections();
+  settleHash();
+}
+
+function settleHash() {
+  // Every section on this page is filled in after a fetch, so the browser's own
+  // jump to #ninth happened while #ninth was two lines tall and everything above
+  // it has grown since. Landing it again once the page is its real height is the
+  // difference between a shared link working and a shared link being wrong.
+  // Only just after load: a visitor who has started scrolling is not moved.
+  const node = location.hash && document.getElementById(location.hash.slice(1));
+  if (node && performance.now() < 3000) node.scrollIntoView();
 }
 
 /* ── start ─────────────────────────────────────────────────────────── */
@@ -551,6 +562,8 @@ function renderSecondPass(two) {
     "</b> open questions \u2014 " + verbs + " \u2014 releasing " +
     fmt(two.decisions.released_rows) + " records into the load and withdrawing " +
     fmt(two.decisions.rejected_rows) + " from it.";
+
+  settleHash();
 
   document.getElementById("loop-betrayal").innerHTML =
     "And the verdict is still <b>" + two.verdict + "</b>. R-IX-04 moved because it is " +

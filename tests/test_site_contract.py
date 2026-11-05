@@ -149,3 +149,19 @@ def test_the_hand_listed_ids_are_still_built_the_way_they_look():
             f"COMPUTED_IDS assumes the script builds {prefix}* by concatenation; "
             "it no longer does, so that list is out of date"
         )
+
+
+def test_a_deep_link_is_landed_again_after_the_page_fills():
+    """Both render paths have to settle the hash, or shared links point wrong.
+
+    The page is filled in after a fetch, so the browser's own jump to #ninth
+    happens while #ninth is two lines tall. Without a second landing, every
+    link anybody shares into a section arrives a screen and a half too high.
+    Structural, because there is no browser in CI to observe the scroll.
+    """
+    js = SITE_JS.read_text()
+    assert "function settleHash()" in js
+    assert js.count("settleHash();") >= 2, \
+        "the main render and the second-pass render both change the page height"
+    assert "performance.now() < 3000" in js, \
+        "settling has to stop once the visitor is scrolling for themselves"

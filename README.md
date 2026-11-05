@@ -61,7 +61,7 @@ dante load            # shape the load-ready data into the target system's table
 
 dante run --decisions decisions --out out2   # the second pass, with the answers in
 
-pytest -q             # 259 checks: parsers, recall floors, triage, reconciliation,
+pytest -q             # 260 checks: parsers, recall floors, triage, reconciliation,
                       #             the decision loop, the target mapping, the docs,
                       #             and the engine/ground-truth boundary
 ```

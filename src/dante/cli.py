@@ -231,7 +231,7 @@ def why(key: str, out: Path = Path("out"),
         for d in mine:
             rule = registry.get(d["rule"], {})
             verdict = d["decision"] or d["action"]
-            typer.echo(f"    {d['rule']:<10} {d['field']:<14} {verdict:<9} "
+            typer.echo(f"    {d['rule']:<10} {d['field']:<14} {verdict:<11} "
                        f"{rule.get('owner', '?')}")
             if d["raw"]:
                 arrow = f"  ->  {d['repaired']}" if d["repaired"] else ""
