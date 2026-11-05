@@ -55,7 +55,7 @@ dante run             # descend, triage every row, evaluate the gates (exits 1 o
 dante report          # render the audit report and refresh the site data
 dante rule R-IX-03    # explain one rule and show what it caught
 
-pytest -q             # 58 tests: parsers, recall floors, triage, reconciliation
+pytest -q             # 59 tests: parsers, recall floors, triage, reconciliation
 ```
 
 Everything is deterministic from one seed, so every number here is reproducible.

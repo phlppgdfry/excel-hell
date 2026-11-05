@@ -10,7 +10,21 @@ import typer
 from .forge import forge as run_forge
 from .run import descend
 
-app = typer.Typer(add_completion=False, help=__doc__)
+app = typer.Typer(add_completion=False, help=__doc__, no_args_is_help=True)
+
+
+def _version(show: bool) -> None:
+    if show:
+        from . import __version__
+        typer.echo(f"dante {__version__}")
+        raise typer.Exit()
+
+
+@app.callback()
+def main(version: bool = typer.Option(False, "--version", callback=_version,
+                                      is_eager=True, help="Show the version and exit.")
+         ) -> None:
+    """DANTE — nine circles of dirty master data."""
 
 
 @app.command()

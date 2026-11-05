@@ -410,6 +410,7 @@ function renderDesk(d) {
     const b = el("button");
     b.type = "button";
     b.setAttribute("role", "tab");
+    b.setAttribute("aria-controls", "case");
     b.dataset.owner = owner;
     b.append(document.createTextNode(owner + " "));
     b.append(el("span", "n", fmt(d.backlog_by_owner[owner])));

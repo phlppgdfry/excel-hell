@@ -15,6 +15,10 @@ dependencies = [
     "typer>=0.15",
 ]
 
+[project.urls]
+Homepage = "https://phlppgdfry.github.io/excel-hell/"
+Repository = "https://github.com/phlppgdfry/excel-hell"
+
 [project.scripts]
 dante = "dante.cli:app"
 

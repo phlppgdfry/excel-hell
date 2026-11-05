@@ -57,6 +57,9 @@
       <div class="body">
         <div class="cellref">gates!B2:B5</div>
         <p id="verdict-text">Loading the run…</p>
+        <noscript><p>This page is rendered from <code>data/run-summary.json</code>,
+          which the pipeline writes, so it needs JavaScript. The same numbers are in
+          the <a href="audit-report.html">audit report</a>, which does not.</p></noscript>
       </div>
     </div>
 
@@ -218,7 +221,8 @@
 
     <div class="desk">
       <div class="owners" id="owners" role="tablist" aria-label="Decision owner"></div>
-      <div class="case" id="case"></div>
+      <div class="case" id="case" role="tabpanel" tabindex="0"
+           aria-live="polite" aria-label="Open question"></div>
       <div class="statusbar">
         <span id="progress-text">—</span>
         <button id="reset" type="button">clear my decisions</button>

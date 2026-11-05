@@ -101,3 +101,25 @@ def test_load_ready_output_is_actually_clean(run):
     for col in ("cost_price", "sales_price"):
         bad = [v for v in articles[col].dropna() if not NUMERIC.fullmatch(str(v))]
         assert not bad, f"article.{col} is not numeric in Paradiso: {bad[:4]}"
+
+    # suppliers go through the same circles and were never checked
+    suppliers = pd.read_csv(run["out"] / "paradiso" / "supplier.csv", dtype=str)
+    assert len(suppliers) > 20
+    present = [v for v in suppliers["email"].dropna()
+               if str(v).strip().lower() in PLACEHOLDER_EMAILS]
+    assert not present, f"placeholder email survived into supplier.csv: {present[:4]}"
+    joined = " ".join(suppliers["name"].dropna().astype(str))
+    assert "\u00a0" not in joined and "\u00c3" not in joined
+    assert not [c for c in suppliers.columns if c.startswith("_") or c.endswith("_parsed")]
+
+
+def test_rejected_rows_say_which_rule_rejected_them(run):
+    """An Inferno row that does not name its rule is an unexplained deletion."""
+    for entity in run["summary"]["counts"]:
+        path = run["out"] / "inferno" / f"{entity}.csv"
+        if not path.exists():
+            continue
+        rows = pd.read_csv(path, dtype=str)
+        assert "deciding_rule" in rows.columns, entity
+        assert rows["deciding_rule"].notna().all(), f"{entity}.csv has a row with no rule"
+        assert rows["key"].notna().all(), f"{entity}.csv has a row with no key"
